@@ -1,0 +1,265 @@
+{
+  "nav": {
+    "experience": "Experiență",
+    "community": "Comunitate",
+    "events": "Evenimente",
+    "corporate": "Corporate",
+    "gallery": "Galerie",
+    "contact": "Contact",
+    "shop": "Magazin",
+    "bookNow": "Rezervă"
+  },
+  "home": {
+    "hero": {
+      "badge": "Padel Indoor Premium",
+      "title": "Unde Campionii Joacă",
+      "subtitle": "4 terenuri indoor de ultimă generație în inima orașului. Alătură-te comunității noastre vibrante și ridică-ți jocul la un alt nivel.",
+      "ctaBook": "Rezervă un Teren",
+      "ctaLearn": "Explorează Clubul"
+    },
+    "experience": {
+      "title": "Experiența",
+      "subtitle": "Tot ce ai nevoie pentru sesiunea perfectă de padel",
+      "card1Title": "4 Terenuri Premium",
+      "card1Desc": "Terenuri cu pereți de sticlă panoramici, iluminat profesional și gazon artificial de cea mai înaltă calitate.",
+      "card2Title": "Concept Indoor",
+      "card2Desc": "Joacă tot anul, indiferent de vreme. Mediu cu climă controlată pentru performanță maximă.",
+      "card3Title": "Design Remarcabil",
+      "card3Desc": "Spațiu proiectat arhitectural cu vestiare premium, lounge și pro shop."
+    },
+    "courts": {
+      "title": "Terenurile Noastre",
+      "subtitle": "Descoperă facilitățile de clasă mondială"
+    },
+    "community": {
+      "title": "Alătură-te Comunității",
+      "subtitle": "Conectează-te cu pasionații de padel",
+      "whatsappTitle": "Alătură-te Grupului WhatsApp",
+      "whatsappDesc": "Primești notificări de meci, găsești parteneri și rămâi la curent cu evenimentele.",
+      "joinButton": "Alătură-te Grupului WhatsApp",
+      "stat1": "500+ Membri",
+      "stat2": "Turnee Săptămânale",
+      "stat3": "Toate Nivelurile"
+    },
+    "events": {
+      "title": "Evenimente Viitoare",
+      "subtitle": "Turnee, seri sociale și multe altele",
+      "viewAll": "Vezi Toate Evenimentele"
+    },
+    "cta": {
+      "title": "Gata să Joci?",
+      "subtitle": "Rezervă terenul astăzi și trăiește experiența premium de padel.",
+      "ctaBook": "Rezervă un Teren",
+      "ctaVisit": "Vizitează-ne"
+    }
+  },
+  "experience": {
+    "hero": {
+      "badge": "Clubul",
+      "title": "Ce este Padel Haus?",
+      "desc": "Padel Haus este destinația premier de padel indoor din Cluj-Napoca — unde sportul premium întâlnește o comunitate vibrantă. Cele 4 terenuri de clasă mondială sunt construite pentru jucători de toate nivelurile."
+    },
+    "courts": {
+      "title": "Cele 4 Terenuri",
+      "subtitle": "Fiecare teren conceput pentru performanță maximă",
+      "court1": "Terenul Alpha",
+      "court2": "Terenul Beta",
+      "court3": "Terenul Gamma",
+      "court4": "Terenul Delta",
+      "courtDesc": "Pereți panoramici din sticlă · Iluminat LED profesional · AstroTurf premium"
+    },
+    "concept": {
+      "title": "Concept Indoor",
+      "desc": "Facilitatea noastră complet închisă și cu climă controlată îți permite să joci la cel mai bun nivel 365 de zile pe an. Fără pauze din cauza ploii, fără vânt — doar padel pur."
+    },
+    "design": {
+      "title": "Design și Atmosferă",
+      "desc": "Fiecare detaliu a fost gândit — de la vestiarele proiectate de arhitecți până la lounge-ul nostru vibrant. Padel Haus este un loc în care vei dori să petreci timp."
+    },
+    "location": {
+      "title": "Găsește-ne",
+      "address": "Str. Exemplu 42, Cluj-Napoca, România",
+      "hours": "Lun–Vin: 07:00–23:00 · Sâm–Dum: 08:00–22:00"
+    }
+  },
+  "community": {
+    "hero": {
+      "badge": "Comunitate",
+      "title": "Mai Mult Decât un Sport",
+      "desc": "Padel Haus este construit în jurul oamenilor. Fie că ești începător sau jucător experimentat, comunitatea noastră te va primi cu brațele deschise."
+    },
+    "howItWorks": {
+      "title": "Cum Funcționează",
+      "step1Title": "Alătură-te Grupului",
+      "step1Desc": "Înscrie-te și conectează-te cu peste 500 de jucători activi în comunitatea noastră WhatsApp.",
+      "step2Title": "Găsește un Partener",
+      "step2Desc": "Folosește panoul nostru de potrivire pentru a găsi partenerul perfect de dublu.",
+      "step3Title": "Joacă și Conectează-te",
+      "step3Desc": "Rezervă un teren, prezintă-te și fă prieteni care durează dincolo de teren."
+    },
+    "whatsapp": {
+      "title": "Alătură-te Comunității WhatsApp",
+      "desc": "Primești notificări instant de meci, actualizări despre evenimente și cereri de partener direct pe telefon.",
+      "button": "Alătură-te Acum — Gratuit"
+    },
+    "partner": {
+      "title": "Găsește un Partener de Joc",
+      "desc": "Nou în oraș? Vrei să te îmbunătățești? Sistemul nostru de potrivire conectează jucătorii de niveluri similare pentru meciuri mereu echilibrate."
+    },
+    "gallery": {
+      "title": "Vibes Sociale",
+      "subtitle": "Momentele care fac Padel Haus special"
+    }
+  },
+  "events": {
+    "hero": {
+      "badge": "Evenimente și Turnee",
+      "title": "Concurează. Celebrează. Conectează-te.",
+      "desc": "De la turnee sociale prietenoase pentru începători până la ligi competitive — mereu se întâmplă ceva la Padel Haus."
+    },
+    "upcoming": {
+      "title": "Evenimente Viitoare",
+      "register": "Înscrie-te",
+      "spotsLeft": "locuri disponibile"
+    },
+    "past": {
+      "title": "Rezultate Anterioare"
+    },
+    "registerForm": {
+      "title": "Înscrie-te la un Eveniment",
+      "name": "Nume Complet",
+      "email": "Email",
+      "event": "Selectează Evenimentul",
+      "partner": "Partener (opțional)",
+      "submit": "Înscrie-te"
+    }
+  },
+  "corporate": {
+    "hero": {
+      "badge": "Evenimente Corporate și Private",
+      "title": "Evenimentul Tău, Terenurile Noastre",
+      "desc": "Creează experiențe de team building de neuitat sau celebrări private la Padel Haus. Închiriere exclusivă, opțiuni de catering și personal dedicat."
+    },
+    "packages": {
+      "title": "Pachete Corporate",
+      "basic": {
+        "name": "Starter",
+        "desc": "Perfect pentru echipe mici",
+        "courts": "2 terenuri · 2 ore",
+        "includes": "Echipament inclus · Intro cu antrenor"
+      },
+      "premium": {
+        "name": "Premium",
+        "desc": "Experiență completă de team building",
+        "courts": "4 terenuri · 4 ore",
+        "includes": "Echipament · Antrenor · Catering · Trofeu"
+      },
+      "exclusive": {
+        "name": "Exclusiv",
+        "desc": "Întreaga facilitate, evenimentul tău",
+        "courts": "Toate 4 terenurile · Zi întreagă",
+        "includes": "Personalizare completă · Echipă dedicată"
+      },
+      "price": "De la",
+      "inquire": "Obține o Ofertă"
+    },
+    "nights": {
+      "title": "Nopți Corporate",
+      "desc": "Găzduiește seara socială a companiei tale la Padel Haus. Padel după program urmat de băuturi în lounge-ul nostru — o alternativă proaspătă la cina obișnuită de echipă."
+    },
+    "form": {
+      "title": "Solicită o Rezervare",
+      "company": "Numele Companiei",
+      "name": "Persoană de Contact",
+      "email": "Email",
+      "phone": "Telefon",
+      "date": "Data Preferată",
+      "people": "Număr de Persoane",
+      "message": "Cerințe Suplimentare",
+      "submit": "Trimite Cererea"
+    }
+  },
+  "gallery": {
+    "hero": {
+      "badge": "Galerie",
+      "title": "Descoperă Haus-ul",
+      "desc": "De la acțiunea pe teren la momentele comunității — o privire în viața de la Padel Haus."
+    },
+    "photos": {
+      "title": "Galerie Foto"
+    },
+    "video": {
+      "title": "În Acțiune",
+      "desc": "Urmărește ce face Padel Haus cea mai bună experiență de padel din Cluj."
+    }
+  },
+  "contact": {
+    "hero": {
+      "badge": "Contact",
+      "title": "Ia Legătura cu Noi",
+      "desc": "Ai întrebări? Ne-ar plăcea să auzim de la tine. Contactează-ne și echipa noastră îți va răspunde în 24 de ore."
+    },
+    "form": {
+      "title": "Trimite un Mesaj",
+      "name": "Nume Complet",
+      "email": "Email",
+      "subject": "Subiect",
+      "message": "Mesaj",
+      "submit": "Trimite Mesajul",
+      "success": "Mesaj trimis! Te contactăm în curând."
+    },
+    "info": {
+      "title": "Vizitează-ne",
+      "address": "Str. Exemplu 42, Cluj-Napoca",
+      "phone": "+40 700 000 000",
+      "email": "hello@padelhaus.ro",
+      "hours": "Lun–Vin: 07:00–23:00",
+      "weekendHours": "Sâm–Dum: 08:00–22:00"
+    },
+    "map": {
+      "title": "Găsește-ne pe Hartă"
+    }
+  },
+  "shop": {
+    "hero": {
+      "badge": "Pro Shop",
+      "title": "Echipează-te",
+      "desc": "Rachete și mingi de top de la cele mai bune branduri din lume."
+    },
+    "categories": {
+      "all": "Toate",
+      "rackets": "Rachete",
+      "balls": "Mingi"
+    },
+    "addToCart": "Adaugă în Coș",
+    "cart": {
+      "title": "Coșul Tău",
+      "empty": "Coșul tău este gol",
+      "total": "Total",
+      "checkout": "Finalizează Comanda",
+      "remove": "Șterge"
+    },
+    "checkout": {
+      "title": "Finalizare Comandă",
+      "name": "Nume Complet",
+      "email": "Email",
+      "address": "Adresă de Livrare",
+      "city": "Oraș",
+      "zip": "Cod Poștal",
+      "cardNumber": "Număr Card",
+      "expiry": "Valabilitate (LL/AA)",
+      "cvv": "CVV",
+      "orderSummary": "Sumar Comandă",
+      "placeOrder": "Plasează Comanda",
+      "success": "Comandă plasată! Mulțumim pentru achiziție."
+    }
+  },
+  "footer": {
+    "tagline": "Padel Indoor Premium · Cluj-Napoca",
+    "links": "Linkuri Rapide",
+    "social": "Urmărește-ne",
+    "rights": "Toate drepturile rezervate.",
+    "privacy": "Politică de Confidențialitate",
+    "terms": "Termeni și Condiții"
+  }
+}

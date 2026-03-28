@@ -1,0 +1,265 @@
+{
+  "nav": {
+    "experience": "Experience",
+    "community": "Community",
+    "events": "Events",
+    "corporate": "Corporate",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "shop": "Shop",
+    "bookNow": "Book Now"
+  },
+  "home": {
+    "hero": {
+      "badge": "Premium Indoor Padel",
+      "title": "Where Champions Play",
+      "subtitle": "4 state-of-the-art indoor padel courts in the heart of the city. Join our vibrant community and elevate your game.",
+      "ctaBook": "Book a Court",
+      "ctaLearn": "Explore the Club"
+    },
+    "experience": {
+      "title": "The Experience",
+      "subtitle": "Everything you need for the perfect padel session",
+      "card1Title": "4 Premium Courts",
+      "card1Desc": "Glass-walled, panoramic courts with professional lighting and top-quality artificial turf.",
+      "card2Title": "Indoor Concept",
+      "card2Desc": "Play year-round regardless of weather. Climate-controlled environment for peak performance.",
+      "card3Title": "Stunning Design",
+      "card3Desc": "Architecturally designed space with premium locker rooms, lounge area, and pro shop."
+    },
+    "courts": {
+      "title": "Our Courts",
+      "subtitle": "Experience world-class facilities"
+    },
+    "community": {
+      "title": "Join the Community",
+      "subtitle": "Connect with fellow padel enthusiasts",
+      "whatsappTitle": "Join Our WhatsApp Group",
+      "whatsappDesc": "Get match notifications, find partners, and stay updated on events.",
+      "joinButton": "Join WhatsApp Group",
+      "stat1": "500+ Members",
+      "stat2": "Weekly Tournaments",
+      "stat3": "All Skill Levels"
+    },
+    "events": {
+      "title": "Upcoming Events",
+      "subtitle": "Tournaments, social nights, and more",
+      "viewAll": "View All Events"
+    },
+    "cta": {
+      "title": "Ready to Play?",
+      "subtitle": "Book your court today and experience premium padel like never before.",
+      "ctaBook": "Book a Court",
+      "ctaVisit": "Visit Us"
+    }
+  },
+  "experience": {
+    "hero": {
+      "badge": "The Club",
+      "title": "What is Padel Haus?",
+      "desc": "Padel Haus is Cluj-Napoca's premier indoor padel destination — where premium sport meets vibrant community. Our 4 world-class courts are built for players at every level."
+    },
+    "courts": {
+      "title": "Our 4 Courts",
+      "subtitle": "Each court crafted for peak performance",
+      "court1": "Court Alpha",
+      "court2": "Court Beta",
+      "court3": "Court Gamma",
+      "court4": "Court Delta",
+      "courtDesc": "Full panoramic glass walls · Professional LED lighting · Premium AstroTurf"
+    },
+    "concept": {
+      "title": "Indoor Concept",
+      "desc": "Our fully enclosed, climate-controlled facility means you can play at your best 365 days a year. No rain delays, no wind interference — just pure padel."
+    },
+    "design": {
+      "title": "Design & Atmosphere",
+      "desc": "Every detail has been considered — from our architect-designed locker rooms to our vibrant social lounge. Padel Haus is a place you'll want to spend time in."
+    },
+    "location": {
+      "title": "Find Us",
+      "address": "Str. Exemplu 42, Cluj-Napoca, Romania",
+      "hours": "Mon–Fri: 07:00–23:00 · Sat–Sun: 08:00–22:00"
+    }
+  },
+  "community": {
+    "hero": {
+      "badge": "Community",
+      "title": "More Than a Sport",
+      "desc": "Padel Haus is built around people. Whether you're a beginner or a seasoned player, our community will welcome you with open arms."
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "step1Title": "Join the Group",
+      "step1Desc": "Sign up and connect with 500+ active players in our WhatsApp community.",
+      "step2Title": "Find a Partner",
+      "step2Desc": "Use our partner matching board to find the perfect doubles partner.",
+      "step3Title": "Play & Connect",
+      "step3Desc": "Book a court, show up, and make friends that last beyond the court."
+    },
+    "whatsapp": {
+      "title": "Join Our WhatsApp Community",
+      "desc": "Get instant match notifications, event updates, and partner requests directly on your phone.",
+      "button": "Join Now — It's Free"
+    },
+    "partner": {
+      "title": "Find a Playing Partner",
+      "desc": "New to the city? Looking to improve? Our partner finder connects players of similar skill levels so you're always matched for a great game."
+    },
+    "gallery": {
+      "title": "Social Vibes",
+      "subtitle": "The moments that make Padel Haus special"
+    }
+  },
+  "events": {
+    "hero": {
+      "badge": "Events & Tournaments",
+      "title": "Compete. Celebrate. Connect.",
+      "desc": "From beginner-friendly social tournaments to competitive leagues — there's always something happening at Padel Haus."
+    },
+    "upcoming": {
+      "title": "Upcoming Events",
+      "register": "Register Now",
+      "spotsLeft": "spots left"
+    },
+    "past": {
+      "title": "Past Results"
+    },
+    "registerForm": {
+      "title": "Register for an Event",
+      "name": "Full Name",
+      "email": "Email",
+      "event": "Select Event",
+      "partner": "Partner Name (optional)",
+      "submit": "Register"
+    }
+  },
+  "corporate": {
+    "hero": {
+      "badge": "Corporate & Private Events",
+      "title": "Your Event, Our Courts",
+      "desc": "Create unforgettable team building experiences or private celebrations at Padel Haus. Exclusive court hire, catering options, and dedicated staff."
+    },
+    "packages": {
+      "title": "Corporate Packages",
+      "basic": {
+        "name": "Starter",
+        "desc": "Perfect for small teams",
+        "courts": "2 courts · 2 hours",
+        "includes": "Equipment included · Coaching intro"
+      },
+      "premium": {
+        "name": "Premium",
+        "desc": "Full team building experience",
+        "courts": "4 courts · 4 hours",
+        "includes": "Equipment · Coaching · Catering · Trophy"
+      },
+      "exclusive": {
+        "name": "Exclusive",
+        "desc": "Entire facility, your event",
+        "courts": "All 4 courts · Full day",
+        "includes": "Full customisation · Dedicated team"
+      },
+      "price": "From",
+      "inquire": "Get a Quote"
+    },
+    "nights": {
+      "title": "Corporate Nights",
+      "desc": "Host your company's social night at Padel Haus. After-work padel followed by drinks in our lounge — a fresh alternative to the usual team dinner."
+    },
+    "form": {
+      "title": "Request a Booking",
+      "company": "Company Name",
+      "name": "Contact Name",
+      "email": "Email",
+      "phone": "Phone",
+      "date": "Preferred Date",
+      "people": "Number of People",
+      "message": "Additional Requirements",
+      "submit": "Send Request"
+    }
+  },
+  "gallery": {
+    "hero": {
+      "badge": "Gallery",
+      "title": "See the Haus",
+      "desc": "From court action to community moments — a glimpse into life at Padel Haus."
+    },
+    "photos": {
+      "title": "Photo Gallery"
+    },
+    "video": {
+      "title": "In Action",
+      "desc": "Watch what makes Padel Haus the best padel experience in Cluj."
+    }
+  },
+  "contact": {
+    "hero": {
+      "badge": "Contact",
+      "title": "Get in Touch",
+      "desc": "Have questions? We'd love to hear from you. Reach out and our team will get back to you within 24 hours."
+    },
+    "form": {
+      "title": "Send a Message",
+      "name": "Full Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Message sent! We'll be in touch soon."
+    },
+    "info": {
+      "title": "Visit Us",
+      "address": "Str. Exemplu 42, Cluj-Napoca",
+      "phone": "+40 700 000 000",
+      "email": "hello@padelhaus.ro",
+      "hours": "Mon–Fri: 07:00–23:00",
+      "weekendHours": "Sat–Sun: 08:00–22:00"
+    },
+    "map": {
+      "title": "Find Us on the Map"
+    }
+  },
+  "shop": {
+    "hero": {
+      "badge": "Pro Shop",
+      "title": "Gear Up",
+      "desc": "Top-of-the-range rackets and balls from the world's leading brands."
+    },
+    "categories": {
+      "all": "All",
+      "rackets": "Rackets",
+      "balls": "Balls"
+    },
+    "addToCart": "Add to Cart",
+    "cart": {
+      "title": "Your Cart",
+      "empty": "Your cart is empty",
+      "total": "Total",
+      "checkout": "Proceed to Checkout",
+      "remove": "Remove"
+    },
+    "checkout": {
+      "title": "Checkout",
+      "name": "Full Name",
+      "email": "Email",
+      "address": "Delivery Address",
+      "city": "City",
+      "zip": "ZIP Code",
+      "cardNumber": "Card Number",
+      "expiry": "Expiry (MM/YY)",
+      "cvv": "CVV",
+      "orderSummary": "Order Summary",
+      "placeOrder": "Place Order",
+      "success": "Order placed! Thank you for your purchase."
+    }
+  },
+  "footer": {
+    "tagline": "Premium Indoor Padel · Cluj-Napoca",
+    "links": "Quick Links",
+    "social": "Follow Us",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}
