@@ -3,17 +3,76 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
-import Image from "next/image";
 import { MapPin, Clock } from "lucide-react";
 
-const courtImages = [
-  "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=800&q=80",
-  "https://images.unsplash.com/photo-1545109621-7f3cdc6dab5c?w=800&q=80",
-  "https://images.unsplash.com/photo-1504675099198-7023dd85f5a3?w=800&q=80",
-  "https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=800&q=80",
-];
-
 const courtNameKeys = ["court1", "court2", "court3", "court4"] as const;
+
+const courtDetails = [
+  {
+    nameKey: "court1",
+    badge: { label: "Tournament", color: "bg-[#B5F03D] text-[#1A0530]" },
+    specs: [
+      { value: "10×20m", label: "Dimensions" },
+      { value: "LED Pro", label: "Lighting" },
+      { value: "AstroTurf", label: "Surface" },
+      { value: "4 players", label: "Capacity" },
+    ],
+    features: [
+      "Full panoramic glass walls",
+      "Certified tournament surface",
+      "Scoreboards & shot clock",
+      "Spectator viewing area",
+    ],
+  },
+  {
+    nameKey: "court2",
+    badge: { label: "Training", color: "bg-purple-400 text-white" },
+    specs: [
+      { value: "10×20m", label: "Dimensions" },
+      { value: "LED Pro", label: "Lighting" },
+      { value: "AstroTurf", label: "Surface" },
+      { value: "4 players", label: "Capacity" },
+    ],
+    features: [
+      "Full panoramic glass walls",
+      "Ball machine power outlets",
+      "Video analysis camera points",
+      "Coaching platform access",
+    ],
+  },
+  {
+    nameKey: "court3",
+    badge: { label: "Social", color: "bg-blue-400 text-white" },
+    specs: [
+      { value: "10×20m", label: "Dimensions" },
+      { value: "LED Pro", label: "Lighting" },
+      { value: "AstroTurf", label: "Surface" },
+      { value: "4 players", label: "Capacity" },
+    ],
+    features: [
+      "Full panoramic glass walls",
+      "Lounge-adjacent location",
+      "Premium sound system",
+      "Great for casual play & events",
+    ],
+  },
+  {
+    nameKey: "court4",
+    badge: { label: "VIP", color: "bg-orange-400 text-white" },
+    specs: [
+      { value: "10×20m", label: "Dimensions" },
+      { value: "LED Pro", label: "Lighting" },
+      { value: "AstroTurf", label: "Surface" },
+      { value: "4 players", label: "Capacity" },
+    ],
+    features: [
+      "Full panoramic glass walls",
+      "Private changing room access",
+      "Dedicated towel & water service",
+      "Available for exclusive hire",
+    ],
+  },
+];
 
 export default function ExperiencePage() {
   const t = useTranslations("experience");
@@ -40,7 +99,7 @@ export default function ExperiencePage() {
         </div>
       </section>
 
-      {/* Courts Grid */}
+      {/* Courts Showcase */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -52,28 +111,48 @@ export default function ExperiencePage() {
             <h2 className="text-4xl font-black text-white mb-3">{t("courts.title")}</h2>
             <p className="text-[#E2D9F3] text-lg">{t("courts.subtitle")}</p>
           </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {courtNameKeys.map((key, i) => (
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {courtDetails.map((court, i) => (
               <motion.div
-                key={key}
+                key={court.nameKey}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="relative aspect-[4/3] rounded-2xl overflow-hidden group"
+                className="bg-[#2D0A4E] rounded-2xl p-8 border border-white/10 hover:border-[#B5F03D]/40 transition-all"
               >
-                <Image
-                  src={courtImages[i]}
-                  alt={t(`courts.${key}`)}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A0530] via-[#1A0530]/20 to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <h3 className="text-white font-bold text-xl mb-1">{t(`courts.${key}`)}</h3>
-                  <p className="text-[#E2D9F3] text-sm">{t("courts.courtDesc")}</p>
+                <div className="flex items-start justify-between mb-6">
+                  <div>
+                    <span className="text-[#B5F03D] text-xs font-black uppercase tracking-widest">
+                      Court {i + 1}
+                    </span>
+                    <h3 className="text-2xl font-black text-white mt-1">
+                      {t(`courts.${court.nameKey}`)}
+                    </h3>
+                  </div>
+                  <span className={`text-xs font-bold px-3 py-1 rounded-full ${court.badge.color}`}>
+                    {court.badge.label}
+                  </span>
                 </div>
+
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  {court.specs.map((spec) => (
+                    <div key={spec.label} className="bg-[#1A0530] rounded-xl p-3">
+                      <div className="text-[#B5F03D] text-lg font-black">{spec.value}</div>
+                      <div className="text-[#E2D9F3] text-xs mt-0.5">{spec.label}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <ul className="space-y-2">
+                  {court.features.map((f) => (
+                    <li key={f} className="flex items-center gap-2 text-[#E2D9F3] text-sm">
+                      <span className="w-1.5 h-1.5 bg-[#B5F03D] rounded-full flex-shrink-0" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </div>
@@ -125,7 +204,7 @@ export default function ExperiencePage() {
 
           <div className="rounded-2xl overflow-hidden border border-white/10 h-80">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2732.1975897738!2d23.5874!3d46.7712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47490d70f1a4be3b%3A0x9a7a3a40d15e60d7!2sCluj-Napoca!5e0!3m2!1sen!2sro!4v1617000000000!5m2!1sen!2sro"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d91160.94698615566!2d25.9765186!3d44.4267674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff4770adb5b7%3A0x58147f39579fe6fa!2sBucharest%2C%20Romania!5e0!3m2!1sen!2sro!4v1617000000000!5m2!1sen!2sro"
               width="100%"
               height="100%"
               style={{ border: 0 }}

@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Padel Haus — Premium Indoor Padel Cluj-Napoca",
+  title: "Padel Haus — Premium Indoor Padel Bucharest",
   description:
-    "4 world-class indoor padel courts in Cluj-Napoca. Join our vibrant community, book your court, and experience premium padel.",
+    "4 world-class indoor padel courts in Bucharest. Join our vibrant community, book your court, and experience premium padel.",
 };
 
 export default function RootLayout({

@@ -10,7 +10,7 @@ import Image from "next/image";
 const socialImages = [
   "https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=600&q=80",
   "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=600&q=80",
-  "https://images.unsplash.com/photo-1545109621-7f3cdc6dab5c?w=600&q=80",
+  "https://images.unsplash.com/photo-1599474924187-334a4ae5bd3c?w=600&q=80",
   "https://images.unsplash.com/photo-1504675099198-7023dd85f5a3?w=600&q=80",
   "https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=600&q=80",
   "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80",

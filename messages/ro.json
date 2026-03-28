@@ -57,7 +57,7 @@
     "hero": {
       "badge": "Clubul",
       "title": "Ce este Padel Haus?",
-      "desc": "Padel Haus este destinația premier de padel indoor din Cluj-Napoca — unde sportul premium întâlnește o comunitate vibrantă. Cele 4 terenuri de clasă mondială sunt construite pentru jucători de toate nivelurile."
+      "desc": "Padel Haus este destinația premier de padel indoor din Bucharest — unde sportul premium întâlnește o comunitate vibrantă. Cele 4 terenuri de clasă mondială sunt construite pentru jucători de toate nivelurile."
     },
     "courts": {
       "title": "Cele 4 Terenuri",
@@ -78,7 +78,7 @@
     },
     "location": {
       "title": "Găsește-ne",
-      "address": "Str. Exemplu 42, Cluj-Napoca, România",
+      "address": "Str. Exemplu 42, Bucharest, România",
       "hours": "Lun–Vin: 07:00–23:00 · Sâm–Dum: 08:00–22:00"
     }
   },
@@ -190,7 +190,7 @@
     },
     "video": {
       "title": "În Acțiune",
-      "desc": "Urmărește ce face Padel Haus cea mai bună experiență de padel din Cluj."
+      "desc": "Urmărește ce face Padel Haus cea mai bună experiență de padel din Bucharest."
     }
   },
   "contact": {
@@ -210,7 +210,7 @@
     },
     "info": {
       "title": "Vizitează-ne",
-      "address": "Str. Exemplu 42, Cluj-Napoca",
+      "address": "Str. Exemplu 42, Bucharest",
       "phone": "+40 700 000 000",
       "email": "hello@padelhaus.ro",
       "hours": "Lun–Vin: 07:00–23:00",
@@ -255,7 +255,7 @@
     }
   },
   "footer": {
-    "tagline": "Padel Indoor Premium · Cluj-Napoca",
+    "tagline": "Padel Indoor Premium · Bucharest",
     "links": "Linkuri Rapide",
     "social": "Urmărește-ne",
     "rights": "Toate drepturile rezervate.",

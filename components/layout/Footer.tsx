@@ -63,7 +63,7 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Contact</h3>
             <ul className="space-y-2 text-sm text-[#E2D9F3]">
-              <li>Str. Exemplu 42, Cluj-Napoca</li>
+              <li>Str. Exemplu 42, Bucharest</li>
               <li>+40 700 000 000</li>
               <li>hello@padelhaus.ro</li>
               <li className="mt-3">Lun–Vin: 07:00–23:00</li>

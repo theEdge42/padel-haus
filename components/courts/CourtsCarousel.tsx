@@ -20,7 +20,7 @@ const courts = [
   {
     id: 2,
     name: "Court Beta",
-    image: "https://images.unsplash.com/photo-1545109621-7f3cdc6dab5c?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1545109621-7f3cdc6dab5c?w=800&q=80https://c8.alamy.com/comp/3CHGHTW/diverse-female-friends-resting-playing-on-purple-padel-court-in-sports-gear-with-rackets-balls-3CHGHTW.jpghttps://c8.alamy.com/comp/3CHGHTW/diverse-female-friends-resting-playing-on-purple-padel-court-in-sports-gear-with-rackets-balls-3CHGHTW.jpg",
   },
   {
     id: 3,
