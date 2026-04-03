@@ -6,17 +6,17 @@ import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
 const galleryImages = [
-  { src: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=800&q=80", span: "col-span-2 row-span-2" },
-  { src: "https://images.unsplash.com/photo-1545109621-7f3cdc6dab5c?w=800&q=80", span: "" },
-  { src: "https://images.unsplash.com/photo-1504675099198-7023dd85f5a3?w=800&q=80", span: "" },
-  { src: "https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=800&q=80", span: "" },
-  { src: "https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=800&q=80", span: "col-span-2" },
-  { src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80", span: "" },
-  { src: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80", span: "" },
-  { src: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80", span: "row-span-2" },
-  { src: "https://images.unsplash.com/photo-1581009137042-c552e485697a?w=800&q=80", span: "" },
-  { src: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80", span: "" },
-  { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", span: "col-span-2" },
+  { src: "/1.png", span: "col-span-2 row-span-2" },
+  { src: "/2.png", span: "" },
+  { src: "/3.png", span: "" },
+  { src: "/4.png", span: "" },
+  { src: "/6.png", span: "col-span-2" },
+  { src: "/2.png", span: "" },
+  { src: "/3.png", span: "" },
+  { src: "/4.png", span: "row-span-2" },
+  { src: "/1.png", span: "" },
+  { src: "/6.png", span: "" },
+  { src: "/2.png", span: "col-span-2" },
 ];
 
 export default function GalleryPage() {

@@ -170,8 +170,10 @@ export default function EventsPage() {
                     />
                   </div>
                 </div>
-                <Button className="bg-[#B5F03D] text-[#1A0530] hover:bg-[#a1d936] font-bold w-full">
-                  {t("upcoming.register")}
+                <Button asChild className="bg-[#B5F03D] text-[#341743] hover:bg-[#a1d936] font-bold w-full">
+                  <a href="https://playtomic.com/clubs/padel-haus-bucharest" target="_blank" rel="noopener noreferrer">
+                    {t("upcoming.register")}
+                  </a>
                 </Button>
               </motion.div>
             ))}

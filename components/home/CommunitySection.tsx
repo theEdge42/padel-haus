@@ -15,7 +15,7 @@ export default function CommunitySection() {
   ];
 
   return (
-    <section className="py-24 bg-[#1A0530]">
+    <section className="py-24 bg-[#341743]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,7 +37,7 @@ export default function CommunitySection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-[#2D0A4E] rounded-2xl p-8 border border-white/10"
+            className="bg-[#4A2060] rounded-2xl p-8 border border-white/10"
           >
             <div className="w-14 h-14 bg-green-500/15 rounded-2xl flex items-center justify-center mb-6">
               <MessageCircle size={28} className="text-green-400" />
@@ -48,9 +48,11 @@ export default function CommunitySection() {
             <p className="text-[#E2D9F3] mb-6 leading-relaxed">
               {t("whatsappDesc")}
             </p>
-            <Button className="bg-green-500 hover:bg-green-600 text-white font-bold w-full sm:w-auto">
-              <MessageCircle className="mr-2" size={18} />
-              {t("joinButton")}
+            <Button asChild className="bg-green-500 hover:bg-green-600 text-white font-bold w-full sm:w-auto">
+              <a href="https://chat.whatsapp.com/CqGix2BlvAtIyz7z3ic30I" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="mr-2" size={18} />
+                {t("joinButton")}
+              </a>
             </Button>
           </motion.div>
 
@@ -69,7 +71,7 @@ export default function CommunitySection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="flex items-center gap-4 bg-[#2D0A4E] rounded-xl p-5 border border-white/10"
+                className="flex items-center gap-4 bg-[#4A2060] rounded-xl p-5 border border-white/10"
               >
                 <div className="w-10 h-10 bg-[#B5F03D]/15 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Icon size={20} className="text-[#B5F03D]" />

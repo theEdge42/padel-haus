@@ -49,28 +49,28 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 
   /* Brand design tokens */
-  --color-brand-bg: #1A0530;
-  --color-brand-surface: #2D0A4E;
+  --color-brand-bg: #341743;
+  --color-brand-surface: #4A2060;
   --color-brand-accent: #B5F03D;
   --color-brand-text: #FFFFFF;
   --color-brand-muted: #E2D9F3;
 }
 
 :root {
-  --background: #1A0530;
+  --background: #341743;
   --foreground: #FFFFFF;
-  --card: #2D0A4E;
+  --card: #4A2060;
   --card-foreground: #FFFFFF;
-  --popover: #2D0A4E;
+  --popover: #4A2060;
   --popover-foreground: #FFFFFF;
   --primary: #B5F03D;
-  --primary-foreground: #1A0530;
+  --primary-foreground: #341743;
   --secondary: #3D1260;
   --secondary-foreground: #FFFFFF;
   --muted: #3D1260;
   --muted-foreground: #E2D9F3;
   --accent: #B5F03D;
-  --accent-foreground: #1A0530;
+  --accent-foreground: #341743;
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
@@ -79,12 +79,12 @@
   --chart-2: #8BC34A;
   --chart-3: #5E8F2B;
   --chart-4: #3D1260;
-  --chart-5: #2D0A4E;
+  --chart-5: #4A2060;
   --radius: 0.625rem;
-  --sidebar: #2D0A4E;
+  --sidebar: #4A2060;
   --sidebar-foreground: #FFFFFF;
   --sidebar-primary: #B5F03D;
-  --sidebar-primary-foreground: #1A0530;
+  --sidebar-primary-foreground: #341743;
   --sidebar-accent: #3D1260;
   --sidebar-accent-foreground: #FFFFFF;
   --sidebar-border: oklch(1 0 0 / 10%);

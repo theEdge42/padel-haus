@@ -27,12 +27,12 @@ export default function CartDrawer() {
       >
         <ShoppingCart size={22} />
         {count > 0 && (
-          <span className="absolute -top-1 -right-1 bg-[#B5F03D] text-[#1A0530] text-xs font-black w-5 h-5 rounded-full flex items-center justify-center">
+          <span className="absolute -top-1 -right-1 bg-[#B5F03D] text-[#341743] text-xs font-black w-5 h-5 rounded-full flex items-center justify-center">
             {count}
           </span>
         )}
       </SheetTrigger>
-      <SheetContent className="bg-[#2D0A4E] border-white/10 text-white w-full sm:max-w-md flex flex-col">
+      <SheetContent className="bg-[#4A2060] border-white/10 text-white w-full sm:max-w-md flex flex-col">
         <SheetHeader>
           <SheetTitle className="text-white text-xl font-black">{t("cart.title")}</SheetTitle>
         </SheetHeader>
@@ -44,7 +44,7 @@ export default function CartDrawer() {
             items.map((item) => (
               <div
                 key={item.id}
-                className="flex gap-3 bg-[#1A0530] rounded-xl p-3 border border-white/10"
+                className="flex gap-3 bg-[#341743] rounded-xl p-3 border border-white/10"
               >
                 <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
                   <Image
@@ -96,7 +96,7 @@ export default function CartDrawer() {
             </div>
             <Button
               asChild
-              className="bg-[#B5F03D] text-[#1A0530] hover:bg-[#a1d936] font-bold w-full h-12"
+              className="bg-[#B5F03D] text-[#341743] hover:bg-[#a1d936] font-bold w-full h-12"
             >
               <Link href={`/${locale}/shop/checkout`}>{t("cart.checkout")}</Link>
             </Button>

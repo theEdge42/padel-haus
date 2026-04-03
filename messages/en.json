@@ -14,8 +14,12 @@
       "badge": "Premium Indoor Padel",
       "title": "Where Champions Play",
       "subtitle": "4 state-of-the-art indoor padel courts in the heart of the city. Join our vibrant community and elevate your game.",
+      "catchphrase": "Your second home.",
       "ctaBook": "Book a Court",
-      "ctaLearn": "Explore the Club"
+      "ctaLearn": "Explore the Club",
+      "statCourts": "Indoor Courts",
+      "statMembers": "Members",
+      "statOpen": "Open"
     },
     "experience": {
       "title": "The Experience",
@@ -78,7 +82,7 @@
     },
     "location": {
       "title": "Find Us",
-      "address": "Str. Exemplu 42, Bucharest, Romania",
+      "address": "Strada Rampei 37, Faur, Bucuresti",
       "hours": "Mon–Fri: 07:00–23:00 · Sat–Sun: 08:00–22:00"
     }
   },
@@ -210,9 +214,10 @@
     },
     "info": {
       "title": "Visit Us",
-      "address": "Str. Exemplu 42, Bucharest",
+      "address": "Strada Rampei 37, Faur, Bucuresti",
       "phone": "+40 700 000 000",
-      "email": "hello@padelhaus.ro",
+      "email": "contact@padelhaus.ro",
+      "whatsapp": "https://chat.whatsapp.com/CqGix2BlvAtIyz7z3ic30I",
       "hours": "Mon–Fri: 07:00–23:00",
       "weekendHours": "Sat–Sun: 08:00–22:00"
     },

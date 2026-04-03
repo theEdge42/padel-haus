@@ -5,21 +5,21 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 const row1 = [
-  { src: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=600&q=80", alt: "Court action" },
-  { src: "https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=600&q=80", alt: "Players celebrating" },
-  { src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80", alt: "Team training" },
-  { src: "https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=600&q=80", alt: "Social night" },
-  { src: "https://images.unsplash.com/photo-1504675099198-7023dd85f5a3?w=600&q=80", alt: "Tournament" },
-  { src: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80", alt: "Workout" },
+  { src: "/1.png", alt: "Padel court" },
+  { src: "/2.png", alt: "Players on court" },
+  { src: "/3.png", alt: "Match in progress" },
+  { src: "/4.png", alt: "Community moment" },
+  { src: "/6.png", alt: "Tournament action" },
+  { src: "/1.png", alt: "Court atmosphere" },
 ];
 
 const row2 = [
-  { src: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80", alt: "Training" },
-  { src: "https://images.unsplash.com/photo-1581009137042-c552e485697a?w=600&q=80", alt: "High five" },
-  { src: "https://images.unsplash.com/photo-1599474924187-334a4ae5bd3c?w=600&q=80", alt: "Match play" },
-  { src: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80", alt: "After game" },
-  { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80", alt: "Court view" },
-  { src: "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=600&q=80", alt: "Community" },
+  { src: "/6.png", alt: "After the game" },
+  { src: "/3.png", alt: "Social night" },
+  { src: "/2.png", alt: "Court view" },
+  { src: "/4.png", alt: "Team play" },
+  { src: "/1.png", alt: "Padel Haus" },
+  { src: "/6.png", alt: "Community" },
 ];
 
 function ScrollRow({
@@ -54,7 +54,7 @@ function ScrollRow({
               className="object-cover"
               sizes="256px"
             />
-            <div className="absolute inset-0 bg-[#1A0530]/20 hover:bg-transparent transition-colors duration-300" />
+            <div className="absolute inset-0 bg-[#341743]/20 hover:bg-transparent transition-colors duration-300" />
           </div>
         ))}
       </motion.div>
@@ -66,7 +66,7 @@ export default function SocialGallery() {
   const t = useTranslations("home.courts");
 
   return (
-    <section className="py-24 bg-[#2D0A4E] overflow-hidden">
+    <section className="py-24 bg-[#4A2060] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

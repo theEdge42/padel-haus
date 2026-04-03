@@ -11,11 +11,15 @@
   },
   "home": {
     "hero": {
-      "badge": "Padel Indoor Premium",
-      "title": "Unde Campionii Joacă",
-      "subtitle": "4 terenuri indoor de ultimă generație în inima orașului. Alătură-te comunității noastre vibrante și ridică-ți jocul la un alt nivel.",
+      "badge": "Padel Haus",
+      "title": "Your second home",
+      "subtitle": "4 terenuri indoor de ultimă generație în inima orașului. Alătură-te comunității noastre și ridică-ți jocul la un alt nivel.",
+      "catchphrase": "A doua ta casă.",
       "ctaBook": "Rezervă un Teren",
-      "ctaLearn": "Explorează Clubul"
+      "ctaLearn": "Explorează Clubul",
+      "statCourts": "Terenuri Indoor",
+      "statMembers": "Membri",
+      "statOpen": "Deschis"
     },
     "experience": {
       "title": "Experiența",
@@ -78,7 +82,7 @@
     },
     "location": {
       "title": "Găsește-ne",
-      "address": "Str. Exemplu 42, Bucharest, România",
+      "address": "Strada Rampei 37, Faur, Bucuresti",
       "hours": "Lun–Vin: 07:00–23:00 · Sâm–Dum: 08:00–22:00"
     }
   },
@@ -210,9 +214,10 @@
     },
     "info": {
       "title": "Vizitează-ne",
-      "address": "Str. Exemplu 42, Bucharest",
+      "address": "Strada Rampei 37, Faur, Bucuresti",
       "phone": "+40 700 000 000",
-      "email": "hello@padelhaus.ro",
+      "email": "contact@padelhaus.ro",
+      "whatsapp": "https://chat.whatsapp.com/CqGix2BlvAtIyz7z3ic30I",
       "hours": "Lun–Vin: 07:00–23:00",
       "weekendHours": "Sâm–Dum: 08:00–22:00"
     },

@@ -95,13 +95,16 @@ export default function CorporatePage() {
                   <p className="text-[#E2D9F3] text-sm mb-2">{t(`packages.${key}.courts`)}</p>
                   <p className="text-[#E2D9F3] text-sm mb-6">{t(`packages.${key}.includes`)}</p>
                   <Button
+                    asChild
                     className={`w-full font-bold ${
                       isPremium
-                        ? "bg-[#B5F03D] text-[#1A0530] hover:bg-[#a1d936]"
+                        ? "bg-[#B5F03D] text-[#341743] hover:bg-[#a1d936]"
                         : "bg-white/10 text-white hover:bg-white/20 border border-white/20"
                     }`}
                   >
-                    {t("packages.inquire")}
+                    <a href="https://playtomic.com/clubs/padel-haus-bucharest" target="_blank" rel="noopener noreferrer">
+                      {t("packages.inquire")}
+                    </a>
                   </Button>
                 </motion.div>
               );

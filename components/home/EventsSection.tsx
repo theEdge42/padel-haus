@@ -43,7 +43,7 @@ export default function EventsSection() {
   const locale = useLocale();
 
   return (
-    <section className="py-24 bg-[#2D0A4E]">
+    <section className="py-24 bg-[#4A2060]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -77,11 +77,11 @@ export default function EventsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-[#1A0530] rounded-2xl p-6 border border-white/10 hover:border-[#B5F03D]/40 transition-all"
+              className="bg-[#341743] rounded-2xl p-6 border border-white/10 hover:border-[#B5F03D]/40 transition-all"
             >
               <div className="flex items-start justify-between mb-4">
                 <div
-                  className={`${event.color} text-[#1A0530] font-bold text-xs px-3 py-1 rounded-full`}
+                  className={`${event.color} text-[#341743] font-bold text-xs px-3 py-1 rounded-full`}
                 >
                   {event.category}
                 </div>
@@ -97,7 +97,7 @@ export default function EventsSection() {
               <Button
                 asChild
                 size="sm"
-                className="bg-[#B5F03D] text-[#1A0530] hover:bg-[#a1d936] font-bold w-full"
+                className="bg-[#B5F03D] text-[#341743] hover:bg-[#a1d936] font-bold w-full"
               >
                 <Link href={`/${locale}/events`}>{tEvents("register")}</Link>
               </Button>

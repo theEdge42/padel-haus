@@ -8,12 +8,12 @@ import { MessageCircle, Users, Search, Heart } from "lucide-react";
 import Image from "next/image";
 
 const socialImages = [
-  "https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=600&q=80",
-  "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=600&q=80",
-  "https://images.unsplash.com/photo-1599474924187-334a4ae5bd3c?w=600&q=80",
-  "https://images.unsplash.com/photo-1504675099198-7023dd85f5a3?w=600&q=80",
-  "https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=600&q=80",
-  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80",
+  "/1.png",
+  "/2.png",
+  "/3.png",
+  "/4.png",
+  "/6.png",
+  "/1.png",
 ];
 
 const stepIcons = [Users, Search, Heart];
@@ -98,9 +98,11 @@ export default function CommunityPage() {
             </div>
             <h2 className="text-3xl font-black text-white mb-4">{t("whatsapp.title")}</h2>
             <p className="text-[#E2D9F3] mb-8 leading-relaxed">{t("whatsapp.desc")}</p>
-            <Button className="bg-green-500 hover:bg-green-600 text-white font-bold px-8 h-12">
-              <MessageCircle className="mr-2" size={20} />
-              {t("whatsapp.button")}
+            <Button asChild className="bg-green-500 hover:bg-green-600 text-white font-bold px-8 h-12">
+              <a href="https://chat.whatsapp.com/CqGix2BlvAtIyz7z3ic30I" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="mr-2" size={20} />
+                {t("whatsapp.button")}
+              </a>
             </Button>
           </motion.div>
         </div>

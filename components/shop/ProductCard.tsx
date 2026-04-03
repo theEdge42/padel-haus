@@ -15,7 +15,7 @@ export default function ProductCard({ product }: Props) {
   const { addItem } = useCart();
 
   return (
-    <div className="bg-[#2D0A4E] rounded-2xl overflow-hidden border border-white/10 hover:border-[#B5F03D]/40 transition-all group flex flex-col">
+    <div className="bg-[#4A2060] rounded-2xl overflow-hidden border border-white/10 hover:border-[#B5F03D]/40 transition-all group flex flex-col">
       <div className="relative aspect-square overflow-hidden">
         <Image
           src={product.image}
@@ -35,7 +35,7 @@ export default function ProductCard({ product }: Props) {
         </div>
         <Button
           onClick={() => addItem(product)}
-          className="bg-[#B5F03D] text-[#1A0530] hover:bg-[#a1d936] font-bold w-full mt-4"
+          className="bg-[#B5F03D] text-[#341743] hover:bg-[#a1d936] font-bold w-full mt-4"
         >
           <ShoppingCart className="mr-2" size={16} />
           {t("addToCart")}

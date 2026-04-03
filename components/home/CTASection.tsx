@@ -11,7 +11,7 @@ export default function CTASection() {
   const locale = useLocale();
 
   return (
-    <section className="py-24 bg-[#1A0530] relative overflow-hidden">
+    <section className="py-24 bg-[#341743] relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-full bg-[#B5F03D]/5 blur-3xl rounded-full" />
       </div>
@@ -41,15 +41,26 @@ export default function CTASection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
+          {/* Mobile → Play Store; Desktop → Playtomic web */}
           <Button
             asChild
             size="lg"
-            className="bg-[#B5F03D] text-[#1A0530] hover:bg-[#a1d936] font-bold text-base px-10 h-14"
+            className="sm:hidden bg-[#B5F03D] text-[#341743] hover:bg-[#a1d936] font-bold text-base px-10 h-14"
           >
-            <Link href={`/${locale}/contact`}>
+            <a href="https://play.google.com/store/apps/details?id=com.playtomic&hl=en" target="_blank" rel="noopener noreferrer">
               {t("ctaBook")}
               <ArrowRight className="ml-2" size={18} />
-            </Link>
+            </a>
+          </Button>
+          <Button
+            asChild
+            size="lg"
+            className="hidden sm:flex bg-[#B5F03D] text-[#341743] hover:bg-[#a1d936] font-bold text-base px-10 h-14"
+          >
+            <a href="https://playtomic.com/clubs/padel-haus-bucharest" target="_blank" rel="noopener noreferrer">
+              {t("ctaBook")}
+              <ArrowRight className="ml-2" size={18} />
+            </a>
           </Button>
           <Button
             asChild

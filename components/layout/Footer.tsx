@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { Share2, Rss, Play } from "lucide-react";
 
@@ -18,15 +19,13 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#2D0A4E] border-t border-white/10 pt-12 pb-6">
+    <footer className="bg-[#4A2060] border-t border-white/10 pt-12 pb-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           {/* Brand */}
           <div>
-            <Link href={`/${locale}`} className="inline-block mb-3">
-              <span className="text-2xl font-black tracking-tight text-white">
-                PADEL<span className="text-[#B5F03D]">HAUS</span>
-              </span>
+            <Link href={`/${locale}`} className="inline-block mb-3 opacity-90 hover:opacity-100 transition-opacity">
+              <Image src="/logo.svg" alt="Padel Haus" width={130} height={52} className="h-10 w-auto" />
             </Link>
             <p className="text-[#E2D9F3] text-sm">{t("tagline")}</p>
             <div className="flex gap-4 mt-4">
@@ -63,11 +62,11 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Contact</h3>
             <ul className="space-y-2 text-sm text-[#E2D9F3]">
-              <li>Str. Exemplu 42, Bucharest</li>
+              <li>Strada Rampei 37, Faur, Bucuresti</li>
+              <a href="https://chat.whatsapp.com/CqGix2BlvAtIyz7z3ic30I" target="_blank" rel="noopener noreferrer">Whatsapp</a>
               <li>+40 700 000 000</li>
-              <li>hello@padelhaus.ro</li>
-              <li className="mt-3">Lun–Vin: 07:00–23:00</li>
-              <li>Sâm–Dum: 08:00–22:00</li>
+              <li className="mt-3">Luni–Vineri: 07:00–23:00</li>
+              <li>Sâmbătă–Duminică: 08:00–22:00</li>
             </ul>
           </div>
         </div>

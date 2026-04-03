@@ -15,22 +15,22 @@ const courts = [
   {
     id: 1,
     name: "Court Alpha",
-    image: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=800&q=80",
+    image: "/1.png",
   },
   {
     id: 2,
     name: "Court Beta",
-    image: "https://images.unsplash.com/photo-1545109621-7f3cdc6dab5c?w=800&q=80https://c8.alamy.com/comp/3CHGHTW/diverse-female-friends-resting-playing-on-purple-padel-court-in-sports-gear-with-rackets-balls-3CHGHTW.jpghttps://c8.alamy.com/comp/3CHGHTW/diverse-female-friends-resting-playing-on-purple-padel-court-in-sports-gear-with-rackets-balls-3CHGHTW.jpg",
+    image: "/2.png",
   },
   {
     id: 3,
     name: "Court Gamma",
-    image: "https://images.unsplash.com/photo-1504675099198-7023dd85f5a3?w=800&q=80",
+    image: "/3.png",
   },
   {
     id: 4,
     name: "Court Delta",
-    image: "https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=800&q=80",
+    image: "/4.png",
   },
 ];
 
@@ -38,7 +38,7 @@ export default function CourtsCarousel() {
   const t = useTranslations("home.courts");
 
   return (
-    <section className="py-24 bg-[#2D0A4E]">
+    <section className="py-24 bg-[#4A2060]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -71,7 +71,7 @@ export default function CourtsCarousel() {
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A0530] via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#341743] via-transparent to-transparent" />
                   <div className="absolute bottom-4 left-4">
                     <span className="text-white font-bold text-lg">{court.name}</span>
                   </div>
