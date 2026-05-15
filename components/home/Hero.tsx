@@ -48,7 +48,7 @@ function PadelBall({ size, style, delay = 0 }: { size: number; style: React.CSSP
           clipPath={`url(#${id}-clip)`}
         />
         {/* Seam — lower arc curving up */}
-        <path
+        {/* <path
           d={`M ${d * 0.08} ${d * 0.58} C ${d * 0.28} ${d * 0.25}, ${d * 0.72} ${d * 0.25}, ${d * 0.92} ${d * 0.58}`}
           fill="none"
           stroke="white"
@@ -56,7 +56,7 @@ function PadelBall({ size, style, delay = 0 }: { size: number; style: React.CSSP
           strokeLinecap="round"
           opacity="0.75"
           clipPath={`url(#${id}-clip)`}
-        />
+        /> */}
         {/* Specular highlight */}
         <ellipse cx={r * 0.72} cy={r * 0.58} rx={r * 0.28} ry={r * 0.17} fill="rgba(255,255,255,0.32)" />
       </svg>

@@ -58,7 +58,7 @@ export default function GalleryPage() {
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
             {galleryImages.map((img, i) => (
               <motion.div
-                key={img.src}
+                key={img.src + i}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -90,14 +90,12 @@ export default function GalleryPage() {
             <h2 className="text-4xl font-black text-white mb-4">{t("video.title")}</h2>
             <p className="text-[#E2D9F3] mb-8">{t("video.desc")}</p>
             <div className="rounded-2xl overflow-hidden aspect-video bg-[#1A0530] border border-white/10">
-              <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Padel Haus Video"
-                width="100%"
-                height="100%"
-                className="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+              <video
+                src="/PadelVideo.mp4"
+                autoPlay
+                muted
+                loop
+                className="w-full h-full object-cover"
               />
             </div>
           </motion.div>

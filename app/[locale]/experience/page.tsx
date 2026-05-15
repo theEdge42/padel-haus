@@ -204,7 +204,7 @@ export default function ExperiencePage() {
 
           <div className="rounded-2xl overflow-hidden border border-white/10 h-80">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d91160.94698615566!2d25.9765186!3d44.4267674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff4770adb5b7%3A0x58147f39579fe6fa!2sBucharest%2C%20Romania!5e0!3m2!1sen!2sro!4v1617000000000!5m2!1sen!2sro"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1424.6245643968098!2d26.179369830486497!3d44.428051670800954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff005138e94d%3A0x859648e1e9b81efa!2sPadel%20Haus%20Bucharest!5e0!3m2!1sen!2sro!4v1775249393523!5m2!1sen!2sro"
               width="100%"
               height="100%"
               style={{ border: 0 }}
