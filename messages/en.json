@@ -1,10 +1,10 @@
 {
   "nav": {
-    "experience": "Experience",
+    "experience": "About Us",
+    "coaching": "Coaching",
     "community": "Community",
     "events": "Events",
     "corporate": "Corporate",
-    "gallery": "Gallery",
     "contact": "Contact",
     "shop": "Shop",
     "bookNow": "Book Now"
@@ -84,6 +84,11 @@
       "title": "Find Us",
       "address": "Strada Rampei 37, Faur, Bucuresti",
       "hours": "Mon–Fri: 07:00–23:00 · Sat–Sun: 08:00–22:00"
+    },
+    "gallery": {
+      "title": "Photo Gallery",
+      "videoTitle": "Experience It",
+      "videoDesc": "One court. One community. A place you won't want to leave."
     }
   },
   "community": {
@@ -118,24 +123,85 @@
   "events": {
     "hero": {
       "badge": "Events & Tournaments",
-      "title": "Compete. Celebrate. Connect.",
-      "desc": "From beginner-friendly social tournaments to competitive leagues — there's always something happening at Padel Haus."
+      "title": "Mexicano Every Weekend.",
+      "desc": "A dynamic, social and balanced format — different partners each round, individual ranking, guaranteed fun."
     },
-    "upcoming": {
-      "title": "Upcoming Events",
-      "register": "Register Now",
-      "spotsLeft": "spots left"
+    "mexicano": {
+      "title": "Mexicano Tournaments",
+      "subtitle": "Every Saturday and Sunday",
+      "saturday": {
+        "badge": "Saturday · Intermediate",
+        "title": "Saturday Mexicano",
+        "time": "11:00 – 13:00",
+        "spots": "8 / 12 / 16 spots",
+        "spotsNote": "depending on registrations",
+        "duration": "~2 hours",
+        "matches": "6–8 short matches",
+        "matchesNote": "up to 16 points",
+        "prizeLabel": "1st place prize",
+        "prize": "A box of balls",
+        "level": "Intermediate"
+      },
+      "sunday": {
+        "badge": "Sunday · Beginner",
+        "title": "Sunday Mexicano",
+        "time": "10:00 – 12:00",
+        "spots": "16 spots",
+        "spotsNote": "depending on registrations",
+        "duration": "~2 hours",
+        "matches": "6–8 short matches",
+        "matchesNote": "up to 16 points",
+        "prizeLabel": "1st place prize",
+        "prize": "Wilson Premier Padel Speed balls",
+        "level": "Beginner"
+      },
+      "howTitle": "How Does Mexicano Work?",
+      "rules": [
+        "6–8 short matches up to 16 points",
+        "Different partner each round",
+        "Pairs are automatically reformed after each match",
+        "Individual ranking based on accumulated points",
+        "Dynamic, social and balanced format"
+      ],
+      "register": "Register on Playtomic",
+      "registerNote": "Registration is done exclusively via Playtomic"
+    }
+  },
+  "coaching": {
+    "hero": {
+      "badge": "Coaching",
+      "title": "Elevate Your Game",
+      "desc": "Individual and group sessions with certified coaches. Whatever your level, we help you progress quickly and effectively."
     },
-    "past": {
-      "title": "Past Results"
+    "coach": {
+      "title": "Coaching",
+      "name": "Alex C.",
+      "bio": "Certified coach with extensive padel experience. Sessions are tailored to each player's level — from first-timers to advanced competitive players.",
+      "session60": "60 min session",
+      "session90": "90 min session",
+      "bookVia": "Book via Playtomic"
     },
-    "registerForm": {
-      "title": "Register for an Event",
+    "howItWorks": {
+      "title": "How It Works",
+      "step1Title": "Choose a Session",
+      "step1Desc": "Browse availability on Playtomic and book the session that fits your level.",
+      "step2Title": "Show Up on Court",
+      "step2Desc": "Bring your gear. Your coach will be ready to work on what matters most for your game.",
+      "step3Title": "Improve",
+      "step3Desc": "Get personalised feedback and drills. Every session brings you closer to the game you want."
+    },
+    "form": {
+      "title": "Request a Session",
       "name": "Full Name",
       "email": "Email",
-      "event": "Select Event",
-      "partner": "Partner Name (optional)",
-      "submit": "Register"
+      "phone": "Phone",
+      "submit": "Send Request",
+      "success": "Request sent! We'll be in touch soon."
+    },
+    "cta": {
+      "title": "Ready to Start?",
+      "desc": "Book a coaching session directly on Playtomic.",
+      "button": "Book a Session"
     }
   },
   "corporate": {
@@ -146,23 +212,25 @@
     },
     "packages": {
       "title": "Corporate Packages",
+      "rateDay": "160 RON / court / hr · Before 17:00",
+      "rateEvening": "180 RON / court / hr · After 17:00",
       "basic": {
-        "name": "Starter",
-        "desc": "Perfect for small teams",
-        "courts": "2 courts · 2 hours",
+        "name": "Morning",
+        "desc": "Daytime corporate session, weekdays",
+        "courts": "All 4 courts · 8 hours · Before 17:00",
         "includes": "Equipment included · Coaching intro"
       },
       "premium": {
-        "name": "Premium",
-        "desc": "Full team building experience",
-        "courts": "4 courts · 4 hours",
+        "name": "Mixed Day",
+        "desc": "Flexible scheduling across day & evening",
+        "courts": "All 4 courts · 8 hours · 4h day + 4h evening",
         "includes": "Equipment · Coaching · Catering · Trophy"
       },
       "exclusive": {
-        "name": "Exclusive",
-        "desc": "Entire facility, your event",
-        "courts": "All 4 courts · Full day",
-        "includes": "Full customisation · Dedicated team"
+        "name": "Evening",
+        "desc": "Premium evening event — entire facility",
+        "courts": "All 4 courts · 8 hours · After 17:00",
+        "includes": "Equipment · Coaching · Catering · Open Bar · Trophy · Full customisation"
       },
       "price": "From",
       "inquire": "Get a Quote"
@@ -258,6 +326,14 @@
       "placeOrder": "Place Order",
       "success": "Order placed! Thank you for your purchase."
     }
+  },
+  "booking": {
+    "title": "Request a Reservation",
+    "name": "Full Name",
+    "email": "Email",
+    "phone": "Phone",
+    "submit": "Send Request",
+    "success": "Request sent! We'll be in touch soon."
   },
   "footer": {
     "tagline": "Premium Indoor Padel · Bucharest",

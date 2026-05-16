@@ -27,13 +27,13 @@ export default function Navbar() {
   }
 
   const navLinks = [
-    { href: `/${locale}/experience`, label: t("experience") },
+    { href: `/${locale}`, label: t("experience") },
+    { href: `/${locale}/coaching`, label: t("coaching") },
     { href: `/${locale}/community`, label: t("community") },
     { href: `/${locale}/events`, label: t("events") },
     { href: `/${locale}/corporate`, label: t("corporate") },
-    { href: `/${locale}/gallery`, label: t("gallery") },
     { href: `/${locale}/contact`, label: t("contact") },
-    { href: `/${locale}/shop`, label: t("shop") },
+    // { href: `/${locale}/shop`, label: t("shop") },
   ];
 
   return (

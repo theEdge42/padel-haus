@@ -14,14 +14,21 @@ No visual changes. Single tweak: the "Explore" / "Explorează Clubul" button cha
 ### 2. Community Section
 `CommunitySection` component dropped in unchanged. No modifications.
 
-### 3. Concept + Design (two cards)
+### 4. Concept + Design (two cards)
 The two cards currently on the experience page:
 - "Concept Indoor" / "Indoor Concept"
 - "Design și Atmosferă" / "Design & Atmosphere"
 
 These replace the current `ExperienceSection` (3-card block: 4 Premium Courts, Indoor Concept, Stunning Design). Translation keys used: `experience.concept` and `experience.design`.
 
-### 4. Mexicano Events Preview
+### 5. Photo Gallery + Video (`id="gallery"`)
+Masonry grid of 6 images (`/1.png`–`/7.png` excluding `/5.png`) followed by the video (`/PadelVideo.mp4`). Anchor `id="gallery"` on the section wrapper so the Hero Explore button scrolls here. Replaces `SocialGallery`.
+
+Translation keys: `experience.gallery.*` (already exist).
+
+No `CTASection` — the video is a natural page ending.
+
+### 5. Mexicano Events Preview
 Two compact tournament cards replacing the current `EventsSection` (which uses stale mock data).
 
 **Card 1 — Saturday Mexicano (Intermediate)**
@@ -39,13 +46,6 @@ Two compact tournament cards replacing the current `EventsSection` (which uses s
 Header row includes "See all events →" link to `/${locale}/events`.
 
 Translation keys: `events.mexicano.*` (already exist).
-
-### 5. Photo Gallery + Video (`id="gallery"`)
-Masonry grid of 6 images (`/1.png`–`/7.png` excluding `/5.png`) followed by the video (`/PadelVideo.mp4`). Anchor `id="gallery"` on the section wrapper so the Hero Explore button scrolls here. Replaces `SocialGallery`.
-
-Translation keys: `experience.gallery.*` (already exist).
-
-No `CTASection` — the video is a natural page ending.
 
 ## Files Changed
 

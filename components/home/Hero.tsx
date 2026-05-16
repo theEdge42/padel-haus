@@ -172,10 +172,10 @@ export default function Hero() {
             variant="outline"
             className="border-white/30 text-white hover:bg-white/10 hover:text-white font-semibold text-base px-8 h-14"
           >
-            <Link href={`/${locale}/experience`}>
+            <a href="#gallery">
               <Play className="mr-2" size={18} />
               {t("ctaLearn")}
-            </Link>
+            </a>
           </Button>
         </motion.div>
 

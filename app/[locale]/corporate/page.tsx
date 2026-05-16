@@ -1,27 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { CheckCircle2, Star, Zap, Crown } from "lucide-react";
+import { BookingRequestForm } from "@/components/shared/BookingRequestForm";
+import { Star, Zap, Crown, Sun, Clock } from "lucide-react";
 
 const packageKeys = ["basic", "premium", "exclusive"] as const;
-const packageIcons = [Star, Zap, Crown];
-const packagePrices = ["200 RON", "500 RON", "1200 RON"];
+const packageIcons = [Sun, Zap, Crown];
+// Courts base: morning 5,120 RON, mixed 5,440 RON — evening adds open bar, catering, trophy, full customisation
+const packagePrices = ["5,120 RON", "7,200 RON", "10,500 RON"];
 
 export default function CorporatePage() {
   const t = useTranslations("corporate");
-  const [submitted, setSubmitted] = useState(false);
+  const formRef = useRef<HTMLDivElement>(null);
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setSubmitted(true);
-  }
+  const scrollToForm = () => {
+    formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <div className="min-h-screen bg-[#1A0530]">
@@ -45,8 +43,24 @@ export default function CorporatePage() {
         </div>
       </section>
 
+      {/* Rates info */}
+      <section className="py-10 bg-[#1A0530]">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex items-center gap-3 bg-[#2D0A4E] rounded-xl px-5 py-3 border border-white/10">
+              <Sun size={18} className="text-[#B5F03D] flex-shrink-0" />
+              <span className="text-[#E2D9F3] text-sm">{t("packages.rateDay")}</span>
+            </div>
+            <div className="flex items-center gap-3 bg-[#2D0A4E] rounded-xl px-5 py-3 border border-white/10">
+              <Clock size={18} className="text-[#B5F03D] flex-shrink-0" />
+              <span className="text-[#E2D9F3] text-sm">{t("packages.rateEvening")}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Packages */}
-      <section className="py-24">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -67,7 +81,7 @@ export default function CorporatePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.15 }}
-                  className={`relative rounded-2xl p-8 border transition-all ${
+                  className={`relative rounded-2xl p-8 border transition-all flex flex-col ${
                     isPremium
                       ? "bg-[#B5F03D]/10 border-[#B5F03D]/50 ring-2 ring-[#B5F03D]/30"
                       : "bg-[#2D0A4E] border-white/10"
@@ -93,18 +107,16 @@ export default function CorporatePage() {
                     {t("packages.price")} {packagePrices[i]}
                   </div>
                   <p className="text-[#E2D9F3] text-sm mb-2">{t(`packages.${key}.courts`)}</p>
-                  <p className="text-[#E2D9F3] text-sm mb-6">{t(`packages.${key}.includes`)}</p>
+                  <p className="text-[#E2D9F3] text-sm mb-6 flex-1">{t(`packages.${key}.includes`)}</p>
                   <Button
-                    asChild
+                    onClick={scrollToForm}
                     className={`w-full font-bold ${
                       isPremium
                         ? "bg-[#B5F03D] text-[#341743] hover:bg-[#a1d936]"
                         : "bg-white/10 text-white hover:bg-white/20 border border-white/20"
                     }`}
                   >
-                    <a href="https://playtomic.com/clubs/padel-haus-bucharest" target="_blank" rel="noopener noreferrer">
-                      {t("packages.inquire")}
-                    </a>
+                    {t("packages.inquire")}
                   </Button>
                 </motion.div>
               );
@@ -130,7 +142,7 @@ export default function CorporatePage() {
 
       {/* Booking Form */}
       <section className="py-24">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div ref={formRef} className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -138,76 +150,7 @@ export default function CorporatePage() {
             className="bg-[#2D0A4E] rounded-2xl p-8 border border-white/10"
           >
             <h2 className="text-3xl font-black text-white mb-8">{t("form.title")}</h2>
-            {submitted ? (
-              <div className="text-center py-8">
-                <CheckCircle2 size={48} className="text-[#B5F03D] mx-auto mb-4" />
-                <p className="text-white font-bold text-lg">Request sent! We&apos;ll contact you soon.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div className="space-y-2">
-                    <Label className="text-[#E2D9F3]">{t("form.company")}</Label>
-                    <Input
-                      required
-                      className="bg-[#1A0530] border-white/20 text-white placeholder:text-white/40 focus:border-[#B5F03D]"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label className="text-[#E2D9F3]">{t("form.name")}</Label>
-                    <Input
-                      required
-                      className="bg-[#1A0530] border-white/20 text-white placeholder:text-white/40 focus:border-[#B5F03D]"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label className="text-[#E2D9F3]">{t("form.email")}</Label>
-                    <Input
-                      type="email"
-                      required
-                      className="bg-[#1A0530] border-white/20 text-white placeholder:text-white/40 focus:border-[#B5F03D]"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label className="text-[#E2D9F3]">{t("form.phone")}</Label>
-                    <Input
-                      type="tel"
-                      className="bg-[#1A0530] border-white/20 text-white placeholder:text-white/40 focus:border-[#B5F03D]"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label className="text-[#E2D9F3]">{t("form.date")}</Label>
-                    <Input
-                      type="date"
-                      required
-                      className="bg-[#1A0530] border-white/20 text-white focus:border-[#B5F03D] [color-scheme:dark]"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label className="text-[#E2D9F3]">{t("form.people")}</Label>
-                    <Input
-                      type="number"
-                      min="2"
-                      required
-                      className="bg-[#1A0530] border-white/20 text-white placeholder:text-white/40 focus:border-[#B5F03D]"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <Label className="text-[#E2D9F3]">{t("form.message")}</Label>
-                  <Textarea
-                    rows={4}
-                    className="bg-[#1A0530] border-white/20 text-white placeholder:text-white/40 focus:border-[#B5F03D] resize-none"
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="bg-[#B5F03D] text-[#1A0530] hover:bg-[#a1d936] font-bold w-full h-12"
-                >
-                  {t("form.submit")}
-                </Button>
-              </form>
-            )}
+            <BookingRequestForm apiEndpoint="/api/corporate-request" />
           </motion.div>
         </div>
       </section>

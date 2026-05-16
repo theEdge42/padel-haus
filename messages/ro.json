@@ -1,10 +1,10 @@
 {
   "nav": {
-    "experience": "Experiență",
+    "experience": "Despre Noi",
+    "coaching": "Antrenamente",
     "community": "Comunitate",
     "events": "Evenimente",
     "corporate": "Corporate",
-    "gallery": "Galerie",
     "contact": "Contact",
     "shop": "Magazin",
     "bookNow": "Rezervă"
@@ -14,7 +14,7 @@
       "badge": "Padel Haus",
       "title": "Your second home",
       "subtitle": "4 terenuri indoor de ultimă generație în inima orașului. Alătură-te comunității noastre și ridică-ți jocul la un alt nivel.",
-      "catchphrase": "A doua ta casă.",
+      "catchphrase": "Your second home.",
       "ctaBook": "Rezervă un Teren",
       "ctaLearn": "Explorează Clubul",
       "statCourts": "Terenuri Indoor",
@@ -84,6 +84,11 @@
       "title": "Găsește-ne",
       "address": "Strada Rampei 37, Faur, Bucuresti",
       "hours": "Lun–Vin: 07:00–23:00 · Sâm–Dum: 08:00–22:00"
+    },
+    "gallery": {
+      "title": "Galerie Foto",
+      "videoTitle": "Trăiește Experiența",
+      "videoDesc": "Un teren. O comunitate. O atmosferă de care nu vrei să pleci."
     }
   },
   "community": {
@@ -118,24 +123,85 @@
   "events": {
     "hero": {
       "badge": "Evenimente și Turnee",
-      "title": "Concurează. Celebrează. Conectează-te.",
-      "desc": "De la turnee sociale prietenoase pentru începători până la ligi competitive — mereu se întâmplă ceva la Padel Haus."
+      "title": "Mexicano în Fiecare Weekend.",
+      "desc": "Un format dinamic, social și echilibrat — parteneri diferiți la fiecare rundă, clasament individual, distracție garantată."
     },
-    "upcoming": {
-      "title": "Evenimente Viitoare",
-      "register": "Înscrie-te",
-      "spotsLeft": "locuri disponibile"
+    "mexicano": {
+      "title": "Turnee Mexicano",
+      "subtitle": "În fiecare sâmbătă și duminică",
+      "saturday": {
+        "badge": "Sâmbătă · Intermediar",
+        "title": "Mexicano Sâmbătă",
+        "time": "11:00 – 13:00",
+        "spots": "8 / 12 / 16 locuri",
+        "spotsNote": "în funcție de înscrieri",
+        "duration": "~2 ore",
+        "matches": "6–8 meciuri scurte",
+        "matchesNote": "până la 16 puncte",
+        "prizeLabel": "Premiu loc 1",
+        "prize": "O cutie de mingi",
+        "level": "Intermediar"
+      },
+      "sunday": {
+        "badge": "Duminică · Începători",
+        "title": "Mexicano Duminică",
+        "time": "10:00 – 12:00",
+        "spots": "16 locuri",
+        "spotsNote": "în funcție de înscrieri",
+        "duration": "~2 ore",
+        "matches": "6–8 meciuri scurte",
+        "matchesNote": "până la 16 puncte",
+        "prizeLabel": "Premiu loc 1",
+        "prize": "Tub Mingi Wilson Premier Padel Speed",
+        "level": "Începători"
+      },
+      "howTitle": "Cum se Joacă Mexicano?",
+      "rules": [
+        "6–8 meciuri scurte până la 16 puncte",
+        "Partener diferit la fiecare rundă",
+        "Perechile se refac automat după fiecare meci",
+        "Clasament individual pe baza punctelor acumulate",
+        "Format dinamic, social și echilibrat"
+      ],
+      "register": "Înscrie-te pe Playtomic",
+      "registerNote": "Înscrierea se face exclusiv prin Playtomic"
+    }
+  },
+  "coaching": {
+    "hero": {
+      "badge": "Antrenamente",
+      "title": "Îmbunătățește-ți Jocul",
+      "desc": "Sesiuni individuale și de grup cu antrenori certificați. Indiferent de nivel, te ajutăm să progresezi rapid și eficient."
     },
-    "past": {
-      "title": "Rezultate Anterioare"
+    "coach": {
+      "title": "Coaching",
+      "name": "Alex C.",
+      "bio": "Antrenor certificat cu experiență vastă în padel. Sesiunile sunt adaptate nivelului fiecărui jucător — de la primele loviri până la tehnici avansate de competiție.",
+      "session60": "Sesiune 60 min",
+      "session90": "Sesiune 90 min",
+      "bookVia": "Rezervă prin Playtomic"
     },
-    "registerForm": {
-      "title": "Înscrie-te la un Eveniment",
+    "howItWorks": {
+      "title": "Cum Funcționează",
+      "step1Title": "Alege o Sesiune",
+      "step1Desc": "Caută disponibilitatea pe Playtomic și rezervă sesiunea potrivită pentru nivelul tău.",
+      "step2Title": "Prezintă-te pe Teren",
+      "step2Desc": "Vino cu echipamentul tău. Antrenorul te așteaptă gata să lucreze pe aspectele care contează.",
+      "step3Title": "Progresează",
+      "step3Desc": "Primești feedback personalizat și exerciții adaptate. Fiecare sesiune te duce mai aproape de jocul tău ideal."
+    },
+    "form": {
+      "title": "Solicită o Rezervare",
       "name": "Nume Complet",
       "email": "Email",
-      "event": "Selectează Evenimentul",
-      "partner": "Partener (opțional)",
-      "submit": "Înscrie-te"
+      "phone": "Telefon",
+      "submit": "Trimite Cererea",
+      "success": "Cererea ta a fost trimisă! Te contactăm în curând."
+    },
+    "cta": {
+      "title": "Gata să Începi?",
+      "desc": "Rezervă o sesiune de antrenament direct pe Playtomic.",
+      "button": "Rezervă o Sesiune"
     }
   },
   "corporate": {
@@ -146,23 +212,25 @@
     },
     "packages": {
       "title": "Pachete Corporate",
+      "rateDay": "160 RON / teren / oră · Înainte de 17:00",
+      "rateEvening": "180 RON / teren / oră · După 17:00",
       "basic": {
-        "name": "Starter",
-        "desc": "Perfect pentru echipe mici",
-        "courts": "2 terenuri · 2 ore",
+        "name": "Dimineață",
+        "desc": "Sesiune corporativă în timpul zilei, în săptămână",
+        "courts": "4 terenuri · 8 ore · Înainte de 17:00",
         "includes": "Echipament inclus · Intro cu antrenor"
       },
       "premium": {
-        "name": "Premium",
-        "desc": "Experiență completă de team building",
-        "courts": "4 terenuri · 4 ore",
+        "name": "Zi Mixtă",
+        "desc": "Program flexibil între zi și seară",
+        "courts": "4 terenuri · 8 ore · 4h zi + 4h seară",
         "includes": "Echipament · Antrenor · Catering · Trofeu"
       },
       "exclusive": {
-        "name": "Exclusiv",
-        "desc": "Întreaga facilitate, evenimentul tău",
-        "courts": "Toate 4 terenurile · Zi întreagă",
-        "includes": "Personalizare completă · Echipă dedicată"
+        "name": "Seară",
+        "desc": "Eveniment premium de seară — întreaga facilitate",
+        "courts": "4 terenuri · 8 ore · După 17:00",
+        "includes": "Echipament · Antrenor · Catering · Open Bar · Trofeu · Personalizare completă"
       },
       "price": "De la",
       "inquire": "Obține o Ofertă"
@@ -258,6 +326,14 @@
       "placeOrder": "Plasează Comanda",
       "success": "Comandă plasată! Mulțumim pentru achiziție."
     }
+  },
+  "booking": {
+    "title": "Solicită o Rezervare",
+    "name": "Nume Complet",
+    "email": "Email",
+    "phone": "Telefon",
+    "submit": "Trimite Cererea",
+    "success": "Cererea ta a fost trimisă! Te contactăm în curând."
   },
   "footer": {
     "tagline": "Padel Indoor Premium · Bucharest",

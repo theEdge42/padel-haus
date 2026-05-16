@@ -4,74 +4,15 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Clock } from "lucide-react";
+import Image from "next/image";
 
-const courtNameKeys = ["court1", "court2", "court3", "court4"] as const;
-
-const courtDetails = [
-  {
-    nameKey: "court1",
-    badge: { label: "Tournament", color: "bg-[#B5F03D] text-[#1A0530]" },
-    specs: [
-      { value: "10×20m", label: "Dimensions" },
-      { value: "LED Pro", label: "Lighting" },
-      { value: "AstroTurf", label: "Surface" },
-      { value: "4 players", label: "Capacity" },
-    ],
-    features: [
-      "Full panoramic glass walls",
-      "Certified tournament surface",
-      "Scoreboards & shot clock",
-      "Spectator viewing area",
-    ],
-  },
-  {
-    nameKey: "court2",
-    badge: { label: "Training", color: "bg-purple-400 text-white" },
-    specs: [
-      { value: "10×20m", label: "Dimensions" },
-      { value: "LED Pro", label: "Lighting" },
-      { value: "AstroTurf", label: "Surface" },
-      { value: "4 players", label: "Capacity" },
-    ],
-    features: [
-      "Full panoramic glass walls",
-      "Ball machine power outlets",
-      "Video analysis camera points",
-      "Coaching platform access",
-    ],
-  },
-  {
-    nameKey: "court3",
-    badge: { label: "Social", color: "bg-blue-400 text-white" },
-    specs: [
-      { value: "10×20m", label: "Dimensions" },
-      { value: "LED Pro", label: "Lighting" },
-      { value: "AstroTurf", label: "Surface" },
-      { value: "4 players", label: "Capacity" },
-    ],
-    features: [
-      "Full panoramic glass walls",
-      "Lounge-adjacent location",
-      "Premium sound system",
-      "Great for casual play & events",
-    ],
-  },
-  {
-    nameKey: "court4",
-    badge: { label: "VIP", color: "bg-orange-400 text-white" },
-    specs: [
-      { value: "10×20m", label: "Dimensions" },
-      { value: "LED Pro", label: "Lighting" },
-      { value: "AstroTurf", label: "Surface" },
-      { value: "4 players", label: "Capacity" },
-    ],
-    features: [
-      "Full panoramic glass walls",
-      "Private changing room access",
-      "Dedicated towel & water service",
-      "Available for exclusive hire",
-    ],
-  },
+const galleryImages = [
+  "/1.png",
+  "/2.png",
+  "/3.png",
+  "/4.png",
+  "/6.png",
+  "/7.png",
 ];
 
 export default function ExperiencePage() {
@@ -96,66 +37,6 @@ export default function ExperiencePage() {
             </h1>
             <p className="text-[#E2D9F3] text-xl leading-relaxed">{t("hero.desc")}</p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Courts Showcase */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-14"
-          >
-            <h2 className="text-4xl font-black text-white mb-3">{t("courts.title")}</h2>
-            <p className="text-[#E2D9F3] text-lg">{t("courts.subtitle")}</p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {courtDetails.map((court, i) => (
-              <motion.div
-                key={court.nameKey}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-[#2D0A4E] rounded-2xl p-8 border border-white/10 hover:border-[#B5F03D]/40 transition-all"
-              >
-                <div className="flex items-start justify-between mb-6">
-                  <div>
-                    <span className="text-[#B5F03D] text-xs font-black uppercase tracking-widest">
-                      Court {i + 1}
-                    </span>
-                    <h3 className="text-2xl font-black text-white mt-1">
-                      {t(`courts.${court.nameKey}`)}
-                    </h3>
-                  </div>
-                  <span className={`text-xs font-bold px-3 py-1 rounded-full ${court.badge.color}`}>
-                    {court.badge.label}
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3 mb-6">
-                  {court.specs.map((spec) => (
-                    <div key={spec.label} className="bg-[#1A0530] rounded-xl p-3">
-                      <div className="text-[#B5F03D] text-lg font-black">{spec.value}</div>
-                      <div className="text-[#E2D9F3] text-xs mt-0.5">{spec.label}</div>
-                    </div>
-                  ))}
-                </div>
-
-                <ul className="space-y-2">
-                  {court.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-[#E2D9F3] text-sm">
-                      <span className="w-1.5 h-1.5 bg-[#B5F03D] rounded-full flex-shrink-0" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -214,6 +95,65 @@ export default function ExperiencePage() {
               title="Padel Haus Location"
             />
           </div>
+        </div>
+      </section>
+
+      {/* Photo Gallery */}
+      <section className="py-24 bg-[#2D0A4E]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl font-black text-white mb-10"
+          >
+            {t("gallery.title")}
+          </motion.h2>
+
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+            {galleryImages.map((src, i) => (
+              <motion.div
+                key={src}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06 }}
+                className="break-inside-avoid overflow-hidden rounded-xl"
+              >
+                <Image
+                  src={src}
+                  alt={`Padel Haus ${i + 1}`}
+                  width={800}
+                  height={i % 3 === 0 ? 600 : 400}
+                  className="w-full object-cover hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Video */}
+      <section className="py-16 bg-[#1A0530]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-black text-white mb-4">{t("gallery.videoTitle")}</h2>
+            <p className="text-[#E2D9F3] mb-8">{t("gallery.videoDesc")}</p>
+            <div className="rounded-2xl overflow-hidden aspect-video bg-[#2D0A4E] border border-white/10">
+              <video
+                src="/PadelVideo.mp4"
+                autoPlay
+                muted
+                loop
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>
