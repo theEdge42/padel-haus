@@ -1,104 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import Image from "next/image";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 
-function PadelBall({ size, style, delay = 0 }: { size: number; style: React.CSSProperties; delay?: number }) {
-  const d = size;
-  const r = d / 2;
-  const id = `ball-${size}-${delay}`;
-  return (
-    <motion.div
-      className="absolute pointer-events-none select-none"
-      style={style}
-      animate={{ y: [0, -12, 0] }}
-      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay }}
-    >
-      <svg width={d} height={d} viewBox={`0 0 ${d} ${d}`}>
-        <defs>
-          <radialGradient id={`${id}-grad`} cx="36%" cy="32%" r="65%">
-            <stop offset="0%" stopColor="#e8ff70" />
-            <stop offset="45%" stopColor="#cae832" />
-            <stop offset="100%" stopColor="#8cb518" />
-          </radialGradient>
-          <radialGradient id={`${id}-shadow`} cx="50%" cy="50%" r="50%">
-            <stop offset="70%" stopColor="transparent" />
-            <stop offset="100%" stopColor="rgba(0,0,0,0.25)" />
-          </radialGradient>
-          <clipPath id={`${id}-clip`}>
-            <circle cx={r} cy={r} r={r} />
-          </clipPath>
-        </defs>
-        {/* Ball base */}
-        <circle cx={r} cy={r} r={r} fill={`url(#${id}-grad)`} />
-        {/* Edge shadow for 3D */}
-        <circle cx={r} cy={r} r={r} fill={`url(#${id}-shadow)`} />
-        {/* Seam — upper arc curving down */}
-        <path
-          d={`M ${d * 0.08} ${d * 0.42} C ${d * 0.28} ${d * 0.75}, ${d * 0.72} ${d * 0.75}, ${d * 0.92} ${d * 0.42}`}
-          fill="none"
-          stroke="white"
-          strokeWidth={d * 0.055}
-          strokeLinecap="round"
-          opacity="0.75"
-          clipPath={`url(#${id}-clip)`}
-        />
-        {/* Seam — lower arc curving up */}
-        {/* <path
-          d={`M ${d * 0.08} ${d * 0.58} C ${d * 0.28} ${d * 0.25}, ${d * 0.72} ${d * 0.25}, ${d * 0.92} ${d * 0.58}`}
-          fill="none"
-          stroke="white"
-          strokeWidth={d * 0.055}
-          strokeLinecap="round"
-          opacity="0.75"
-          clipPath={`url(#${id}-clip)`}
-        /> */}
-        {/* Specular highlight */}
-        <ellipse cx={r * 0.72} cy={r * 0.58} rx={r * 0.28} ry={r * 0.17} fill="rgba(255,255,255,0.32)" />
-      </svg>
-    </motion.div>
-  );
-}
-
 export default function Hero() {
   const t = useTranslations("home.hero");
-  const locale = useLocale();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#341743]">
-      {/* Modern mesh gradient */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "conic-gradient(from 200deg at 60% 40%, #4A2060 0%, #341743 30%, #1e0f2e 55%, #341743 75%, #4A2060 100%)",
-          opacity: 0.8,
-        }}
-      />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 55% 35% at 15% 85%, rgba(181,240,61,0.12) 0%, transparent 70%)",
-        }}
-      />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 50% 40% at 85% 10%, rgba(140,60,210,0.18) 0%, transparent 65%)",
-        }}
-      />
-
-      {/* Decorative padel balls */}
-      <PadelBall size={160} delay={0}   style={{ top: "-50px",  right: "-40px", opacity: 0.22 }} />
-      <PadelBall size={110} delay={1.2} style={{ bottom: "60px", left: "-25px",  opacity: 0.18 }} />
-      <PadelBall size={70}  delay={0.7} style={{ top: "28%",    right: "5%",    opacity: 0.28 }} />
-      <PadelBall size={50}  delay={2.1} style={{ bottom: "26%", left: "7%",     opacity: 0.2  }} />
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#341743]">
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
 
@@ -189,7 +101,7 @@ export default function Hero() {
           {[
             { number: "4", label: t("statCourts") },
             { number: "500+", label: t("statMembers") },
-            { number: locale === "ro" ? "7z/7" : "7d/7", label: t("statOpen") },
+            { number: t("statEventsValue"), label: t("statEvents") },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-4xl font-black text-[#B5F03D]">{stat.number}</div>

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Phone, Mail, Clock, CheckCircle2 } from "lucide-react";
+import { MapPin, Clock, CheckCircle2, MessageCircle } from "lucide-react";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
@@ -21,7 +21,6 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-[#1A0530]">
-      {/* Hero */}
       <section className="py-24 bg-[#2D0A4E] relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#B5F03D]/5 to-transparent pointer-events-none" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
@@ -39,11 +38,9 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Grid */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            {/* Form */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -100,7 +97,6 @@ export default function ContactPage() {
               )}
             </motion.div>
 
-            {/* Info */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -115,28 +111,20 @@ export default function ContactPage() {
                     <span className="text-[#E2D9F3]">{t("info.address")}</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Phone size={20} className="text-[#B5F03D] flex-shrink-0" />
+                    <MessageCircle size={20} className="text-[#B5F03D] flex-shrink-0" />
                     <a
-                      href={`tel:${t("info.phone")}`}
+                      href={t("info.whatsapp")}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-[#E2D9F3] hover:text-[#B5F03D] transition-colors"
                     >
-                      {t("info.phone")}
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Mail size={20} className="text-[#B5F03D] flex-shrink-0" />
-                    <a
-                      href={`mailto:${t("info.email")}`}
-                      className="text-[#E2D9F3] hover:text-[#B5F03D] transition-colors"
-                    >
-                      {t("info.email")}
+                      WhatsApp
                     </a>
                   </div>
                   <div className="flex items-start gap-3">
                     <Clock size={20} className="text-[#B5F03D] mt-0.5 flex-shrink-0" />
                     <div className="text-[#E2D9F3]">
                       <p>{t("info.hours")}</p>
-                      <p>{t("info.weekendHours")}</p>
                     </div>
                   </div>
                 </div>
@@ -146,7 +134,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map */}
       <section className="pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2

@@ -19,7 +19,8 @@
       "ctaLearn": "Explore the Club",
       "statCourts": "Indoor Courts",
       "statMembers": "Members",
-      "statOpen": "Open"
+      "statEventsValue": "All",
+      "statEvents": "Levels"
     },
     "experience": {
       "title": "The Experience",
@@ -55,6 +56,10 @@
       "subtitle": "Book your court today and experience premium padel like never before.",
       "ctaBook": "Book a Court",
       "ctaVisit": "Visit Us"
+    },
+    "arena": {
+      "title": "Interactive Padel Arena",
+      "subtitle": "Test your reflexes! Toggle Play mode to control the racket with your cursor, or sit back and watch the live stream rally."
     }
   },
   "experience": {
@@ -83,7 +88,7 @@
     "location": {
       "title": "Find Us",
       "address": "Strada Rampei 37, Faur, Bucuresti",
-      "hours": "Mon–Fri: 07:00–23:00 · Sat–Sun: 08:00–22:00"
+      "hours": "Monday–Sunday: 08:00–00:00"
     },
     "gallery": {
       "title": "Photo Gallery",
@@ -286,8 +291,8 @@
       "phone": "+40 700 000 000",
       "email": "contact@padelhaus.ro",
       "whatsapp": "https://chat.whatsapp.com/CqGix2BlvAtIyz7z3ic30I",
-      "hours": "Mon–Fri: 07:00–23:00",
-      "weekendHours": "Sat–Sun: 08:00–22:00"
+      "hours": "Monday–Sunday: 08:00–00:00",
+      "weekendHours": ""
     },
     "map": {
       "title": "Find Us on the Map"
