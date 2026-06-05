@@ -17,7 +17,7 @@ export default function CommunityPage() {
     <div className="min-h-screen bg-background">
       {/* Hero */}
       <section className="py-24 bg-background-alternate relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#B5F03D]/5 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
