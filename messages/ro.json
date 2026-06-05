@@ -93,7 +93,7 @@
     "gallery": {
       "title": "Galerie Foto",
       "videoTitle": "Trăiește Experiența",
-      "videoDesc": "Un teren. O comunitate. O atmosferă de care nu vrei să pleci."
+      "videoDesc": "Un teren. O comunitate. O atmosferă de unde nu vrei să pleci."
     }
   },
   "community": {
@@ -109,11 +109,11 @@
       "step2Title": "Găsește un Partener",
       "step2Desc": "Folosește panoul nostru de potrivire pentru a găsi partenerul perfect de dublu.",
       "step3Title": "Joacă și Conectează-te",
-      "step3Desc": "Rezervă un teren, prezintă-te și fă prieteni care durează dincolo de teren."
+      "step3Desc": "Rezervă un teren, prezintă-te și leagă prietenii care durează dincolo de teren."
     },
     "whatsapp": {
       "title": "Alătură-te Comunității WhatsApp",
-      "desc": "Primești notificări instant de meci, actualizări despre evenimente și cereri de partener direct pe telefon.",
+      "desc": "Primești notificări instant despre meciuri, actualizări despre evenimente și cereri de partener direct pe telefon.",
       "button": "Alătură-te Acum — Gratuit"
     },
     "partnerForm": {
