@@ -88,7 +88,7 @@
     "location": {
       "title": "Găsește-ne",
       "address": "Strada Rampei 37, Faur, Bucuresti",
-      "hours": "Luni–Duminică: 08:00–00:00"
+      "hours": "Luni–Duminică: 08:00–00:30"
     },
     "gallery": {
       "title": "Galerie Foto",
@@ -169,27 +169,29 @@
         "spotsNote": "în funcție de înscrieri",
         "duration": "~2 ore",
         "matches": "6–8 meciuri scurte",
-        "matchesNote": "până la 16 puncte",
+        "matchesNote": "până la 20 puncte",
+        "scheduleLabel": "Orar",
         "prizeLabel": "Premiu loc 1",
-        "prize": "O cutie de mingi",
+        "prize": "Tub Mingi Wilson Premier Padel Speed",
         "level": "Intermediar"
       },
       "sunday": {
         "badge": "Duminică · Începători",
         "title": "Mexicano Duminică",
         "time": "10:00 – 12:00",
-        "spots": "16 locuri",
+        "spots": "8 / 12 / 16 locuri",
         "spotsNote": "în funcție de înscrieri",
         "duration": "~2 ore",
         "matches": "6–8 meciuri scurte",
-        "matchesNote": "până la 16 puncte",
+        "matchesNote": "până la 20 puncte",
+        "scheduleLabel": "Orar",
         "prizeLabel": "Premiu loc 1",
         "prize": "Tub Mingi Wilson Premier Padel Speed",
         "level": "Începători"
       },
       "howTitle": "Cum se Joacă Mexicano?",
       "rules": [
-        "6–8 meciuri scurte până la 16 puncte",
+        "6–8 meciuri scurte până la 20 puncte",
         "Partener diferit la fiecare rundă",
         "Perechile se refac automat după fiecare meci",
         "Clasament individual pe baza punctelor acumulate",
@@ -310,7 +312,9 @@
       "subject": "Subiect",
       "message": "Mesaj",
       "submit": "Trimite Mesajul",
-      "success": "Mesaj trimis! Te contactăm în curând."
+      "sending": "Se trimite...",
+      "success": "Mesaj trimis! Te contactăm în curând.",
+      "error": "Ceva nu a mers. Te rugăm să încerci din nou."
     },
     "info": {
       "title": "Vizitează-ne",
@@ -318,7 +322,7 @@
       "phone": "+40 700 000 000",
       "email": "contact@padelhaus.ro",
       "whatsapp": "https://chat.whatsapp.com/CqGix2BlvAtIyz7z3ic30I",
-      "hours": "Luni–Duminică: 08:00–00:00",
+      "hours": "Luni–Duminică: 08:00–00:30",
       "weekendHours": ""
     },
     "map": {

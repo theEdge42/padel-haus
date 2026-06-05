@@ -86,7 +86,7 @@ export default function Hero() {
             size="lg"
             className="hidden sm:flex bg-[#B5F03D] text-[#341743] hover:bg-[#a1d936] font-bold text-base px-8 h-14"
           >
-            <a href="https://playtomic.com/clubs/padel-haus-bucharest" target="_blank" rel="noopener noreferrer">
+            <a href="https://playtomic.io/tenant/6b8b2cf1-4654-4d6e-88f4-70c95f84ee8b" target="_blank" rel="noopener noreferrer">
               {t("ctaBook")}
               <ArrowRight className="ml-2" size={18} />
             </a>

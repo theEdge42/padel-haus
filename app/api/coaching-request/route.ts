@@ -11,8 +11,8 @@ export async function POST(req: NextRequest) {
 
   try {
     await resend.emails.send({
-      from: "Padel Haus <noreply@padelhaus.ro>",
-      to: "contact@padelhaus.ro",
+      from: "onboarding@resend.dev",
+      to: "filip.marian.badea@gmail.com",
       subject: `Cerere antrenament privat — ${session}`,
       text: `Nume: ${name}\nEmail: ${email || "—"}\nTelefon: ${phone || "—"}\nSesiune: ${session}`,
     });

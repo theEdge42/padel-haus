@@ -88,7 +88,7 @@
     "location": {
       "title": "Find Us",
       "address": "Strada Rampei 37, Faur, Bucuresti",
-      "hours": "Monday–Sunday: 08:00–00:00"
+      "hours": "Monday–Sunday: 08:00–00:30"
     },
     "gallery": {
       "title": "Photo Gallery",
@@ -169,27 +169,29 @@
         "spotsNote": "depending on registrations",
         "duration": "~2 hours",
         "matches": "6–8 short matches",
-        "matchesNote": "up to 16 points",
+        "matchesNote": "up to 20 points",
+        "scheduleLabel": "Schedule",
         "prizeLabel": "1st place prize",
-        "prize": "A box of balls",
+        "prize": "Wilson Premier Padel Speed balls",
         "level": "Intermediate"
       },
       "sunday": {
         "badge": "Sunday · Beginner",
         "title": "Sunday Mexicano",
         "time": "10:00 – 12:00",
-        "spots": "16 spots",
+        "spots": "8 / 12 / 16 spots",
         "spotsNote": "depending on registrations",
         "duration": "~2 hours",
         "matches": "6–8 short matches",
-        "matchesNote": "up to 16 points",
+        "matchesNote": "up to 20 points",
+        "scheduleLabel": "Schedule",
         "prizeLabel": "1st place prize",
         "prize": "Wilson Premier Padel Speed balls",
         "level": "Beginner"
       },
       "howTitle": "How Does Mexicano Work?",
       "rules": [
-        "6–8 short matches up to 16 points",
+        "6–8 short matches up to 20 points",
         "Different partner each round",
         "Pairs are automatically reformed after each match",
         "Individual ranking based on accumulated points",
@@ -310,7 +312,9 @@
       "subject": "Subject",
       "message": "Message",
       "submit": "Send Message",
-      "success": "Message sent! We'll be in touch soon."
+      "sending": "Sending...",
+      "success": "Message sent! We'll be in touch soon.",
+      "error": "Something went wrong. Please try again."
     },
     "info": {
       "title": "Visit Us",
@@ -318,7 +322,7 @@
       "phone": "+40 700 000 000",
       "email": "contact@padelhaus.ro",
       "whatsapp": "https://chat.whatsapp.com/CqGix2BlvAtIyz7z3ic30I",
-      "hours": "Monday–Sunday: 08:00–00:00",
+      "hours": "Monday–Sunday: 08:00–00:30",
       "weekendHours": ""
     },
     "map": {

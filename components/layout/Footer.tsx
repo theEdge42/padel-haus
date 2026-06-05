@@ -18,6 +18,7 @@ const WHATSAPP_URL = "https://chat.whatsapp.com/CqGix2BlvAtIyz7z3ic30I";
 
 export default function Footer() {
   const t = useTranslations("footer");
+  const tContact = useTranslations("contact");
   const tNav = useTranslations("nav");
   const locale = useLocale();
 
@@ -92,7 +93,7 @@ export default function Footer() {
                   WhatsApp
                 </a>
               </li>
-              <li className="mt-3">Luni–Duminică: 08:00–00:00</li>
+              <li className="mt-3">{tContact("info.hours")}</li>
             </ul>
           </div>
         </div>
@@ -100,8 +101,8 @@ export default function Footer() {
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-[#E2D9F3]/60">
           <p>© {new Date().getFullYear()} Padel Haus. {t("rights")}</p>
           <div className="flex gap-4">
-            <Link href="#" className="hover:text-[#B5F03D] transition-colors">{t("privacy")}</Link>
-            <Link href="#" className="hover:text-[#B5F03D] transition-colors">{t("terms")}</Link>
+            {/*<Link href="#" className="hover:text-[#B5F03D] transition-colors">{t("privacy")}</Link>*/}
+            {/*<Link href="#" className="hover:text-[#B5F03D] transition-colors">{t("terms")}</Link>*/}
           </div>
         </div>
       </div>

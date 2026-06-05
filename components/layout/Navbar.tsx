@@ -8,8 +8,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const PLAYTOMIC_WEB = "https://playtomic.com/clubs/padel-haus-bucharest";
-const PLAYTOMIC_APP = "https://play.google.com/store/apps/details?id=com.playtomic&hl=en";
+const PLAYTOMIC_WEB = "https://playtomic.io/tenant/6b8b2cf1-4654-4d6e-88f4-70c95f84ee8b";
+const PLAYTOMIC_APP = "https://playtomic.io/tenant/6b8b2cf1-4654-4d6e-88f4-70c95f84ee8b";
 
 export default function Navbar() {
   const t = useTranslations("nav");
@@ -38,7 +38,7 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 bg-[#341743]/90 backdrop-blur-md border-b border-white/10"
+      className="fixed top-0 left-0 right-0 z-50 bg-background backdrop-blur-md border-b border-white/10"
       style={{ transform: "translateZ(0)", willChange: "transform" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

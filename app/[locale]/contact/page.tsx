@@ -13,10 +13,31 @@ import { MapPin, Clock, CheckCircle2, MessageCircle } from "lucide-react";
 export default function ContactPage() {
   const t = useTranslations("contact");
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
 
-  function handleSubmit(e: React.FormEvent) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    setError(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error();
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -59,15 +80,21 @@ export default function ContactPage() {
                     <div className="space-y-2">
                       <Label className="text-[#E2D9F3]">{t("form.name")}</Label>
                       <Input
+                        name="name"
                         required
+                        value={form.name}
+                        onChange={handleChange}
                         className="bg-[#1A0530] border-white/20 text-white placeholder:text-white/40 focus:border-[#B5F03D]"
                       />
                     </div>
                     <div className="space-y-2">
                       <Label className="text-[#E2D9F3]">{t("form.email")}</Label>
                       <Input
+                        name="email"
                         type="email"
                         required
+                        value={form.email}
+                        onChange={handleChange}
                         className="bg-[#1A0530] border-white/20 text-white placeholder:text-white/40 focus:border-[#B5F03D]"
                       />
                     </div>
@@ -75,23 +102,33 @@ export default function ContactPage() {
                   <div className="space-y-2">
                     <Label className="text-[#E2D9F3]">{t("form.subject")}</Label>
                     <Input
+                      name="subject"
                       required
+                      value={form.subject}
+                      onChange={handleChange}
                       className="bg-[#1A0530] border-white/20 text-white placeholder:text-white/40 focus:border-[#B5F03D]"
                     />
                   </div>
                   <div className="space-y-2">
                     <Label className="text-[#E2D9F3]">{t("form.message")}</Label>
                     <Textarea
+                      name="message"
                       required
                       rows={5}
+                      value={form.message}
+                      onChange={handleChange}
                       className="bg-[#1A0530] border-white/20 text-white placeholder:text-white/40 focus:border-[#B5F03D] resize-none"
                     />
                   </div>
+                  {error && (
+                    <p className="text-red-400 text-sm">{t("form.error")}</p>
+                  )}
                   <Button
                     type="submit"
-                    className="bg-[#B5F03D] text-[#1A0530] hover:bg-[#a1d936] font-bold w-full h-12"
+                    disabled={sending}
+                    className="bg-[#B5F03D] text-[#1A0530] hover:bg-[#a1d936] font-bold w-full h-12 disabled:opacity-60"
                   >
-                    {t("form.submit")}
+                    {sending ? t("form.sending") : t("form.submit")}
                   </Button>
                 </form>
               )}
