@@ -7,9 +7,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const PLAYTOMIC_WEB = "https://playtomic.io/tenant/6b8b2cf1-4654-4d6e-88f4-70c95f84ee8b";
-const PLAYTOMIC_APP = "https://playtomic.io/tenant/6b8b2cf1-4654-4d6e-88f4-70c95f84ee8b";
+import { PLAYTOMIC_APP } from "@/lib/constants";
 
 export default function Navbar() {
   const t = useTranslations("nav");
@@ -84,7 +82,7 @@ export default function Navbar() {
               asChild
               className="bg-[#B5F03D] text-[#341743] hover:bg-[#a1d936] font-bold text-sm"
             >
-              <a href={PLAYTOMIC_WEB} target="_blank" rel="noopener noreferrer">
+              <a href={PLAYTOMIC_APP} target="_blank" rel="noopener noreferrer">
                 {t("bookNow")}
               </a>
             </Button>
