@@ -31,20 +31,20 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#4A2060] border-t border-white/10 pt-12 pb-6">
+    <footer className="bg-brand-surface border-t border-white/10 pt-12 pb-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           <div>
             <Link href={`/${locale}`} className="inline-block mb-3 opacity-90 hover:opacity-100 transition-opacity">
               <Image src="/logo.svg" alt="Padel Haus" width={130} height={52} className="h-10 w-auto" />
             </Link>
-            <p className="text-[#E2D9F3] text-sm">{t("tagline")}</p>
+            <p className="text-brand-muted text-sm">{t("tagline")}</p>
             <div className="flex gap-4 mt-4">
               <a
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#E2D9F3] hover:text-[#B5F03D] transition-colors"
+                className="text-brand-muted hover:text-brand-accent transition-colors"
                 aria-label="Instagram"
               >
                 <InstagramIcon size={20} />

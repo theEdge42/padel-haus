@@ -1,9 +1,9 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { BookingRequestForm } from "@/components/shared/BookingRequestForm";
@@ -20,8 +20,8 @@ export default function CoachingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1A0530]">
-      <section className="py-24 bg-[#2D0A4E] relative overflow-hidden">
+    <div className="min-h-screen bg-background">
+      <section className="py-24 bg-background-alternate relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#B5F03D]/5 to-transparent pointer-events-none" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <motion.div
@@ -40,7 +40,7 @@ export default function CoachingPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-[#2D0A4E]">
+      <section className="py-16 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -50,7 +50,6 @@ export default function CoachingPage() {
           >
             {t("howItWorks.title")}
           </motion.h2>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {steps.map((step, i) => (
               <motion.div

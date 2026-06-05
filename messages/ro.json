@@ -116,13 +116,40 @@
       "desc": "Primești notificări instant de meci, actualizări despre evenimente și cereri de partener direct pe telefon.",
       "button": "Alătură-te Acum — Gratuit"
     },
-    "partner": {
+    "partnerForm": {
       "title": "Găsește un Partener de Joc",
-      "desc": "Nou în oraș? Vrei să te îmbunătățești? Sistemul nostru de potrivire conectează jucătorii de niveluri similare pentru meciuri mereu echilibrate."
-    },
-    "gallery": {
-      "title": "Vibes Sociale",
-      "subtitle": "Momentele care fac Padel Haus special"
+      "desc": "Spune-ne disponibilitatea și nivelul tău — te potrivim cu jucătorul potrivit.",
+      "name": "Nume și prenume",
+      "namePlaceholder": "Numele tău",
+      "phone": "Număr de telefon",
+      "phonePlaceholder": "+40 700 000 000",
+      "availability": "Disponibilitate",
+      "avail": {
+        "morningLabel": "Dimineața",
+        "morningTime": "08:00 – 12:00",
+        "lunchLabel": "Prânz",
+        "lunchTime": "12:00 – 17:00",
+        "eveningLabel": "Seara",
+        "eveningTime": "17:00 – 00:30",
+        "anytimeLabel": "Oricând",
+        "anytimeTime": "08:00 – 00:30"
+      },
+      "skillLevel": "Nivel de joc",
+      "skill": {
+        "beginnerLabel": "Începător",
+        "beginnerSub": "0–20 meciuri",
+        "intermediateLabel": "Intermediar",
+        "intermediateSub": "20–50 meciuri",
+        "advancedLabel": "Avansat",
+        "advancedSub": "50–100 meciuri",
+        "competitiveLabel": "Competitiv",
+        "competitiveSub": "100+ meciuri"
+      },
+      "submit": "Vreau să joc! →",
+      "sending": "Se trimite...",
+      "success": "Te contactăm pe WhatsApp când găsim echipă pentru tine!",
+      "successSub": "Vei fi adăugat și în grupul comunității noastre.",
+      "errorMsg": "Ceva nu a mers. Te rugăm să încerci din nou."
     }
   },
   "events": {

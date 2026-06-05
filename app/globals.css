@@ -7,6 +7,7 @@
 @theme inline {
   /* shadcn system tokens */
   --color-background: var(--background);
+  --color-background-alternate: var(--background-alternate);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
@@ -50,6 +51,7 @@
 
   /* Brand design tokens */
   --color-brand-bg: #341743;
+  --color-brand-alternate: #2D0A4E;
   --color-brand-surface: #4A2060;
   --color-brand-accent: #B5F03D;
   --color-brand-text: #FFFFFF;
@@ -58,6 +60,7 @@
 
 :root {
   --background: #341743;
+  --background-alternate: #2D0A4E;
   --foreground: #FFFFFF;
   --card: #4A2060;
   --card-foreground: #FFFFFF;

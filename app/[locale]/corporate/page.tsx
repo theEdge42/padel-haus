@@ -22,9 +22,9 @@ export default function CorporatePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1A0530]">
+    <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="py-24 bg-[#2D0A4E] relative overflow-hidden">
+      <section className="py-24 bg-background-alternate relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#B5F03D]/5 to-transparent pointer-events-none" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <motion.div
@@ -44,7 +44,7 @@ export default function CorporatePage() {
       </section>
 
       {/* Rates info */}
-      <section className="py-10 bg-[#1A0530]">
+      <section className="py-10 bg-background">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <div className="flex items-center gap-3 bg-[#2D0A4E] rounded-xl px-5 py-3 border border-white/10">
@@ -126,7 +126,7 @@ export default function CorporatePage() {
       </section>
 
       {/* Corporate Nights */}
-      <section className="py-16 bg-[#2D0A4E]">
+      <section className="py-16 bg-background-alternate">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

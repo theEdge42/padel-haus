@@ -20,8 +20,8 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#1A0530]">
-      <section className="py-24 bg-[#2D0A4E] relative overflow-hidden">
+    <div className="min-h-screen bg-background">
+      <section className="py-24 bg-background-alternate relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#B5F03D]/5 to-transparent pointer-events-none" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <motion.div

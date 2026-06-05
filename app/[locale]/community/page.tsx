@@ -5,16 +5,7 @@ import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Users, Search, Heart } from "lucide-react";
-import Image from "next/image";
-
-const socialImages = [
-  "/1.png",
-  "/2.png",
-  "/3.png",
-  "/4.png",
-  "/6.png",
-  "/1.png",
-];
+import PartnerFinderForm from "@/components/community/PartnerFinderForm";
 
 const stepIcons = [Users, Search, Heart];
 const stepKeys = ["step1", "step2", "step3"] as const;
@@ -23,9 +14,9 @@ export default function CommunityPage() {
   const t = useTranslations("community");
 
   return (
-    <div className="min-h-screen bg-[#1A0530]">
+    <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="py-24 bg-[#2D0A4E] relative overflow-hidden">
+      <section className="py-24 bg-background-alternate relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#B5F03D]/5 to-transparent pointer-events-none" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <motion.div
@@ -85,7 +76,7 @@ export default function CommunityPage() {
       </section>
 
       {/* WhatsApp CTA */}
-      <section className="py-16 bg-[#2D0A4E]">
+      <section className="py-16 bg-background-alternate">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -108,53 +99,10 @@ export default function CommunityPage() {
         </div>
       </section>
 
-      {/* Partner Finder */}
+      {/* Partner Finder Form */}
       <section className="py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-[#2D0A4E] rounded-2xl p-10 border border-white/10 text-center"
-          >
-            <h2 className="text-3xl font-black text-white mb-4">{t("partner.title")}</h2>
-            <p className="text-[#E2D9F3] text-lg leading-relaxed">{t("partner.desc")}</p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Gallery Strip */}
-      <section className="pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-10"
-          >
-            <h2 className="text-4xl font-black text-white mb-3">{t("gallery.title")}</h2>
-            <p className="text-[#E2D9F3]">{t("gallery.subtitle")}</p>
-          </motion.div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {socialImages.map((src, i) => (
-              <motion.div
-                key={src + i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="relative aspect-square rounded-xl overflow-hidden"
-              >
-                <Image
-                  src={src}
-                  alt={`Community moment ${i + 1}`}
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 640px) 50vw, 33vw"
-                />
-              </motion.div>
-            ))}
-          </div>
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <PartnerFinderForm />
         </div>
       </section>
     </div>

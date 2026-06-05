@@ -116,13 +116,40 @@
       "desc": "Get instant match notifications, event updates, and partner requests directly on your phone.",
       "button": "Join Now — It's Free"
     },
-    "partner": {
+    "partnerForm": {
       "title": "Find a Playing Partner",
-      "desc": "New to the city? Looking to improve? Our partner finder connects players of similar skill levels so you're always matched for a great game."
-    },
-    "gallery": {
-      "title": "Social Vibes",
-      "subtitle": "The moments that make Padel Haus special"
+      "desc": "Tell us your availability and level — we'll match you with the right player.",
+      "name": "Full Name",
+      "namePlaceholder": "Your name",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+40 700 000 000",
+      "availability": "Availability",
+      "avail": {
+        "morningLabel": "Morning",
+        "morningTime": "08:00 – 12:00",
+        "lunchLabel": "Midday",
+        "lunchTime": "12:00 – 17:00",
+        "eveningLabel": "Evening",
+        "eveningTime": "17:00 – 00:30",
+        "anytimeLabel": "Anytime",
+        "anytimeTime": "08:00 – 00:30"
+      },
+      "skillLevel": "Skill Level",
+      "skill": {
+        "beginnerLabel": "Beginner",
+        "beginnerSub": "0–20 matches",
+        "intermediateLabel": "Intermediate",
+        "intermediateSub": "20–50 matches",
+        "advancedLabel": "Advanced",
+        "advancedSub": "50–100 matches",
+        "competitiveLabel": "Competitive",
+        "competitiveSub": "100+ matches"
+      },
+      "submit": "I Want to Play! →",
+      "sending": "Sending...",
+      "success": "We'll reach out on WhatsApp when we find a team for you!",
+      "successSub": "You'll also be added to our community group.",
+      "errorMsg": "Something went wrong. Please try again."
     }
   },
   "events": {
@@ -238,7 +265,7 @@
         "includes": "Equipment · Coaching · Catering · Open Bar · Trophy · Full customisation"
       },
       "price": "From",
-      "inquire": "Get a Quote"
+      "inquire": "Get in touch"
     },
     "nights": {
       "title": "Corporate Nights",

@@ -11,7 +11,7 @@ export default function CTASection() {
   const locale = useLocale();
 
   return (
-    <section className="py-24 bg-[#341743] relative overflow-hidden">
+    <section className="py-24 bg-background relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-full bg-[#B5F03D]/5 blur-3xl rounded-full" />
       </div>

@@ -10,7 +10,20 @@ export default function Hero() {
   const t = useTranslations("home.hero");
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#341743]">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background">
+
+      {/* Background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/IMG_2807_trimmed.MOV" type="video/mp4" />
+      </video>
+      {/* Overlay */}
+      <div className="absolute inset-0" style={{ background: "rgba(26,5,48,0.75)" }} />
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
 
@@ -112,7 +125,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#341743] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1A0530] to-transparent" />
     </section>
   );
 }

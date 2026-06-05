@@ -5,21 +5,21 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 const row1 = [
-  { src: "/1.png", alt: "Padel court" },
-  { src: "/2.png", alt: "Players on court" },
-  { src: "/3.png", alt: "Match in progress" },
-  { src: "/4.png", alt: "Community moment" },
-  { src: "/6.png", alt: "Tournament action" },
-  { src: "/1.png", alt: "Court atmosphere" },
+  { src: "/gallery/1.jpeg", alt: "Padel court" },
+  { src: "/gallery/2.jpeg", alt: "Players on court" },
+  { src: "/gallery/Competition1.jpeg", alt: "Mexicano photo 1" },
+  { src: "/gallery/3.jpeg", alt: "Match in progress" },
+  { src: "/gallery/4.jpeg", alt: "Community moment" },
+  { src: "/gallery/Competition2.jpeg", alt: "Competition" },
 ];
 
 const row2 = [
-  { src: "/6.png", alt: "After the game" },
-  { src: "/3.png", alt: "Social night" },
-  { src: "/2.png", alt: "Court view" },
-  { src: "/4.png", alt: "Team play" },
-  { src: "/1.png", alt: "Padel Haus" },
-  { src: "/6.png", alt: "Community" },
+  { src: "/gallery/IMG_5270.jpeg", alt: "Tournament action" },
+  { src: "/gallery/Competition3.jpeg", alt: "Competition photo 2" },
+  { src: "/gallery/Competition5.jpeg", alt: "Court atmosphere" },
+  { src: "/gallery/IMG_9076.jpeg", alt: "After the game" },
+  { src: "/gallery/Competition4.jpeg", alt: "Competition" },
+  { src: "/gallery/IMG_9080.jpeg", alt: "Social night" },
 ];
 
 function ScrollRow({
@@ -45,7 +45,7 @@ function ScrollRow({
         {doubled.map((item, i) => (
           <div
             key={i}
-            className="relative w-64 h-44 rounded-2xl overflow-hidden flex-shrink-0"
+            className="relative w-80 h-56 rounded-2xl overflow-hidden flex-shrink-0"
           >
             <Image
               src={item.src}
@@ -66,7 +66,7 @@ export default function SocialGallery() {
   const t = useTranslations("home.courts");
 
   return (
-    <section className="py-24 bg-[#4A2060] overflow-hidden">
+    <section className="py-24 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

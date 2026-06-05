@@ -30,9 +30,9 @@ export default function EventsPage() {
   const rules = t.raw("mexicano.rules") as string[];
 
   return (
-    <div className="min-h-screen bg-[#1A0530]">
+    <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="py-24 bg-[#2D0A4E] relative overflow-hidden">
+      <section className="py-24 bg-background-alternate relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#B5F03D]/5 to-transparent pointer-events-none" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <motion.div
@@ -142,7 +142,7 @@ export default function EventsPage() {
       </section>
 
       {/* How Mexicano Works */}
-      <section className="py-16 bg-[#2D0A4E]">
+      <section className="py-16 bg-background-alternate">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
