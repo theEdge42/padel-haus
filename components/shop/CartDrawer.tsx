@@ -22,17 +22,17 @@ export default function CartDrawer() {
   return (
     <Sheet>
       <SheetTrigger
-        className="relative p-2 text-[#E2D9F3] hover:text-[#B5F03D] transition-colors"
+        className="relative p-2 text-[#E2D9F3] hover:text-[#FFD700] transition-colors"
         aria-label="Open cart"
       >
         <ShoppingCart size={22} />
         {count > 0 && (
-          <span className="absolute -top-1 -right-1 bg-[#B5F03D] text-[#341743] text-xs font-black w-5 h-5 rounded-full flex items-center justify-center">
+          <span className="absolute -top-1 -right-1 bg-[#FFD700] text-[#25003D] text-xs font-black w-5 h-5 rounded-full flex items-center justify-center">
             {count}
           </span>
         )}
       </SheetTrigger>
-      <SheetContent className="bg-[#4A2060] border-white/10 text-white w-full sm:max-w-md flex flex-col">
+      <SheetContent className="bg-[#4A0E6D] border-white/10 text-white w-full sm:max-w-md flex flex-col">
         <SheetHeader>
           <SheetTitle className="text-white text-xl font-black">{t("cart.title")}</SheetTitle>
         </SheetHeader>
@@ -44,7 +44,7 @@ export default function CartDrawer() {
             items.map((item) => (
               <div
                 key={item.id}
-                className="flex gap-3 bg-[#341743] rounded-xl p-3 border border-white/10"
+                className="flex gap-3 bg-[#25003D] rounded-xl p-3 border border-white/10"
               >
                 <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
                   <Image
@@ -57,7 +57,7 @@ export default function CartDrawer() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-white font-semibold text-sm truncate">{item.name}</p>
-                  <p className="text-[#B5F03D] font-bold text-sm">{item.price} RON</p>
+                  <p className="text-[#FFD700] font-bold text-sm">{item.price} RON</p>
                   <div className="flex items-center gap-2 mt-2">
                     <button
                       onClick={() => updateQty(item.id, item.quantity - 1)}
@@ -92,11 +92,11 @@ export default function CartDrawer() {
           <div className="border-t border-white/10 pt-4 space-y-4">
             <div className="flex justify-between items-center">
               <span className="text-[#E2D9F3] font-semibold">{t("cart.total")}</span>
-              <span className="text-[#B5F03D] font-black text-xl">{total} RON</span>
+              <span className="text-[#FFD700] font-black text-xl">{total} RON</span>
             </div>
             <Button
               asChild
-              className="bg-[#B5F03D] text-[#341743] hover:bg-[#a1d936] font-bold w-full h-12"
+              className="bg-[#FFD700] text-[#25003D] hover:bg-[#FFE773] font-bold w-full h-12"
             >
               <Link href={`/${locale}/shop/checkout`}>{t("cart.checkout")}</Link>
             </Button>

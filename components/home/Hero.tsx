@@ -1,48 +1,49 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useRef } from "react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
-import {PLAYTOMIC_APP} from "@/lib/constants";
+import { Logo } from "@/components/shared/Logo";
+import { ArrowRight } from "lucide-react";
+import { PLAYTOMIC_APP, WHATSAPP_URL } from "@/lib/constants";
 
 export default function Hero() {
   const t = useTranslations("home.hero");
+  const locale = useLocale();
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const rawDoorOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const doorOpacity = useSpring(rawDoorOpacity, { stiffness: 90, damping: 30, mass: 0.5 });
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background">
-
-      {/* Background video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+    <section
+      ref={sectionRef}
+      className="relative flex min-h-screen flex-col items-center overflow-hidden bg-background"
+    >
+      {/* Gradient block — wraps the logo/catchphrase/CTAs and the door; the door's bottom sits flush with this block's bottom edge */}
+      <div
+        className="relative w-full"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 50% 120%, rgba(255,215,0,0.15) 0%, #25003D 80%)",
+        }}
       >
-        <source src="/IMG_2807_trimmed.MOV" type="video/mp4" />
-      </video>
-      {/* Overlay */}
-      <div className="absolute inset-0" style={{ background: "rgba(26,5,48,0.75)" }} />
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 text-center">
 
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-
-        {/* Logo as main hero title */}
+        {/* Logo as main hero title — real text set in the brand fonts */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           className="flex justify-center mb-5"
         >
-          <Image
-            src="/logo.svg"
-            alt="Padel Haus"
-            width={640}
-            height={256}
-            priority
-            className="w-full max-w-xs sm:max-w-md lg:max-w-2xl h-auto"
-          />
+          <Logo size="lg" />
         </motion.div>
 
         {/* Catchphrase — prominent */}
@@ -50,83 +51,65 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-[#E2D9F3] text-2xl sm:text-3xl lg:text-4xl font-light tracking-wide mb-10"
+          className="italic text-[#F3E8FF] text-2xl sm:text-3xl lg:text-4xl font-light tracking-wide mb-10"
+          style={{ fontFamily: "var(--font-serif-italic)" }}
         >
           {t("catchphrase")}
         </motion.p>
 
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="max-w-xl mx-auto text-[#E2D9F3]/70 text-base sm:text-lg mb-10 leading-relaxed"
-        >
-          {t("subtitle")}
-        </motion.p>
-
-        {/* CTAs */}
+        {/* CTAs — Abonamente (secondary) · Rezerva (primary) · Antrenează-te (tertiary) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-0"
         >
-          <Button
-            asChild
-            size="lg"
-            className="sm:hidden bg-[#B5F03D] text-[#341743] hover:bg-[#a1d936] font-bold text-base px-8 h-14"
-          >
-            <a href={PLAYTOMIC_APP} target="_blank" rel="noopener noreferrer">
-              {t("ctaBook")}
-              <ArrowRight className="ml-2" size={18} />
-            </a>
-          </Button>
-          <Button
-            asChild
-            size="lg"
-            className="hidden sm:flex bg-[#B5F03D] text-[#341743] hover:bg-[#a1d936] font-bold text-base px-8 h-14"
-          >
-            <a href={PLAYTOMIC_APP} target="_blank" rel="noopener noreferrer">
-              {t("ctaBook")}
-              <ArrowRight className="ml-2" size={18} />
-            </a>
-          </Button>
           <Button
             asChild
             size="lg"
             variant="outline"
-            className="border-white/30 text-white hover:bg-white/10 hover:text-white font-semibold text-base px-8 h-14"
+            className="rounded-full border-2 border-[#FFD700] bg-transparent text-[#FFE773] hover:bg-white/10 hover:text-[#FFE773] font-extrabold tracking-wide text-base px-8 h-14"
           >
-            <a href="#gallery">
-              <Play className="mr-2" size={18} />
-              {t("ctaLearn")}
+            <Link href={`/${locale}/memberships`}>{t("ctaMemberships")}</Link>
+          </Button>
+          <Button
+            asChild
+            size="lg"
+            className="rounded-full bg-gradient-to-br from-[#FFD700] to-[#FFE773] text-[#25003D] hover:brightness-105 font-extrabold tracking-wide text-base px-10 h-14"
+          >
+            <a href={PLAYTOMIC_APP} target="_blank" rel="noopener noreferrer">
+              {t("ctaBook")}
+              <ArrowRight className="ml-0.5" size={14} />
             </a>
+          </Button>
+          <Button
+            asChild
+            size="lg"
+            variant="ghost"
+            className="rounded-full border border-white/25 bg-transparent text-[#F3E8FF]/80 hover:bg-white/10 hover:text-[#F3E8FF] font-bold tracking-wide text-base px-10 h-14"
+          >
+            <Link href={`/${locale}/coaching`}>{t("ctaTraining")}</Link>
           </Button>
         </motion.div>
 
-        {/* Stats strip */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.55 }}
-          className="mt-20 flex flex-wrap justify-center gap-8 sm:gap-16"
+        {/* Community door — its bottom sits flush with the gradient block's bottom edge, taller, open at the base, label only on hover */}
+        <motion.a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ opacity: doorOpacity }}
+          className="group relative mx-auto mt-10 flex h-64 w-48 items-center justify-center rounded-t-full border-x-2 border-t-2 border-[#FFD700]/80 bg-gradient-to-t from-black/50 to-transparent shadow-[inset_0_4px_16px_rgba(255,215,0,0.3),0_-4px_16px_rgba(255,215,0,0.25)] transition-shadow hover:shadow-[inset_0_4px_24px_rgba(255,215,0,0.5),0_-4px_24px_rgba(255,215,0,0.4)] sm:h-[28rem] sm:w-80"
+          aria-label={t("communityDoor")}
         >
-          {[
-            { number: "4", label: t("statCourts") },
-            { number: "500+", label: t("statMembers") },
-            { number: t("statEventsValue"), label: t("statEvents") },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-4xl font-black text-[#B5F03D]">{stat.number}</div>
-              <div className="text-[#E2D9F3] text-sm mt-1">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
+          <span
+            className="italic text-lg text-[#FFD700] tracking-wide opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:text-2xl"
+            style={{ fontFamily: "'Times New Roman MT', 'Times New Roman', Times, serif" }}
+          >
+            {t("communityDoor")}
+          </span>
+        </motion.a>
       </div>
-
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1A0530] to-transparent" />
+      </div>
     </section>
   );
 }

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Padel Haus — Color Explorer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:    #341743;
+  --dark:  #1A0530;
+  --mid:   #2D0A4E;
+  --a:     #C9943A;
+  --a-lt:  #E0B55A;
+  --white: #FFFFFF;
+  --muted: #E2D9F3;
+  --faint: #9A80B0;
+}
+
+body { background: #12001f; color: var(--white); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 24px 16px 80px; }
+
+/* ── Brand logo (large) ── */
+.ph-name   { display: inline-flex; align-items: baseline; gap: 3px; }
+.ph-script { font-family: 'Times New Roman MT', 'Times New Roman', Times, serif; font-size: 54px; color: #eeede9; line-height: 1; font-style: italic; }
+.ph-bold   { font-family: 'Nunito Sans', 'Nunito', sans-serif; font-size: 45px; font-weight: 700; color: var(--white); line-height: 1; letter-spacing: .04em; margin-left: 4px; }
+.ph-catch  { font-family: 'Nunito Sans', 'Nunito', sans-serif; font-size: 10px; color: var(--muted);  letter-spacing: .08em; margin-top: 6px; display: block; text-align: center; }
+
+/* ── Pill logo (small) ── */
+.ph-logo-sm    { display: inline-flex; align-items: baseline; gap: 2px; line-height: 1; }
+.ph-script-sm  { font-family: 'Times New Roman MT', 'Times New Roman', Times, serif; font-size: 13px; color: #eeede9; font-style: italic; }
+.ph-bold-sm    { font-family: 'Nunito Sans', 'Nunito', sans-serif; font-size: 11px; font-weight: 700; color: var(--white); letter-spacing: .04em; }
+
+/* ── Page head ── */
+.page-head { text-align: center; margin-bottom: 24px; }
+.page-head h1 { font-size: clamp(14px,3.5vw,19px); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px; }
+.page-head p  { font-size: 12px; color: var(--faint); }
+
+/* ── Color Picker ── */
+.color-bar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 10px; margin-bottom: 32px;
+  background: #1e0830; border: 1px solid #34174380;
+  border-radius: 14px; padding: 14px 20px;
+  max-width: 860px; margin-left: auto; margin-right: auto;
+}
+.color-bar-label { font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--faint); width: 100%; text-align: center; margin-bottom: 4px; }
+.swatch-group { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; }
+.swatch-group-label { font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); width: 100%; text-align: center; margin-top: 8px; margin-bottom: 2px; }
+.swatch {
+  width: 34px; height: 34px; border-radius: 50%; cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform .15s, border-color .15s;
+  position: relative;
+}
+.swatch:hover { transform: scale(1.15); }
+.swatch.active { border-color: var(--white); transform: scale(1.15); }
+.swatch .sw-name {
+  position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%);
+  font-size: 9px; color: var(--faint); white-space: nowrap;
+  pointer-events: none; opacity: 0; transition: opacity .15s;
+}
+.swatch:hover .sw-name { opacity: 1; }
+.swatch.active .sw-name { opacity: 1; color: var(--white); }
+
+/* ── Grid — 2 per row ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+@media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+
+/* ── Card ── */
+.card { border: 2px solid #341743; border-radius: 14px; overflow: hidden; background: var(--bg); }
+.card-label { display: flex; align-items: flex-start; gap: 10px; padding: 11px 14px; background: #12001f; border-top: 1px solid #34174380; }
+.card-num   { width: 24px; height: 24px; background: var(--bg); border: 1px solid var(--a); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: var(--a); flex-shrink: 0; margin-top: 1px; }
+.card-title { font-weight: 700; font-size: 13px; color: var(--white); }
+.card-desc  { font-size: 11px; color: var(--faint); margin-top: 2px; line-height: 1.4; }
+
+.mockup {
+  height: clamp(260px, 32vw, 320px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ══════════════════════════════════════
+   FLOATING PILL HEADER (shared)
+══════════════════════════════════════ */
+.nav-pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  height: 32px;
+  background: rgba(52, 23, 67, 0.85);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 12px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 10;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.45);
+}
+.np-sep   { width: 1px; height: 14px; background: rgba(255,255,255,0.2); flex-shrink: 0; }
+.np-link  { font-size: 8px; color: rgba(255,255,255,0.75); font-family: 'Nunito Sans', sans-serif; white-space: nowrap; }
+.np-lang  { font-size: 8px; color: rgba(255,255,255,0.6); font-family: 'Nunito Sans', sans-serif; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; padding: 1px 4px; }
+.np-cta   { background: var(--a); color: #1A0530; font-size: 8px; font-weight: 700; font-family: 'Nunito Sans', sans-serif; padding: 3px 9px; border-radius: 8px; letter-spacing: .04em; white-space: nowrap; }
+
+/* ══════════════════════════════════════
+   VIDEO ELEMENT (shared)
+══════════════════════════════════════ */
+.vid {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+/* Hero overlay — exactly as in Hero.tsx */
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: rgba(26, 5, 48, 0.75);
+  z-index: 1;
+}
+/* Hero bottom fade — exactly as in Hero.tsx (h-32 = 128px) */
+.hero-fade {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 128px;
+  background: linear-gradient(to top, #1A0530, transparent);
+  z-index: 2;
+}
+
+/* ══════════════════════════════════════
+   CURRENT HERO — content layer
+══════════════════════════════════════ */
+.hero-ct {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 16px;
+}
+.hero-bs { display: flex; gap: 6px; justify-content: center; margin-top: 10px; }
+.hero-b1 { background: var(--a); color: #1A0530; font-size: 9px; font-weight: 700; padding: 6px 12px; border-radius: 4px; font-family: 'Nunito Sans', sans-serif; }
+.hero-b2 { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: var(--white); font-size: 9px; font-weight: 600; padding: 6px 10px; border-radius: 4px; font-family: 'Nunito Sans', sans-serif; }
+.hero-st { display: flex; gap: 18px; margin-top: 14px; justify-content: center; }
+.hero-sn { font-size: 17px; font-weight: 900; color: var(--a-lt); font-family: 'Nunito Sans', sans-serif; }
+.hero-sl { font-size: 8px; color: var(--faint); font-family: 'Nunito Sans', sans-serif; }
+
+/* ══════════════════════════════════════
+   ARCH — content layer
+══════════════════════════════════════ */
+.arch-ring {
+  position: absolute; bottom: -60px; left: 50%; transform: translateX(-50%);
+  width: 240px; height: 240px; border-radius: 50%;
+  border: 2px solid var(--a); opacity: .4;
+  pointer-events: none; z-index: 3;
+}
+.arch-ct {
+  position: relative; z-index: 5;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  margin-top: 16px; margin-bottom: 16px;
+}
+.arch-sub { font-size: 7px; color: var(--faint); letter-spacing: .2em; text-transform: uppercase; margin-top: 10px; font-family: 'Nunito Sans', sans-serif; }
+.arch-bt  { margin-top: 12px; background: var(--a); color: #1A0530; font-size: 8px; font-weight: 700; padding: 6px 14px; font-family: 'Nunito Sans', sans-serif; display: inline-block; border-radius: 4px; }
+
+/* ══════════════════════════════════════
+   PLAIN BG variants
+══════════════════════════════════════ */
+.plain-bg { background: var(--bg); }
+
+/* ══════════════════════════════════════
+   3-CTA HERO BUTTON GROUP
+   Primary  → Rezerva      (Playtomic booking)
+   Secondary→ Abonamente   (memberships)
+   Tertiary → Antreneaza-te (academy)
+══════════════════════════════════════ */
+.hero-cta3 { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+.cta-primary {
+  background: var(--a); color: #1A0530; font-size: 9px; font-weight: 700;
+  padding: 7px 14px; border-radius: 4px; font-family: 'Nunito Sans', sans-serif;
+  border: 1px solid var(--a);
+}
+.cta-secondary {
+  background: transparent; color: var(--a-lt); font-size: 9px; font-weight: 700;
+  padding: 7px 14px; border-radius: 4px; font-family: 'Nunito Sans', sans-serif;
+  border: 1px solid var(--a);
+}
+.cta-tertiary {
+  background: transparent; color: var(--muted); font-size: 9px; font-weight: 600;
+  padding: 7px 12px; border-radius: 4px; font-family: 'Nunito Sans', sans-serif;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* ══════════════════════════════════════
+   Trust-signal treatments — replacements
+   for the boxy "4 / 500+ / Weekly" stat row
+══════════════════════════════════════ */
+
+/* F — none, just generous whitespace */
+
+/* G — single inline trust line */
+.trust-line {
+  margin-top: 18px; font-size: 8.5px; letter-spacing: .06em; color: var(--faint);
+  font-family: 'Nunito Sans', sans-serif; display: flex; align-items: center; gap: 8px;
+}
+.trust-line .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--faint); display: inline-block; }
+.trust-line b { color: var(--a-lt); font-weight: 700; }
+
+/* H — icon chip row */
+.trust-chips { display: flex; gap: 10px; margin-top: 16px; justify-content: center; flex-wrap: wrap; }
+.trust-chip {
+  display: flex; align-items: center; gap: 5px;
+  border: 1px solid rgba(255,255,255,0.14); border-radius: 20px;
+  padding: 5px 10px; font-family: 'Nunito Sans', sans-serif;
+}
+.trust-chip svg { width: 11px; height: 11px; stroke: var(--a-lt); flex-shrink: 0; }
+.trust-chip span { font-size: 8.5px; color: var(--muted); white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<div class="page-head">
+  <h1>Color Explorer — Padel Haus</h1>
+  <p>Pick an accent color below — all designs update live</p>
+</div>
+
+<!-- ── Color Swatches ── -->
+<div class="color-bar">
+  <div class="color-bar-label">Accent color — click to apply</div>
+
+  <div class="swatch-group-label">— Gold family —</div>
+  <div class="swatch-group">
+    <div class="swatch active" data-accent="#C9943A" data-lt="#E0B55A" style="background:#C9943A" onclick="setAccent(this)"><span class="sw-name">Warm Gold</span></div>
+    <div class="swatch" data-accent="#E8C547" data-lt="#F5D870" style="background:#E8C547" onclick="setAccent(this)"><span class="sw-name">Bright Gold</span></div>
+    <div class="swatch" data-accent="#D4AF37" data-lt="#ECCB5A" style="background:#D4AF37" onclick="setAccent(this)"><span class="sw-name">Metallic Gold</span></div>
+    <div class="swatch" data-accent="#F0A030" data-lt="#FFB84D" style="background:#F0A030" onclick="setAccent(this)"><span class="sw-name">Amber Gold</span></div>
+    <div class="swatch" data-accent="#B89028" data-lt="#D4A840" style="background:#B89028" onclick="setAccent(this)"><span class="sw-name">Dark Gold</span></div>
+    <div class="swatch" data-accent="#FFD700" data-lt="#FFE640" style="background:#FFD700" onclick="setAccent(this)"><span class="sw-name">Classic Gold</span></div>
+  </div>
+
+  <div class="swatch-group-label">— Other accents —</div>
+  <div class="swatch-group">
+    <div class="swatch" data-accent="#B5F03D" data-lt="#D4FF70" style="background:#B5F03D" onclick="setAccent(this)"><span class="sw-name">Original Lime</span></div>
+    <div class="swatch" data-accent="#6ED870" data-lt="#90F092" style="background:#6ED870" onclick="setAccent(this)"><span class="sw-name">Sage Green</span></div>
+    <div class="swatch" data-accent="#3CC87A" data-lt="#60E09A" style="background:#3CC87A" onclick="setAccent(this)"><span class="sw-name">Emerald</span></div>
+    <div class="swatch" data-accent="#40C9A0" data-lt="#60E0BC" style="background:#40C9A0" onclick="setAccent(this)"><span class="sw-name">Mint Teal</span></div>
+    <div class="swatch" data-accent="#FFFFFF" data-lt="#E2D9F3" style="background:#FFFFFF" onclick="setAccent(this)"><span class="sw-name">Pure White</span></div>
+    <div class="swatch" data-accent="#E87090" data-lt="#F09AB0" style="background:#E87090" onclick="setAccent(this)"><span class="sw-name">Rose</span></div>
+    <div class="swatch" data-accent="#E87840" data-lt="#F0A060" style="background:#E87840" onclick="setAccent(this)"><span class="sw-name">Coral</span></div>
+    <div class="swatch" data-accent="#60A8E8" data-lt="#80C0FF" style="background:#60A8E8" onclick="setAccent(this)"><span class="sw-name">Sky Blue</span></div>
+    <div class="swatch" data-accent="#76FF03" data-lt="#A2FF40" style="background:#76FF03" onclick="setAccent(this)"><span class="sw-name">Electric Lime</span></div>
+  </div>
+</div>
+
+<!-- ── Designs ── -->
+<div class="grid">
+
+  <!-- A: Current Hero — Plain BG -->
+  <div class="card">
+    <div class="mockup plain-bg">
+      <div class="nav-pill">
+        <div class="ph-logo-sm"><span class="ph-script-sm">padel</span><span class="ph-bold-sm">haus.</span></div>
+        <span class="np-link">About Us</span>
+        <span class="np-link">Coaching</span>
+        <span class="np-link">Community</span>
+        <span class="np-link">Events</span>
+        <span class="np-link">Corporate</span>
+        <span class="np-lang">RO</span>
+        <span class="np-cta">Book Now</span>
+      </div>
+
+      <div class="hero-ct">
+        <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:8px;">
+          <div class="ph-name"><span class="ph-script">padel</span><span class="ph-bold">haus.</span></div>
+          <span class="ph-catch">Your second home</span>
+        </div>
+        <div class="hero-bs">
+          <div class="hero-b1">Book a Court</div>
+          <div class="hero-b2">▶ Watch</div>
+        </div>
+        <div class="hero-st">
+          <div><div class="hero-sn">4</div><div class="hero-sl">Courts</div></div>
+          <div><div class="hero-sn">500+</div><div class="hero-sl">Members</div></div>
+          <div><div class="hero-sn">Weekly</div><div class="hero-sl">Events</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-label">
+      <div class="card-num">A</div>
+      <div>
+        <div class="card-title">Current Hero — Plain BG</div>
+        <div class="card-desc">Solid #1A0530 background, no patterns.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- B: Current Hero — Video -->
+  <div class="card">
+    <div class="mockup" style="background:#1A0530;">
+      <video class="vid" autoplay muted loop playsinline>
+        <source src="public/IMG_2807_trimmed.MOV" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-fade"></div>
+
+      <div class="nav-pill">
+        <div class="ph-logo-sm"><span class="ph-script-sm">padel</span><span class="ph-bold-sm">haus.</span></div>
+        <span class="np-link">About Us</span>
+        <span class="np-link">Coaching</span>
+        <span class="np-link">Community</span>
+        <span class="np-link">Events</span>
+        <span class="np-link">Corporate</span>
+        <span class="np-lang">RO</span>
+        <span class="np-cta">Book Now</span>
+      </div>
+
+      <div class="hero-ct">
+        <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:8px;">
+          <div class="ph-name"><span class="ph-script">padel</span><span class="ph-bold">haus.</span></div>
+          <span class="ph-catch">Your second home</span>
+        </div>
+        <div class="hero-bs">
+          <div class="hero-b1">Book a Court</div>
+          <div class="hero-b2">▶ Watch</div>
+        </div>
+        <div class="hero-st">
+          <div><div class="hero-sn">4</div><div class="hero-sl">Courts</div></div>
+          <div><div class="hero-sn">500+</div><div class="hero-sl">Members</div></div>
+          <div><div class="hero-sn">Weekly</div><div class="hero-sl">Events</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-label">
+      <div class="card-num">B</div>
+      <div>
+        <div class="card-title">Current Hero — Video</div>
+        <div class="card-desc">Video bg · rgba(26,5,48,0.75) overlay · bottom fade to #1A0530.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C: Arch — Plain BG -->
+  <div class="card">
+    <div class="mockup plain-bg">
+      <div class="arch-ring"></div>
+
+      <div class="nav-pill">
+        <div class="ph-logo-sm"><span class="ph-script-sm">padel</span><span class="ph-bold-sm">haus.</span></div>
+        <span class="np-link">About Us</span>
+        <span class="np-link">Coaching</span>
+        <span class="np-link">Community</span>
+        <span class="np-link">Events</span>
+        <span class="np-link">Corporate</span>
+        <span class="np-lang">RO</span>
+        <span class="np-cta">Book Now</span>
+      </div>
+
+      <div class="arch-ct">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div class="ph-name"><span class="ph-script">padel</span><span class="ph-bold">haus.</span></div>
+          <span class="ph-catch">Your second home</span>
+        </div>
+        <div class="arch-sub">Bucharest · Open Daily</div>
+        <div class="arch-bt">Book a Court</div>
+      </div>
+    </div>
+    <div class="card-label">
+      <div class="card-num">C</div>
+      <div>
+        <div class="card-title">Arch — Plain BG</div>
+        <div class="card-desc">Solid #1A0530, accent semicircle rising from below.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- D: Arch — Video -->
+  <div class="card">
+    <div class="mockup" style="background:#1A0530;">
+      <video class="vid" autoplay muted loop playsinline>
+        <source src="public/IMG_2807_trimmed.MOV" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-fade"></div>
+      <div class="arch-ring" style="z-index:4;"></div>
+
+      <div class="nav-pill">
+        <div class="ph-logo-sm"><span class="ph-script-sm">padel</span><span class="ph-bold-sm">haus.</span></div>
+        <span class="np-link">About Us</span>
+        <span class="np-link">Coaching</span>
+        <span class="np-link">Community</span>
+        <span class="np-link">Events</span>
+        <span class="np-link">Corporate</span>
+        <span class="np-lang">RO</span>
+        <span class="np-cta">Book Now</span>
+      </div>
+
+      <div class="arch-ct">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div class="ph-name"><span class="ph-script">padel</span><span class="ph-bold">haus.</span></div>
+          <span class="ph-catch">Your second home</span>
+        </div>
+        <div class="arch-sub">Bucharest · Open Daily</div>
+        <div class="arch-bt">Book a Court</div>
+      </div>
+    </div>
+    <div class="card-label">
+      <div class="card-num">D</div>
+      <div>
+        <div class="card-title">Arch — Video</div>
+        <div class="card-desc">Video bg · hero overlay + fade · accent semicircle.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- E: Hero — 3-CTA button group -->
+  <div class="card">
+    <div class="mockup" style="background:#1A0530;">
+      <video class="vid" autoplay muted loop playsinline>
+        <source src="public/IMG_2807_trimmed.MOV" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-fade"></div>
+
+      <div class="nav-pill">
+        <div class="ph-logo-sm"><span class="ph-script-sm">padel</span><span class="ph-bold-sm">haus.</span></div>
+        <span class="np-link">About Us</span>
+        <span class="np-link">Coaching</span>
+        <span class="np-link">Community</span>
+        <span class="np-link">Events</span>
+        <span class="np-link">Corporate</span>
+        <span class="np-lang">RO</span>
+        <span class="np-cta">Rezerva</span>
+      </div>
+
+      <div class="hero-ct">
+        <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:8px;">
+          <div class="ph-name"><span class="ph-script">padel</span><span class="ph-bold">haus.</span></div>
+          <span class="ph-catch">Your second home</span>
+        </div>
+        <div class="hero-cta3">
+          <div class="cta-primary">Rezerva</div>
+          <div class="cta-secondary">Abonamente</div>
+          <div class="cta-tertiary">Antreneaza-te</div>
+        </div>
+        <div class="hero-st">
+          <div><div class="hero-sn">4</div><div class="hero-sl">Courts</div></div>
+          <div><div class="hero-sn">500+</div><div class="hero-sl">Members</div></div>
+          <div><div class="hero-sn">Weekly</div><div class="hero-sl">Events</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-label">
+      <div class="card-num">E</div>
+      <div>
+        <div class="card-title">3-CTA hierarchy — Video</div>
+        <div class="card-desc">Rezerva (filled, primary) · Abonamente (outline, secondary) · Antreneaza-te (ghost, tertiary) over video bg. Still has the old stat blocks — compare against F/G/H.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F: Hero — Minimal, no stat row -->
+  <div class="card">
+    <div class="mockup" style="background:#1A0530;">
+      <video class="vid" autoplay muted loop playsinline>
+        <source src="public/IMG_2807_trimmed.MOV" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-fade"></div>
+
+      <div class="nav-pill">
+        <div class="ph-logo-sm"><span class="ph-script-sm">padel</span><span class="ph-bold-sm">haus.</span></div>
+        <span class="np-link">About Us</span>
+        <span class="np-link">Coaching</span>
+        <span class="np-link">Community</span>
+        <span class="np-link">Events</span>
+        <span class="np-link">Corporate</span>
+        <span class="np-lang">RO</span>
+        <span class="np-cta">Rezerva</span>
+      </div>
+
+      <div class="hero-ct">
+        <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:14px;">
+          <div class="ph-name"><span class="ph-script">padel</span><span class="ph-bold">haus.</span></div>
+          <span class="ph-catch">Your second home</span>
+        </div>
+        <div class="hero-cta3">
+          <div class="cta-primary">Rezerva</div>
+          <div class="cta-secondary">Abonamente</div>
+          <div class="cta-tertiary">Antreneaza-te</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-label">
+      <div class="card-num">F</div>
+      <div>
+        <div class="card-title">Minimal — no stat row — Video</div>
+        <div class="card-desc">Drops the number blocks entirely, over video bg. Headline + tagline + the 3 CTAs, with extra breathing room. Quietest, most premium option.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- G: Hero — Inline trust line -->
+  <div class="card">
+    <div class="mockup" style="background:#1A0530;">
+      <video class="vid" autoplay muted loop playsinline>
+        <source src="public/IMG_2807_trimmed.MOV" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-fade"></div>
+
+      <div class="nav-pill">
+        <div class="ph-logo-sm"><span class="ph-script-sm">padel</span><span class="ph-bold-sm">haus.</span></div>
+        <span class="np-link">About Us</span>
+        <span class="np-link">Coaching</span>
+        <span class="np-link">Community</span>
+        <span class="np-link">Events</span>
+        <span class="np-link">Corporate</span>
+        <span class="np-lang">RO</span>
+        <span class="np-cta">Rezerva</span>
+      </div>
+
+      <div class="hero-ct">
+        <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:8px;">
+          <div class="ph-name"><span class="ph-script">padel</span><span class="ph-bold">haus.</span></div>
+          <span class="ph-catch">Your second home</span>
+        </div>
+        <div class="hero-cta3">
+          <div class="cta-primary">Rezerva</div>
+          <div class="cta-secondary">Abonamente</div>
+          <div class="cta-tertiary">Antreneaza-te</div>
+        </div>
+        <div class="trust-line">
+          <span><b>4</b> Courts</span><span class="dot"></span>
+          <span><b>500+</b> Members</span><span class="dot"></span>
+          <span>Events Weekly</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-label">
+      <div class="card-num">G</div>
+      <div>
+        <div class="card-title">Inline trust line — Video</div>
+        <div class="card-desc">Same facts over video bg, but as one quiet muted line with dot separators instead of 3 boxy stat blocks — keeps the info without competing with the buttons.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- H: Hero — Icon chip row -->
+  <div class="card">
+    <div class="mockup" style="background:#1A0530;">
+      <video class="vid" autoplay muted loop playsinline>
+        <source src="public/IMG_2807_trimmed.MOV" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-fade"></div>
+
+      <div class="nav-pill">
+        <div class="ph-logo-sm"><span class="ph-script-sm">padel</span><span class="ph-bold-sm">haus.</span></div>
+        <span class="np-link">About Us</span>
+        <span class="np-link">Coaching</span>
+        <span class="np-link">Community</span>
+        <span class="np-link">Events</span>
+        <span class="np-link">Corporate</span>
+        <span class="np-lang">RO</span>
+        <span class="np-cta">Rezerva</span>
+      </div>
+
+      <div class="hero-ct">
+        <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:8px;">
+          <div class="ph-name"><span class="ph-script">padel</span><span class="ph-bold">haus.</span></div>
+          <span class="ph-catch">Your second home</span>
+        </div>
+        <div class="hero-cta3">
+          <div class="cta-primary">Rezerva</div>
+          <div class="cta-secondary">Abonamente</div>
+          <div class="cta-tertiary">Antreneaza-te</div>
+        </div>
+        <div class="trust-chips">
+          <div class="trust-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 3v18M3 12h18"/></svg>
+            <span>4 Courts</span>
+          </div>
+          <div class="trust-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>500+ Members</span>
+          </div>
+          <div class="trust-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <span>Weekly Events</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-label">
+      <div class="card-num">H</div>
+      <div>
+        <div class="card-title">Icon chip row — Video</div>
+        <div class="card-desc">Facts as small pill chips with line icons over video bg, instead of big numbers — reads as feature tags, not a stats dashboard.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const LIGHT = new Set(['#FFFFFF','#E2D9F3','#A8E840','#B5F03D','#6ED870','#76FF03','#00C853','#E8C547','#FFD700','#F0A030']);
+
+function setAccent(sw) {
+  document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+  sw.classList.add('active');
+  const a  = sw.dataset.accent;
+  const lt = sw.dataset.lt;
+  document.documentElement.style.setProperty('--a',  a);
+  document.documentElement.style.setProperty('--a-lt', lt);
+  if (window.__recordEvent) window.__recordEvent({type:'click', choice: a, text: sw.querySelector('.sw-name').textContent});
+}
+</script>
+</body>
+</html>

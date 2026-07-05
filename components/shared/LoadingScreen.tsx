@@ -50,7 +50,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
             transition={{ duration: 0.72, repeat: Infinity, ease: [0.33, 1, 0.68, 1] }}
           />
           <motion.div
-            className="relative h-12 w-12 rounded-full bg-[#B5F03D] shadow-[0_18px_40px_rgba(181,240,61,0.28)]"
+            className="relative h-12 w-12 rounded-full bg-[#FFD700] shadow-[0_18px_40px_rgba(181,240,61,0.28)]"
             animate={{
               y: [0, -58, 0],
               scaleX: [1.14, 0.96, 1.14],

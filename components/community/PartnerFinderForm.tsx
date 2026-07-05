@@ -50,14 +50,14 @@ export default function PartnerFinderForm() {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="bg-[#2D0A4E] rounded-2xl p-8 md:p-10 border border-white/10"
+      className="bg-[#3B0758] rounded-2xl p-8 md:p-10 border border-white/10"
     >
       <h2 className="text-3xl font-black text-white mb-2">{t("title")}</h2>
       <p className="text-[#E2D9F3] mb-8">{t("desc")}</p>
 
       {submitted ? (
         <div className="text-center py-10">
-          <CheckCircle2 size={48} className="text-[#B5F03D] mx-auto mb-4" />
+          <CheckCircle2 size={48} className="text-[#FFD700] mx-auto mb-4" />
           <p className="text-white font-bold text-lg">{t("success")}</p>
           <p className="text-[#E2D9F3] mt-2 text-sm">{t("successSub")}</p>
         </div>
@@ -71,7 +71,7 @@ export default function PartnerFinderForm() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder={t("namePlaceholder")}
-                className="bg-[#1A0530] border-white/20 text-white placeholder:text-white/40 focus:border-[#B5F03D]"
+                className="bg-[#3B0758] border-white/20 text-white placeholder:text-white/40 focus:border-[#FFD700]"
               />
             </div>
             <div className="space-y-2">
@@ -82,7 +82,7 @@ export default function PartnerFinderForm() {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder={t("phonePlaceholder")}
-                className="bg-[#1A0530] border-white/20 text-white placeholder:text-white/40 focus:border-[#B5F03D]"
+                className="bg-[#3B0758] border-white/20 text-white placeholder:text-white/40 focus:border-[#FFD700]"
               />
             </div>
           </div>
@@ -97,7 +97,7 @@ export default function PartnerFinderForm() {
                   onClick={() => setAvailability(key)}
                   className={`rounded-xl border px-4 py-3 text-sm font-medium text-left transition-all ${
                     availability === key
-                      ? "border-[#B5F03D] bg-[#B5F03D]/10 text-[#B5F03D]"
+                      ? "border-[#FFD700] bg-[#FFD700]/10 text-[#FFD700]"
                       : "border-white/20 text-[#E2D9F3] hover:border-white/40"
                   }`}
                 >
@@ -118,7 +118,7 @@ export default function PartnerFinderForm() {
                   onClick={() => setSkillLevel(key)}
                   className={`rounded-xl border px-4 py-3 text-sm font-medium text-left transition-all ${
                     skillLevel === key
-                      ? "border-[#B5F03D] bg-[#B5F03D]/10 text-[#B5F03D]"
+                      ? "border-[#FFD700] bg-[#FFD700]/10 text-[#FFD700]"
                       : "border-white/20 text-[#E2D9F3] hover:border-white/40"
                   }`}
                 >
@@ -136,7 +136,7 @@ export default function PartnerFinderForm() {
           <Button
             type="submit"
             disabled={loading || !name || !phone || !availability || !skillLevel}
-            className="bg-[#B5F03D] text-[#1A0530] hover:bg-[#a1d936] font-bold w-full h-12 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+            className="bg-[#FFD700] text-[#3B0758] hover:bg-[#FFE773] font-bold w-full h-12 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
             {loading ? t("sending") : t("submit")}
           </Button>

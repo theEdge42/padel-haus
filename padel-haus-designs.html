@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Padel Haus — 10 Slick & Elegant Designs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Default: Royal Velvet & Antique Gold */
+  --bg:    #341743;
+  --dark:  #1A0530;
+  --mid:   #2D0A4E;
+  --a:     #C9943A;
+  --a-lt:  #E0B55A;
+  --white: #FFFFFF;
+  --muted: #E2D9F3;
+  --faint: #9A80B0;
+  
+  --glare: rgba(255, 255, 255, 0.08);
+  --gold-glow: rgba(201, 148, 58, 0.35);
+  --purple-glow: rgba(52, 23, 67, 0.5);
+}
+
+body {
+  background: #0f001b;
+  background-image: radial-gradient(circle at 50% -20%, #260a38 0%, #0f001b 70%);
+  color: var(--white);
+  font-family: 'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  padding: 32px 16px 100px;
+  min-height: 100vh;
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg);
+  border: 2px solid var(--dark);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--a);
+}
+
+/* ── Typography helpers ── */
+.serif-italic {
+  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 300;
+  text-transform: none;
+}
+
+/* ── Page head ── */
+.page-head { text-align: center; margin-bottom: 32px; }
+.page-head h1 { font-size: clamp(18px, 4vw, 24px); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; color: var(--white); text-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+.page-head h1 span { color: var(--a); }
+.page-head p { font-size: 13px; color: var(--faint); max-width: 520px; margin: 0 auto; line-height: 1.5; }
+
+/* ── Color Swatches ── */
+.color-bar {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 12px; margin-bottom: 40px;
+  background: rgba(26, 8, 48, 0.4); border: 1px solid rgba(52, 23, 67, 0.6);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-radius: 16px; padding: 20px 24px;
+  max-width: 860px; margin-left: auto; margin-right: auto;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.color-bar-label { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--a); font-weight: 700; text-align: center; }
+.swatch-group { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: center; width: 100%; }
+.swatch {
+  width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
+  border: 3px solid rgba(255,255,255,0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform .2s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color .2s, box-shadow .2s;
+  position: relative;
+}
+.swatch:hover { transform: scale(1.18); box-shadow: 0 6px 15px rgba(0,0,0,0.4); border-color: rgba(255,255,255,0.4); }
+.swatch.active { border-color: var(--white); transform: scale(1.18); box-shadow: 0 0 14px var(--gold-glow); }
+.swatch .sw-name {
+  position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%);
+  font-size: 9px; font-weight: 600; letter-spacing: .05em; color: var(--faint); white-space: nowrap;
+  pointer-events: none; opacity: 0; transition: opacity .2s, transform .2s;
+}
+.swatch:hover .sw-name { opacity: 1; transform: translate(-50%, -2px); }
+.swatch.active .sw-name { opacity: 1; color: var(--a); font-weight: 700; }
+
+/* ── Grid — 2 per row ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+
+/* ── Card Container ── */
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 18px; overflow: hidden;
+  background: rgba(30, 10, 43, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 148, 58, 0.25);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6), 0 0 20px rgba(52, 23, 67, 0.3);
+}
+.card-label {
+  display: flex; align-items: flex-start; gap: 14px; padding: 16px 20px;
+  background: #0b0114;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+.card-num {
+  width: 28px; height: 28px; background: rgba(52, 23, 67, 0.4);
+  border: 1px solid var(--a); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; color: var(--a);
+  flex-shrink: 0; margin-top: 1px;
+  box-shadow: inset 0 0 4px rgba(201, 148, 58, 0.2);
+}
+.card-title { font-weight: 800; font-size: 14px; color: var(--white); letter-spacing: .02em; }
+.card-desc { font-size: 12px; color: var(--faint); margin-top: 4px; line-height: 1.45; }
+
+/* ── Mockup Frame ── */
+.mockup {
+  height: clamp(280px, 35vw, 340px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--dark);
+  transition: background 0.4s;
+}
+
+/* ── Shared Pill Nav (Inside Mockups) ── */
+.nav-pill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  height: 36px;
+  background: rgba(26, 5, 48, 0.65);
+  border: 1px solid var(--glare);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 10;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.ph-logo-sm { display: inline-flex; align-items: baseline; gap: 1px; line-height: 1; }
+.ph-script-sm { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: #eeede9; font-style: italic; }
+.ph-bold-sm { font-family: 'Nunito Sans', sans-serif; font-size: 11px; font-weight: 800; color: var(--white); letter-spacing: .02em; }
+.np-links-group { display: flex; align-items: center; gap: 12px; }
+.np-link { font-size: 9px; font-weight: 700; color: var(--muted); opacity: 0.75; text-decoration: none; transition: opacity .2s; }
+.np-link:hover, .np-link.active { opacity: 1; color: var(--a-lt); }
+.np-sep { width: 1px; height: 12px; background: rgba(255,255,255,0.15); }
+.np-cta {
+  background: var(--a);
+  color: var(--dark);
+  font-size: 9px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 8px;
+  letter-spacing: .02em;
+  box-shadow: 0 2px 8px var(--gold-glow);
+  transition: transform .2s, background-color .2s;
+  cursor: pointer;
+}
+.np-cta:hover { transform: translateY(-1px); background: var(--a-lt); }
+
+/* ── Interactive CTA Button Style (Makes You Click!) ── */
+.glowing-cta {
+  background: linear-gradient(135deg, var(--a) 0%, var(--a-lt) 100%);
+  color: var(--dark);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px var(--gold-glow);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.2), box-shadow 0.2s;
+}
+.glowing-cta:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 22px var(--a), 0 0 10px rgba(255,255,255,0.5);
+}
+.glowing-cta::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: -60%;
+  width: 40%; height: 200%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+  transform: rotate(30deg);
+  transition: none;
+  animation: shineSweep 4s infinite ease-in-out;
+}
+@keyframes shineSweep {
+  0% { left: -60%; }
+  15% { left: 140%; }
+  100% { left: 140%; }
+}
+
+/* ══════════════════════════════════════
+   MOCKUP SPECIFIC VISUALS
+══════════════════════════════════════ */
+
+/* Card 1: The Radiant Portal */
+.radiant-portal {
+  background: radial-gradient(circle at 50% 50%, var(--mid) 0%, var(--dark) 100%);
+}
+.vertical-slit {
+  position: absolute;
+  width: 2px;
+  height: 180px;
+  background: linear-gradient(to bottom, transparent, var(--a-lt) 30%, var(--a) 70%, transparent);
+  box-shadow: 0 0 15px var(--a), 0 0 30px var(--a);
+  left: 50%;
+  transform: translateX(-50%);
+  animation: beamPulse 3s infinite alternate;
+}
+@keyframes beamPulse {
+  0% { opacity: 0.6; box-shadow: 0 0 10px var(--a); }
+  100% { opacity: 1; box-shadow: 0 0 22px var(--a), 0 0 8px rgba(255,255,255,0.4); }
+}
+.portal-content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+.portal-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  margin-bottom: 16px;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Card 2: Golden Hour Arch */
+.golden-arch-mock {
+  background: radial-gradient(circle at 50% 120%, rgba(201, 148, 58, 0.15) 0%, var(--dark) 80%);
+}
+.arch-frame {
+  width: 130px;
+  height: 170px;
+  border: 1.5px solid var(--a);
+  border-bottom: none;
+  border-radius: 65px 65px 0 0;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to top, rgba(26,5,48,0.9), transparent);
+  box-shadow: inset 0 5px 25px var(--gold-glow), 0 -5px 25px var(--gold-glow);
+}
+.arch-text-only {
+  position: relative;
+  z-index: 5;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Card 3: Deep Aubergine Court */
+.court-lines-mock {
+  background: #150221;
+}
+.court-line-vector {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border: 1px solid var(--a);
+  border-radius: 8px;
+  transform: rotateX(60deg) rotateZ(45deg);
+  opacity: 0.3;
+  box-shadow: 0 0 15px var(--gold-glow);
+  pointer-events: none;
+}
+.court-line-highlight {
+  position: absolute;
+  width: 150px;
+  height: 1px;
+  background: var(--a-lt);
+  transform: rotateX(60deg) rotateZ(45deg) translate(20px, 40px);
+  box-shadow: 0 0 8px var(--a);
+  pointer-events: none;
+}
+
+/* Card 4: Obsidian Member Sanctuary */
+.obsidian-plate-mock {
+  background: radial-gradient(circle at 10% 10%, var(--mid) 0%, var(--dark) 90%);
+}
+.obsidian-card {
+  width: 220px;
+  height: 120px;
+  background: rgba(11, 2, 18, 0.85);
+  border: 1px solid var(--a);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 1px 1px rgba(255,255,255,0.1);
+  position: relative;
+  backdrop-filter: blur(8px);
+}
+.obsidian-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 11px;
+  background: radial-gradient(circle at 0% 0%, rgba(201, 148, 58, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+.obsidian-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  color: var(--a-lt);
+  text-transform: uppercase;
+}
+.obsidian-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--white);
+}
+
+/* Card 5: Liquid Velvet */
+.liquid-velvet {
+  background: radial-gradient(circle at 50% 100%, #430c4e 0%, var(--dark) 70%);
+}
+.glowing-orb {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--a) 0%, transparent 70%);
+  filter: blur(25px);
+  opacity: 0.35;
+  bottom: -20px;
+  pointer-events: none;
+}
+
+/* Card 6: Warm Acoustics */
+.warm-acoustics {
+  background: var(--dark);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0 40px;
+}
+.slat-grid {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 10%;
+  opacity: 0.15;
+  pointer-events: none;
+}
+.slat {
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--a-lt), var(--a));
+}
+.cozy-wash {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(52, 23, 67, 0.6), transparent 80%);
+}
+
+/* Card 7: Solar Eclipse */
+.solar-eclipse-mock {
+  background: #0d0016;
+}
+.eclipse-ring {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #0d0016;
+  position: absolute;
+  box-shadow: 0 0 25px var(--a), 0 0 50px var(--gold-glow), inset 0 0 10px rgba(201, 148, 58, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card 8: Metallic Cage */
+.metallic-cage-mock {
+  background: #11021c;
+}
+.cage-mesh {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(45deg, rgba(201, 148, 58, 0.04) 25%, transparent 25%), 
+    linear-gradient(-45deg, rgba(201, 148, 58, 0.04) 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, rgba(201, 148, 58, 0.04) 75%), 
+    linear-gradient(-45deg, transparent 75%, rgba(201, 148, 58, 0.04) 75%);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+/* Card 9: Steam & Light */
+.steam-light-mock {
+  background: radial-gradient(circle at 30% 40%, var(--bg) 0%, var(--dark) 100%);
+}
+.steam-cloud {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: var(--mid);
+  filter: blur(35px);
+  opacity: 0.4;
+  animation: floatSteam 6s infinite alternate ease-in-out;
+}
+@keyframes floatSteam {
+  0% { transform: translate(-10px, -10px) scale(1); }
+  100% { transform: translate(15px, 10px) scale(1.1); }
+}
+
+/* Card 10: Midnight Rally */
+.midnight-rally-mock {
+  background: #0b0114;
+}
+.streak {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--a) 50%, var(--a-lt) 80%, transparent);
+  box-shadow: 0 0 8px var(--a);
+  pointer-events: none;
+}
+.streak-1 { width: 180px; transform: rotate(-25deg) translate(-20px, -40px); }
+.streak-2 { width: 140px; transform: rotate(-25deg) translate(40px, 30px); opacity: 0.6; }
+</style>
+</head>
+<body>
+
+<div class="page-head">
+  <h1>Padel Haus <span>Portfolio</span></h1>
+  <p>An abstract exploration of community and warmth under a premium, bold aesthetic. Free of clinical names or labels—purely focused on slick, elegant clickability.</p>
+</div>
+
+<!-- ── Color Swatches (Interactive Purple & Gold Flavors) ── -->
+<div class="color-bar">
+  <div class="color-bar-label">Explore Purple & Gold Flavors — Click to Apply</div>
+  <div class="swatch-group">
+    <!-- Velvet Classic -->
+    <div class="swatch active" 
+         data-accent="#C9943A" 
+         data-lt="#E0B55A" 
+         data-bg="#341743" 
+         data-dark="#1A0530" 
+         data-mid="#2D0A4E" 
+         data-muted="#E2D9F3" 
+         data-faint="#9A80B0" 
+         style="background: linear-gradient(135deg, #341743 50%, #C9943A 50%)" 
+         onclick="setAccent(this)">
+      <span class="sw-name">Royal Velvet</span>
+    </div>
+    
+    <!-- Cozy Aubergine -->
+    <div class="swatch" 
+         data-accent="#ECC372" 
+         data-lt="#F5E0B3" 
+         data-bg="#401E4E" 
+         data-dark="#230B2D" 
+         data-mid="#31123C" 
+         data-muted="#ECC8FF" 
+         data-faint="#B497C0" 
+         style="background: linear-gradient(135deg, #401E4E 50%, #ECC372 50%)" 
+         onclick="setAccent(this)">
+      <span class="sw-name">Cozy Aubergine</span>
+    </div>
+    
+    <!-- Industrial Brass -->
+    <div class="swatch" 
+         data-accent="#A37A3E" 
+         data-lt="#C2A478" 
+         data-bg="#25172E" 
+         data-dark="#120917" 
+         data-mid="#1A0E21" 
+         data-muted="#D9C2DB" 
+         data-faint="#8B7C93" 
+         style="background: linear-gradient(135deg, #25172E 50%, #A37A3E 50%)" 
+         onclick="setAccent(this)">
+      <span class="sw-name">Industrial Brass</span>
+    </div>
+
+    <!-- Electric Plum -->
+    <div class="swatch" 
+         data-accent="#FFD700" 
+         data-lt="#FFE773" 
+         data-bg="#4A0E6D" 
+         data-dark="#25003D" 
+         data-mid="#3B0758" 
+         data-muted="#F3E8FF" 
+         data-faint="#C09BD8" 
+         style="background: linear-gradient(135deg, #4A0E6D 50%, #FFD700 50%)" 
+         onclick="setAccent(this)">
+      <span class="sw-name">Electric Plum</span>
+    </div>
+
+    <!-- Aged Bronze -->
+    <div class="swatch" 
+         data-accent="#B88E2F" 
+         data-lt="#D2AF62" 
+         data-bg="#2F1F35" 
+         data-dark="#1C0F21" 
+         data-mid="#27182D" 
+         data-muted="#D7CBE0" 
+         data-faint="#8B7D94" 
+         style="background: linear-gradient(135deg, #2F1F35 50%, #B88E2F 50%)" 
+         onclick="setAccent(this)">
+      <span class="sw-name">Aged Bronze</span>
+    </div>
+
+    <!-- Earthy Ochre -->
+    <div class="swatch" 
+         data-accent="#E5A93C" 
+         data-lt="#F4C775" 
+         data-bg="#4C1E3C" 
+         data-dark="#290A1F" 
+         data-mid="#3A132B" 
+         data-muted="#EAD1DF" 
+         data-faint="#B0809C" 
+         style="background: linear-gradient(135deg, #4C1E3C 50%, #E5A93C 50%)" 
+         onclick="setAccent(this)">
+      <span class="sw-name">Earthy Ochre</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── Designs Grid (Two Cards Per Row, 10 Total) ── -->
+<div class="grid">
+
+  <!-- DESIGN 01: The Radiant Portal -->
+  <div class="card">
+    <div class="mockup radiant-portal">
+      <div class="vertical-slit"></div>
+      
+      <div class="nav-pill">
+        <div class="ph-logo-sm">
+          <span class="ph-script-sm">padel</span><span class="ph-bold-sm">haus.</span>
+        </div>
+        <span class="np-cta">Enter Club</span>
+      </div>
+      
+      <div class="portal-content">
+        <h2 class="portal-title">Step <span class="serif-italic">Inside</span></h2>
+        <button class="glowing-cta">Reserve Your Hour</button>
+      </div>
+    </div>
+    
+    <div class="card-label">
+      <div class="card-num">01</div>
+      <div>
+        <div class="card-title">The Radiant Portal</div>
+        <div class="card-desc">Minimalist, mysterious entryway. A glowing slit of gold slices through royal purple velvet, drawing focus directly to the central booking CTA.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN 02: Golden Hour Arch -->
+  <div class="card">
+    <div class="mockup golden-arch-mock">
+      <div class="arch-frame"></div>
+      
+      <div class="nav-pill">
+        <div class="ph-logo-sm">
+          <span class="ph-script-sm">padel</span><span class="ph-bold-sm">haus.</span>
+        </div>
+        <span class="np-cta">Explore</span>
+      </div>
+      
+      <div class="arch-text-only">
+        <h2 class="portal-title" style="margin-bottom: 22px;">The <span class="serif-italic">Archway</span></h2>
+        <button class="glowing-cta">Discover Spaces</button>
+      </div>
+    </div>
+    
+    <div class="card-label">
+      <div class="card-num">02</div>
+      <div>
+        <div class="card-title">The Golden Hour Arch</div>
+        <div class="card-desc">Sleek architectural lines. A dramatic, pure geometric gold arch rising from midnight shadow, enclosing warm ambient light.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN 03: The Deep Court -->
+  <div class="card">
+    <div class="mockup court-lines-mock">
+      <div class="court-line-vector"></div>
+      <div class="court-line-highlight"></div>
+      
+      <div class="nav-pill">
+        <div class="ph-logo-sm">
+          <span class="ph-script-sm">padel</span><span class="ph-bold-sm">haus.</span>
+        </div>
+        <span class="np-cta">Book Game</span>
+      </div>
+      
+      <div class="portal-content">
+        <h2 class="portal-title" style="margin-bottom: 20px;">Dusk <span class="serif-italic">Session</span></h2>
+        <button class="glowing-cta">Reserve Court</button>
+      </div>
+    </div>
+    
+    <div class="card-label">
+      <div class="card-num">03</div>
+      <div>
+        <div class="card-title">The Deep Court</div>
+        <div class="card-desc">Highly abstract playground. Devoid of numbers or grids; a single warm golden vector court boundary glows under low-lit aubergine felt.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN 04: Obsidian Sanctuary -->
+  <div class="card">
+    <div class="mockup obsidian-plate-mock">
+      <div class="nav-pill">
+        <div class="ph-logo-sm">
+          <span class="ph-script-sm">padel</span><span class="ph-bold-sm">haus.</span>
+        </div>
+        <span class="np-cta">Inquire</span>
+      </div>
+      
+      <div class="obsidian-card">
+        <div class="obsidian-title">The Collective</div>
+        <div class="obsidian-sub">Cozy Hearth, Hot Steam, Clean Play</div>
+        <button class="glowing-cta" style="align-self: flex-start; padding: 6px 14px; font-size: 8px;">Request Entry</button>
+      </div>
+    </div>
+    
+    <div class="card-label">
+      <div class="card-num">04</div>
+      <div>
+        <div class="card-title">Obsidian Sanctuary</div>
+        <div class="card-desc">An ultra-exclusive membership preview. A floating, black obsidian-glass plate outlined in gold leaf, backed by ambient purple neon halos.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN 05: Liquid Velvet -->
+  <div class="card">
+    <div class="mockup liquid-velvet">
+      <div class="glowing-orb"></div>
+      
+      <div class="nav-pill">
+        <div class="ph-logo-sm">
+          <span class="ph-script-sm">padel</span><span class="ph-bold-sm">haus.</span>
+        </div>
+        <span class="np-cta">Pouring Now</span>
+      </div>
+      
+      <div class="portal-content">
+        <h2 class="portal-title" style="margin-bottom: 20px;">Liquid <span class="serif-italic">Velvet</span></h2>
+        <button class="glowing-cta">Browse Lounge</button>
+      </div>
+    </div>
+    
+    <div class="card-label">
+      <div class="card-num">05</div>
+      <div>
+        <div class="card-title">Liquid Velvet Lounge</div>
+        <div class="card-desc">Sensory social vibe. Rich plum tones bleed into a gold pool of light at the bottom, conveying relaxed post-game cocktail bar luxury.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN 06: Warm Acoustics -->
+  <div class="card">
+    <div class="mockup warm-acoustics">
+      <div class="slat-grid">
+        <div class="slat"></div>
+        <div class="slat"></div>
+        <div class="slat"></div>
+        <div class="slat"></div>
+        <div class="slat"></div>
+      </div>
+      <div class="cozy-wash"></div>
+      
+      <div class="nav-pill">
+        <div class="ph-logo-sm">
+          <span class="ph-script-sm">padel</span><span class="ph-bold-sm">haus.</span>
+        </div>
+        <span class="np-cta">Take Tour</span>
+      </div>
+      
+      <div class="portal-content">
+        <h2 class="portal-title" style="margin-bottom: 20px;">Quiet <span class="serif-italic">Comfort</span></h2>
+        <button class="glowing-cta">View Sanctuary</button>
+      </div>
+    </div>
+    
+    <div class="card-label">
+      <div class="card-num">06</div>
+      <div>
+        <div class="card-title">Warm Acoustics</div>
+        <div class="card-desc">Industrial meet cozy. Minimalist linear wood-slat patterns cast warm golden shadows against a velvety acoustic background.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN 07: Solar Eclipse -->
+  <div class="card">
+    <div class="mockup solar-eclipse-mock">
+      <div class="eclipse-ring"></div>
+      
+      <div class="nav-pill">
+        <div class="ph-logo-sm">
+          <span class="ph-script-sm">padel</span><span class="ph-bold-sm">haus.</span>
+        </div>
+        <span class="np-cta">Calendar</span>
+      </div>
+      
+      <div class="portal-content">
+        <h2 class="portal-title" style="margin-bottom: 20px;">Dusk <span class="serif-italic">Gatherings</span></h2>
+        <button class="glowing-cta">Join Circle</button>
+      </div>
+    </div>
+    
+    <div class="card-label">
+      <div class="card-num">07</div>
+      <div>
+        <div class="card-title">Solar Eclipse</div>
+        <div class="card-desc">A gold corona glowing behind a deep purple void. Evokes community warmth and sunset mixers under a cosmic, mystical light.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN 08: Raw Metallic Cage -->
+  <div class="card">
+    <div class="mockup metallic-cage-mock">
+      <div class="cage-mesh"></div>
+      
+      <div class="nav-pill">
+        <div class="ph-logo-sm">
+          <span class="ph-script-sm">padel</span><span class="ph-bold-sm">haus.</span>
+        </div>
+        <span class="np-cta">Book Cage</span>
+      </div>
+      
+      <div class="portal-content">
+        <h2 class="portal-title" style="margin-bottom: 20px;">Mesh & <span class="serif-italic">Iron</span></h2>
+        <button class="glowing-cta">Enter Cage</button>
+      </div>
+    </div>
+    
+    <div class="card-label">
+      <div class="card-num">08</div>
+      <div>
+        <div class="card-title">Raw Metallic Cage</div>
+        <div class="card-desc">Refined structural gridlines. Steel-wire textures glowing with faint amber highlights, mimicking court caging with style.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN 09: Steam & Light -->
+  <div class="card">
+    <div class="mockup steam-light-mock">
+      <div class="steam-cloud" style="left: -10px; top: 10px;"></div>
+      <div class="steam-cloud" style="right: -20px; bottom: 10px; background: var(--bg); filter: blur(40px);"></div>
+      
+      <div class="nav-pill">
+        <div class="ph-logo-sm">
+          <span class="ph-script-sm">padel</span><span class="ph-bold-sm">haus.</span>
+        </div>
+        <span class="np-cta">Unwind</span>
+      </div>
+      
+      <div class="portal-content">
+        <h2 class="portal-title" style="margin-bottom: 20px;">Steam & <span class="serif-italic">Glow</span></h2>
+        <button class="glowing-cta">Reserve Session</button>
+      </div>
+    </div>
+    
+    <div class="card-label">
+      <div class="card-num">09</div>
+      <div>
+        <div class="card-title">Steam & Light</div>
+        <div class="card-desc">Deep sensory physical therapy. Cozy warm golden radial light diffused softly through moving layers of rich plum fog.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN 10: Midnight Rally -->
+  <div class="card">
+    <div class="mockup midnight-rally-mock">
+      <div class="streak streak-1"></div>
+      <div class="streak streak-2"></div>
+      
+      <div class="nav-pill">
+        <div class="ph-logo-sm">
+          <span class="ph-script-sm">padel</span><span class="ph-bold-sm">haus.</span>
+        </div>
+        <span class="np-cta">Book Fast</span>
+      </div>
+      
+      <div class="portal-content">
+        <h2 class="portal-title" style="margin-bottom: 20px;">Night <span class="serif-italic">Rally</span></h2>
+        <button class="glowing-cta">Launch Play</button>
+      </div>
+    </div>
+    
+    <div class="card-label">
+      <div class="card-num">10</div>
+      <div>
+        <div class="card-title">Midnight Rally</div>
+        <div class="card-desc">Dynamic speed trails. Thin, razor-sharp golden streams slice diagonally across royal violet darkness, capturing intense kinetic energy.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function setAccent(sw) {
+  document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+  sw.classList.add('active');
+  
+  const a  = sw.dataset.accent;
+  const lt = sw.dataset.lt;
+  const bg = sw.dataset.bg;
+  const dark = sw.dataset.dark;
+  const mid = sw.dataset.mid;
+  const muted = sw.dataset.muted;
+  const faint = sw.dataset.faint;
+  
+  document.documentElement.style.setProperty('--a',  a);
+  document.documentElement.style.setProperty('--a-lt', lt);
+  document.documentElement.style.setProperty('--bg',  bg);
+  document.documentElement.style.setProperty('--dark', dark);
+  document.documentElement.style.setProperty('--mid',  mid);
+  document.documentElement.style.setProperty('--muted', muted);
+  document.documentElement.style.setProperty('--faint', faint);
+  
+  // Update dependent glows dynamically
+  document.documentElement.style.setProperty('--gold-glow', hexToRgbA(a, 0.35));
+  document.documentElement.style.setProperty('--purple-glow', hexToRgbA(bg, 0.5));
+}
+
+// Helper to convert hex color to rgba with alpha
+function hexToRgbA(hex, alpha) {
+  let c;
+  if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
+    c = hex.substring(1).split('');
+    if (c.length == 3) {
+      c = [c[0], c[0], c[1], c[1], c[2], c[2]];
+    }
+    c = '0x' + c.join('');
+    return `rgba(${(c>>16)&255}, ${(c>>8)&255}, ${c&255}, ${alpha})`;
+  }
+  return hex;
+}
+</script>
+</body>
+</html>

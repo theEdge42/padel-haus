@@ -1,9 +1,11 @@
 {
   "nav": {
-    "experience": "About Us",
+    "experience": "Home",
     "coaching": "Coaching",
     "community": "Community",
-    "events": "Events",
+    "events": "Tournaments",
+    "beginners": "Beginners",
+    "memberships": "Memberships",
     "corporate": "Corporate",
     "contact": "Contact",
     "shop": "Shop",
@@ -15,8 +17,11 @@
       "title": "Where Champions Play",
       "subtitle": "4 state-of-the-art indoor padel courts in the heart of the city. Join our vibrant community and elevate your game.",
       "catchphrase": "Your second home.",
-      "ctaBook": "Book a Court",
+      "ctaBook": "Book",
       "ctaLearn": "Explore the Club",
+      "ctaMemberships": "Memberships",
+      "ctaTraining": "Train",
+      "communityDoor": "Community",
       "statCourts": "Indoor Courts",
       "statMembers": "Members",
       "statEventsValue": "All",
@@ -205,7 +210,7 @@
     "hero": {
       "badge": "Coaching",
       "title": "Elevate Your Game",
-      "desc": "Individual and group sessions with certified coaches. Whatever your level, we help you progress quickly and effectively."
+      "desc": "Individual and group sessions whatever your level, we help you progress quickly and effectively."
     },
     "coach": {
       "title": "Coaching",
@@ -215,6 +220,30 @@
       "session90": "90 min session",
       "bookVia": "Book via Playtomic"
     },
+    "sessions": {
+      "title": "Session Types",
+      "private": {
+        "name": "Private Class",
+        "desc": "1-on-1 coaching, fully tailored to your level and goals.",
+        "duration": "60 / 90 min",
+        "price": "150 RON / hour"
+      },
+      "group": {
+        "name": "Semi-Private (2–4 players)",
+        "desc": "Train with friends and split the cost of a certified coach.",
+        "duration": "60 / 90 min",
+        "price": "80 RON / hour / person"
+      },
+      "kids": {
+        "name": "Kids Academy",
+        "desc": "Fun, structured sessions that build fundamentals for young players.",
+        "duration": "60 min",
+        "price": "100 RON / hour"
+      }
+    },
+    "whatsappCta": "Book a Training Session",
+    "whatsappMessage": "Hi! I'd like to book a {session} session at Padel Haus. My name is ___ and my preferred time is ___.",
+    "fallbackLabel": "Prefer email? Fill out the request form instead",
     "howItWorks": {
       "title": "How It Works",
       "step1Title": "Choose a Session",
@@ -236,6 +265,25 @@
       "title": "Ready to Start?",
       "desc": "Book a coaching session directly on Playtomic.",
       "button": "Book a Session"
+    },
+    "plans": {
+      "title": "Training Plans",
+      "daytime": {
+        "name": "Daytime",
+        "schedule": "Mon–Fri: 08:00 – 16:30"
+      },
+      "regular": {
+        "name": "Regular Time",
+        "schedule": "Mon–Fri: 16:30 – 00:00 & Weekends"
+      },
+      "partnersLabel": "Number of players",
+      "partners": {
+        "1": "Individual",
+        "2": "2 players",
+        "3": "3 players"
+      },
+      "perSession": "per session",
+      "whatsappMessage": "Hi! I'd like to book a {plan} training session ({partners}). My name is ___ and my preferred time is ___."
     }
   },
   "corporate": {
@@ -368,6 +416,8 @@
     "name": "Full Name",
     "email": "Email",
     "phone": "Phone",
+    "package": "Package",
+    "selectPackage": "Select a package",
     "submit": "Send Request",
     "success": "Request sent! We'll be in touch soon."
   },
@@ -378,5 +428,129 @@
     "rights": "All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
+  },
+  "pricing": {
+    "badge": "Pricing",
+    "title": "Simple, Transparent Prices",
+    "subtitle": "No hidden fees. Pay per court or save with a membership.",
+    "courtTitle": "Court Rental",
+    "weekdayLabel": "Mon–Fri, until 17:00",
+    "weekdayPrice": "80 RON / hour",
+    "eveningLabel": "Mon–Fri after 17:00 & weekends",
+    "eveningPrice": "120 RON / hour",
+    "racketLabel": "Racket rental",
+    "racketPrice": "20 RON",
+    "dayPassLabel": "Day Pass (unlimited off-peak play)",
+    "dayPassPrice": "150 RON",
+    "academyTeaser": "Private and group coaching sessions",
+    "academyLink": "See Academy pricing",
+    "membershipTeaser": "Unlimited monthly access from 250 RON",
+    "membershipLink": "See Membership plans",
+    "cta": "Book a Court"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Good to Know",
+    "subtitle": "Answers to the questions we get asked most.",
+    "q1": "Can I come alone?",
+    "a1": "Yes — join our WhatsApp community to find a partner or a match within minutes.",
+    "q2": "I've never played before, is that a problem?",
+    "a2": "Not at all. Padel is easy to pick up and most of our members started as complete beginners.",
+    "q3": "Do you rent rackets?",
+    "a3": "Yes, rackets are available to rent at reception for 20 RON.",
+    "q4": "Is there parking?",
+    "a4": "Yes, free parking is available on-site for all players.",
+    "q5": "How do booking and cancellation work?",
+    "a5": "Book directly through Playtomic. Cancellations are free up to 24 hours before your slot.",
+    "q6": "Can I host a birthday or private event?",
+    "a6": "Absolutely — reach out via WhatsApp and we'll help you plan it.",
+    "q7": "Can kids play?",
+    "a7": "Yes, padel is great for kids and we welcome players of all ages.",
+    "q8": "Are there showers and lockers?",
+    "a8": "Yes, we have showers and lockers available on-site.",
+    "q9": "Can I pay by card?",
+    "a9": "Yes, we accept card payments as well as cash."
+  },
+  "memberships": {
+    "hero": {
+      "badge": "Memberships",
+      "title": "Play More, Pay Less",
+      "desc": "Two simple plans. Pick the access window that fits your schedule and unlock unlimited court time."
+    },
+    "daily": {
+      "name": "Daily Membership",
+      "window": "Monday–Friday, until 17:00",
+      "price": "250 RON",
+      "period": "/ month",
+      "desc": "Perfect if you play during the day on weekdays.",
+      "feature1": "Unlimited court time, Mon–Fri until 17:00",
+      "feature2": "10% off racket rental",
+      "feature3": "Member rate on Academy sessions",
+      "priorityLabel": "Booking priority",
+      "priorityValue": "Standard",
+      "cancellationLabel": "Cancellation",
+      "cancellationValue": "Free up to 24h before your slot"
+    },
+    "full": {
+      "name": "Full Membership",
+      "window": "Every day, including weekends",
+      "price": "450 RON",
+      "period": "/ month",
+      "desc": "Unrestricted access, whenever you want to play.",
+      "feature1": "Unlimited court time, any day, any hour",
+      "feature2": "Priority booking window (48h ahead)",
+      "feature3": "15% off racket rental & pro shop",
+      "feature4": "1 guest pass per month",
+      "priorityLabel": "Booking priority",
+      "priorityValue": "Priority access",
+      "cancellationLabel": "Cancellation",
+      "cancellationValue": "Free up to 24h before your slot"
+    },
+    "popular": "MOST POPULAR",
+    "cta": "Join via WhatsApp",
+    "note": "Memberships are billed monthly. Message us on WhatsApp to sign up or ask questions."
+  },
+  "beginners": {
+    "hero": {
+      "badge": "New to Padel?",
+      "title": "Never Played Padel? Perfect.",
+      "desc": "Everyone on our courts started exactly where you are. No experience, no gear, no problem — here's everything you need to know before your first session."
+    },
+    "booking": {
+      "title": "How Booking Works",
+      "step1Title": "Open Playtomic",
+      "step1Desc": "Book your court directly through the Playtomic app or website — pick a day and time that works for you.",
+      "step2Title": "Show Up 10 Minutes Early",
+      "step2Desc": "Grab a racket at reception if you need one, change, and head to your court.",
+      "step3Title": "Play",
+      "step3Desc": "Your coach or playing partners will help you get the hang of it fast — padel is easy to pick up."
+    },
+    "alone": {
+      "title": "Can I Come Alone?",
+      "desc": "Yes! Padel is played in doubles (2v2), so you don't need to bring a full group. Join our WhatsApp community to find partners and matches at your level.",
+      "cta": "Find a Partner"
+    },
+    "gear": {
+      "title": "What Do I Need?",
+      "racketTitle": "Racket",
+      "racketDesc": "Don't own one? No problem — rent one at reception.",
+      "racketLink": "See rental pricing",
+      "shoesTitle": "Shoes & Attire",
+      "shoesDesc": "Non-marking flat or court shoes (running shoes work fine to start), comfortable sportswear. Padel-specific shoes aren't required for your first sessions."
+    },
+    "levels": {
+      "title": "Skill Levels Explained",
+      "beginnerTitle": "Beginner",
+      "beginnerDesc": "New to padel or racket sports. Focus is on rules, positioning, and having fun.",
+      "intermediateTitle": "Intermediate",
+      "intermediateDesc": "Comfortable with rallies and basic strategy, working on consistency and shot variety.",
+      "advancedTitle": "Advanced",
+      "advancedDesc": "Competitive players with strong technique, tactics, and match experience."
+    },
+    "cta": {
+      "title": "Ready for Your First Session?",
+      "communityButton": "Join the Community",
+      "bookButton": "Book a Court"
+    }
   }
 }

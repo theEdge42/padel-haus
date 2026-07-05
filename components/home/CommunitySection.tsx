@@ -37,7 +37,7 @@ export default function CommunitySection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-[#4A2060] rounded-2xl p-8 border border-white/10"
+            className="bg-[#4A0E6D] rounded-2xl p-8 border border-white/10"
           >
             <div className="w-14 h-14 bg-green-500/15 rounded-2xl flex items-center justify-center mb-6">
               <MessageCircle size={28} className="text-green-400" />
@@ -71,10 +71,10 @@ export default function CommunitySection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="flex items-center gap-4 bg-[#4A2060] rounded-xl p-5 border border-white/10"
+                className="flex items-center gap-4 bg-[#4A0E6D] rounded-xl p-5 border border-white/10"
               >
-                <div className="w-10 h-10 bg-[#B5F03D]/15 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Icon size={20} className="text-[#B5F03D]" />
+                <div className="w-10 h-10 bg-[#FFD700]/15 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Icon size={20} className="text-[#FFD700]" />
                 </div>
                 <span className="text-white font-semibold">{label}</span>
               </motion.div>

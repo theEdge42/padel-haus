@@ -1,7 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { MessageCircle } from "lucide-react";
+import { Logo } from "@/components/shared/Logo";
+import { WHATSAPP_URL, INSTAGRAM_URL } from "@/lib/constants";
 
 function InstagramIcon({ size = 20 }: { size?: number }) {
   return (
@@ -13,8 +14,10 @@ function InstagramIcon({ size = 20 }: { size?: number }) {
   );
 }
 
-const INSTAGRAM_URL = "https://www.instagram.com/padelhaus.romania/";
-const WHATSAPP_URL = "https://chat.whatsapp.com/CqGix2BlvAtIyz7z3ic30I";
+const MAP_EMBED_SRC =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1424.6245643968098!2d26.179369830486497!3d44.428051670800954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff005138e94d%3A0x859648e1e9b81efa!2sPadel%20Haus%20Bucharest!5e0!3m2!1sen!2sro!4v1775249393523!5m2!1sen!2sro";
+const LATITUDE = 44.428052;
+const LONGITUDE = 26.17937;
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -22,87 +25,106 @@ export default function Footer() {
   const tNav = useTranslations("nav");
   const locale = useLocale();
 
-  const navLinks = [
+  const exploreLinks = [
     { href: `/${locale}`, label: tNav("experience") },
+    { href: `/${locale}/beginners`, label: tNav("beginners") },
     { href: `/${locale}/coaching`, label: tNav("coaching") },
-    { href: `/${locale}/community`, label: tNav("community") },
+    { href: `/${locale}/memberships`, label: tNav("memberships") },
     { href: `/${locale}/events`, label: tNav("events") },
-    { href: `/${locale}/corporate`, label: tNav("corporate") },
-    { href: `/${locale}/contact`, label: tNav("contact") },
+    // { href: `/${locale}/community`, label: tNav("community") },
+    // { href: `/${locale}/contact`, label: tNav("contact") },
   ];
 
   return (
-    <footer className="bg-brand-surface border-t border-white/10 pt-12 pb-6">
+    <footer className="bg-background-alternate border-t border-white/10 pt-16 pb-8 rounded-t-[2.5rem]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+        {/* Logo — sits above the address */}
+        <Link href={`/${locale}`} className="inline-block mb-8 opacity-90 hover:opacity-100 transition-opacity">
+          <Logo size="md" />
+        </Link>
+
+        {/* Address / EXPLORE / CONTACT — bottom-aligned so labels sit on the address baseline */}
+        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-20 items-end mb-6">
           <div>
-            <Link href={`/${locale}`} className="inline-block mb-3 opacity-90 hover:opacity-100 transition-opacity">
-              <Image src="/logo.svg" alt="Padel Haus" width={130} height={52} className="h-10 w-auto" />
-            </Link>
-            <p className="text-brand-muted text-sm">{t("tagline")}</p>
-            <div className="flex gap-4 mt-4">
-              <a
-                href={INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-brand-muted hover:text-brand-accent transition-colors"
-                aria-label="Instagram"
-              >
-                <InstagramIcon size={20} />
-              </a>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#E2D9F3] hover:text-[#B5F03D] transition-colors"
-                aria-label="WhatsApp"
-              >
-                <MessageCircle size={20} />
-              </a>
-            </div>
+            <p className="text-[#E2D9F3] font-semibold">{LATITUDE.toFixed(2)}° N, {LONGITUDE.toFixed(2)}° E   {tContact("info.address")}</p>
+          </div>
+          <h3 className="text-white font-bold tracking-wide">{t("links").toUpperCase()}</h3>
+          <h3 className="text-white font-bold tracking-wide">{tContact("hero.badge").toUpperCase()}</h3>
+        </div>
+
+        {/* Map / links / contact — top-aligned so the map lines up with the first link */}
+        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-20 items-start mb-12">
+          <div className="rounded-xl overflow-hidden border border-white/10 w-full max-w-[480px] aspect-square">
+            <iframe
+              src={MAP_EMBED_SRC}
+              width="100%"
+              height="100%"
+              style={{ border: 0, filter: "grayscale(1) invert(0.92) hue-rotate(180deg)" }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Padel Haus Map"
+            />
           </div>
 
-          <div>
-            <h3 className="text-white font-semibold mb-4">{t("links")}</h3>
-            <ul className="space-y-2">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-[#E2D9F3] text-sm hover:text-[#B5F03D] transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ul className="space-y-3">
+            {exploreLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-[#E2D9F3] hover:text-[#FFD700] transition-colors"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
           <div>
-            <h3 className="text-white font-semibold mb-4">Contact</h3>
-            <ul className="space-y-2 text-sm text-[#E2D9F3]">
-              <li>Strada Rampei 37, Faur, Bucuresti</li>
+            <ul className="space-y-3 mb-6">
+              <li>
+                <a href={`mailto:${tContact("info.email")}`} className="text-[#E2D9F3] hover:text-[#FFD700] transition-colors">
+                  {tContact("info.email")}
+                </a>
+              </li>
               <li>
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#B5F03D] transition-colors flex items-center gap-1.5"
+                  className="text-[#E2D9F3] hover:text-[#FFD700] transition-colors"
                 >
-                  <MessageCircle size={14} />
                   WhatsApp
                 </a>
               </li>
-              <li className="mt-3">{tContact("info.hours")}</li>
             </ul>
+            <div className="flex gap-3">
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-10 h-10 flex items-center justify-center rounded-lg border border-white/20 text-[#E2D9F3] hover:text-[#FFD700] hover:border-[#FFD700]/50 transition-colors"
+              >
+                <InstagramIcon size={18} />
+              </a>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="w-10 h-10 flex items-center justify-center rounded-lg border border-white/20 text-[#E2D9F3] hover:text-[#FFD700] hover:border-[#FFD700]/50 transition-colors"
+              >
+                <MessageCircle size={18} />
+              </a>
+            </div>
           </div>
         </div>
 
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-[#E2D9F3]/60">
-          <p>© {new Date().getFullYear()} Padel Haus. {t("rights")}</p>
+          <p>© {new Date().getFullYear()} Padel Haus.</p>
           <div className="flex gap-4">
-            {/*<Link href="#" className="hover:text-[#B5F03D] transition-colors">{t("privacy")}</Link>*/}
-            {/*<Link href="#" className="hover:text-[#B5F03D] transition-colors">{t("terms")}</Link>*/}
+            {/*<Link href="#" className="hover:text-[#FFD700] transition-colors">{t("privacy")}</Link>*/}
+            {/*<Link href="#" className="hover:text-[#FFD700] transition-colors">{t("terms")}</Link>*/}
           </div>
         </div>
       </div>

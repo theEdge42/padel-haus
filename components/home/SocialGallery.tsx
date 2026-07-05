@@ -54,7 +54,7 @@ function ScrollRow({
               className="object-cover"
               sizes="256px"
             />
-            <div className="absolute inset-0 bg-[#341743]/20 hover:bg-transparent transition-colors duration-300" />
+            <div className="absolute inset-0 bg-[#25003D]/20 hover:bg-transparent transition-colors duration-300" />
           </div>
         ))}
       </motion.div>

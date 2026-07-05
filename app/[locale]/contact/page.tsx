@@ -1,3 +1,9 @@
+// Contact page temporarily disabled — restore the code below to re-enable.
+export default function ContactPage() {
+  return null;
+}
+
+/*
 "use client";
 
 import { useState } from "react";
@@ -43,14 +49,14 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background">
       <section className="py-24 bg-background-alternate relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#B5F03D]/5 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/5 to-transparent pointer-events-none" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Badge className="bg-[#B5F03D]/20 text-[#B5F03D] border-[#B5F03D]/30 mb-6 text-sm px-4 py-1.5">
+            <Badge className="bg-[#FFD700]/20 text-[#FFD700] border-[#FFD700]/30 mb-6 text-sm px-4 py-1.5">
               {t("hero.badge")}
             </Badge>
             <h1 className="text-5xl sm:text-6xl font-black text-white mb-6">{t("hero.title")}</h1>
@@ -66,12 +72,12 @@ export default function ContactPage() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-[#2D0A4E] rounded-2xl p-8 border border-white/10"
+              className="bg-[#3B0758] rounded-2xl p-8 border border-white/10"
             >
               <h2 className="text-3xl font-black text-white mb-8">{t("form.title")}</h2>
               {submitted ? (
                 <div className="text-center py-10">
-                  <CheckCircle2 size={48} className="text-[#B5F03D] mx-auto mb-4" />
+                  <CheckCircle2 size={48} className="text-[#FFD700] mx-auto mb-4" />
                   <p className="text-white font-bold text-lg">{t("form.success")}</p>
                 </div>
               ) : (
@@ -84,7 +90,7 @@ export default function ContactPage() {
                         required
                         value={form.name}
                         onChange={handleChange}
-                        className="bg-[#1A0530] border-white/20 text-white placeholder:text-white/40 focus:border-[#B5F03D]"
+                        className="bg-[#3B0758] border-white/20 text-white placeholder:text-white/40 focus:border-[#FFD700]"
                       />
                     </div>
                     <div className="space-y-2">
@@ -95,7 +101,7 @@ export default function ContactPage() {
                         required
                         value={form.email}
                         onChange={handleChange}
-                        className="bg-[#1A0530] border-white/20 text-white placeholder:text-white/40 focus:border-[#B5F03D]"
+                        className="bg-[#3B0758] border-white/20 text-white placeholder:text-white/40 focus:border-[#FFD700]"
                       />
                     </div>
                   </div>
@@ -106,7 +112,7 @@ export default function ContactPage() {
                       required
                       value={form.subject}
                       onChange={handleChange}
-                      className="bg-[#1A0530] border-white/20 text-white placeholder:text-white/40 focus:border-[#B5F03D]"
+                      className="bg-[#3B0758] border-white/20 text-white placeholder:text-white/40 focus:border-[#FFD700]"
                     />
                   </div>
                   <div className="space-y-2">
@@ -117,7 +123,7 @@ export default function ContactPage() {
                       rows={5}
                       value={form.message}
                       onChange={handleChange}
-                      className="bg-[#1A0530] border-white/20 text-white placeholder:text-white/40 focus:border-[#B5F03D] resize-none"
+                      className="bg-[#3B0758] border-white/20 text-white placeholder:text-white/40 focus:border-[#FFD700] resize-none"
                     />
                   </div>
                   {error && (
@@ -126,7 +132,7 @@ export default function ContactPage() {
                   <Button
                     type="submit"
                     disabled={sending}
-                    className="bg-[#B5F03D] text-[#1A0530] hover:bg-[#a1d936] font-bold w-full h-12 disabled:opacity-60"
+                    className="bg-[#FFD700] text-[#3B0758] hover:bg-[#FFE773] font-bold w-full h-12 disabled:opacity-60"
                   >
                     {sending ? t("form.sending") : t("form.submit")}
                   </Button>
@@ -140,26 +146,26 @@ export default function ContactPage() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <div className="bg-[#2D0A4E] rounded-2xl p-8 border border-white/10">
+              <div className="bg-[#3B0758] rounded-2xl p-8 border border-white/10">
                 <h2 className="text-2xl font-black text-white mb-6">{t("info.title")}</h2>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <MapPin size={20} className="text-[#B5F03D] mt-0.5 flex-shrink-0" />
+                    <MapPin size={20} className="text-[#FFD700] mt-0.5 flex-shrink-0" />
                     <span className="text-[#E2D9F3]">{t("info.address")}</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <MessageCircle size={20} className="text-[#B5F03D] flex-shrink-0" />
+                    <MessageCircle size={20} className="text-[#FFD700] flex-shrink-0" />
                     <a
                       href={t("info.whatsapp")}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#E2D9F3] hover:text-[#B5F03D] transition-colors"
+                      className="text-[#E2D9F3] hover:text-[#FFD700] transition-colors"
                     >
                       WhatsApp
                     </a>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Clock size={20} className="text-[#B5F03D] mt-0.5 flex-shrink-0" />
+                    <Clock size={20} className="text-[#FFD700] mt-0.5 flex-shrink-0" />
                     <div className="text-[#E2D9F3]">
                       <p>{t("info.hours")}</p>
                     </div>
@@ -198,3 +204,4 @@ export default function ContactPage() {
     </div>
   );
 }
+*/

@@ -17,14 +17,14 @@ export default function CommunityPage() {
     <div className="min-h-screen bg-background">
       {/* Hero */}
       <section className="py-24 bg-background-alternate relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#B5F03D]/5 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/5 to-transparent pointer-events-none" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Badge className="bg-[#B5F03D]/20 text-[#B5F03D] border-[#B5F03D]/30 mb-6 text-sm px-4 py-1.5">
+            <Badge className="bg-[#FFD700]/20 text-[#FFD700] border-[#FFD700]/30 mb-6 text-sm px-4 py-1.5">
               {t("hero.badge")}
             </Badge>
             <h1 className="text-5xl sm:text-6xl font-black text-white mb-6">
@@ -56,12 +56,12 @@ export default function CommunityPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.15 }}
-                  className="bg-[#2D0A4E] rounded-2xl p-8 border border-white/10 text-center"
+                  className="bg-[#3B0758] rounded-2xl p-8 border border-white/10 text-center"
                 >
-                  <div className="w-14 h-14 bg-[#B5F03D]/15 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <Icon size={28} className="text-[#B5F03D]" />
+                  <div className="w-14 h-14 bg-[#FFD700]/15 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <Icon size={28} className="text-[#FFD700]" />
                   </div>
-                  <div className="text-[#B5F03D] font-black text-3xl mb-2">{i + 1}</div>
+                  <div className="text-[#FFD700] font-black text-3xl mb-2">{i + 1}</div>
                   <h3 className="text-white font-bold text-xl mb-3">
                     {t(`howItWorks.${key}Title`)}
                   </h3>
@@ -82,7 +82,7 @@ export default function CommunityPage() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-[#1A0530] rounded-2xl p-10 border border-white/10"
+            className="bg-[#3B0758] rounded-2xl p-10 border border-white/10"
           >
             <div className="w-16 h-16 bg-green-500/15 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <MessageCircle size={32} className="text-green-400" />

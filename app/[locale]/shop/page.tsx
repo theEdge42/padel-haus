@@ -65,14 +65,14 @@ export default function ShopPage() {
       <div className="min-h-screen bg-background">
         {/* Hero */}
         <section className="py-24 bg-background-alternate relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#B5F03D]/5 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/5 to-transparent pointer-events-none" />
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Badge className="bg-[#B5F03D]/20 text-[#B5F03D] border-[#B5F03D]/30 mb-6 text-sm px-4 py-1.5">
+              <Badge className="bg-[#FFD700]/20 text-[#FFD700] border-[#FFD700]/30 mb-6 text-sm px-4 py-1.5">
                 {t("hero.badge")}
               </Badge>
               <h1 className="text-5xl sm:text-6xl font-black text-white mb-6">
@@ -95,7 +95,7 @@ export default function ShopPage() {
                     onClick={() => setFilter(key)}
                     className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
                       filter === key
-                        ? "bg-[#B5F03D] text-[#1A0530]"
+                        ? "bg-[#FFD700] text-[#3B0758]"
                         : "bg-white/10 text-[#E2D9F3] hover:bg-white/20"
                     }`}
                   >

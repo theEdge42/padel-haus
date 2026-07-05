@@ -1,9 +1,11 @@
 {
   "nav": {
-    "experience": "Despre Noi",
+    "experience": "Acasă",
     "coaching": "Antrenamente",
     "community": "Comunitate",
-    "events": "Evenimente",
+    "events": "Turnee",
+    "beginners": "Începători",
+    "memberships": "Abonamente",
     "corporate": "Corporate",
     "contact": "Contact",
     "shop": "Magazin",
@@ -15,8 +17,11 @@
       "title": "Your second home",
       "subtitle": "4 terenuri indoor de ultimă generație în inima orașului. Alătură-te comunității noastre și ridică-ți jocul la un alt nivel.",
       "catchphrase": "Your second home.",
-      "ctaBook": "Rezervă un Teren",
+      "ctaBook": "Rezervă",
       "ctaLearn": "Explorează Clubul",
+      "ctaMemberships": "Abonamente",
+      "ctaTraining": "Antrenează-te",
+      "communityDoor": "Comunitate",
       "statCourts": "Terenuri Indoor",
       "statMembers": "Membri",
       "statEventsValue": "Toate",
@@ -205,7 +210,7 @@
     "hero": {
       "badge": "Antrenamente",
       "title": "Îmbunătățește-ți Jocul",
-      "desc": "Sesiuni individuale și de grup cu antrenori certificați. Indiferent de nivel, te ajutăm să progresezi rapid și eficient."
+      "desc": "Sesiuni individuale sau de grup indiferent de nivel, te ajutăm să progresezi rapid și eficient."
     },
     "coach": {
       "title": "Coaching",
@@ -215,6 +220,30 @@
       "session90": "Sesiune 90 min",
       "bookVia": "Rezervă prin Playtomic"
     },
+    "sessions": {
+      "title": "Tipuri de Sesiuni",
+      "private": {
+        "name": "Antrenament Privat",
+        "desc": "Coaching 1-la-1, adaptat complet nivelului și obiectivelor tale.",
+        "duration": "60 / 90 min",
+        "price": "150 RON / oră"
+      },
+      "group": {
+        "name": "Semi-Privat (2–4 jucători)",
+        "desc": "Antrenează-te cu prietenii și împarte costul unui antrenor certificat.",
+        "duration": "60 / 90 min",
+        "price": "80 RON / oră / persoană"
+      },
+      "kids": {
+        "name": "Academia pentru Copii",
+        "desc": "Sesiuni distractive și structurate care construiesc fundamentele jucătorilor tineri.",
+        "duration": "60 min",
+        "price": "100 RON / oră"
+      }
+    },
+    "whatsappCta": "Rezervă Antrenament",
+    "whatsappMessage": "Bună! Aș vrea să rezerv o sesiune {session} la Padel Haus. Numele meu este ___, iar perioada preferată este ___.",
+    "fallbackLabel": "Preferi email? Completează formularul de cerere",
     "howItWorks": {
       "title": "Cum Funcționează",
       "step1Title": "Alege o Sesiune",
@@ -236,6 +265,25 @@
       "title": "Gata să Începi?",
       "desc": "Rezervă o sesiune de antrenament direct pe Playtomic.",
       "button": "Rezervă o Sesiune"
+    },
+    "plans": {
+      "title": "Planuri Antrenament",
+      "daytime": {
+        "name": "Daytime",
+        "schedule": "Luni–Vineri: 08:00 – 16:30"
+      },
+      "regular": {
+        "name": "Regular Time",
+        "schedule": "Luni–Vineri: 16:30 – 00:00 și Weekenduri"
+      },
+      "partnersLabel": "Număr de persoane",
+      "partners": {
+        "1": "Individual",
+        "2": "2 persoane",
+        "3": "3 persoane"
+      },
+      "perSession": "per ședință",
+      "whatsappMessage": "Bună! Aș vrea să rezerv un antrenament {plan} ({partners}). Numele meu este ___, iar perioada preferată este ___."
     }
   },
   "corporate": {
@@ -368,6 +416,8 @@
     "name": "Nume Complet",
     "email": "Email",
     "phone": "Telefon",
+    "package": "Pachet",
+    "selectPackage": "Selectează un pachet",
     "submit": "Trimite Cererea",
     "success": "Cererea ta a fost trimisă! Te contactăm în curând."
   },
@@ -378,5 +428,129 @@
     "rights": "Toate drepturile rezervate.",
     "privacy": "Politică de Confidențialitate",
     "terms": "Termeni și Condiții"
+  },
+  "pricing": {
+    "badge": "Prețuri",
+    "title": "Prețuri",
+    "subtitle": "Plătești din playtomic/in club sau economisești cu un abonament.",
+    "courtTitle": "Închiriere Teren",
+    "weekdayLabel": "Luni–Vineri, până la 17:00",
+    "weekdayPrice": "80 RON / oră",
+    "eveningLabel": "Luni–Vineri după 17:00 & weekend",
+    "eveningPrice": "120 RON / oră",
+    "racketLabel": "Închiriere rachetă",
+    "racketPrice": "20 RON",
+    "dayPassLabel": "Day Pass (acces nelimitat în afara orelor de vârf)",
+    "dayPassPrice": "150 RON",
+    "academyTeaser": "Antrenamente private și de grup",
+    "academyLink": "Vezi prețurile Academiei",
+    "membershipTeaser": "Acces lunar nelimitat de la 250 RON",
+    "membershipLink": "Vezi planurile de abonament",
+    "cta": "Rezervă un Teren"
+  },
+  "faq": {
+    "badge": "Întrebări Frecvente",
+    "title": "Bine de Știut",
+    "subtitle": "Răspunsuri la cele mai frecvente întrebări.",
+    "q1": "Pot veni singur?",
+    "a1": "Da — alătură-te comunității noastre de WhatsApp pentru a găsi un partener sau un meci în câteva minute.",
+    "q2": "Nu am mai jucat niciodată, e o problemă?",
+    "a2": "Deloc. Padelul se învață ușor și majoritatea membrilor noștri au început ca începători totali.",
+    "q3": "Închiriați rachete?",
+    "a3": "Da, rachetele pot fi închiriate la recepție pentru 20 RON.",
+    "q4": "Există parcare?",
+    "a4": "Da, parcare gratuită disponibilă la fața locului pentru toți jucătorii.",
+    "q5": "Cum funcționează rezervarea și anularea?",
+    "a5": "Rezervi direct prin Playtomic. Anulările sunt gratuite cu până la 24 de ore înainte.",
+    "q6": "Pot organiza o petrecere sau un eveniment privat?",
+    "a6": "Sigur — scrie-ne pe WhatsApp și te ajutăm să planifici.",
+    "q7": "Pot juca și copiii?",
+    "a7": "Da, padelul e excelent pentru copii și primim jucători de toate vârstele.",
+    "q8": "Există dușuri și dulapuri?",
+    "a8": "Da, avem dușuri și dulapuri disponibile la fața locului.",
+    "q9": "Pot plăti cu cardul?",
+    "a9": "Da, acceptăm plata cu cardul, dar și cash."
+  },
+  "memberships": {
+    "hero": {
+      "badge": "Abonamente",
+      "title": "Joacă Mai Mult, Plătește Mai Puțin",
+      "desc": "Două planuri simple. Alege fereastra de acces potrivită programului tău și beneficiezi de teren nelimitat."
+    },
+    "daily": {
+      "name": "Abonament Daily",
+      "window": "Luni–Vineri, până la 17:00",
+      "price": "250 RON",
+      "period": "/ lună",
+      "desc": "Perfect dacă joci ziua, în timpul săptămânii.",
+      "feature1": "Teren nelimitat, Luni–Vineri până la 17:00",
+      "feature2": "10% reducere la închirierea rachetei",
+      "feature3": "Tarif de membru la sesiunile de Academy",
+      "priorityLabel": "Prioritate la rezervare",
+      "priorityValue": "Standard",
+      "cancellationLabel": "Anulare",
+      "cancellationValue": "Gratuită cu până la 24h înainte"
+    },
+    "full": {
+      "name": "Abonament Full",
+      "window": "În fiecare zi, inclusiv weekend",
+      "price": "450 RON",
+      "period": "/ lună",
+      "desc": "Acces nerestricționat, oricând vrei să joci.",
+      "feature1": "Teren nelimitat, orice zi, orice oră",
+      "feature2": "Fereastră de rezervare prioritară (cu 48h înainte)",
+      "feature3": "15% reducere la rachete & pro shop",
+      "feature4": "1 invitație gratuită pe lună",
+      "priorityLabel": "Prioritate la rezervare",
+      "priorityValue": "Acces prioritar",
+      "cancellationLabel": "Anulare",
+      "cancellationValue": "Gratuită cu până la 24h înainte"
+    },
+    "popular": "CEL MAI POPULAR",
+    "cta": "Alătură-te pe WhatsApp",
+    "note": "Abonamentele se facturează lunar. Scrie-ne pe WhatsApp pentru înscriere sau întrebări."
+  },
+  "beginners": {
+    "hero": {
+      "badge": "Ești Nou în Padel?",
+      "title": "N-ai Mai Jucat Padel? Perfect.",
+      "desc": "Toți jucătorii noștri au început exact de unde ești tu acum. Fără experiență, fără echipament, fără emoții — iată tot ce trebuie să știi înainte de prima ta sesiune."
+    },
+    "booking": {
+      "title": "Cum Funcționează Rezervarea",
+      "step1Title": "Deschide Playtomic",
+      "step1Desc": "Rezervă-ți terenul direct din aplicația sau site-ul Playtomic — alege ziua și ora care ți se potrivesc.",
+      "step2Title": "Vino cu 10 Minute Înainte",
+      "step2Desc": "Ia o rachetă de la recepție dacă ai nevoie, schimbă-te și mergi la teren.",
+      "step3Title": "Joacă",
+      "step3Desc": "Antrenorul sau partenerii tăi de joc te vor ajuta să prinzi rapid stilul — padelul se învață ușor."
+    },
+    "alone": {
+      "title": "Pot Veni Singur?",
+      "desc": "Da! Padelul se joacă în perechi (2v2), deci nu ai nevoie să vii cu un grup întreg. Alătură-te comunității noastre de WhatsApp pentru a găsi parteneri și meciuri la nivelul tău.",
+      "cta": "Găsește un Partener"
+    },
+    "gear": {
+      "title": "De Ce Am Nevoie?",
+      "racketTitle": "Rachetă",
+      "racketDesc": "Nu ai una? Nicio problemă — poți închiria una la recepție.",
+      "racketLink": "Vezi prețurile de închiriere",
+      "shoesTitle": "Încălțăminte & Ținută",
+      "shoesDesc": "Încălțăminte plată sau de sală care nu lasă urme (adidașii de alergare merg bine la început), ținută sport comodă. Pantofii specifici de padel nu sunt necesari pentru primele sesiuni."
+    },
+    "levels": {
+      "title": "Nivelurile Explicate",
+      "beginnerTitle": "Începător",
+      "beginnerDesc": "Nou în padel sau în sporturile cu rachetă. Accentul cade pe reguli, poziționare și distracție.",
+      "intermediateTitle": "Intermediar",
+      "intermediateDesc": "Confortabil cu schimburile de mingi și strategia de bază, lucrează la consistență și varietatea loviturilor.",
+      "advancedTitle": "Avansat",
+      "advancedDesc": "Jucători competitivi cu tehnică solidă, tactică și experiență de meci."
+    },
+    "cta": {
+      "title": "Gata pentru Prima Sesiune?",
+      "communityButton": "Alătură-te Comunității",
+      "bookButton": "Rezervă un Teren"
+    }
   }
 }
