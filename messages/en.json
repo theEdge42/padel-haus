@@ -169,7 +169,7 @@
       "saturday": {
         "badge": "Saturday · Intermediate",
         "title": "Saturday Mexicano",
-        "time": "11:00 – 13:00",
+        "time": "Schedule varies each weekend",
         "spots": "8 / 12 / 16 spots",
         "spotsNote": "depending on registrations",
         "duration": "~2 hours",
@@ -178,7 +178,7 @@
         "scheduleLabel": "Schedule",
         "prizeLabel": "1st place prize",
         "prize": "Wilson Premier Padel Speed balls",
-        "level": "Intermediate"
+        "level": "Beginner & Intermediate"
       },
       "sunday": {
         "badge": "Sunday · Beginner",

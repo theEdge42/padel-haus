@@ -169,7 +169,7 @@
       "saturday": {
         "badge": "Sâmbătă · Intermediar",
         "title": "Mexicano Sâmbătă",
-        "time": "11:00 – 13:00",
+        "time": "Programul diferă în fiecare weekend",
         "spots": "8 / 12 / 16 locuri",
         "spotsNote": "în funcție de înscrieri",
         "duration": "~2 ore",
@@ -178,7 +178,7 @@
         "scheduleLabel": "Orar",
         "prizeLabel": "Premiu loc 1",
         "prize": "Tub Mingi Wilson Premier Padel Speed",
-        "level": "Intermediar"
+        "level": "Începător & Intermediar"
       },
       "sunday": {
         "badge": "Duminică · Începători",
@@ -214,10 +214,10 @@
         "time": "11:00 – 13:00",
         "spots": "8 / 12 / 16 locuri",
         "duration": "~2 ore",
-        "scheduleLabel": "Orar",
+        "scheduleLabel": "Durată",
         "prizeLabel": "Premiu loc 1",
         "prize": "Tub Mingi Wilson Premier Padel Speed",
-        "level": "Intermediar"
+        "level": "Începător/Intermediar"
       },
       "howTitle": "Cum se Joacă Team Americano?",
       "rules": [

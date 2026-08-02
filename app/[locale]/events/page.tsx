@@ -50,12 +50,21 @@ export default function EventsPage() {
               <div className="absolute inset-0 bg-black/45" />
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-6 text-center">
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#FFD700]">
-                  {t(`americano.${tournament}.level`)} · {t(`americano.${tournament}.time`)} · {t(`americano.${tournament}.spots`)}
+                  {t(`americano.${tournament}.level`)} · {t(`americano.${tournament}.spots`)}
                 </p>
+                <h3
+                  className="text-5xl leading-none text-white sm:text-6xl"
+                  style={{ fontFamily: "var(--font-black-ops)", transform: "rotate(-3deg)" }}
+                >
+                  TEAM AMERICANO
+                </h3>
               </div>
             </div>
 
             <div className="space-y-4 p-6">
+              <p className="text-center text-sm font-black uppercase tracking-widest text-[#FFD700]">
+                {t("americano.tagline")}
+              </p>
               <div className="grid grid-cols-2 gap-3">
                 <div className="rounded-xl bg-[#3B0758] p-3">
                   <div className="mb-1 flex items-center gap-2 text-[#FFD700]">
@@ -64,8 +73,8 @@ export default function EventsPage() {
                       {t(`americano.${tournament}.scheduleLabel`)}
                     </span>
                   </div>
-                  <p className="font-bold text-white">{t(`americano.${tournament}.time`)}</p>
-                  <p className="text-xs text-[#E2D9F3]">{t(`americano.${tournament}.duration`)}</p>
+                  {/*<p className="font-bold text-white">{t(`americano.${tournament}.time`)}</p>*/}
+                  <p className="text-sm text-[#E2D9F3]">{t(`americano.${tournament}.duration`)}</p>
                 </div>
                 <div className="rounded-xl bg-[#3B0758] p-3">
                   <div className="mb-1 flex items-center gap-2 text-[#FFD700]">
