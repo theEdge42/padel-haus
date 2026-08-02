@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { MessageCircle } from "lucide-react";
 import { Logo } from "@/components/shared/Logo";
+import { LetterRoll } from "@/components/shared/LetterRoll";
 import { WHATSAPP_CONTACT_URL, INSTAGRAM_URL } from "@/lib/constants";
 
 function InstagramIcon({ size = 20 }: { size?: number }) {
@@ -48,8 +49,8 @@ export default function Footer() {
           <div>
             <p className="text-lg font-semibold text-[#E2D9F3] sm:text-xl">{LATITUDE}, {LONGITUDE}   {tContact("info.address")}</p>
           </div>
-          <h3 className="text-white font-bold tracking-wide">{t("links").toUpperCase()}</h3>
-          <h3 className="text-white font-bold tracking-wide">{tContact("hero.badge").toUpperCase()}</h3>
+          <h3 className="hidden text-white font-bold tracking-wide md:block">{t("links").toUpperCase()}</h3>
+          <h3 className="hidden text-white font-bold tracking-wide md:block">{tContact("hero.badge").toUpperCase()}</h3>
         </div>
 
         {/* Map / links / contact — top-aligned so the map lines up with the first link */}
@@ -66,20 +67,25 @@ export default function Footer() {
             />
           </div>
 
-          <ul className="space-y-3">
-            {exploreLinks.map((link) => (
-              <li key={link.href}>
-                <Link
+          <div>
+            <h3 className="mb-4 text-white font-bold tracking-wide md:hidden">{t("links").toUpperCase()}</h3>
+            <ul className="space-y-3">
+              {exploreLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
                   href={link.href}
-                  className="text-[#E2D9F3] hover:text-[#FFD700] transition-colors"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+                    className="group text-[#E2D9F3] hover:text-[#FFD700] transition-colors"
+                    aria-label={link.label}
+                  >
+                    <LetterRoll>{link.label}</LetterRoll>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <div>
+            <h3 className="mb-4 text-white font-bold tracking-wide md:hidden">{tContact("hero.badge").toUpperCase()}</h3>
             <ul className="space-y-3 mb-6">
               <li>
                 <a href={`mailto:${tContact("info.email")}`} className="text-[#E2D9F3] hover:text-[#FFD700] transition-colors">

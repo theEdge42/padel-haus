@@ -7,6 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/shared/Logo";
+import { LetterRoll } from "@/components/shared/LetterRoll";
 import { PLAYTOMIC_RESERVATIONS, WHATSAPP_URL, INSTAGRAM_URL } from "@/lib/constants";
 
 function InstagramIcon({ size = 18 }: { size?: number }) {
@@ -47,7 +48,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed top-3 left-3 right-3 sm:top-4 sm:left-4 sm:right-4 z-50">
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:top-4 sm:left-4 sm:right-4 sm:px-0 sm:pt-0">
       <div className="max-w-7xl mx-auto rounded-2xl border border-white/15 bg-[#25003D]/85 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
         <div className="flex h-16 items-center gap-4 px-4 max-[359px]:gap-2 max-[359px]:px-3 sm:px-6">
           {/* Logo */}
@@ -64,9 +65,10 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-semibold text-[#F3E8FF]/80 hover:text-[#FFE773] transition-colors"
+                className="group text-sm font-semibold text-[#F3E8FF]/80 hover:text-[#FFE773] transition-colors"
+                aria-label={link.label}
               >
-                {link.label}
+                <LetterRoll>{link.label}</LetterRoll>
               </Link>
             ))}
           </nav>

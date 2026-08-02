@@ -208,7 +208,7 @@ export default function CoachingPage() {
                   <Button
                     type="button"
                     onClick={() => setBookingPlan(plan)}
-                    className="bg-brand-accent text-[#3B0758] hover:bg-brand-accent-hover font-bold w-full h-11 mt-auto"
+                    className="bg-brand-accent text-[#3B0758] hover:bg-brand-accent-hover font-bold w-full h-11 mt-auto cursor-pointer"
                   >
                     {t("whatsappCta")}
                   </Button>
