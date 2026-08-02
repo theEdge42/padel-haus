@@ -55,10 +55,24 @@
   --color-brand-alternate: #3B0758;
   --color-brand-surface: #4A0E6D;
   --color-brand-accent: #FFD700;
+  --color-brand-accent-hover: #E6B800;
   --color-brand-accent-light: #FFE773;
   --color-brand-text: #FFFFFF;
   --color-brand-muted: #F3E8FF;
   --color-brand-faint: #C09BD8;
+  --animate-community-door-label: community-door-label 6s ease-in-out infinite;
+}
+
+@keyframes community-door-label {
+  0%, 60%, 100% {
+    opacity: 0;
+  }
+  68%, 86% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 0;
+  }
 }
 
 :root {

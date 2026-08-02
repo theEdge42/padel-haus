@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { MessageCircle } from "lucide-react";
 import { Logo } from "@/components/shared/Logo";
-import { WHATSAPP_URL, INSTAGRAM_URL } from "@/lib/constants";
+import { WHATSAPP_CONTACT_URL, INSTAGRAM_URL } from "@/lib/constants";
 
 function InstagramIcon({ size = 20 }: { size?: number }) {
   return (
@@ -16,8 +16,8 @@ function InstagramIcon({ size = 20 }: { size?: number }) {
 
 const MAP_EMBED_SRC =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1424.6245643968098!2d26.179369830486497!3d44.428051670800954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff005138e94d%3A0x859648e1e9b81efa!2sPadel%20Haus%20Bucharest!5e0!3m2!1sen!2sro!4v1775249393523!5m2!1sen!2sro";
-const LATITUDE = 44.428052;
-const LONGITUDE = 26.17937;
+const LATITUDE = 44;
+const LONGITUDE = 26;
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -36,17 +36,17 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-background-alternate border-t border-white/10 pt-16 pb-8 rounded-t-[2.5rem]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-background-alternate border-t border-white/10 pt-16 pb-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Logo — sits above the address */}
         <Link href={`/${locale}`} className="inline-block mb-8 opacity-90 hover:opacity-100 transition-opacity">
-          <Logo size="md" />
+          <Logo size="lg" />
         </Link>
 
         {/* Address / EXPLORE / CONTACT — bottom-aligned so labels sit on the address baseline */}
         <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-20 items-end mb-6">
           <div>
-            <p className="text-[#E2D9F3] font-semibold">{LATITUDE.toFixed(2)}° N, {LONGITUDE.toFixed(2)}° E   {tContact("info.address")}</p>
+            <p className="text-lg font-semibold text-[#E2D9F3] sm:text-xl">{LATITUDE}, {LONGITUDE}   {tContact("info.address")}</p>
           </div>
           <h3 className="text-white font-bold tracking-wide">{t("links").toUpperCase()}</h3>
           <h3 className="text-white font-bold tracking-wide">{tContact("hero.badge").toUpperCase()}</h3>
@@ -54,12 +54,12 @@ export default function Footer() {
 
         {/* Map / links / contact — top-aligned so the map lines up with the first link */}
         <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-20 items-start mb-12">
-          <div className="rounded-xl overflow-hidden border border-white/10 w-full max-w-[480px] aspect-square">
+          <div className="rounded-xl overflow-hidden border border-white/10 w-full max-w-[500px] aspect-square">
             <iframe
               src={MAP_EMBED_SRC}
               width="100%"
               height="100%"
-              style={{ border: 0, filter: "grayscale(1) invert(0.92) hue-rotate(180deg)" }}
+              style={{ border: 0 }}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Padel Haus Map"
@@ -83,12 +83,12 @@ export default function Footer() {
             <ul className="space-y-3 mb-6">
               <li>
                 <a href={`mailto:${tContact("info.email")}`} className="text-[#E2D9F3] hover:text-[#FFD700] transition-colors">
-                  {tContact("info.email")}
+                  Email
                 </a>
               </li>
               <li>
                 <a
-                  href={WHATSAPP_URL}
+                  href={WHATSAPP_CONTACT_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#E2D9F3] hover:text-[#FFD700] transition-colors"
@@ -108,7 +108,7 @@ export default function Footer() {
                 <InstagramIcon size={18} />
               </a>
               <a
-                href={WHATSAPP_URL}
+                href={WHATSAPP_CONTACT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
@@ -121,7 +121,6 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-[#E2D9F3]/60">
-          <p>© {new Date().getFullYear()} Padel Haus.</p>
           <div className="flex gap-4">
             {/*<Link href="#" className="hover:text-[#FFD700] transition-colors">{t("privacy")}</Link>*/}
             {/*<Link href="#" className="hover:text-[#FFD700] transition-colors">{t("terms")}</Link>*/}

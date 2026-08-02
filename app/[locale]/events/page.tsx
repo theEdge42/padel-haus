@@ -3,163 +3,111 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Clock, Trophy, ChevronDown, ChevronUp } from "lucide-react";
 import Image from "next/image";
+import { PLAYTOMIC_ACTIVITIES } from "@/lib/constants";
 
-const PLAYTOMIC_MEXICANO_SATURDAY_URL = "https://app.playtomic.io/tournaments/fee95270-a11d-4a69-85dc-22424e77458d?utm_source=manager";
-const PLAYTOMIC_MEXICANO_SUNDAY_URL = "https://app.playtomic.io/tournaments/32b23a56-8f63-4b0e-98c7-0bd98788bbb3?utm_source=manager";
-
-const links = {
-  saturday: PLAYTOMIC_MEXICANO_SATURDAY_URL,
-  sunday: PLAYTOMIC_MEXICANO_SUNDAY_URL,
-}
-const tournaments = ["saturday", "sunday"] as const;
+const tournament = "americano";
 
 export default function EventsPage() {
   const t = useTranslations("events");
   const [howOpen, setHowOpen] = useState(false);
-
-  const rules = t.raw("mexicano.rules") as string[];
+  const rules = t.raw("americano.rules") as string[];
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero */}
-      <section className="py-24 bg-background-alternate relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/5 to-transparent pointer-events-none" />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+      <section className="relative overflow-hidden bg-background-alternate py-24">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#FFD700]/5 to-transparent" />
+        <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Badge className="bg-[#FFD700]/20 text-[#FFD700] border-[#FFD700]/30 mb-6 text-sm px-4 py-1.5">
-              {t("hero.badge")}
-            </Badge>
-            <h1 className="text-5xl sm:text-6xl font-black text-white mb-6">
-              {t("hero.title")}
-            </h1>
-            <p className="text-[#E2D9F3] text-xl leading-relaxed">{t("hero.desc")}</p>
+            <h1 className="mb-6 text-5xl font-black text-white sm:text-6xl">{t("hero.title")}</h1>
+            <p className="text-xl leading-relaxed text-[#E2D9F3]">{t("hero.desc")}</p>
           </motion.div>
         </div>
       </section>
 
-      {/* Tournaments */}
       <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-14"
+            className="mx-auto max-w-xl overflow-hidden rounded-2xl border border-white/10 bg-[#3B0758] transition-all hover:border-[#FFD700]/40"
           >
-            <h2 className="text-4xl font-black text-white mb-2">{t("mexicano.title")}</h2>
-            <p className="text-[#E2D9F3] text-lg">{t("mexicano.subtitle")}</p>
+            <div className="relative h-96 overflow-hidden sm:h-[26rem]">
+              <Image
+                src="/Mexicano.png"
+                alt={t(`americano.${tournament}.title`)}
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-black/45" />
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-6 text-center">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#FFD700]">
+                  {t(`americano.${tournament}.level`)} · {t(`americano.${tournament}.time`)} · {t(`americano.${tournament}.spots`)}
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-4 p-6">
+              <div className="grid grid-cols-2 gap-3">
+                <div className="rounded-xl bg-[#3B0758] p-3">
+                  <div className="mb-1 flex items-center gap-2 text-[#FFD700]">
+                    <Clock size={14} />
+                    <span className="text-xs font-bold uppercase tracking-wide">
+                      {t(`americano.${tournament}.scheduleLabel`)}
+                    </span>
+                  </div>
+                  <p className="font-bold text-white">{t(`americano.${tournament}.time`)}</p>
+                  <p className="text-xs text-[#E2D9F3]">{t(`americano.${tournament}.duration`)}</p>
+                </div>
+                <div className="rounded-xl bg-[#3B0758] p-3">
+                  <div className="mb-1 flex items-center gap-2 text-[#FFD700]">
+                    <Trophy size={14} />
+                    <span className="text-xs font-bold uppercase tracking-wide">
+                      {t(`americano.${tournament}.prizeLabel`)}
+                    </span>
+                  </div>
+                  <p className="text-sm font-bold text-white">{t(`americano.${tournament}.prize`)}</p>
+                </div>
+              </div>
+
+              <Button asChild className="h-11 w-full bg-brand-accent font-bold text-[#3B0758] hover:bg-brand-accent-hover">
+                <a href={PLAYTOMIC_ACTIVITIES} target="_blank" rel="noopener noreferrer">
+                  {t("americano.register")}
+                </a>
+              </Button>
+            </div>
           </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {tournaments.map((key, i) => (
-              <motion.div
-                key={key}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-[#3B0758] rounded-2xl border border-white/10 overflow-hidden hover:border-[#FFD700]/40 transition-all"
-              >
-                {/* Poster Image with overlay and text */}
-                <div className="relative h-96 sm:h-[26rem] overflow-hidden">
-                  <Image
-                    src="/Mexicano.png"
-                    alt={t(`mexicano.${key}.title`)}
-                    fill
-                    className="object-cover object-center"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-black/45" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-6 text-center">
-                    <p className="text-[#FFD700] text-xs font-bold uppercase tracking-[0.2em]">
-                      {t(`mexicano.${key}.level`)} · {t(`mexicano.${key}.time`)} · {t(`mexicano.${key}.spots`)}
-                    </p>
-                    <h3
-                      className="text-6xl sm:text-7xl text-white leading-none"
-                      style={{ fontFamily: "var(--font-black-ops)", transform: "rotate(-3deg)" }}
-                    >
-                      MEXICANO
-                    </h3>
-                    <div className="bg-[#FFD700] text-[#3B0758] px-5 py-1 text-xs font-black uppercase tracking-widest mt-1">
-                      Play. Change partners. Win.
-                    </div>
-                  </div>
-                </div>
-
-                {/* Details */}
-                <div className="p-6 space-y-4">
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-[#3B0758] rounded-xl p-3">
-                      <div className="flex items-center gap-2 text-[#FFD700] mb-1">
-                        <Clock size={14} />
-                        <span className="text-xs font-bold uppercase tracking-wide">{t(`mexicano.${key}.scheduleLabel`)}</span>
-                      </div>
-                      <p className="text-white font-bold">{t(`mexicano.${key}.time`)}</p>
-                      <p className="text-[#E2D9F3] text-xs">{t(`mexicano.${key}.duration`)}</p>
-                    </div>
-                    <div className="bg-[#3B0758] rounded-xl p-3">
-                      <div className="flex items-center gap-2 text-[#FFD700] mb-1">
-                        <Trophy size={14} />
-                        <span className="text-xs font-bold uppercase tracking-wide">
-                          {t(`mexicano.${key}.prizeLabel`)}
-                        </span>
-                      </div>
-                      <p className="text-white font-bold text-sm">{t(`mexicano.${key}.prize`)}</p>
-                    </div>
-                  </div>
-
-                  <Button
-                    asChild
-                    className="bg-[#FFD700] text-[#3B0758] hover:bg-[#FFE773] font-bold w-full h-11"
-                  >
-                    <a href={links[key]} target="_blank" rel="noopener noreferrer">
-                      {t("mexicano.register")}
-                    </a>
-                  </Button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* How Mexicano Works */}
-      <section className="py-16 bg-background-alternate">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+      <section className="bg-background-alternate py-16">
+        <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <button
               onClick={() => setHowOpen(!howOpen)}
-              className="w-full flex items-center justify-between text-left bg-[#3B0758] rounded-2xl px-6 py-5 border border-white/10 hover:border-[#FFD700]/40 transition-all"
+              className="flex w-full items-center justify-between rounded-2xl border border-white/10 bg-[#3B0758] px-6 py-5 text-left transition-all hover:border-[#FFD700]/40"
             >
-              <span className="text-xl font-black text-white">{t("mexicano.howTitle")}</span>
-              {howOpen ? (
-                <ChevronUp size={20} className="text-[#FFD700] flex-shrink-0" />
-              ) : (
-                <ChevronDown size={20} className="text-[#FFD700] flex-shrink-0" />
-              )}
+              <span className="text-xl font-black text-white">{t("americano.howTitle")}</span>
+              {howOpen ? <ChevronUp size={20} className="shrink-0 text-[#FFD700]" /> : <ChevronDown size={20} className="shrink-0 text-[#FFD700]" />}
             </button>
 
             {howOpen && (
               <motion.ul
                 initial={{ opacity: 0, y: -8 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-3 bg-[#3B0758] rounded-2xl px-6 py-5 border border-white/10 space-y-3"
+                className="mt-3 space-y-3 rounded-2xl border border-white/10 bg-[#3B0758] px-6 py-5"
               >
-                {rules.map((rule, i) => (
-                  <li key={i} className="flex items-start gap-3 text-[#E2D9F3] text-sm">
-                    <span className="w-1.5 h-1.5 bg-[#FFD700] rounded-full flex-shrink-0 mt-1.5" />
+                {rules.map((rule, index) => (
+                  <li key={index} className="flex items-start gap-3 text-sm text-[#E2D9F3]">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#FFD700]" />
                     {rule}
                   </li>
                 ))}

@@ -7,7 +7,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/shared/Logo";
 import { ArrowRight } from "lucide-react";
-import { PLAYTOMIC_APP, WHATSAPP_URL } from "@/lib/constants";
+import { PLAYTOMIC_RESERVATIONS, WHATSAPP_URL } from "@/lib/constants";
 
 export default function Hero() {
   const t = useTranslations("home.hero");
@@ -34,7 +34,7 @@ export default function Hero() {
             "radial-gradient(circle at 50% 120%, rgba(255,215,0,0.15) 0%, #25003D 80%)",
         }}
       >
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 text-center">
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-35 text-center">
 
         {/* Logo as main hero title — real text set in the brand fonts */}
         <motion.div
@@ -51,7 +51,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="italic text-[#F3E8FF] text-2xl sm:text-3xl lg:text-4xl font-light tracking-wide mb-10"
+          className="italic text-[#F3E8FF] text-2xl sm:text-3xl lg:text-4xl font-light tracking-wide mb-6 sm:mb-10"
           style={{ fontFamily: "var(--font-serif-italic)" }}
         >
           {t("catchphrase")}
@@ -77,7 +77,7 @@ export default function Hero() {
             size="lg"
             className="rounded-full bg-gradient-to-br from-[#FFD700] to-[#FFE773] text-[#25003D] hover:brightness-105 font-extrabold tracking-wide text-base px-10 h-14"
           >
-            <a href={PLAYTOMIC_APP} target="_blank" rel="noopener noreferrer">
+            <a href={PLAYTOMIC_RESERVATIONS} target="_blank" rel="noopener noreferrer">
               {t("ctaBook")}
               <ArrowRight className="ml-0.5" size={14} />
             </a>
@@ -102,7 +102,7 @@ export default function Hero() {
           aria-label={t("communityDoor")}
         >
           <span
-            className="italic text-lg text-[#FFD700] tracking-wide opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:text-2xl"
+            className="italic text-lg text-[#FFD700] tracking-wide opacity-0 animate-community-door-label transition-opacity duration-300 sm:animate-none sm:group-hover:opacity-100 sm:text-2xl"
             style={{ fontFamily: "'Times New Roman MT', 'Times New Roman', Times, serif" }}
           >
             {t("communityDoor")}

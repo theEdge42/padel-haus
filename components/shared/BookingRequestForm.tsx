@@ -117,7 +117,7 @@ export function BookingRequestForm({
       <Button
         type="submit"
         disabled={loading}
-        className="bg-[#FFD700] text-[#3B0758] hover:bg-[#FFE773] font-bold w-full h-11"
+        className="bg-brand-accent text-[#3B0758] hover:bg-brand-accent-hover font-bold w-full h-11"
       >
         {loading ? "..." : t("submit")}
       </Button>

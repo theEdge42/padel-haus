@@ -136,7 +136,7 @@ export default function PartnerFinderForm() {
           <Button
             type="submit"
             disabled={loading || !name || !phone || !availability || !skillLevel}
-            className="bg-[#FFD700] text-[#3B0758] hover:bg-[#FFE773] font-bold w-full h-12 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+            className="bg-brand-accent text-[#3B0758] hover:bg-brand-accent-hover font-bold w-full h-12 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
             {loading ? t("sending") : t("submit")}
           </Button>

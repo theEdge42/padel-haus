@@ -132,7 +132,7 @@ export default function ContactPage() {
                   <Button
                     type="submit"
                     disabled={sending}
-                    className="bg-[#FFD700] text-[#3B0758] hover:bg-[#FFE773] font-bold w-full h-12 disabled:opacity-60"
+                    className="bg-brand-accent text-[#3B0758] hover:bg-brand-accent-hover font-bold w-full h-12 disabled:opacity-60"
                   >
                     {sending ? t("form.sending") : t("form.submit")}
                   </Button>

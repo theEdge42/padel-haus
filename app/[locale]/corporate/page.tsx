@@ -114,7 +114,7 @@ export default function CorporatePage() {
                     onClick={() => scrollToForm(key)}
                     className={`w-full font-bold ${
                       isPremium
-                        ? "bg-[#FFD700] text-[#25003D] hover:bg-[#FFE773]"
+                        ? "bg-brand-accent text-[#25003D] hover:bg-brand-accent-hover"
                         : "bg-white/10 text-white hover:bg-white/20 border border-white/20"
                     }`}
                   >

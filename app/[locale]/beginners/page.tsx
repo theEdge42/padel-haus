@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Footprints, ArrowRight } from "lucide-react";
-import { PLAYTOMIC_APP, WHATSAPP_URL } from "@/lib/constants";
+import { PLAYTOMIC_RESERVATIONS, PLAYTOMIC_OPEN_MATCHES, WHATSAPP_URL } from "@/lib/constants";
 
 const bookingSteps = ["step1", "step2", "step3"] as const;
 const levels = ["beginner", "intermediate", "advanced"] as const;
@@ -26,9 +26,6 @@ export default function BeginnersPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Badge className="bg-[#FFD700]/20 text-[#FFD700] border-[#FFD700]/30 mb-6 text-sm px-4 py-1.5">
-              {t("hero.badge")}
-            </Badge>
             <h1 className="text-4xl sm:text-5xl font-black text-white mb-6">
               {t("hero.title")}
             </h1>
@@ -68,30 +65,6 @@ export default function BeginnersPage() {
       {/*    </div>*/}
       {/*  </div>*/}
       {/*</section>*/}
-
-      {/* Come alone */}
-      <section className="py-20 bg-background-alternate">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-[#4A0E6D] rounded-2xl p-8 border border-white/10 text-center"
-          >
-            <div className="w-12 h-12 rounded-xl bg-[#FFD700]/15 flex items-center justify-center mx-auto mb-5">
-              <MessageCircle className="text-[#FFD700]" size={22} />
-            </div>
-            <h2 className="text-2xl font-black text-white mb-3">{t("alone.title")}</h2>
-            <p className="text-[#E2D9F3] leading-relaxed mb-6 max-w-xl mx-auto">{t("alone.desc")}</p>
-            <Button asChild className="bg-[#FFD700] text-[#25003D] hover:bg-[#FFE773] font-bold">
-              <Link href={`/${locale}/community`}>
-                {t("alone.cta")}
-                <ArrowRight className="ml-2" size={16} />
-              </Link>
-            </Button>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Gear */}
       <section className="py-20">
@@ -136,6 +109,38 @@ export default function BeginnersPage() {
         </div>
       </section>
 
+      {/* Come alone */}
+      <section className="py-20 bg-background-alternate">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-[#4A0E6D] rounded-2xl p-8 border border-white/10 text-center"
+          >
+            <div className="w-12 h-12 rounded-xl bg-[#FFD700]/15 flex items-center justify-center mx-auto mb-5">
+              <MessageCircle className="text-[#FFD700]" size={22} />
+            </div>
+            <h2 className="text-2xl font-black text-white mb-3">{t("alone.title")}</h2>
+            <p className="text-[#E2D9F3] leading-relaxed mb-6 max-w-xl mx-auto">{t("alone.desc")}</p>
+            <div className="flex flex-col justify-center gap-3 sm:flex-row">
+              <Button asChild variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white font-bold">
+                <Link href={`/${locale}/community`}>
+                  {t("alone.communityCta")}
+                  <ArrowRight className="ml-2" size={16} />
+                </Link>
+              </Button>
+              <Button asChild className="bg-brand-accent text-[#25003D] hover:bg-brand-accent-hover font-bold">
+                <a href={PLAYTOMIC_OPEN_MATCHES} target="_blank" rel="noopener noreferrer">
+                  {t("alone.openMatchesCta")}
+                  <ArrowRight className="ml-2" size={16} />
+                </a>
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Skill levels */}
       <section className="py-20 bg-background-alternate">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -166,6 +171,9 @@ export default function BeginnersPage() {
               </motion.div>
             ))}
           </div>
+          <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-[#E2D9F3]/80">
+            {t("levels.note")}
+          </p>
         </div>
       </section>
 
@@ -194,9 +202,9 @@ export default function BeginnersPage() {
             <Button
               asChild
               size="lg"
-              className="bg-[#FFD700] text-[#25003D] hover:bg-[#FFE773] font-bold"
+              className="bg-brand-accent text-[#25003D] hover:bg-brand-accent-hover font-bold"
             >
-              <a href={PLAYTOMIC_APP} target="_blank" rel="noopener noreferrer">
+              <a href={PLAYTOMIC_RESERVATIONS} target="_blank" rel="noopener noreferrer">
                 {t("cta.bookButton")}
               </a>
             </Button>

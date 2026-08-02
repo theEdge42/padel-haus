@@ -4,7 +4,7 @@
     "coaching": "Coaching",
     "community": "Community",
     "events": "Tournaments",
-    "beginners": "Beginners",
+    "beginners": "Beginner?",
     "memberships": "Memberships",
     "corporate": "Corporate",
     "contact": "Contact",
@@ -20,7 +20,7 @@
       "ctaBook": "Book",
       "ctaLearn": "Explore the Club",
       "ctaMemberships": "Memberships",
-      "ctaTraining": "Train",
+      "ctaTraining": "Training",
       "communityDoor": "Community",
       "statCourts": "Indoor Courts",
       "statMembers": "Members",
@@ -44,9 +44,9 @@
     "community": {
       "title": "Join the Community",
       "subtitle": "Connect with fellow padel enthusiasts",
-      "whatsappTitle": "Join Our WhatsApp Group",
+      "whatsappTitle": "Join Our WhatsApp Community",
       "whatsappDesc": "Get match notifications, find partners, and stay updated on events.",
-      "joinButton": "Join WhatsApp Group",
+      "joinButton": "Join WhatsApp Community",
       "stat1": "500+ Members",
       "stat2": "Weekly Tournaments",
       "stat3": "All Skill Levels"
@@ -92,7 +92,7 @@
     },
     "location": {
       "title": "Find Us",
-      "address": "Strada Rampei 37, Faur, Bucuresti",
+      "address": "Strada Rampei 37, Bucuresti",
       "hours": "Monday–Sunday: 08:00–00:30"
     },
     "gallery": {
@@ -160,8 +160,8 @@
   "events": {
     "hero": {
       "badge": "Events & Tournaments",
-      "title": "Mexicano Every Weekend.",
-      "desc": "A dynamic, social and balanced format — different partners each round, individual ranking, guaranteed fun."
+      "title": "Team Americano Every Weekend.",
+      "desc": "A dynamic, social team format — play every round with the same partner and face new opponents."
     },
     "mexicano": {
       "title": "Mexicano Tournaments",
@@ -204,6 +204,30 @@
       ],
       "register": "Register on Playtomic",
       "registerNote": "Registration is done exclusively via Playtomic"
+    },
+    "americano": {
+      "title": "Team Americano Tournament",
+      "subtitle": "Play with your partner against new opponents every round",
+      "tagline": "Play together. Change opponents. Win.",
+      "americano": {
+        "title": "Team Americano",
+        "time": "11:00 – 13:00",
+        "spots": "8 / 12 / 16 spots",
+        "duration": "~2 hours",
+        "scheduleLabel": "Schedule",
+        "prizeLabel": "1st place prize",
+        "prize": "Wilson Premier Padel Speed balls",
+        "level": "Intermediate"
+      },
+      "howTitle": "How Does Team Americano Work?",
+      "rules": [
+        "6–8 short matches up to 20 points",
+        "You stay with the same partner throughout the tournament",
+        "Only your opponents change from round to round",
+        "Team ranking based on accumulated points",
+        "Dynamic, social and balanced format"
+      ],
+      "register": "Register on Playtomic"
     }
   },
   "coaching": {
@@ -232,7 +256,7 @@
         "name": "Semi-Private (2–4 players)",
         "desc": "Train with friends and split the cost of a certified coach.",
         "duration": "60 / 90 min",
-        "price": "80 RON / hour / person"
+        "price": "130 RON / hour / court"
       },
       "kids": {
         "name": "Kids Academy",
@@ -277,13 +301,24 @@
         "schedule": "Mon–Fri: 16:30 – 00:00 & Weekends"
       },
       "partnersLabel": "Number of players",
+      "sessionsLabel": "Number of sessions",
       "partners": {
         "1": "Individual",
         "2": "2 players",
         "3": "3 players"
       },
-      "perSession": "per session",
-      "whatsappMessage": "Hi! I'd like to book a {plan} training session ({partners}). My name is ___ and my preferred time is ___."
+      "sessionCount": "{count, plural, one {# session} other {# sessions}}",
+      "packagePrice": "package price",
+      "total": "total",
+      "whatsappMessage": "Hi! I'd like to book {sessions} of the {plan} training plan ({partners}) for {total} lei. My name is {name}, and my preferred time is ___.",
+      "bookingModal": {
+        "title": "Complete your booking",
+        "description": "Enter your name before continuing to WhatsApp.",
+        "nameLabel": "Your name",
+        "namePlaceholder": "Full name",
+        "cancel": "Cancel",
+        "continue": "Continue booking"
+      }
     }
   },
   "corporate": {
@@ -366,7 +401,7 @@
     },
     "info": {
       "title": "Visit Us",
-      "address": "Strada Rampei 37, Faur, Bucuresti",
+      "address": "Strada Rampei 37, Bucuresti",
       "phone": "+40 700 000 000",
       "email": "contact@padelhaus.ro",
       "whatsapp": "https://chat.whatsapp.com/CqGix2BlvAtIyz7z3ic30I",
@@ -431,20 +466,20 @@
   },
   "pricing": {
     "badge": "Pricing",
-    "title": "Simple, Transparent Prices",
+    "title": "Prices",
     "subtitle": "No hidden fees. Pay per court or save with a membership.",
     "courtTitle": "Court Rental",
     "weekdayLabel": "Mon–Fri, until 17:00",
-    "weekdayPrice": "80 RON / hour",
+    "weekdayPrice": "130 RON / hour",
     "eveningLabel": "Mon–Fri after 17:00 & weekends",
-    "eveningPrice": "120 RON / hour",
+    "eveningPrice": "180 RON / hour",
     "racketLabel": "Racket rental",
-    "racketPrice": "20 RON",
-    "dayPassLabel": "Day Pass (unlimited off-peak play)",
-    "dayPassPrice": "150 RON",
+    "racketPrice": "15 RON",
+    "ballsLabel": "Adidas padel ball tube",
+    "ballsPrice": "40 RON",
     "academyTeaser": "Private and group coaching sessions",
-    "academyLink": "See Academy pricing",
-    "membershipTeaser": "Unlimited monthly access from 250 RON",
+    "academyLink": "See coaching pricing",
+    "membershipTeaser": "Unlimited monthly access from 350 RON",
     "membershipLink": "See Membership plans",
     "cta": "Book a Court"
   },
@@ -478,9 +513,9 @@
       "desc": "Two simple plans. Pick the access window that fits your schedule and unlock unlimited court time."
     },
     "daily": {
-      "name": "Daily Membership",
+      "name": "Day time Membership",
       "window": "Monday–Friday, until 17:00",
-      "price": "250 RON",
+      "price": "349 RON",
       "period": "/ month",
       "desc": "Perfect if you play during the day on weekdays.",
       "feature1": "Unlimited court time, Mon–Fri until 17:00",
@@ -494,7 +529,7 @@
     "full": {
       "name": "Full Membership",
       "window": "Every day, including weekends",
-      "price": "450 RON",
+      "price": "649 RON",
       "period": "/ month",
       "desc": "Unrestricted access, whenever you want to play.",
       "feature1": "Unlimited court time, any day, any hour",
@@ -508,7 +543,7 @@
     },
     "popular": "MOST POPULAR",
     "cta": "Join via WhatsApp",
-    "note": "Memberships are billed monthly. Message us on WhatsApp to sign up or ask questions."
+    "note": "Memberships are billed monthly. Message us on <whatsapp>WhatsApp</whatsapp> to sign up or ask questions."
   },
   "beginners": {
     "hero": {
@@ -527,8 +562,9 @@
     },
     "alone": {
       "title": "Can I Come Alone?",
-      "desc": "Yes! Padel is played in doubles (2v2), so you don't need to bring a full group. Join our WhatsApp community to find partners and matches at your level.",
-      "cta": "Find a Partner"
+      "desc": "Yes. Browse Padel Haus open matches on Playtomic to join a game that suits your level, or join our community to meet players and find a partner.",
+      "communityCta": "Join the Community",
+      "openMatchesCta": "Browse Open Matches"
     },
     "gear": {
       "title": "What Do I Need?",
@@ -541,11 +577,12 @@
     "levels": {
       "title": "Skill Levels Explained",
       "beginnerTitle": "Beginner",
-      "beginnerDesc": "New to padel or racket sports. Focus is on rules, positioning, and having fun.",
+      "beginnerDesc": "Learning the rules, court positioning, wall bounces, and basic forehands, backhands, serves, and volleys.",
       "intermediateTitle": "Intermediate",
-      "intermediateDesc": "Comfortable with rallies and basic strategy, working on consistency and shot variety.",
+      "intermediateDesc": "Can sustain rallies, play more consistently, use the net, and apply simple tactics with a partner.",
       "advancedTitle": "Advanced",
-      "advancedDesc": "Competitive players with strong technique, tactics, and match experience."
+      "advancedDesc": "Uses precise, varied shots and the walls strategically, with strong movement, decision-making, and match experience.",
+      "note": "Playtomic uses a dynamic 0–7 level scale. Your starting level comes from a short assessment, then competitive match results, opponents, teammates, and rating reliability help refine it over time."
     },
     "cta": {
       "title": "Ready for Your First Session?",

@@ -96,7 +96,7 @@ export default function CartDrawer() {
             </div>
             <Button
               asChild
-              className="bg-[#FFD700] text-[#25003D] hover:bg-[#FFE773] font-bold w-full h-12"
+              className="bg-brand-accent text-[#25003D] hover:bg-brand-accent-hover font-bold w-full h-12"
             >
               <Link href={`/${locale}/shop/checkout`}>{t("cart.checkout")}</Link>
             </Button>

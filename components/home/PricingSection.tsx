@@ -3,17 +3,16 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Clock, Moon } from "lucide-react";
-import { PLAYTOMIC_APP } from "@/lib/constants";
+import { PLAYTOMIC_RESERVATIONS } from "@/lib/constants";
 
 export default function PricingSection() {
   const t = useTranslations("pricing");
   const locale = useLocale();
 
   return (
-    <section id="pricing" className="py-24 bg-background">
+    <section id="pricing" className="scroll-mt-24 bg-background py-24">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -21,9 +20,6 @@ export default function PricingSection() {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <Badge className="bg-[#FFD700]/20 text-[#FFD700] border-[#FFD700]/30 mb-4">
-            {t("badge")}
-          </Badge>
           <h2 className="text-4xl sm:text-5xl font-black text-white mb-3">{t("title")}</h2>
           <p className="text-[#E2D9F3]/80 max-w-xl mx-auto">{t("subtitle")}</p>
         </motion.div>
@@ -62,8 +58,8 @@ export default function PricingSection() {
               <span className="text-white font-semibold">{t("racketPrice")}</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-[#E2D9F3]/80 text-sm">{t("dayPassLabel")}</span>
-              <span className="text-white font-semibold">{t("dayPassPrice")}</span>
+              <span className="text-[#E2D9F3]/80 text-sm">{t("ballsLabel")}</span>
+              <span className="text-white font-semibold">{t("ballsPrice")}</span>
             </div>
           </div>
         </motion.div>
@@ -104,9 +100,9 @@ export default function PricingSection() {
           <Button
             asChild
             size="lg"
-            className="bg-[#FFD700] text-[#25003D] hover:bg-[#FFE773] font-bold text-base px-10 h-14"
+            className="bg-brand-accent text-[#25003D] hover:bg-brand-accent-hover font-bold text-base px-10 h-14"
           >
-            <a href={PLAYTOMIC_APP} target="_blank" rel="noopener noreferrer">
+            <a href={PLAYTOMIC_RESERVATIONS} target="_blank" rel="noopener noreferrer">
               {t("cta")}
               <ArrowRight className="ml-2" size={18} />
             </a>

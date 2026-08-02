@@ -116,7 +116,7 @@ function CheckoutForm() {
           </div>
           <Button
             type="submit"
-            className="bg-[#FFD700] text-[#3B0758] hover:bg-[#FFE773] font-bold w-full h-12 mt-4"
+            className="bg-brand-accent text-[#3B0758] hover:bg-brand-accent-hover font-bold w-full h-12 mt-4"
           >
             {t("placeOrder")} — {total} RON
           </Button>

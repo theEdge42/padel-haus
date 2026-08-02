@@ -5,7 +5,7 @@ const SCRIPT_FONT = "'Times New Roman MT', 'Times New Roman', Times, serif";
 const SIZES = {
   sm: { script: "text-xl sm:text-2xl", bold: "text-lg sm:text-xl", gap: "gap-1.5" },
   md: { script: "text-4xl sm:text-5xl", bold: "text-4xl sm:text-5xl", gap: "gap-2" },
-  lg: { script: "text-6xl sm:text-7xl lg:text-8xl", bold: "text-6xl sm:text-7xl lg:text-8xl", gap: "gap-2.5" },
+  lg: { script: "text-5xl sm:text-6xl lg:text-6xl", bold: "text-5xl sm:text-6xl lg:text-6xl", gap: "gap-2.5" },
 } as const;
 
 export function Logo({

@@ -35,7 +35,7 @@ export default function ProductCard({ product }: Props) {
         </div>
         <Button
           onClick={() => addItem(product)}
-          className="bg-[#FFD700] text-[#25003D] hover:bg-[#FFE773] font-bold w-full mt-4"
+          className="bg-brand-accent text-[#25003D] hover:bg-brand-accent-hover font-bold w-full mt-4"
         >
           <ShoppingCart className="mr-2" size={16} />
           {t("addToCart")}

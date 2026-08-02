@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Check, Calendar, Sun } from "lucide-react";
-import { WHATSAPP_URL } from "@/lib/constants";
+import { PLAYTOMIC_MEMBERSHIPS, WHATSAPP_CONTACT_URL } from "@/lib/constants";
 
 const tiers = [
   { key: "daily" as const, icon: Sun, features: ["feature1", "feature2", "feature3"], popular: false },
@@ -103,11 +103,11 @@ export default function MembershipsPage() {
                   asChild
                   className={`w-full font-bold ${
                     popular
-                      ? "bg-[#FFD700] text-[#25003D] hover:bg-[#FFE773]"
+                      ? "bg-brand-accent text-[#25003D] hover:bg-brand-accent-hover"
                       : "bg-white/10 text-white hover:bg-white/20 border border-white/20"
                   }`}
                 >
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                  <a href={PLAYTOMIC_MEMBERSHIPS} target="_blank" rel="noopener noreferrer">
                     {t("cta")}
                   </a>
                 </Button>
@@ -116,7 +116,18 @@ export default function MembershipsPage() {
           </div>
 
           <p className="text-center text-[#E2D9F3]/60 text-sm mt-10 max-w-md mx-auto">
-            {t("note")}
+            {t.rich("note", {
+              whatsapp: (chunks) => (
+                <a
+                  href={WHATSAPP_CONTACT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#FFD700] underline underline-offset-2 hover:text-[#FFE773]"
+                >
+                  {chunks}
+                </a>
+              ),
+            })}
           </p>
         </div>
       </section>

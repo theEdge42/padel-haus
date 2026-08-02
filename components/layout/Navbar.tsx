@@ -7,7 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/shared/Logo";
-import { PLAYTOMIC_APP, WHATSAPP_URL, INSTAGRAM_URL } from "@/lib/constants";
+import { PLAYTOMIC_RESERVATIONS, WHATSAPP_URL, INSTAGRAM_URL } from "@/lib/constants";
 
 function InstagramIcon({ size = 18 }: { size?: number }) {
   return (
@@ -49,7 +49,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-3 left-3 right-3 sm:top-4 sm:left-4 sm:right-4 z-50">
       <div className="max-w-7xl mx-auto rounded-2xl border border-white/15 bg-[#25003D]/85 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
-        <div className="px-4 sm:px-6 flex items-center gap-4 h-16">
+        <div className="flex h-16 items-center gap-4 px-4 max-[359px]:gap-2 max-[359px]:px-3 sm:px-6">
           {/* Logo */}
           <Link
             href={`/${locale}`}
@@ -81,9 +81,9 @@ export default function Navbar() {
             </button>
             <Button
               asChild
-              className="bg-[#FFD700] text-[#25003D] hover:bg-[#FFE773] font-bold text-sm"
+              className="bg-brand-accent text-[#25003D] hover:bg-brand-accent-hover font-bold text-sm"
             >
-              <a href={PLAYTOMIC_APP} target="_blank" rel="noopener noreferrer">
+              <a href={PLAYTOMIC_RESERVATIONS} target="_blank" rel="noopener noreferrer">
                 {t("bookNow")}
               </a>
             </Button>
@@ -112,9 +112,9 @@ export default function Navbar() {
             <Button
               asChild
               size="sm"
-              className="bg-[#FFD700] text-[#25003D] hover:bg-[#FFE773] font-bold text-xs px-3"
+              className="bg-brand-accent text-[#25003D] hover:bg-brand-accent-hover font-bold text-xs px-3 max-[359px]:px-2"
             >
-              <a href={PLAYTOMIC_APP} target="_blank" rel="noopener noreferrer">
+              <a href={PLAYTOMIC_RESERVATIONS} target="_blank" rel="noopener noreferrer">
                 {t("bookNow")}
               </a>
             </Button>
@@ -122,7 +122,7 @@ export default function Navbar() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-8 h-8 flex items-center justify-center rounded-full border border-white/25 text-[#F3E8FF]"
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 text-[#F3E8FF] max-[359px]:hidden"
               aria-label="WhatsApp"
             >
               <MessageCircle size={14} />

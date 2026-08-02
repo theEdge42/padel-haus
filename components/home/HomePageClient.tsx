@@ -24,7 +24,15 @@ export default function HomePageClient({ initialShowLoader }: HomePageClientProp
     document.body.style.overflow = isLoading ? "hidden" : "";
 
     if (!isLoading) {
-      window.scrollTo({ top: 0, behavior: "auto" });
+      const sectionId = window.location.hash.slice(1);
+
+      if (sectionId) {
+        requestAnimationFrame(() => {
+          document.getElementById(sectionId)?.scrollIntoView({ behavior: "auto", block: "start" });
+        });
+      } else {
+        window.scrollTo({ top: 0, behavior: "auto" });
+      }
     }
 
     return () => {
