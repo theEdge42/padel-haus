@@ -17,20 +17,20 @@ export default function CommunityPage() {
     <div className="min-h-screen bg-background">
       {/* Hero */}
       <section className="py-24 bg-background-alternate relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/5 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-amber/5 to-transparent pointer-events-none" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Badge className="bg-[#FFD700]/20 text-[#FFD700] border-[#FFD700]/30 mb-6 text-sm px-4 py-1.5">
+            <Badge className="bg-amber/20 text-amber border-amber/30 mb-6 text-sm px-4 py-1.5">
               {t("hero.badge")}
             </Badge>
-            <h1 className="text-5xl sm:text-6xl font-black text-white mb-6">
+            <h1 className="text-5xl sm:text-6xl font-black text-crem mb-6">
               {t("hero.title")}
             </h1>
-            <p className="text-[#E2D9F3] text-xl leading-relaxed">{t("hero.desc")}</p>
+            <p className="text-lilac text-xl leading-relaxed">{t("hero.desc")}</p>
           </motion.div>
         </div>
       </section>
@@ -42,7 +42,7 @@ export default function CommunityPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-black text-white text-center mb-14"
+            className="text-4xl font-black text-crem text-center mb-14"
           >
             {t("howItWorks.title")}
           </motion.h2>
@@ -56,16 +56,16 @@ export default function CommunityPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.15 }}
-                  className="bg-[#3B0758] rounded-2xl p-8 border border-white/10 text-center"
+                  className="bg-mov rounded-2xl p-8 border border-crem/10 text-center"
                 >
-                  <div className="w-14 h-14 bg-[#FFD700]/15 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <Icon size={28} className="text-[#FFD700]" />
+                  <div className="w-14 h-14 bg-amber/15 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <Icon size={28} className="text-amber" />
                   </div>
-                  <div className="text-[#FFD700] font-black text-3xl mb-2">{i + 1}</div>
-                  <h3 className="text-white font-bold text-xl mb-3">
+                  <div className="text-amber font-black text-3xl mb-2">{i + 1}</div>
+                  <h3 className="text-crem font-bold text-xl mb-3">
                     {t(`howItWorks.${key}Title`)}
                   </h3>
-                  <p className="text-[#E2D9F3] leading-relaxed">
+                  <p className="text-lilac leading-relaxed">
                     {t(`howItWorks.${key}Desc`)}
                   </p>
                 </motion.div>
@@ -82,14 +82,14 @@ export default function CommunityPage() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-[#3B0758] rounded-2xl p-10 border border-white/10"
+            className="bg-mov rounded-2xl p-10 border border-crem/10"
           >
             <div className="w-16 h-16 bg-green-500/15 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <MessageCircle size={32} className="text-green-400" />
             </div>
-            <h2 className="text-3xl font-black text-white mb-4">{t("whatsapp.title")}</h2>
-            <p className="text-[#E2D9F3] mb-8 leading-relaxed">{t("whatsapp.desc")}</p>
-            <Button asChild className="bg-green-500 hover:bg-green-600 text-white font-bold px-8 h-12">
+            <h2 className="text-3xl font-black text-crem mb-4">{t("whatsapp.title")}</h2>
+            <p className="text-lilac mb-8 leading-relaxed">{t("whatsapp.desc")}</p>
+            <Button asChild className="bg-green-500 hover:bg-green-600 text-crem font-bold px-8 h-12">
               <a href="https://chat.whatsapp.com/CqGix2BlvAtIyz7z3ic30I" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="mr-2" size={20} />
                 {t("whatsapp.button")}

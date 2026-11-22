@@ -50,45 +50,45 @@ export default function PartnerFinderForm() {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="bg-[#3B0758] rounded-2xl p-8 md:p-10 border border-white/10"
+      className="bg-mov rounded-2xl p-8 md:p-10 border border-crem/10"
     >
-      <h2 className="text-3xl font-black text-white mb-2">{t("title")}</h2>
-      <p className="text-[#E2D9F3] mb-8">{t("desc")}</p>
+      <h2 className="text-3xl font-black text-crem mb-2">{t("title")}</h2>
+      <p className="text-lilac mb-8">{t("desc")}</p>
 
       {submitted ? (
         <div className="text-center py-10">
-          <CheckCircle2 size={48} className="text-[#FFD700] mx-auto mb-4" />
-          <p className="text-white font-bold text-lg">{t("success")}</p>
-          <p className="text-[#E2D9F3] mt-2 text-sm">{t("successSub")}</p>
+          <CheckCircle2 size={48} className="text-amber mx-auto mb-4" />
+          <p className="text-crem font-bold text-lg">{t("success")}</p>
+          <p className="text-lilac mt-2 text-sm">{t("successSub")}</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div className="space-y-2">
-              <Label className="text-[#E2D9F3]">{t("name")}</Label>
+              <Label className="text-lilac">{t("name")}</Label>
               <Input
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder={t("namePlaceholder")}
-                className="bg-[#3B0758] border-white/20 text-white placeholder:text-white/40 focus:border-[#FFD700]"
+                className="bg-mov border-crem/20 text-crem placeholder:text-crem/40 focus:border-amber"
               />
             </div>
             <div className="space-y-2">
-              <Label className="text-[#E2D9F3]">{t("phone")}</Label>
+              <Label className="text-lilac">{t("phone")}</Label>
               <Input
                 required
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder={t("phonePlaceholder")}
-                className="bg-[#3B0758] border-white/20 text-white placeholder:text-white/40 focus:border-[#FFD700]"
+                className="bg-mov border-crem/20 text-crem placeholder:text-crem/40 focus:border-amber"
               />
             </div>
           </div>
 
           <div className="space-y-3">
-            <Label className="text-[#E2D9F3]">{t("availability")}</Label>
+            <Label className="text-lilac">{t("availability")}</Label>
             <div className="grid grid-cols-2 gap-3">
               {availabilityKeys.map((key) => (
                 <button
@@ -97,8 +97,8 @@ export default function PartnerFinderForm() {
                   onClick={() => setAvailability(key)}
                   className={`rounded-xl border px-4 py-3 text-sm font-medium text-left transition-all ${
                     availability === key
-                      ? "border-[#FFD700] bg-[#FFD700]/10 text-[#FFD700]"
-                      : "border-white/20 text-[#E2D9F3] hover:border-white/40"
+                      ? "border-amber bg-amber/10 text-amber"
+                      : "border-crem/20 text-lilac hover:border-crem/40"
                   }`}
                 >
                   <div className="font-bold">{t(`avail.${key}Label`)}</div>
@@ -109,7 +109,7 @@ export default function PartnerFinderForm() {
           </div>
 
           <div className="space-y-3">
-            <Label className="text-[#E2D9F3]">{t("skillLevel")}</Label>
+            <Label className="text-lilac">{t("skillLevel")}</Label>
             <div className="grid grid-cols-2 gap-3">
               {skillKeys.map((key) => (
                 <button
@@ -118,8 +118,8 @@ export default function PartnerFinderForm() {
                   onClick={() => setSkillLevel(key)}
                   className={`rounded-xl border px-4 py-3 text-sm font-medium text-left transition-all ${
                     skillLevel === key
-                      ? "border-[#FFD700] bg-[#FFD700]/10 text-[#FFD700]"
-                      : "border-white/20 text-[#E2D9F3] hover:border-white/40"
+                      ? "border-amber bg-amber/10 text-amber"
+                      : "border-crem/20 text-lilac hover:border-crem/40"
                   }`}
                 >
                   <div className="font-bold">{t(`skill.${key}Label`)}</div>
@@ -136,7 +136,7 @@ export default function PartnerFinderForm() {
           <Button
             type="submit"
             disabled={loading || !name || !phone || !availability || !skillLevel}
-            className="bg-brand-accent text-[#3B0758] hover:bg-brand-accent-hover font-bold w-full h-12 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+            className="bg-brand-accent text-mov hover:bg-brand-accent-hover font-bold w-full h-12 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
             {loading ? t("sending") : t("submit")}
           </Button>

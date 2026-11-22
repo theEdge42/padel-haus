@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { MessageCircle } from "lucide-react";
 import { Logo } from "@/components/shared/Logo";
+import { FooterWave } from "@/components/layout/FooterWave";
 import { LetterRoll } from "@/components/shared/LetterRoll";
 import { WHATSAPP_CONTACT_URL, INSTAGRAM_URL } from "@/lib/constants";
 
@@ -37,8 +38,9 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-background-alternate border-t border-white/10 pt-16 pb-8">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer id="visit" className="scroll-mt-20 overflow-x-clip bg-deep pb-8">
+      <FooterWave />
+      <div className="max-w-8xl mx-auto px-4 pt-6 sm:px-6 lg:px-8">
         {/* Logo — sits above the address */}
         <Link href={`/${locale}`} className="inline-block mb-8 opacity-90 hover:opacity-100 transition-opacity">
           <Logo size="lg" />
@@ -47,15 +49,15 @@ export default function Footer() {
         {/* Address / EXPLORE / CONTACT — bottom-aligned so labels sit on the address baseline */}
         <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-20 items-end mb-6">
           <div>
-            <p className="text-lg font-semibold text-[#E2D9F3] sm:text-xl">{LATITUDE}, {LONGITUDE}   {tContact("info.address")}</p>
+            <p className="text-lg font-semibold text-lilac sm:text-xl">{LATITUDE}, {LONGITUDE}   {tContact("info.address")}</p>
           </div>
-          <h3 className="hidden text-white font-bold tracking-wide md:block">{t("links").toUpperCase()}</h3>
-          <h3 className="hidden text-white font-bold tracking-wide md:block">{tContact("hero.badge").toUpperCase()}</h3>
+          <h3 className="hidden text-crem font-bold tracking-wide md:block">{t("links").toUpperCase()}</h3>
+          <h3 className="hidden text-crem font-bold tracking-wide md:block">{tContact("hero.badge").toUpperCase()}</h3>
         </div>
 
         {/* Map / links / contact — top-aligned so the map lines up with the first link */}
         <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-20 items-start mb-12">
-          <div className="rounded-xl overflow-hidden border border-white/10 w-full max-w-[500px] aspect-square">
+          <div className="rounded-xl overflow-hidden border border-crem/10 w-full max-w-[500px] aspect-square">
             <iframe
               src={MAP_EMBED_SRC}
               width="100%"
@@ -68,13 +70,13 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-white font-bold tracking-wide md:hidden">{t("links").toUpperCase()}</h3>
+            <h3 className="mb-4 text-crem font-bold tracking-wide md:hidden">{t("links").toUpperCase()}</h3>
             <ul className="space-y-3">
               {exploreLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                   href={link.href}
-                    className="group text-[#E2D9F3] hover:text-[#FFD700] transition-colors"
+                    className="group text-lilac hover:text-amber transition-colors"
                     aria-label={link.label}
                   >
                     <LetterRoll>{link.label}</LetterRoll>
@@ -85,10 +87,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-white font-bold tracking-wide md:hidden">{tContact("hero.badge").toUpperCase()}</h3>
+            <h3 className="mb-4 text-crem font-bold tracking-wide md:hidden">{tContact("hero.badge").toUpperCase()}</h3>
             <ul className="space-y-3 mb-6">
               <li>
-                <a href={`mailto:${tContact("info.email")}`} className="text-[#E2D9F3] hover:text-[#FFD700] transition-colors">
+                <a href={`mailto:${tContact("info.email")}`} className="text-lilac hover:text-amber transition-colors">
                   Email
                 </a>
               </li>
@@ -97,7 +99,7 @@ export default function Footer() {
                   href={WHATSAPP_CONTACT_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#E2D9F3] hover:text-[#FFD700] transition-colors"
+                  className="text-lilac hover:text-amber transition-colors"
                 >
                   WhatsApp
                 </a>
@@ -109,7 +111,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-10 h-10 flex items-center justify-center rounded-lg border border-white/20 text-[#E2D9F3] hover:text-[#FFD700] hover:border-[#FFD700]/50 transition-colors"
+                className="w-10 h-10 flex items-center justify-center rounded-lg border border-crem/20 text-lilac hover:text-amber hover:border-amber/50 transition-colors"
               >
                 <InstagramIcon size={18} />
               </a>
@@ -118,7 +120,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="w-10 h-10 flex items-center justify-center rounded-lg border border-white/20 text-[#E2D9F3] hover:text-[#FFD700] hover:border-[#FFD700]/50 transition-colors"
+                className="w-10 h-10 flex items-center justify-center rounded-lg border border-crem/20 text-lilac hover:text-amber hover:border-amber/50 transition-colors"
               >
                 <MessageCircle size={18} />
               </a>
@@ -126,10 +128,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-[#E2D9F3]/60">
+        <div className="border-t border-crem/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-lilac/60">
           <div className="flex gap-4">
-            {/*<Link href="#" className="hover:text-[#FFD700] transition-colors">{t("privacy")}</Link>*/}
-            {/*<Link href="#" className="hover:text-[#FFD700] transition-colors">{t("terms")}</Link>*/}
+            {/*<Link href="#" className="hover:text-amber transition-colors">{t("privacy")}</Link>*/}
+            {/*<Link href="#" className="hover:text-amber transition-colors">{t("terms")}</Link>*/}
           </div>
         </div>
       </div>

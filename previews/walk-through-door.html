@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Preview – walk through the door</title>
+<!-- Same Google fonts the site loads through next/font in app/layout.tsx -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&family=Cormorant+Garamond:ital,wght@1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  /* Values copied from Hero.tsx, Logo.tsx, Navbar.tsx and globals.css */
+  :root { --bg:#25003D; --alt:#2D0A4E; --card:#4A0E6D; --gold:#FFD700; --gold2:#FFE773; --muted:#F3E8FF; --text:#E2D9F3;
+          --sans:"Nunito Sans",ui-sans-serif,system-ui,sans-serif; --serif-italic:"Cormorant Garamond",Georgia,serif;
+          --script:'Times New Roman MT','Times New Roman',Times,serif; }
+  * { box-sizing:border-box; }
+  html { font-family:var(--sans); }
+  body { margin:0; background:var(--bg); color:#fff; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; text-decoration:none; }
+  svg.icon { width:var(--s); height:var(--s); fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
+
+  /* ---------- Logo ---------- */
+  .logo { display:inline-flex; align-items:baseline; line-height:1; white-space:nowrap; }
+  .logo .script { font-family:var(--script); font-style:italic; color:#eeede9; }
+  .logo .bold { font-family:var(--sans); font-weight:700; color:#fff; letter-spacing:.04em; }
+  .logo.sm { gap:6px; } .logo.sm .script { font-size:20px; } .logo.sm .bold { font-size:18px; }
+  .logo.lg { gap:10px; } .logo.lg .script, .logo.lg .bold { font-size:48px; }
+  @media (min-width:640px) { .logo.sm .script { font-size:24px; } .logo.sm .bold { font-size:20px; } .logo.lg .script, .logo.lg .bold { font-size:60px; } }
+
+  /* ---------- Navbar ---------- */
+  .nav { position:fixed; left:0; right:0; top:0; z-index:50; padding:12px 12px 0; }
+  @media (min-width:640px) { .nav { top:16px; left:16px; right:16px; padding:0; } }
+  .nav-box { max-width:1280px; margin:0 auto; border-radius:18px; border:1px solid rgba(255,255,255,.15); background:rgba(37,0,61,.85);
+             backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); box-shadow:0 8px 32px rgba(0,0,0,.5); }
+  .nav-row { display:flex; height:64px; align-items:center; gap:16px; padding:0 16px; }
+  @media (min-width:640px) { .nav-row { padding:0 24px; } }
+  .nav-links { display:none; flex:1; align-items:center; justify-content:center; gap:24px; }
+  .nav-links a { font-size:14px; line-height:20px; font-weight:600; color:rgba(243,232,255,.8); }
+  .nav-actions { display:none; align-items:center; justify-content:flex-end; gap:12px; margin-left:auto; }
+  .nav-mobile { display:flex; align-items:center; justify-content:flex-end; gap:8px; margin-left:auto; }
+  @media (min-width:1024px) { .nav-links, .nav-actions { display:flex; } .nav-mobile { display:none; } }
+  .lang { font-size:14px; line-height:20px; font-weight:600; color:rgba(243,232,255,.8); padding:4px 8px; border:1px solid rgba(255,255,255,.2); border-radius:8px; background:none; font-family:inherit; }
+  .book { display:inline-flex; align-items:center; justify-content:center; background:var(--gold); color:var(--bg); font-weight:700; white-space:nowrap; border-radius:10px; }
+  .nav-actions .book { height:32px; padding:0 10px; font-size:14px; }
+  .nav-mobile .book { height:28px; padding:0 12px; font-size:12px; border-radius:8px; }
+  .circle { display:flex; align-items:center; justify-content:center; border-radius:999px; border:1px solid rgba(255,255,255,.25); color:var(--muted); }
+  .nav-actions .circle { width:36px; height:36px; } .nav-mobile .circle { width:32px; height:32px; }
+  .burger { padding:6px; color:#fff; display:flex; }
+
+  /* ---------- Hero (pinned for the walk-in) ---------- */
+  .pin { position:relative; height:280vh; }
+  .hero { position:sticky; top:0; height:100vh; height:100svh; display:flex; flex-direction:column; align-items:center; overflow:hidden; background:var(--bg);
+          padding-top:96px; /* the pt-24 that app/[locale]/layout.tsx puts on <main> */ }
+  .gradient { position:relative; width:100%; background-image:radial-gradient(circle at 50% 120%, rgba(255,215,0,.15) 0%, #25003D 80%); }
+  .hero-inner { position:relative; max-width:1024px; margin:0 auto; padding:40px 16px 0; text-align:center; }
+  @media (min-width:640px) { .hero-inner { padding:140px 24px 0; } }
+  @media (min-width:1024px) { .hero-inner { padding-left:32px; padding-right:32px; } }
+  .hero-logo { display:flex; justify-content:center; margin-bottom:20px; }
+  .catch { font-family:var(--serif-italic); font-style:italic; font-weight:300; color:var(--muted); letter-spacing:.025em; margin:0 0 24px; font-size:24px; line-height:32px; }
+  @media (min-width:640px) { .catch { font-size:30px; line-height:36px; margin-bottom:40px; } }
+  @media (min-width:1024px) { .catch { font-size:36px; line-height:40px; } }
+  .ctas { display:flex; flex-direction:column; gap:16px; justify-content:center; align-items:center; }
+  @media (min-width:640px) { .ctas { flex-direction:row; } }
+  .cta { display:inline-flex; align-items:center; justify-content:center; gap:6px; height:56px; border-radius:999px; font-size:16px; line-height:24px; letter-spacing:.025em; white-space:nowrap; }
+  .cta-out { border:2px solid var(--gold); color:var(--gold2); font-weight:800; padding:0 32px; }
+  .cta-book { background:linear-gradient(to bottom right, var(--gold), var(--gold2)); color:var(--bg); font-weight:800; padding:0 40px; }
+  .cta-book svg { margin-left:2px; }
+  .cta-ghost { border:1px solid rgba(255,255,255,.25); color:rgba(243,232,255,.8); font-weight:700; padding:0 40px; }
+  .intro { opacity:0; transform:translateY(var(--from)); animation:rise var(--d) ease-out var(--delay,0s) forwards; }
+  @keyframes rise { to { opacity:1; transform:none; } }
+
+  .door { position:relative; display:flex; align-items:center; justify-content:center; margin:40px auto 0; width:192px; height:256px; overflow:hidden;
+          border:2px solid rgba(255,215,0,.8); border-bottom:0; border-radius:9999px 9999px 0 0; transform-origin:50% 100%;
+          background:linear-gradient(to top, #25003D, #14011f);
+          box-shadow:inset 0 4px 16px rgba(255,215,0,.3), 0 -4px 16px rgba(255,215,0,.25); }
+  /* Phones: a bit more room above the door than the live site (40px), so it sits lower */
+  @media (max-width:639px) { .door { margin-top:10svh; } }
+  @media (min-width:640px) { .door { width:320px; height:448px; } }
+  .door svg { position:absolute; inset:0; width:100%; height:100%; overflow:visible; transform-origin:50% 100%; }
+  .door .glow { position:absolute; inset:0; pointer-events:none; opacity:0; background:radial-gradient(ellipse at 50% 30%, rgba(255,248,220,.3), transparent 65%); }
+  .court .line { fill:none; stroke:#F3EEFA; stroke-opacity:.85; stroke-width:1.3; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:1; stroke-dashoffset:1; }
+  .court .structure { opacity:0; transition:opacity 1s ease .2s; }
+  .court.ready .structure { opacity:1; }
+  .court .net { transform-box:fill-box; transform-origin:50% 100%; transform:scaleY(0); transition:transform .6s ease-out 1.3s; }
+  .court.ready .net { transform:none; }
+
+  /* ---------- Sections after the hero (mock) ---------- */
+  .wrap { max-width:1200px; margin:0 auto; padding:0 16px; }
+  section.block { padding:96px 0; position:relative; }
+  h2 { font-size:clamp(36px,5vw,48px); font-weight:900; margin:0 0 16px; text-align:center; }
+  .sub { color:var(--text); text-align:center; margin:0 0 48px; font-size:18px; }
+  .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; max-width:900px; margin:0 auto; }
+  .stat { background:var(--card); border:1px solid rgba(255,255,255,.1); border-radius:20px; padding:28px 16px; text-align:center; opacity:0; transform:translateY(20px); transition:opacity .6s, transform .6s; }
+  .stat.in { opacity:1; transform:none; }
+  .stat .num { font-size:clamp(36px,6vw,60px); font-weight:900; color:var(--gold); font-variant-numeric:tabular-nums; line-height:1; }
+  .stat .lbl { color:var(--text); margin-top:10px; font-weight:600; }
+  @media (max-width:560px) { .stats { grid-template-columns:1fr; } }
+  .prints { display:flex; flex-direction:column; gap:28px; align-items:center; }
+  .row { display:flex; justify-content:center; gap:clamp(8px,2vw,28px); width:100%; }
+  .row:nth-child(2) { padding-left:clamp(0px,4vw,60px); }
+  .print { margin:0; width:clamp(96px,21vw,230px); background:#fff; padding:clamp(6px,1vw,10px) clamp(6px,1vw,10px) clamp(24px,3vw,36px); border-radius:4px; box-shadow:0 12px 30px rgba(0,0,0,.45); position:relative;
+           opacity:0; transform:translateY(-40px) scale(1.1); transition:transform .7s cubic-bezier(.2,.9,.3,1.2), opacity .4s; }
+  .print img { display:block; width:100%; aspect-ratio:3/4; object-fit:cover; }
+  .print figcaption { position:absolute; bottom:clamp(5px,.9vw,10px); left:0; right:0; text-align:center; color:#341743; font:600 clamp(10px,1.3vw,14px)/1 "Marker Felt","Comic Sans MS",cursive; }
+  .print.in { opacity:1; transform:rotate(var(--r)) translateY(var(--y,0)); }
+  @media (max-width:560px) { .print:nth-child(4) { display:none; } }
+  .filler { height:50vh; display:flex; align-items:center; justify-content:center; color:rgba(226,217,243,.35); border-top:1px dashed rgba(255,255,255,.08); }
+
+  @media (prefers-reduced-motion:reduce) {
+    .pin { height:auto; } .hero { position:relative; min-height:100vh; height:auto; }
+    .intro { animation:none; opacity:1; transform:none; }
+    *, .court .structure, .court .net { transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navbar (Navbar.tsx) -->
+<header class="nav">
+  <div class="nav-box"><div class="nav-row">
+    <a href="#" class="logo sm"><span class="script">padel</span><span class="bold">haus.</span></a>
+    <nav class="nav-links"><a href="#">Acasă</a><a href="#">Începător?</a><a href="#">Antrenamente</a><a href="#">Turnee</a><a href="#">Abonamente</a></nav>
+    <div class="nav-actions">
+      <button class="lang">EN</button>
+      <a class="book" href="#">Rezervă</a>
+      <a class="circle" href="#" aria-label="Instagram"><svg class="icon" style="--s:16px" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+    </div>
+    <div class="nav-mobile">
+      <a class="book" href="#">Rezervă</a>
+      <a class="circle" href="#" aria-label="WhatsApp"><svg class="icon" style="--s:14px" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a>
+      <a class="circle" href="#" aria-label="Instagram"><svg class="icon" style="--s:14px" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+      <span class="burger"><svg class="icon" style="--s:22px" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg></span>
+    </div>
+  </div></div>
+</header>
+
+<main>
+
+<!-- Hero (Hero.tsx), with the court behind the door -->
+<div class="pin" id="pin">
+  <section class="hero">
+    <div class="gradient">
+      <div class="hero-inner">
+        <div id="copy">
+          <div class="hero-logo intro" style="--from:30px;--d:.7s"><span class="logo lg"><span class="script">padel</span><span class="bold">haus.</span></span></div>
+          <p class="catch intro" style="--from:16px;--d:.6s;--delay:.15s">Your second home.</p>
+          <div class="ctas intro" style="--from:20px;--d:.6s;--delay:.35s">
+            <a class="cta cta-out" href="#">Abonamente</a>
+            <a class="cta cta-book" href="#">Rezervă<svg class="icon" style="--s:14px" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a class="cta cta-ghost" href="#">Antrenamente</a>
+          </div>
+        </div>
+        <a class="door" id="door" href="#" aria-label="Comunitate">
+          <svg class="court" id="court" viewBox="0 0 320 440" preserveAspectRatio="xMidYMax slice" aria-hidden="true"></svg>
+          <div class="glow" id="glow"></div>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Community (mock, with count-up) -->
+<!-- Top padding cut from the real 96px (py-24) so Community follows the court closely -->
+<section class="block" style="background:var(--bg);padding-top:40px">
+  <div class="wrap">
+    <h2>Alătură-te Comunității</h2>
+    <p class="sub">Conectează-te cu pasionații de padel</p>
+    <div class="stats" id="stats">
+      <div class="stat"><div class="num" data-to="500" data-suffix="+">0</div><div class="lbl">Membri</div></div>
+      <div class="stat"><div class="num" data-to="4">0</div><div class="lbl">Terenuri indoor</div></div>
+      <div class="stat"><div class="num">Săptămânal</div><div class="lbl">Turnee</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery (mock, scattered prints) -->
+<section class="block" style="background:var(--alt)">
+  <div class="wrap">
+    <h2>Life at Padel Haus</h2>
+    <p class="sub">Real moments. Real community.</p>
+    <div class="prints" id="prints">
+      <div class="row">
+        <figure class="print" style="--r:-4deg"><img src="../public/gallery/IMG_9080.jpeg" alt=""><figcaption>social night</figcaption></figure>
+        <figure class="print" style="--r:3deg;--y:14px"><img src="../public/gallery/Competition1.jpeg" alt=""><figcaption>mexicano 🏆</figcaption></figure>
+        <figure class="print" style="--r:-2deg"><img src="../public/gallery/2.jpeg" alt=""><figcaption>on court</figcaption></figure>
+        <figure class="print" style="--r:5deg;--y:8px"><img src="../public/gallery/IMG_5270.jpeg" alt=""><figcaption>tournament</figcaption></figure>
+      </div>
+      <div class="row">
+        <figure class="print" style="--r:3deg"><img src="../public/gallery/sofa.jpeg" alt=""><figcaption>after the game</figcaption></figure>
+        <figure class="print" style="--r:-5deg;--y:10px"><img src="../public/gallery/Competition3.jpeg" alt=""><figcaption>competition</figcaption></figure>
+        <figure class="print" style="--r:2deg"><img src="../public/gallery/1.jpeg" alt=""><figcaption>the courts</figcaption></figure>
+        <figure class="print" style="--r:-3deg;--y:12px"><img src="../public/gallery/Competition2.jpeg" alt=""><figcaption>finals day</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="filler">Pricing · Video · FAQ (unchanged)</div>
+</main>
+
+<script>
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const clamp = v => Math.max(0, Math.min(1, v));
+
+  // ---------- Court geometry: metres, x 0–10 across, z 0–20 near → far, h height ----------
+  const VIEW_W = 320, VIEW_H = 440, CAMERA = 8, SCALE = 30, CX = 160, HORIZON_Y = 160, NEAR_Y = 430;
+  const project = (x, z, h = 0) => { const f = CAMERA / (CAMERA + z); return [CX + (x - 5) * SCALE * f, HORIZON_Y + (NEAR_Y - HORIZON_Y) * f - h * SCALE * f]; };
+  const pt = p => project(...p).map(n => n.toFixed(1)).join(' ');
+  const poly = (pts, close) => 'M' + pts.map(pt).join(' L') + (close ? ' Z' : '');
+  const segs = list => list.map(([a, b]) => `M${pt(a)} L${pt(b)}`).join(' ');
+  const range = (a, b, s) => { const o = []; for (let v = a; v <= b + 1e-6; v += s) o.push(+v.toFixed(3)); return o; };
+  const COURT_TOP_Y = project(0, 20, 4)[1], COURT_BOTTOM_Y = NEAR_Y, COURT_WIDTH = 10 * SCALE;
+
+  const sideMesh = (x, z0, z1, h0, h1) => segs([...range(z0, z1, .25).map(z => [[x, z, h0], [x, z, h1]]), ...range(h0, h1, .25).map(h => [[x, z0, h], [x, z1, h]])]);
+  // Side walls near → far: glass height and total height (standard padel enclosure)
+  // Second panel from each back wall: same height glass as the first, no mesh (like the Padel Haus courts)
+  const SIDES = [{ z0: 0, z1: 2, glass: 3, top: 4 }, { z0: 2, z1: 4, glass: 3, top: 3 }, { z0: 4, z1: 16, glass: 0, top: 3 }, { z0: 16, z1: 18, glass: 3, top: 3 }, { z0: 18, z1: 20, glass: 3, top: 4 }];
+  const OPENINGS = [[8.6, 9.8], [10.2, 11.4]]; // entries either side of the net
+  const glass = [], mesh = [], frame = [];
+  for (const x of [0, 10]) {
+    for (const s of SIDES) {
+      if (s.glass) { glass.push(poly([[x, s.z0], [x, s.z1], [x, s.z1, s.glass], [x, s.z0, s.glass]], true)); frame.push([[x, s.z0, s.glass], [x, s.z1, s.glass]]); }
+      let start = s.z0; const parts = [];
+      for (const [a, b] of OPENINGS) if (a >= s.z0 && b <= s.z1) { parts.push([start, a]); start = b; }
+      parts.push([start, s.z1]);
+      for (const [a, b] of parts) if (s.top > s.glass) { mesh.push(sideMesh(x, a, b, s.glass, s.top)); frame.push([[x, a, s.top], [x, b, s.top]]); }
+    }
+    for (const z of range(0, 20, 2)) frame.push([[x, z], [x, z, Math.max(...SIDES.filter(s => z >= s.z0 && z <= s.z1).map(s => s.top))]]);
+    for (const [a, b] of OPENINGS) frame.push([[x, a], [x, a, 3]], [[x, b], [x, b, 3]]);
+  }
+  // Far back wall: glass with mesh above. The near wall is where you stand, so only its corner posts show.
+  glass.push(poly([[0, 20], [10, 20], [10, 20, 3], [0, 20, 3]], true));
+  mesh.push(segs([...range(0, 10, .25).map(x => [[x, 20, 3], [x, 20, 4]]), ...range(3, 4, .25).map(h => [[0, 20, h], [10, 20, h]])]));
+  for (const x of range(0, 10, 2)) frame.push([[x, 20], [x, 20, 4]]);
+  frame.push([[0, 20, 3], [10, 20, 3]], [[0, 20, 4], [10, 20, 4]], [[0, 0], [0, 0, 4]], [[10, 0], [10, 0, 4]]);
+
+  const svg = document.getElementById('court');
+  const NS = 'http://www.w3.org/2000/svg';
+  const add = (tag, attrs, parent = svg) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; };
+
+  // Ceiling lights
+  const lamps = [];
+  for (const z of [4, 10, 16]) for (const x of [2.5, 7.5]) {
+    const [x1, y] = project(x - 1, z, 7), [x2] = project(x + 1, z, 7), w = x2 - x1, h = Math.max(1.5, w * .1);
+    const glowRect = add('rect', { x: x1, y: y - h, width: w, height: h * 3, rx: h, fill: '#FFF3C4', opacity: 0, style: 'filter:blur(4px)' });
+    const lamp = add('rect', { x: x1, y, width: w, height: h, rx: h / 2, fill: '#FFF8E0', opacity: .12 });
+    lamps.push([lamp, glowRect]);
+  }
+  const structure = add('g', { class: 'structure' });
+  add('path', { d: poly([[0, 0], [10, 0], [10, 20], [0, 20]], true), fill: '#1E2F7A', 'fill-opacity': .45 }, structure);
+  glass.forEach(d => add('path', { d, fill: '#DCE6FF', 'fill-opacity': .06, stroke: '#F3EEFA', 'stroke-opacity': .25, 'stroke-width': .6 }, structure));
+  add('path', { d: mesh.join(' '), fill: 'none', stroke: '#C9CCE0', 'stroke-opacity': .22, 'stroke-width': .4 }, structure);
+  add('path', { d: segs(frame), fill: 'none', stroke: '#B8BCD0', 'stroke-opacity': .7, 'stroke-width': 1.1, 'stroke-linecap': 'round' }, structure);
+  const lines = [poly([[0, 0], [0, 20], [10, 20], [10, 0]]), poly([[0, 16.95], [10, 16.95]]), poly([[0, 3.05], [10, 3.05]]), poly([[5, 3.05], [5, 16.95]])]
+    .map((d, i) => add('path', { d, class: 'line', pathLength: 1, style: `transition:stroke-dashoffset .9s ease-out ${.4 + i * .15}s` }));
+  const NET_H = 1.1; // drawn a little taller than the real 0.88 m so it reads at this size
+  const net = add('g', { class: 'net' });
+  add('path', { d: segs([...range(0, 10, .25).map(x => [[x, 10, .05], [x, 10, NET_H]]), ...range(.2, NET_H - .1, .2).map(h => [[0, 10, h], [10, 10, h]])]), fill: 'none', stroke: '#F3EEFA', 'stroke-opacity': .3, 'stroke-width': .4 }, net);
+  add('path', { d: poly([[0, 10, NET_H], [10, 10, NET_H]]), fill: 'none', stroke: '#F3EEFA', 'stroke-width': 1.4, 'stroke-linecap': 'round' }, net);
+
+  // Intro: structure fades in, lines draw, net rises
+  requestAnimationFrame(() => requestAnimationFrame(() => { svg.classList.add('ready'); lines.forEach(l => l.style.strokeDashoffset = 0); }));
+
+  // ---------- Scroll: walk through the door ----------
+  const pin = document.getElementById('pin'), door = document.getElementById('door'), copy = document.getElementById('copy'), glow = document.getElementById('glow');
+  const walk = p => clamp((p - .12) / .88) ** 3;
+  let fit = { maxScale: 1, courtScale: 1, lift: 0 };
+  function measure() {
+    const w = door.offsetWidth, h = door.offsetHeight, vw = innerWidth, vh = innerHeight;
+    const bottom = door.getBoundingClientRect().bottom - pin.getBoundingClientRect().top; // scale origin
+    // While you walk in, the door also slides so its bottom edge ends on the bottom of the screen:
+    // the court then runs straight into the Community section, with no strip of hero underneath.
+    const drop = vh - bottom;
+    // The door must grow until its sides pass the screen edges and its arch clears the top
+    const maxScale = Math.max(vw * 1.25 / w, vh * 1.05 / (h - w / 2));
+    const unit = Math.max(door.clientWidth / VIEW_W, door.clientHeight / VIEW_H), courtW = COURT_WIDTH * unit, courtH = (COURT_BOTTOM_Y - COURT_TOP_Y) * unit;
+    // Phones: the court always ends 105% of the screen width. Larger screens: fits with a margin.
+    const courtScale = vw < 640 ? vw * 1.05 / courtW : Math.min(maxScale, vw * .94 / courtW, (vh - 140) / courtH);
+    // Near baseline ends 12px above the door's bottom edge (the door crops anything below it)
+    fit = { maxScale, courtScale, drop, lift: 12 - (VIEW_H - COURT_BOTTOM_Y) * unit * courtScale };
+    render();
+  }
+  function render() {
+    if (reduce) return;
+    const p = clamp(-pin.getBoundingClientRect().top / (pin.offsetHeight - innerHeight));
+    const t = clamp(p / .28);
+    copy.style.transform = `translateY(${-80 * t}px)`;
+    copy.style.opacity = 1 - t;
+    const k = walk(p), A = 1 + (fit.maxScale - 1) * k, C = 1 + (fit.courtScale - 1) * k;
+    door.style.transform = `translateY(${fit.drop * k}px) scale(${A})`;
+    // The door outgrows the court, so you end up inside with the whole court in view
+    svg.style.transform = `translateY(${-fit.lift * k / A}px) scale(${C / A})`;
+    lamps.forEach(([lamp, g], i) => { const on = clamp((p - .3 - i * .04) / .2); lamp.setAttribute('opacity', .12 + .88 * on); g.setAttribute('opacity', .7 * on); });
+    glow.style.opacity = clamp((p - .3) / .35);
+  }
+  if (reduce) { lamps.forEach(([l, g]) => { l.setAttribute('opacity', 1); g.setAttribute('opacity', .7); }); glow.style.opacity = .6; }
+  addEventListener('scroll', () => requestAnimationFrame(render), { passive: true });
+  addEventListener('resize', measure);
+  document.fonts.ready.then(measure);
+  measure();
+
+  // ---------- Count-up stats ----------
+  const stats = document.getElementById('stats');
+  new IntersectionObserver((entries, obs) => {
+    if (!entries[0].isIntersecting) return;
+    obs.disconnect();
+    stats.querySelectorAll('.stat').forEach((s, i) => setTimeout(() => s.classList.add('in'), i * 120));
+    stats.querySelectorAll('.num[data-to]').forEach(el => {
+      const to = +el.dataset.to, suf = el.dataset.suffix || '';
+      if (reduce) { el.textContent = to + suf; return; }
+      const t0 = performance.now();
+      (function tick(now) { const k = clamp((now - t0) / 1600); el.textContent = Math.round(to * (1 - (1 - k) ** 4)) + (k === 1 ? suf : ''); if (k < 1) requestAnimationFrame(tick); })(t0);
+    });
+  }, { threshold: .4 }).observe(stats);
+
+  // ---------- Prints drop in ----------
+  const prints = document.getElementById('prints');
+  new IntersectionObserver((entries, obs) => {
+    if (!entries[0].isIntersecting) return;
+    obs.disconnect();
+    prints.querySelectorAll('.print').forEach((p, i) => setTimeout(() => p.classList.add('in'), reduce ? 0 : i * 110));
+  }, { threshold: .25 }).observe(prints);
+</script>
+</body>
+</html>

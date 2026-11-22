@@ -65,20 +65,20 @@ export default function ShopPage() {
       <div className="min-h-screen bg-background">
         {/* Hero */}
         <section className="py-24 bg-background-alternate relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/5 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-br from-amber/5 to-transparent pointer-events-none" />
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Badge className="bg-[#FFD700]/20 text-[#FFD700] border-[#FFD700]/30 mb-6 text-sm px-4 py-1.5">
+              <Badge className="bg-amber/20 text-amber border-amber/30 mb-6 text-sm px-4 py-1.5">
                 {t("hero.badge")}
               </Badge>
-              <h1 className="text-5xl sm:text-6xl font-black text-white mb-6">
+              <h1 className="text-5xl sm:text-6xl font-black text-crem mb-6">
                 {t("hero.title")}
               </h1>
-              <p className="text-[#E2D9F3] text-xl leading-relaxed">{t("hero.desc")}</p>
+              <p className="text-lilac text-xl leading-relaxed">{t("hero.desc")}</p>
             </motion.div>
           </div>
         </section>
@@ -95,8 +95,8 @@ export default function ShopPage() {
                     onClick={() => setFilter(key)}
                     className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
                       filter === key
-                        ? "bg-[#FFD700] text-[#3B0758]"
-                        : "bg-white/10 text-[#E2D9F3] hover:bg-white/20"
+                        ? "bg-amber text-mov"
+                        : "bg-crem/10 text-lilac hover:bg-crem/20"
                     }`}
                   >
                     {label}

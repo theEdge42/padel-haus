@@ -56,8 +56,8 @@ export function BookingRequestForm({
   if (submitted) {
     return (
       <div className="text-center py-8">
-        <CheckCircle2 size={48} className="text-[#FFD700] mx-auto mb-4" />
-        <p className="text-white font-bold text-lg">{t("success")}</p>
+        <CheckCircle2 size={48} className="text-amber mx-auto mb-4" />
+        <p className="text-crem font-bold text-lg">{t("success")}</p>
       </div>
     );
   }
@@ -66,14 +66,14 @@ export function BookingRequestForm({
     <form onSubmit={handleSubmit} className="space-y-4">
       {packageOptions && (
         <div className="space-y-2">
-          <Label className="text-[#E2D9F3]">{t("package")}</Label>
+          <Label className="text-lilac">{t("package")}</Label>
           <div className="relative">
           <select
             name="package"
             value={selectedPackage ?? ""}
             onChange={(e) => onPackageChange?.(e.target.value)}
             required
-            className="w-full appearance-none rounded-md border border-white/20 bg-[#3B0758] pl-3 pr-8 py-2 text-white text-sm focus:outline-none focus:border-[#FFD700] [&>option]:bg-[#3B0758]"
+            className="w-full appearance-none rounded-md border border-crem/20 bg-mov pl-3 pr-8 py-2 text-crem text-sm focus:outline-none focus:border-amber [&>option]:bg-mov"
           >
             <option value="" disabled>
               {t("selectPackage")}
@@ -84,40 +84,40 @@ export function BookingRequestForm({
               </option>
             ))}
           </select>
-          <ChevronDown size={16} className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-white/50" />
+          <ChevronDown size={16} className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-crem/50" />
           </div>
         </div>
       )}
       <div className="space-y-2">
-        <Label className="text-[#E2D9F3]">{t("name")}</Label>
+        <Label className="text-lilac">{t("name")}</Label>
         <Input
           name="name"
           required
-          className="bg-[#3B0758] border-white/20 text-white placeholder:text-white/40 focus:border-[#FFD700]"
+          className="bg-mov border-crem/20 text-crem placeholder:text-crem/40 focus:border-amber"
         />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label className="text-[#E2D9F3]">{t("email")}</Label>
+          <Label className="text-lilac">{t("email")}</Label>
           <Input
             name="email"
             type="email"
-            className="bg-[#3B0758] border-white/20 text-white placeholder:text-white/40 focus:border-[#FFD700]"
+            className="bg-mov border-crem/20 text-crem placeholder:text-crem/40 focus:border-amber"
           />
         </div>
         <div className="space-y-2">
-          <Label className="text-[#E2D9F3]">{t("phone")}</Label>
+          <Label className="text-lilac">{t("phone")}</Label>
           <Input
             name="phone"
             type="tel"
-            className="bg-[#3B0758] border-white/20 text-white placeholder:text-white/40 focus:border-[#FFD700]"
+            className="bg-mov border-crem/20 text-crem placeholder:text-crem/40 focus:border-amber"
           />
         </div>
       </div>
       <Button
         type="submit"
         disabled={loading}
-        className="bg-brand-accent text-[#3B0758] hover:bg-brand-accent-hover font-bold w-full h-11"
+        className="bg-brand-accent text-mov hover:bg-brand-accent-hover font-bold w-full h-11"
       >
         {loading ? "..." : t("submit")}
       </Button>

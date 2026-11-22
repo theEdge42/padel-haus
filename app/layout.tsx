@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Nunito_Sans, Geist_Mono, Black_Ops_One, Cormorant_Garamond } from "next/font/google";
+import { Nunito_Sans, Geist_Mono, Tinos } from "next/font/google";
 import "./globals.css";
 
 const nunitoSans = Nunito_Sans({
   variable: "--font-sans",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   weight: ["300", "400", "600", "700", "800", "900"],
 });
 
@@ -13,17 +13,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const blackOpsOne = Black_Ops_One({
-  variable: "--font-black-ops",
-  subsets: ["latin"],
-  weight: "400",
-});
-
-const cormorantGaramond = Cormorant_Garamond({
-  variable: "--font-serif-italic",
-  subsets: ["latin"],
+const tinos = Tinos({
+  variable: "--font-tinos",
+  subsets: ["latin", "latin-ext"],
   style: ["italic"],
-  weight: ["300", "400", "600", "700"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -44,9 +38,9 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      className={`${nunitoSans.variable} ${geistMono.variable} ${blackOpsOne.variable} ${cormorantGaramond.variable}`}
+      className={`${nunitoSans.variable} ${geistMono.variable} ${tinos.variable}`}
     >
-      <body className="bg-background text-white antialiased">{children}</body>
+      <body className="bg-background text-crem antialiased">{children}</body>
     </html>
   );
 }

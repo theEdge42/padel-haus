@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Preview – home in brand colours</title>
+<!-- Brand book §05: two families only. Times New Roman MT Italic (fallback Tinos Italic) + Nunito Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&family=Tinos:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  /* Brand book §04 palette + neutrals for text on Mov */
+  :root {
+    --mov:#341743; --noapte:#1C0C25; --deep:#15091C; --crem:#EFE6D9; --violet:#8B4FE8; --amber:#D98C3F; --verde:#2E4034;
+    --text:#EFE6D9; --text-2:#CFBFD8; --label:#8B7A94;
+    --sans:"Nunito Sans",Nunito,Mulish,sans-serif;
+    --serif:'Times New Roman MT',Tinos,Georgia,'Times New Roman',serif;
+  }
+  * { box-sizing:border-box; }
+  html { font-family:var(--sans); }
+  body { margin:0; background:var(--mov); color:var(--text); -webkit-font-smoothing:antialiased; }
+  a { color:inherit; text-decoration:none; }
+  svg.icon { width:var(--s); height:var(--s); fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
+  .wrap { max-width:1200px; margin:0 auto; padding:0 20px; position:relative; }
+
+  /* Type levels (§05) */
+  .eyebrow { display:inline-flex; align-items:center; gap:10px; font-size:12px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; color:var(--amber); margin:0 0 18px; }
+  .eyebrow::before { content:""; width:6px; height:6px; border-radius:50%; background:currentColor; }
+  .impact { font-weight:800; letter-spacing:-.035em; line-height:.95; font-size:clamp(40px,6.5vw,72px); margin:0; color:var(--crem); }
+  .impact em { display:block; font-family:var(--serif); font-style:italic; font-weight:400; letter-spacing:-.01em; color:var(--amber); }
+  .editorial { font-family:var(--serif); font-style:italic; font-weight:400; font-size:clamp(34px,5vw,52px); line-height:1.05; margin:0; }
+  .lead { color:var(--text-2); font-size:18px; line-height:1.6; max-width:560px; margin:20px 0 0; }
+  .tag { font-size:12px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; color:var(--label); }
+
+  /* Buttons */
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; height:52px; padding:0 28px; border-radius:999px; font-weight:800; font-size:16px; letter-spacing:.02em; white-space:nowrap; transition:transform .2s, background .2s; }
+  .btn:hover { transform:translateY(-1px); }
+  .btn-amber { background:var(--amber); color:var(--noapte); }
+  /* Secondary and tertiary stay clearly readable next to the Amber button: Crem on Mov only */
+  .btn-line { border:2px solid var(--crem); color:var(--crem); background:rgba(239,230,217,.08); }
+  .btn-line:hover { background:rgba(239,230,217,.16); }
+  .btn-ghost { border:1.5px solid rgba(239,230,217,.6); color:var(--crem); background:rgba(239,230,217,.04); }
+  .btn-ghost:hover { border-color:var(--crem); }
+
+  /* Dots (§07): three equal, spaced by their diameter. In colour on Mov: amber, crem, violet */
+  .dots { display:grid; grid-template-columns:repeat(3,10px); gap:10px; }
+  .dots i { width:10px; height:10px; border-radius:50%; background:var(--crem); }
+  .dots.color i:nth-child(1) { background:var(--amber); } .dots.color i:nth-child(3) { background:var(--violet); }
+
+  section.block { padding:110px 0; position:relative; overflow:hidden; }
+
+  /* ---------- Navbar ---------- */
+  .nav { position:fixed; left:0; right:0; top:0; z-index:50; padding:12px 12px 0; }
+  @media (min-width:640px) { .nav { top:16px; left:16px; right:16px; padding:0; } }
+  .nav-box { max-width:1280px; margin:0 auto; border-radius:18px; border:1px solid rgba(239,230,217,.12); background:rgba(28,12,37,.82);
+             backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); box-shadow:0 8px 32px rgba(0,0,0,.45); }
+  .nav-row { display:flex; height:64px; align-items:center; gap:16px; padding:0 16px; }
+  @media (min-width:640px) { .nav-row { padding:0 24px; } }
+  .logo { display:inline-flex; align-items:baseline; line-height:1; white-space:nowrap; }
+  .logo .script { font-family:var(--serif); font-style:italic; color:var(--crem); }
+  .logo .bold { font-weight:700; color:var(--crem); letter-spacing:.04em; }
+  .logo.sm { gap:6px; } .logo.sm .script { font-size:22px; } .logo.sm .bold { font-size:19px; }
+  .logo.lg { gap:10px; } .logo.lg .script, .logo.lg .bold { font-size:48px; }
+  @media (min-width:640px) { .logo.lg .script, .logo.lg .bold { font-size:60px; } }
+  .nav-links { display:none; flex:1; align-items:center; justify-content:center; gap:24px; }
+  .nav-links a { font-size:14px; font-weight:600; color:var(--text-2); }
+  .nav-links a:hover { color:var(--crem); }
+  .nav-actions { display:none; align-items:center; gap:12px; margin-left:auto; }
+  .nav-mobile { display:flex; align-items:center; gap:8px; margin-left:auto; }
+  @media (min-width:1024px) { .nav-links, .nav-actions { display:flex; } .nav-mobile { display:none; } }
+  .lang { font:600 14px var(--sans); color:var(--text-2); padding:4px 8px; border:1px solid rgba(239,230,217,.18); border-radius:8px; background:none; }
+  .book { display:inline-flex; align-items:center; background:var(--amber); color:var(--noapte); font-weight:800; border-radius:10px; height:34px; padding:0 14px; font-size:14px; }
+  .nav-mobile .book { height:30px; padding:0 12px; font-size:13px; border-radius:8px; }
+  .circle { display:flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:999px; border:1px solid rgba(239,230,217,.22); color:var(--crem); }
+  .burger { padding:6px; color:var(--crem); display:flex; }
+
+  /* ---------- Hero: walk through the door ---------- */
+  .pin { position:relative; height:280vh; }
+  .hero { position:sticky; top:0; height:100vh; height:100svh; display:flex; flex-direction:column; align-items:center; overflow:hidden; padding-top:96px;
+          background:radial-gradient(ellipse 80% 60% at 50% 115%, rgba(139,79,232,.22) 0%, transparent 70%), linear-gradient(to bottom, var(--noapte), var(--mov)); }
+  .hero-inner { position:relative; max-width:1024px; width:100%; margin:0 auto; padding:40px 16px 0; text-align:center; }
+  @media (min-width:640px) { .hero-inner { padding:140px 24px 0; } }
+  .hero-logo { display:flex; justify-content:center; margin-bottom:18px; }
+  /* Tagline: the one place Amber may be used for letters (§04.1) */
+  .catch { font-family:var(--serif); font-style:italic; color:var(--amber); margin:0 0 26px; font-size:26px; line-height:32px; }
+  @media (min-width:640px) { .catch { font-size:32px; line-height:38px; margin-bottom:40px; } }
+  /* Tagline is the headline (the navbar carries the name) */
+  .hero .catch { color:var(--amber); font-weight:400; font-size:46px; line-height:1; letter-spacing:-.01em; margin:0 0 28px; text-wrap:balance; }
+  @media (min-width:640px) { .hero .catch { font-size:84px; margin-bottom:40px; } }
+  /* Phones: one Amber pill + two text links. Desktop: one big pill + two outline pills */
+  .ctas { display:flex; flex-direction:column; gap:18px; justify-content:center; align-items:center; }
+  .ctas .btn-amber { height:56px; padding:0 34px; }
+  .ctas .more { display:flex; gap:28px; }
+  .ctas .more .btn { height:auto; padding:6px 0; border:0; border-bottom:1.5px solid rgba(239,230,217,.55); border-radius:0; background:none; font-weight:700; letter-spacing:0; }
+  @media (min-width:640px) {
+    .ctas { flex-direction:row; gap:14px; }
+    .ctas .btn-amber { height:60px; padding:0 44px; font-size:17px; }
+    .ctas .more { gap:14px; }
+    .ctas .more .btn { height:52px; padding:0 26px; border-radius:999px; font-weight:800; letter-spacing:.02em; }
+    .ctas .more .btn-line { border:2px solid var(--crem); background:rgba(239,230,217,.08); }
+    .ctas .more .btn-ghost { border:1.5px solid rgba(239,230,217,.6); background:rgba(239,230,217,.04); }
+  }
+  /* Sign over the door */
+  .door-sign { display:flex; flex-direction:column; align-items:center; gap:10px; margin-top:40px; }
+  .door-sign .logo { gap:7px; } .door-sign .logo .script { font-size:24px; } .door-sign .logo .bold { font-size:21px; }
+  .door-sign i { width:44px; height:2px; background:var(--violet); box-shadow:0 0 10px rgba(139,79,232,.8); }
+  @media (min-width:640px) { .door-sign .logo .script { font-size:30px; } .door-sign .logo .bold { font-size:26px; } }
+
+  .intro { opacity:0; transform:translateY(var(--from)); animation:rise var(--d) ease-out var(--delay,0s) forwards; }
+  @keyframes rise { to { opacity:1; transform:none; } }
+
+  /* The door: a Violet LED neon line (violet is allowed on Mov only as lines) */
+  .door { position:relative; display:block; margin:14px auto 0; width:192px; height:256px; overflow:hidden; transform-origin:50% 100%;
+          border:2px solid var(--violet); border-bottom:0; border-radius:9999px 9999px 0 0; background:linear-gradient(to top, var(--mov), var(--deep));
+          box-shadow:0 0 0 1px rgba(139,79,232,.25), 0 -6px 28px rgba(139,79,232,.45), inset 0 6px 24px rgba(139,79,232,.35); }
+  @media (min-width:640px) { .door { width:320px; height:448px; } }
+  /* Phones: two text links instead of three pills leave room for a bigger door */
+  @media (max-width:639px) { .door-sign { margin-top:7svh; } .door { width:228px; height:304px; } }
+  .door svg { position:absolute; inset:0; width:100%; height:100%; overflow:visible; transform-origin:50% 100%; }
+  /* Lounge photo behind the hero. Centred so the two floor lamps flank the door.
+     Darkened at the top for the text (brand §07.2 protection gradient) and tinted Mov. */
+  .hero-photo { position:absolute; inset:0; z-index:0; pointer-events:none; opacity:0; transition:opacity .6s ease;
+                background:url("img/sofa-hero.jpg") 50% 62% / cover no-repeat; filter:blur(1.5px) saturate(.9); transform:scale(1.03); }
+  .hero-photo::after { content:""; position:absolute; inset:0;
+                background:
+                  linear-gradient(to bottom, rgba(28,12,37,.95) 0%, rgba(28,12,37,.78) 26%, rgba(28,12,37,.32) 52%, rgba(52,23,67,.5) 100%),
+                  rgba(52,23,67,.3); }
+  .mode-photo .hero-photo, .mode-team .hero-photo { opacity:1; }
+  .mode-team .hero-photo { background-image:url("img/team-wide.jpg"); background-position:50% 55%; }
+  @media (max-width:639px) { .mode-team .hero-photo { background-position:43% 55%; } }
+  /* Light from the door (the "Lumină" mode): warm light spilling out of the arch, anchored by the script */
+  .door-light { position:absolute; inset:0; z-index:0; pointer-events:none; opacity:0; transition:opacity .6s ease;
+                background:
+                  radial-gradient(ellipse 34% 30% at var(--light-x,50%) var(--light-y,70%), rgba(255,228,190,.30), rgba(255,228,190,0) 70%),
+                  radial-gradient(ellipse 70% 62% at var(--light-x,50%) var(--light-y,70%), rgba(217,140,63,.20), rgba(217,140,63,.06) 45%, transparent 75%); }
+  @media (max-width:639px) { .door-light { background:
+                  radial-gradient(ellipse 60% 22% at var(--light-x,50%) var(--light-y,70%), rgba(255,228,190,.30), rgba(255,228,190,0) 70%),
+                  radial-gradient(ellipse 110% 48% at var(--light-x,50%) var(--light-y,70%), rgba(217,140,63,.22), rgba(217,140,63,.06) 45%, transparent 75%); } }
+  .mode-light .door-light { opacity:var(--light-fade,1); }
+  .hero-inner { z-index:1; }
+  /* Preview-only switch */
+  .switch { position:fixed; z-index:60; right:max(16px, env(safe-area-inset-right, 0px)); bottom:calc(16px + env(safe-area-inset-bottom, 0px));
+            display:flex; align-items:center; gap:10px; padding:8px 10px 8px 14px; border-radius:999px; background:rgba(28,12,37,.9);
+            border:1px solid rgba(239,230,217,.2); color:var(--crem); font:700 13px var(--sans); backdrop-filter:blur(12px); }
+  .switch { padding:4px; gap:2px; }
+  .switch button { border:0; background:none; color:var(--text-2); font:700 13px var(--sans); padding:7px 12px; border-radius:999px; cursor:pointer; }
+  .switch button[aria-pressed="true"] { background:var(--crem); color:var(--mov); }
+  .switch[hidden] { display:none; }
+  .switch .set { display:flex; gap:2px; }
+  .switch:not(.on-community) .set-community, .switch.on-community .set-hero { display:none; }
+  .switch button:focus-visible { outline:2px solid var(--amber); outline-offset:2px; }
+  .door .glow { position:absolute; inset:0; pointer-events:none; opacity:0; background:radial-gradient(ellipse at 50% 30%, rgba(255,233,201,.28), transparent 65%); }
+  .court .line { fill:none; stroke:var(--crem); stroke-opacity:.9; stroke-width:1.3; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:1; stroke-dashoffset:1; }
+  .court .structure { opacity:0; transition:opacity 1s ease .2s; }
+  .court.ready .structure { opacity:1; }
+  .court .net { transform-box:fill-box; transform-origin:50% 100%; transform:scaleY(0); transition:transform .6s ease-out 1.3s; }
+  .court.ready .net { transform:none; }
+
+  /* ---------- Community ---------- */
+  .community { background:var(--mov); padding-top:48px !important; }
+  .split { display:grid; gap:48px; align-items:end; }
+  @media (min-width:900px) { .split { grid-template-columns:1.1fr 1fr; } }
+  .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:56px; }
+  .stat { background:var(--crem); color:var(--mov); border-radius:20px; padding:26px 20px; opacity:0; transform:translateY(20px); transition:opacity .6s, transform .6s; }
+  .stat.in { opacity:1; transform:none; }
+  .stat .num { font-size:clamp(34px,5vw,56px); font-weight:800; letter-spacing:-.04em; line-height:1; font-variant-numeric:tabular-nums; }
+  .stat .lbl { margin-top:10px; font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:rgba(52,23,67,.65); }
+  @media (max-width:600px) { .stats { grid-template-columns:1fr; } .stat { display:flex; align-items:baseline; justify-content:space-between; } .stat .lbl { margin:0; } }
+  .community .dots { margin-bottom:36px; } /* §07: dots sit in the top-left corner */
+
+  .community > .wrap { z-index:1; }
+  .join { margin-top:28px; }
+  .stat .num.word { font-size:clamp(24px,3.4vw,44px); }
+  @media (min-width:640px) { .stat .num { height:56px; display:flex; align-items:flex-end; } }
+  /* Community photo options */
+  .community-photo, .community-bg { display:none; }
+  .community-photo { margin:0; border-radius:20px; overflow:hidden; }
+  .community-photo img { display:block; width:100%; height:100%; object-fit:cover; }
+  .com-framed .community-photo { display:block; aspect-ratio:3/2; margin-top:40px; }
+  .com-framed .stats { margin-top:12px; }
+  @media (min-width:900px) {
+    .com-framed .community-body { display:grid; grid-template-columns:1.7fr 1fr; gap:12px; margin-top:56px; }
+    .com-framed .community-photo { margin:0; }
+    .com-framed .stats { margin:0; grid-template-columns:1fr; }
+    .com-framed .stat { display:flex; flex-direction:column; justify-content:center; }
+  }
+  .com-bg .community-bg { display:block; position:absolute; inset:0; background:url("img/team-wide.jpg") 72% 60% / cover no-repeat; }
+  .com-bg .community-bg::after { content:""; position:absolute; inset:0; background:linear-gradient(to bottom, rgba(52,23,67,.97) 0%, rgba(52,23,67,.86) 45%, rgba(52,23,67,.5) 100%); }
+  /* Phone: the WhatsApp button is reachable for as long as the community section is on screen */
+  .join-dock { display:none; }
+  @media (max-width:639px) {
+    .community { padding-top:28px !important; }
+    .community .dots { display:flex; margin-bottom:18px; }
+    .community .dots i:nth-child(n+4) { display:none; }
+    .community .eyebrow { margin-bottom:10px; }
+    .community .eyebrow::before { display:none; }
+    .community .impact { font-size:36px; }
+    .community .split { gap:14px; }
+    .community .lead { margin-top:0; font-size:16px; line-height:1.5; }
+    .community .join { margin-top:18px; }
+    .community .join .btn { width:100%; }
+    .join-dock { display:flex; position:fixed; z-index:55; left:16px; right:16px; bottom:calc(14px + env(safe-area-inset-bottom, 0px)); height:52px; opacity:0; transition:opacity .2s; }
+    .join-dock:not([inert]) { opacity:1; }
+    .switch.on-community { bottom:calc(76px + env(safe-area-inset-bottom, 0px)); }
+  }
+
+  /* ---------- Experience ---------- */
+  .experience { background:var(--noapte); }
+  .cards { display:grid; gap:16px; margin-top:56px; }
+  @media (min-width:860px) { .cards { grid-template-columns:repeat(3,1fr); } }
+  .card { border:1px solid rgba(239,230,217,.1); background:linear-gradient(180deg, rgba(52,23,67,.75), rgba(52,23,67,.35)); border-radius:22px; padding:30px 28px 34px; }
+  .card .tag { color:var(--amber); }
+  .card h3 { font-size:24px; font-weight:800; letter-spacing:-.02em; margin:44px 0 10px; }
+  .card p { margin:0; color:var(--text-2); line-height:1.6; }
+
+  /* ---------- League (impact piece: diagonal) ---------- */
+  .league { background:var(--mov); }
+  .diagonal { position:absolute; left:-10%; right:-10%; top:58%; height:3px; background:var(--violet); transform:rotate(-32deg); transform-origin:50% 50%; pointer-events:none; }
+  .diagonal::after { content:""; position:absolute; left:0; right:0; top:12px; height:1px; background:rgba(139,79,232,.45); }
+  .league .split { align-items:center; position:relative; z-index:1; }
+  .prize { background:var(--crem); color:var(--mov); border-radius:24px; padding:30px; box-shadow:0 30px 60px rgba(0,0,0,.35); }
+  .prize .tag { color:rgba(52,23,67,.6); }
+  .prize .big { font-size:clamp(52px,8vw,84px); font-weight:800; letter-spacing:-.05em; line-height:1; margin:10px 0 4px; }
+  .prize .big small { font-size:.32em; letter-spacing:0; font-weight:700; margin-left:6px; }
+  .prize .meta { color:rgba(52,23,67,.65); font-weight:600; }
+  .podium { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:22px; }
+  .podium div { border:1px solid rgba(52,23,67,.15); border-radius:14px; padding:12px; }
+  .podium b { display:block; font-size:22px; letter-spacing:-.03em; }
+  .podium span { font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:rgba(52,23,67,.55); }
+  .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:28px; }
+  .chip { display:inline-flex; gap:8px; align-items:center; padding:9px 16px; border-radius:999px; border:1px solid rgba(239,230,217,.18); font-weight:700; font-size:14px; }
+  .chip b { font-size:12px; color:var(--label); }
+  .league .actions { margin-top:32px; }
+
+  /* ---------- Gallery: scattered prints on crem paper ---------- */
+  .gallery { background:var(--noapte); }
+  .gallery .head { text-align:center; margin-bottom:56px; }
+  .gallery .lead { margin-left:auto; margin-right:auto; }
+  .prints { display:flex; flex-direction:column; gap:28px; align-items:center; }
+  .row { display:flex; justify-content:center; gap:clamp(8px,2vw,28px); width:100%; }
+  .row:nth-child(2) { padding-left:clamp(0px,4vw,60px); }
+  .print { margin:0; width:clamp(96px,21vw,230px); background:var(--crem); padding:clamp(6px,1vw,10px) clamp(6px,1vw,10px) clamp(26px,3.2vw,40px); border-radius:4px;
+           box-shadow:0 14px 34px rgba(0,0,0,.5); position:relative; opacity:0; transform:translateY(-40px) scale(1.1); transition:transform .7s cubic-bezier(.2,.9,.3,1.2), opacity .4s; }
+  .print img { display:block; width:100%; aspect-ratio:3/4; object-fit:cover; }
+  .print figcaption { position:absolute; bottom:clamp(6px,1vw,12px); left:0; right:0; text-align:center; color:var(--mov); font-family:var(--serif); font-style:italic; font-size:clamp(11px,1.4vw,16px); line-height:1; }
+  .print.in { opacity:1; transform:rotate(var(--r)) translateY(var(--y,0)); }
+  .print.in:hover { transform:rotate(0) scale(1.05); z-index:2; transition-duration:.3s; }
+  @media (max-width:560px) { .print:nth-child(4) { display:none; } }
+  .center { text-align:center; margin-top:48px; }
+
+  /* ---------- Pricing: utility piece, Verde Velvet replaces Mov entirely (§04.1) ---------- */
+  .pricing { background:var(--verde); }
+  .price-grid { display:grid; gap:16px; margin-top:56px; }
+  @media (min-width:860px) { .price-grid { grid-template-columns:1.3fr 1fr; } }
+  .panel { border:1px solid rgba(239,230,217,.14); border-radius:24px; padding:30px; }
+  .panel h3 { margin:0 0 22px; font-size:22px; font-weight:800; letter-spacing:-.02em; }
+  .rate { display:flex; justify-content:space-between; align-items:flex-end; gap:16px; padding:20px 0; border-top:1px solid rgba(239,230,217,.14); }
+  .rate .tag { color:rgba(239,230,217,.6); display:block; margin-bottom:6px; }
+  .rate .v { font-size:clamp(34px,4.6vw,48px); font-weight:800; letter-spacing:-.04em; line-height:1; white-space:nowrap; }
+  .rate .v small { font-size:.36em; font-weight:700; letter-spacing:0; color:rgba(239,230,217,.7); }
+  .extras { display:flex; flex-direction:column; gap:12px; }
+  .extra { display:flex; justify-content:space-between; gap:12px; padding:16px 0; border-bottom:1px solid rgba(239,230,217,.14); color:rgba(239,230,217,.85); }
+  .extra b { color:var(--crem); white-space:nowrap; }
+  .teaser { display:flex; justify-content:space-between; align-items:center; gap:16px; background:var(--crem); color:var(--verde); border-radius:18px; padding:18px 20px; font-weight:700; }
+  .teaser span { font-size:13px; font-weight:800; letter-spacing:.06em; white-space:nowrap; }
+
+  /* ---------- Video ---------- */
+  .video { background:var(--mov); }
+  .video .frame { position:relative; margin-top:48px; border-radius:24px; overflow:hidden; aspect-ratio:16/9; border:1px solid rgba(239,230,217,.1); background:var(--noapte); }
+  .video video { width:100%; height:100%; object-fit:cover; display:block; }
+  /* §07.2 protection gradient for text over footage */
+  .video .frame::after { content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(28,12,37,.85), transparent 45%); pointer-events:none; }
+  .video .caption { position:absolute; left:28px; bottom:24px; z-index:1; }
+  .video .caption .editorial { font-size:clamp(24px,3.4vw,38px); }
+  @media (max-width:600px) { .video .frame { aspect-ratio:4/5; } }
+
+  /* ---------- FAQ: Mov on Crem ---------- */
+  .faq { background:var(--crem); color:var(--mov); }
+  .faq .eyebrow { color:var(--mov); }
+  .faq .lead { color:rgba(52,23,67,.7); }
+  .faq .split { align-items:start; }
+  .faq details { border-top:1px solid rgba(52,23,67,.16); }
+  .faq details:last-child { border-bottom:1px solid rgba(52,23,67,.16); }
+  .faq summary { list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px; padding:22px 0; font-size:18px; font-weight:800; letter-spacing:-.01em; }
+  .faq summary::-webkit-details-marker { display:none; }
+  .faq summary::after { content:"+"; font-weight:400; font-size:28px; line-height:1; transition:transform .25s; }
+  .faq details[open] summary::after { transform:rotate(45deg); }
+  .faq details p { margin:0 0 22px; color:rgba(52,23,67,.75); line-height:1.65; max-width:620px; }
+
+  /* ---------- Final CTA: warm piece, the wave ---------- */
+  .final { background:var(--noapte); text-align:center; padding:140px 0 !important; }
+  .final svg.wave { position:absolute; left:0; width:100%; bottom:0; height:200px; pointer-events:none; }
+  .final { padding-bottom:220px !important; }
+  .final .wrap { z-index:1; }
+  .final .impact em { display:inline; }
+  .final .lead { margin-left:auto; margin-right:auto; }
+  .final .actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:36px; }
+
+  /* ---------- Footer ---------- */
+  footer { background:var(--deep); padding:72px 0 40px; color:var(--text-2); }
+  .foot { display:grid; gap:40px; }
+  @media (min-width:860px) { .foot { grid-template-columns:1.4fr 1fr 1fr; } }
+  footer h4 { margin:0 0 16px; }
+  footer ul { list-style:none; padding:0; margin:0; display:grid; gap:10px; }
+  footer a:hover { color:var(--crem); }
+  .legal { display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; margin-top:56px; padding-top:24px; border-top:1px solid rgba(239,230,217,.1); font-size:13px; color:var(--label); }
+
+  .reveal { opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity:1; transform:none; }
+
+  @media (prefers-reduced-motion:reduce) {
+    .pin { height:auto; } .hero { position:relative; min-height:100vh; height:auto; }
+    .intro { animation:none; opacity:1; transform:none; }
+    .reveal, .stat, .print { opacity:1; transform:none; }
+    *, .court .structure, .court .net { transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-box"><div class="nav-row">
+    <a href="#" class="logo sm"><span class="script">padel</span><span class="bold">haus.</span></a>
+    <nav class="nav-links"><a href="#">Acasă</a><a href="#">Începător?</a><a href="#">Antrenamente</a><a href="#">Turnee</a><a href="#">Abonamente</a></nav>
+    <div class="nav-actions">
+      <button class="lang">EN</button>
+      <a class="book" href="#">Rezervă</a>
+      <a class="circle" href="#" aria-label="Instagram"><svg class="icon" style="--s:16px" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+    </div>
+    <div class="nav-mobile">
+      <a class="book" href="#">Rezervă</a>
+      <a class="circle" href="#" aria-label="WhatsApp"><svg class="icon" style="--s:14px" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a>
+      <a class="circle" href="#" aria-label="Instagram"><svg class="icon" style="--s:14px" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+      <span class="burger"><svg class="icon" style="--s:22px" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg></span>
+    </div>
+  </div></div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<div class="pin" id="pin">
+  <section class="hero" id="hero">
+    <div class="hero-photo" aria-hidden="true"></div>
+    <div class="door-light" id="doorLight" aria-hidden="true"></div>
+    <div class="hero-inner" id="heroInner">
+      <div id="copy">
+        <h1 class="catch intro" style="--from:24px;--d:.7s">Your second home.</h1>
+        <div class="ctas intro" style="--from:20px;--d:.6s;--delay:.25s">
+          <a class="btn btn-amber" href="#">Rezervă un teren</a>
+          <div class="more"><a class="btn btn-line" href="#">Abonamente</a><a class="btn btn-ghost" href="#">Antrenamente</a></div>
+        </div>
+      </div>
+      <!-- The name hangs over the entrance instead of repeating the navbar logo -->
+      <div class="door-sign intro" id="sign" style="--from:12px;--d:.6s;--delay:.45s"><span class="logo"><span class="script">padel</span><span class="bold">haus.</span></span><i></i></div>
+      <a class="door" id="door" href="#" aria-label="Comunitate">
+        <svg class="court" id="court" viewBox="0 0 320 440" preserveAspectRatio="xMidYMax slice" aria-hidden="true"></svg>
+        <div class="glow" id="glow"></div>
+      </a>
+    </div>
+  </section>
+</div>
+
+<!-- COMMUNITY -->
+<section class="block community" id="community">
+  <div class="community-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="dots color"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="split reveal">
+      <div>
+        <p class="eyebrow">Comunitate</p>
+        <h2 class="impact">Alătură-te Comunității <em>Nu joci niciodată singur.</em></h2>
+      </div>
+      <div>
+        <p class="lead">Primești notificări de meci, găsești parteneri și rămâi la curent cu evenimentele.</p>
+        <div class="join"><a class="btn btn-amber" id="join" href="https://chat.whatsapp.com/CqGix2BlvAtIyz7z3ic30I">Alătură-te pe WhatsApp<svg class="icon" style="--s:16px" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+      </div>
+    </div>
+    <div class="community-body">
+      <figure class="community-photo"><img src="img/team-people.jpg" alt="Jucători relaxându-se între meciuri la Padel Haus"></figure>
+      <div class="stats" id="stats">
+        <div class="stat"><div class="num" data-to="500" data-suffix="+">0</div><div class="lbl">Membri</div></div>
+        <div class="stat"><div class="num word">Săptămânal</div><div class="lbl">Evenimente</div></div>
+        <div class="stat"><div class="num word">Toate</div><div class="lbl">Nivelurile</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<a class="btn btn-amber join-dock" id="joinDock" href="https://chat.whatsapp.com/CqGix2BlvAtIyz7z3ic30I" inert>Alătură-te pe WhatsApp</a>
+
+<!-- EXPERIENCE -->
+<section class="block experience">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Experiența</p>
+      <h2 class="editorial">Tot ce ai nevoie pentru sesiunea perfectă.</h2>
+    </div>
+    <div class="cards">
+      <article class="card reveal"><span class="tag">01 · Terenuri</span><h3>4 Terenuri Premium</h3><p>Terenuri cu pereți de sticlă panoramici, iluminat profesional și gazon artificial de cea mai înaltă calitate.</p></article>
+      <article class="card reveal" style="transition-delay:.1s"><span class="tag">02 · Indoor</span><h3>Concept Indoor</h3><p>Joacă tot anul, indiferent de vreme. Mediu cu climă controlată pentru performanță maximă.</p></article>
+      <article class="card reveal" style="transition-delay:.2s"><span class="tag">03 · Lounge</span><h3>Design Remarcabil</h3><p>Spațiu proiectat arhitectural cu vestiare premium, lounge și pro shop.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="block gallery">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Galerie</p>
+      <h2 class="editorial">Stai și după meci.</h2>
+      <p class="lead">Momente reale. O comunitate reală.</p>
+    </div>
+    <div class="prints" id="prints">
+      <div class="row">
+        <figure class="print" style="--r:-4deg"><img src="../public/gallery/IMG_9080.jpeg" alt=""><figcaption>seară socială</figcaption></figure>
+        <figure class="print" style="--r:3deg;--y:14px"><img src="../public/gallery/Competition1.jpeg" alt=""><figcaption>Mexicano</figcaption></figure>
+        <figure class="print" style="--r:-2deg"><img src="../public/gallery/2.jpeg" alt=""><figcaption>pe teren</figcaption></figure>
+        <figure class="print" style="--r:5deg;--y:8px"><img src="../public/gallery/IMG_5270.jpeg" alt=""><figcaption>turneu</figcaption></figure>
+      </div>
+      <div class="row">
+        <figure class="print" style="--r:3deg"><img src="../public/gallery/sofa.jpeg" alt=""><figcaption>după meci</figcaption></figure>
+        <figure class="print" style="--r:-5deg;--y:10px"><img src="../public/gallery/Competition3.jpeg" alt=""><figcaption>competiție</figcaption></figure>
+        <figure class="print" style="--r:2deg"><img src="../public/gallery/1.jpeg" alt=""><figcaption>lounge</figcaption></figure>
+        <figure class="print" style="--r:-3deg;--y:12px"><img src="../public/gallery/Competition2.jpeg" alt=""><figcaption>finala</figcaption></figure>
+      </div>
+    </div>
+    <div class="center"><a class="btn btn-line" href="#">Vezi toată galeria</a></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="block pricing">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Prețuri</p>
+      <h2 class="impact">Închiriere Teren</h2>
+      <p class="lead" style="color:rgba(239,230,217,.75)">Plătești din Playtomic / în club sau economisești cu un abonament.</p>
+    </div>
+    <div class="price-grid">
+      <div class="panel reveal">
+        <div class="rate"><div><span class="tag">Luni–Vineri, până la 17:00</span><span class="v">130 <small>RON / oră</small></span></div></div>
+        <div class="rate"><div><span class="tag">Luni–Vineri după 17:00 &amp; weekend</span><span class="v">180 <small>RON / oră</small></span></div></div>
+        <div style="margin-top:12px"><a class="btn btn-amber" href="#">Rezervă un Teren<svg class="icon" style="--s:16px" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="extras reveal" style="transition-delay:.12s">
+        <div class="extra"><span>Închiriere rachetă</span><b>15 RON</b></div>
+        <div class="extra"><span>Tub de mingi de padel Adidas</span><b>40 RON</b></div>
+        <a class="teaser" href="#">Acces lunar nelimitat de la 350 RON<span>ABONAMENTE →</span></a>
+        <a class="teaser" href="#">Antrenamente individuale sau de grup<span>ANTRENAMENTE →</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="block video">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Trăiește Experiența</p>
+      <h2 class="impact">Un teren. O comunitate.</h2>
+    </div>
+    <div class="frame reveal">
+      <video src="../public/VIDEO-VIBE%20%26%20PADEL%20MUTE.mp4" autoplay muted loop playsinline></video>
+      <div class="caption"><p class="editorial">O atmosferă de unde nu vrei să pleci.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block faq">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <p class="eyebrow">FAQ</p>
+        <h2 class="editorial">Bine de știut.</h2>
+        <p class="lead">Răspunsuri la cele mai frecvente întrebări.</p>
+      </div>
+      <div class="reveal">
+        <details open><summary>Pot veni singur?</summary><p>Da — alătură-te comunității noastre de WhatsApp pentru a găsi un partener sau un meci în câteva minute.</p></details>
+        <details><summary>Nu am mai jucat niciodată, e o problemă?</summary><p>Deloc. Padelul se învață ușor și majoritatea membrilor noștri au început ca începători totali.</p></details>
+        <details><summary>Închiriați rachete?</summary><p>Da, rachetele pot fi închiriate la recepție pentru 20 RON.</p></details>
+        <details><summary>Există parcare?</summary><p>Da, parcare gratuită disponibilă la fața locului pentru toți jucătorii.</p></details>
+        <details><summary>Cum funcționează rezervarea și anularea?</summary><p>Rezervi direct prin Playtomic. Anulările sunt gratuite cu până la 24 de ore înainte.</p></details>
+        <details><summary>Pot organiza un eveniment privat?</summary><p>Sigur — scrie-ne pe WhatsApp și te ajutăm să planifici.</p></details>
+        <details><summary>Există dușuri și dulapuri?</summary><p>Da, avem dușuri și dulapuri disponibile la fața locului.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="block final">
+  <svg class="wave" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 120 C 150 40, 250 40, 400 120 S 650 200, 800 120 S 1050 40, 1200 120" fill="none" stroke="#8B4FE8" stroke-width="3" vector-effect="non-scaling-stroke"/>
+    <path d="M0 150 C 150 70, 250 70, 400 150 S 650 230, 800 150 S 1050 70, 1200 150" fill="none" stroke="#8B4FE8" stroke-opacity=".4" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+  </svg>
+  <div class="wrap reveal">
+    <h2 class="impact">Gata să joci? <em>Terenul te așteaptă.</em></h2>
+    <p class="lead">Rezervă terenul astăzi și trăiește experiența premium de padel.</p>
+    <div class="actions">
+      <a class="btn btn-amber" href="#">Rezervă un Teren<svg class="icon" style="--s:16px" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="btn btn-line" href="#">Vizitează-ne</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <span class="logo lg" style="transform:scale(.7);transform-origin:left"><span class="script">padel</span><span class="bold">haus.</span></span>
+        <p class="tag" style="margin-top:14px">Your second home · București</p>
+        <div class="dots" style="margin-top:28px"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div><h4 class="tag">Linkuri rapide</h4><ul><li><a href="#">Acasă</a></li><li><a href="#">Începător?</a></li><li><a href="#">Antrenamente</a></li><li><a href="#">Turnee</a></li><li><a href="#">Abonamente</a></li></ul></div>
+      <div><h4 class="tag">Urmărește-ne</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">WhatsApp</a></li><li><a href="https://tv.padelhaus.ro/">Padel Haus TV</a></li></ul></div>
+    </div>
+    <div class="legal"><span>© 2026 Padel Haus. Toate drepturile rezervate.</span><span>Politică de Confidențialitate · Termeni și Condiții</span></div>
+  </div>
+</footer>
+
+<div class="switch" id="switch" role="group" aria-label="Variante foto (doar în preview)">
+  <span class="set set-hero">
+    <button data-mode="team" aria-pressed="true">Turneu</button><button data-mode="photo" aria-pressed="false">Lounge</button><button data-mode="plain" aria-pressed="false">Fără</button>
+  </span>
+  <span class="set set-community">
+    <button data-com="framed" aria-pressed="true">Foto</button><button data-com="bg" aria-pressed="false">Fundal</button><button data-com="none" aria-pressed="false">Fără</button>
+  </span>
+</div>
+
+<script>
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const clamp = v => Math.max(0, Math.min(1, v));
+
+  // ---------- Court geometry: metres, x 0–10 across, z 0–20 near → far, h height ----------
+  const VIEW_W = 320, VIEW_H = 440, CAMERA = 8, SCALE = 30, CX = 160, HORIZON_Y = 160, NEAR_Y = 430;
+  const project = (x, z, h = 0) => { const f = CAMERA / (CAMERA + z); return [CX + (x - 5) * SCALE * f, HORIZON_Y + (NEAR_Y - HORIZON_Y) * f - h * SCALE * f]; };
+  const pt = p => project(...p).map(n => n.toFixed(1)).join(' ');
+  const poly = (pts, close) => 'M' + pts.map(pt).join(' L') + (close ? ' Z' : '');
+  const segs = list => list.map(([a, b]) => `M${pt(a)} L${pt(b)}`).join(' ');
+  const range = (a, b, s) => { const o = []; for (let v = a; v <= b + 1e-6; v += s) o.push(+v.toFixed(3)); return o; };
+  const COURT_TOP_Y = project(0, 20, 4)[1], COURT_BOTTOM_Y = NEAR_Y, COURT_WIDTH = 10 * SCALE;
+
+  // Enclosure, following media/court.png. Each side wall, near → far:
+  //   0–2 m   glass 3 m, mesh panel on top up to 4 m
+  //   2–4 m   glass 3 m, nothing on top
+  //   4–16 m  six framed mesh panels, 3 m high and 2 m wide. The two in the middle share a door
+  //           centred on the net: 70% of the mesh height, 120% of a panel's width.
+  //   16–20 m mirror of the near end
+  // Glass panels meet at thin seams. Mesh panels have thin frames; only the corners are thick posts.
+  const MESH = .15; // wire spacing (drawn coarser than the real ~5 cm so it stays readable)
+  const meshV = (x, z0, z1, h0, h1) => segs([...range(z0, z1, MESH).map(z => [[x, z, h0], [x, z, h1]]), ...range(h0, h1, MESH).map(h => [[x, z0, h], [x, z1, h]])]);
+  const meshEnd = (z, h0, h1) => segs([...range(0, 10, MESH).map(x => [[x, z, h0], [x, z, h1]]), ...range(h0, h1, MESH).map(h => [[0, z, h], [10, z, h]])]);
+  const DOOR = { z0: 10 - 1.2, z1: 10 + 1.2, h: .7 * 3 }; // the net ends in the middle of it
+  const glass = [], mesh = [], posts = [], rails = [], seams = [];
+  for (const x of [0, 10]) {
+    for (const [z0, z1] of [[0, 4], [16, 20]]) {
+      glass.push(poly([[x, z0], [x, z1], [x, z1, 3], [x, z0, 3]], true));
+      seams.push([[x, z0 + 2], [x, z0 + 2, 3]], [[x, z0, 3], [x, z1, 3]]);
+    }
+    // Mesh extensions above the corner glass
+    for (const [z0, z1] of [[0, 2], [18, 20]]) {
+      mesh.push(meshV(x, z0, z1, 3, 4));
+      rails.push([[x, z0, 4], [x, z1, 4]], [[x, z0, 3], [x, z1, 3]]);
+      posts.push([[x, z0 === 0 ? 2 : 18, 3], [x, z0 === 0 ? 2 : 18, 4]]);
+    }
+    // Middle mesh panels; the door cuts through the two around the net
+    for (let z = 4; z < 16; z += 2) {
+      const a = z, b = z + 2;
+      if (b <= DOOR.z0 || a >= DOOR.z1) { mesh.push(meshV(x, a, b, 0, 3)); continue; }
+      if (a < DOOR.z0) mesh.push(meshV(x, a, DOOR.z0, 0, 3));
+      if (b > DOOR.z1) mesh.push(meshV(x, DOOR.z1, b, 0, 3));
+      mesh.push(meshV(x, Math.max(a, DOOR.z0), Math.min(b, DOOR.z1), DOOR.h, 3));
+    }
+    // Panel frames (thin): uprights between panels, above the door where it cuts through
+    for (const z of range(4, 16, 2)) rails.push(z > DOOR.z0 && z < DOOR.z1 ? [[x, z, DOOR.h], [x, z, 3]] : [[x, z], [x, z, 3]]);
+    rails.push([[x, DOOR.z0], [x, DOOR.z0, DOOR.h]], [[x, DOOR.z0, DOOR.h], [x, DOOR.z1, DOOR.h]], [[x, DOOR.z1, DOOR.h], [x, DOOR.z1]]);
+    rails.push([[x, 4, 3], [x, 16, 3]]);
+    posts.push([[x, 0], [x, 0, 4]], [[x, 20], [x, 20, 4]]); // corners
+  }
+  // Far back wall: glass with thin seams, mesh band on top. The near wall is where you stand.
+  glass.push(poly([[0, 20], [10, 20], [10, 20, 3], [0, 20, 3]], true));
+  for (const x of [2, 4, 6, 8]) seams.push([[x, 20], [x, 20, 3]]);
+  mesh.push(meshEnd(20, 3, 4));
+  for (const x of range(0, 10, 2)) posts.push([[x, 20, 3], [x, 20, 4]]);
+  rails.push([[0, 20, 3], [10, 20, 3]], [[0, 20, 4], [10, 20, 4]]);
+
+  const svg = document.getElementById('court');
+  const NS = 'http://www.w3.org/2000/svg';
+  const add = (tag, attrs, parent = svg) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; };
+
+  // Warm ceiling lights (the lounge light the Amber comes from)
+  const lamps = [];
+  for (const z of [4, 10, 16]) for (const x of [2.5, 7.5]) {
+    const [x1, y] = project(x - 1, z, 7), [x2] = project(x + 1, z, 7), w = x2 - x1, h = Math.max(1.5, w * .1);
+    const glowRect = add('rect', { x: x1, y: y - h, width: w, height: h * 3, rx: h, fill: '#FFE3BF', opacity: 0, style: 'filter:blur(4px)' });
+    const lamp = add('rect', { x: x1, y, width: w, height: h, rx: h / 2, fill: '#FFF1DE', opacity: .12 });
+    lamps.push([lamp, glowRect]);
+  }
+  const structure = add('g', { class: 'structure' });
+  // Violet playing surface, as on the real courts
+  add('path', { d: poly([[0, 0], [10, 0], [10, 20], [0, 20]], true), fill: '#6A35C8', 'fill-opacity': .5 }, structure);
+  glass.forEach(d => add('path', { d, fill: '#EFE6D9', 'fill-opacity': .05 }, structure));
+  add('path', { d: mesh.join(' '), fill: 'none', stroke: '#8B7A94', 'stroke-opacity': .4, 'stroke-width': .25 }, structure);
+  add('path', { d: segs(seams), fill: 'none', stroke: '#EFE6D9', 'stroke-opacity': .22, 'stroke-width': .35 }, structure);
+  add('path', { d: segs(rails), fill: 'none', stroke: '#8B7A94', 'stroke-opacity': .85, 'stroke-width': .8, 'stroke-linecap': 'round' }, structure);
+  add('path', { d: segs(posts), fill: 'none', stroke: '#8B7A94', 'stroke-opacity': .95, 'stroke-width': 1.2, 'stroke-linecap': 'round' }, structure);
+  const lines = [poly([[0, 0], [0, 20], [10, 20], [10, 0]]), poly([[0, 16.95], [10, 16.95]]), poly([[0, 3.05], [10, 3.05]]), poly([[5, 3.05], [5, 16.95]])]
+    .map((d, i) => add('path', { d, class: 'line', pathLength: 1, style: `transition:stroke-dashoffset .9s ease-out ${.4 + i * .15}s` }));
+  const NET_H = 1.1; // a little taller than the real 0.88 m so it reads at this size
+  const net = add('g', { class: 'net' });
+  add('path', { d: segs([...range(0, 10, .25).map(x => [[x, 10, .05], [x, 10, NET_H]]), ...range(.2, NET_H - .1, .2).map(h => [[0, 10, h], [10, 10, h]])]), fill: 'none', stroke: '#EFE6D9', 'stroke-opacity': .3, 'stroke-width': .4 }, net);
+  add('path', { d: poly([[0, 10, NET_H], [10, 10, NET_H]]), fill: 'none', stroke: '#EFE6D9', 'stroke-width': 1.4, 'stroke-linecap': 'round' }, net);
+
+  requestAnimationFrame(() => requestAnimationFrame(() => { svg.classList.add('ready'); lines.forEach(l => l.style.strokeDashoffset = 0); }));
+
+  // ---------- Scroll: walk through the door ----------
+  const pin = document.getElementById('pin'), door = document.getElementById('door'), copy = document.getElementById('copy'), sign = document.getElementById('sign'), glow = document.getElementById('glow');
+  const walk = p => clamp((p - .12) / .88) ** 3;
+  // Preview-only switch between hero backgrounds: Simplu (previous design), Lumină (door light), Foto (lounge photo)
+  const doorLight = document.getElementById('doorLight');
+  const setMode = mode => {
+    document.body.classList.remove('mode-plain', 'mode-light', 'mode-photo', 'mode-team');
+    document.body.classList.add('mode-' + mode);
+    document.querySelectorAll('.switch [data-mode]').forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === mode));
+  };
+  document.querySelectorAll('.switch [data-mode]').forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
+  const query = new URLSearchParams(location.search);
+  setMode(query.get('hero') || 'team');
+
+  // Preview-only community photo options, and the phone WhatsApp dock
+  const community = document.getElementById('community'), join = document.getElementById('join'),
+        dock = document.getElementById('joinDock'), switcher = document.getElementById('switch');
+  function syncDock() {
+    const c = community.getBoundingClientRect(), j = join.getBoundingClientRect(), h = innerHeight;
+    const here = c.top < h * .65 && c.bottom > h * .4;
+    dock.inert = !(innerWidth < 640 && here && (j.top < 88 || j.bottom > h - 8));
+    switcher.classList.toggle('on-community', here);
+    switcher.hidden = c.bottom <= h * .4;
+  }
+  const setCommunity = v => {
+    community.classList.remove('com-framed', 'com-bg', 'com-none');
+    community.classList.add('com-' + v);
+    document.querySelectorAll('.switch [data-com]').forEach(b => b.setAttribute('aria-pressed', b.dataset.com === v));
+    syncDock();
+  };
+  document.querySelectorAll('.switch [data-com]').forEach(b => b.addEventListener('click', () => setCommunity(b.dataset.com)));
+  setCommunity(query.get('community') || 'framed');
+  addEventListener('scroll', syncDock, { passive:true });
+  addEventListener('resize', syncDock);
+  let fit = { maxScale: 1, courtScale: 1, drop: 0, lift: 0 };
+  function measure() {
+    // Anchor the door light on the top of the arch (offsets ignore the scroll transforms)
+    const inner = document.getElementById('heroInner');
+    doorLight.style.setProperty('--light-x', inner.offsetLeft + door.offsetLeft + door.offsetWidth / 2 + 'px');
+    doorLight.style.setProperty('--light-y', inner.offsetTop + door.offsetTop + door.offsetWidth * .25 + 'px');
+    const w = door.offsetWidth, h = door.offsetHeight, vw = innerWidth, vh = innerHeight;
+    const bottom = door.getBoundingClientRect().bottom - pin.getBoundingClientRect().top; // scale origin
+    // The door also slides so its bottom edge ends on the bottom of the screen, straight into the next section
+    const drop = vh - bottom;
+    const maxScale = Math.max(vw * 1.25 / w, vh * 1.05 / (h - w / 2));
+    const unit = Math.max(door.clientWidth / VIEW_W, door.clientHeight / VIEW_H), courtW = COURT_WIDTH * unit, courtH = (COURT_BOTTOM_Y - COURT_TOP_Y) * unit;
+    // Phones: the court always ends 105% of the screen width. Larger screens: fits with a margin.
+    const courtScale = vw < 640 ? vw * 1.05 / courtW : Math.min(maxScale, vw * .94 / courtW, (vh - 140) / courtH);
+    fit = { maxScale, courtScale, drop, lift: 12 - (VIEW_H - COURT_BOTTOM_Y) * unit * courtScale };
+    render();
+  }
+  function render() {
+    if (reduce) return;
+    const p = clamp(-pin.getBoundingClientRect().top / (pin.offsetHeight - innerHeight));
+    const t = clamp(p / .28);
+    copy.style.transform = `translateY(${-80 * t}px)`;
+    copy.style.opacity = 1 - t;
+    sign.style.opacity = 1 - t;
+    doorLight.style.setProperty('--light-fade', 1 - t);
+    const k = walk(p), A = 1 + (fit.maxScale - 1) * k, C = 1 + (fit.courtScale - 1) * k;
+    door.style.transform = `translateY(${fit.drop * k}px) scale(${A})`;
+    svg.style.transform = `translateY(${-fit.lift * k / A}px) scale(${C / A})`;
+    lamps.forEach(([lamp, g], i) => { const on = clamp((p - .3 - i * .04) / .2); lamp.setAttribute('opacity', .12 + .88 * on); g.setAttribute('opacity', .7 * on); });
+    glow.style.opacity = clamp((p - .3) / .35);
+  }
+  if (reduce) { lamps.forEach(([l, g]) => { l.setAttribute('opacity', 1); g.setAttribute('opacity', .7); }); glow.style.opacity = .6; }
+  addEventListener('scroll', () => requestAnimationFrame(render), { passive: true });
+  addEventListener('resize', measure);
+  document.fonts.ready.then(measure);
+  measure();
+
+  // ---------- Reveal on scroll (once) ----------
+  const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .2 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ---------- Count-up stats ----------
+  const stats = document.getElementById('stats');
+  new IntersectionObserver((entries, obs) => {
+    if (!entries[0].isIntersecting) return;
+    obs.disconnect();
+    stats.querySelectorAll('.stat').forEach((s, i) => setTimeout(() => s.classList.add('in'), i * 120));
+    stats.querySelectorAll('.num[data-to]').forEach(el => {
+      const to = +el.dataset.to, suf = el.dataset.suffix || '';
+      if (reduce) { el.textContent = to + suf; return; }
+      const t0 = performance.now();
+      (function tick(now) { const k = clamp((now - t0) / 1600); el.textContent = Math.round(to * (1 - (1 - k) ** 4)) + (k === 1 ? suf : ''); if (k < 1) requestAnimationFrame(tick); })(t0);
+    });
+  }, { threshold: .4 }).observe(stats);
+
+  // ---------- Prints drop in ----------
+  const prints = document.getElementById('prints');
+  new IntersectionObserver((entries, obs) => {
+    if (!entries[0].isIntersecting) return;
+    obs.disconnect();
+    prints.querySelectorAll('.print').forEach((p, i) => setTimeout(() => p.classList.add('in'), reduce ? 0 : i * 110));
+  }, { threshold: .25 }).observe(prints);
+</script>
+</body>
+</html>

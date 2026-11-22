@@ -4,7 +4,7 @@
     "coaching": "Antrenamente",
     "community": "Comunitate",
     "events": "Turnee",
-    "beginners": "Începător?",
+    "beginners": "Pentru începători",
     "memberships": "Abonamente",
     "corporate": "Corporate",
     "contact": "Contact",
@@ -17,7 +17,7 @@
       "title": "Your second home",
       "subtitle": "4 terenuri indoor de ultimă generație în inima orașului. Alătură-te comunității noastre și ridică-ți jocul la un alt nivel.",
       "catchphrase": "Your second home.",
-      "ctaBook": "Rezervă",
+      "ctaBook": "Rezervă un teren",
       "ctaLearn": "Explorează Clubul",
       "ctaMemberships": "Abonamente",
       "ctaTraining": "Antrenamente",
@@ -42,14 +42,17 @@
       "subtitle": "Descoperă facilitățile de clasă mondială"
     },
     "community": {
+      "eyebrow": "Comunitate",
       "title": "Alătură-te Comunității",
-      "subtitle": "Conectează-te cu pasionații de padel",
-      "whatsappTitle": "Alătură-te Comunității WhatsApp",
-      "whatsappDesc": "Primești notificări de meci, găsești parteneri și rămâi la curent cu evenimentele.",
-      "joinButton": "Alătură-te Comunității WhatsApp",
-      "stat1": "500+ Membri",
-      "stat2": "Turnee Săptămânale",
-      "stat3": "Toate Nivelurile"
+      "accent": "Nu joci niciodată singur.",
+      "desc": "Primești notificări de meci, găsești parteneri și rămâi la curent cu evenimentele.",
+      "joinButton": "Alătură-te pe WhatsApp",
+      "photoAlt": "Doi copii cu rachete își dau o minge la Padel Haus",
+      "members": "Membri",
+      "weeklyValue": "Săptămânal",
+      "weeklyLabel": "Evenimente",
+      "levelsValue": "Toate",
+      "levelsLabel": "Nivelurile"
     },
     "events": {
       "title": "Evenimente Viitoare",
@@ -57,14 +60,35 @@
       "viewAll": "Vezi Toate Evenimentele"
     },
     "cta": {
-      "title": "Gata să Joci?",
+      "title": "Gata să joci?",
+      "accent": "Terenul te așteaptă.",
       "subtitle": "Rezervă terenul astăzi și trăiește experiența premium de padel.",
-      "ctaBook": "Rezervă un Teren",
+      "ctaBook": "Rezervă un teren",
       "ctaVisit": "Vizitează-ne"
     },
     "arena": {
       "title": "Arena Interactivă de Padel",
       "subtitle": "Testează-ți reflexele! Activează modul Joc pentru a controla paleta cu cursorul, sau relaxează-te și urmărește stream-ul live."
+    },
+    "gallery": {
+      "eyebrow": "Galerie",
+      "title": "Stai și după meci.",
+      "desc": "Momente reale. O comunitate reală.",
+      "instagram": "Vezi mai multe pe Instagram",
+      "photos": {
+        "between": "între meciuri",
+        "lunge": "la fiecare minge",
+        "net": "la fileu",
+        "team": "în echipă",
+        "focus": "în mișcare",
+        "evening": "după turneu"
+      },
+      "open": "Deschide fotografia: {photo}"
+    },
+    "lightbox": {
+      "close": "Închide",
+      "previous": "Fotografia anterioară",
+      "next": "Fotografia următoare"
     }
   },
   "experience": {
@@ -159,82 +183,154 @@
   },
   "events": {
     "hero": {
-      "badge": "Evenimente și Turnee",
-      "title": "Team Americano în Fiecare Weekend.",
-      "desc": "Un format dinamic și social pe echipe — joci fiecare rundă cu același partener și întâlnești adversari noi."
-    },
-    "mexicano": {
-      "title": "Turnee Mexicano",
-      "subtitle": "În fiecare sâmbătă și duminică",
-      "saturday": {
-        "badge": "Sâmbătă · Intermediar",
-        "title": "Mexicano Sâmbătă",
-        "time": "Programul diferă în fiecare weekend",
-        "spots": "8 / 12 / 16 locuri",
-        "spotsNote": "în funcție de înscrieri",
-        "duration": "~2 ore",
-        "matches": "6–8 meciuri scurte",
-        "matchesNote": "până la 20 puncte",
-        "scheduleLabel": "Orar",
-        "prizeLabel": "Premiu loc 1",
-        "prize": "Tub Mingi Wilson Premier Padel Speed",
-        "level": "Începător & Intermediar"
-      },
-      "sunday": {
-        "badge": "Duminică · Începători",
-        "title": "Mexicano Duminică",
-        "time": "10:00 – 12:00",
-        "spots": "8 / 12 / 16 locuri",
-        "spotsNote": "în funcție de înscrieri",
-        "duration": "~2 ore",
-        "matches": "6–8 meciuri scurte",
-        "matchesNote": "până la 20 puncte",
-        "scheduleLabel": "Orar",
-        "prizeLabel": "Premiu loc 1",
-        "prize": "Tub Mingi Wilson Premier Padel Speed",
-        "level": "Începători"
-      },
-      "howTitle": "Cum se Joacă Mexicano?",
-      "rules": [
-        "6–8 meciuri scurte până la 20 puncte",
-        "Partener diferit la fiecare rundă",
-        "Perechile se refac automat după fiecare meci",
-        "Clasament individual pe baza punctelor acumulate",
-        "Format dinamic, social și echilibrat"
-      ],
+      "titleTop": "Haus",
+      "titleBottom": "Mexicano Leagues",
+      "prizeValue": "13.200 lei",
+      "prizeLabel": "premii totale",
+      "stagesValue": "10 etape",
+      "stagesLabel": "un sezon întreg",
       "register": "Înscrie-te pe Playtomic",
-      "registerNote": "Înscrierea se face exclusiv prin Playtomic"
+      "ranking": "Vezi clasamentele"
     },
-    "americano": {
-      "title": "Turneu Team Americano",
-      "subtitle": "Joacă alături de partenerul tău împotriva unor adversari noi la fiecare rundă",
-      "tagline": "Joacă împreună. Schimbă adversarii. Câștigă.",
-      "americano": {
-        "title": "Team Americano",
-        "time": "11:00 – 13:00",
-        "spots": "8 / 12 / 16 locuri",
-        "duration": "~2 ore",
-        "scheduleLabel": "Durată",
-        "prizeLabel": "Premiu loc 1",
-        "prize": "Tub Mingi Wilson Premier Padel Speed",
-        "level": "Începător/Intermediar"
+    "divisions": {
+      "title": "Două divizii.",
+      "subtitle": "În fiecare weekend.",
+      "levelLabel": "nivel Playtomic",
+      "beginners": {
+        "name": "Liga Începători",
+        "level": "sub 2.0",
+        "day": "Duminică",
+        "time": "12:00 – 14:00"
       },
-      "howTitle": "Cum se Joacă Team Americano?",
+      "intermediate": {
+        "name": "Liga Intermediari",
+        "level": "1.5 – 3.5",
+        "day": "Sâmbătă",
+        "time": "12:00 – 14:00"
+      }
+    },
+    "prizes": {
+      "title": "Premii totale",
+      "total": "13.200 lei",
+      "perLeague": "6.600 lei",
+      "podium": "Podium, pe ligă",
+      "first": {
+        "amount": "2.500 lei",
+        "items": [
+          "Paletă 1.300 lei",
+          "Wallet Padel Haus 800 lei",
+          "2 antrenamente 400 lei",
+          "Trofeu + Diplomă",
+          "Tricou Mexicano League cu numele tău"
+        ]
+      },
+      "second": {
+        "amount": "1.700 lei",
+        "items": [
+          "Paletă 1.000 lei",
+          "Wallet Padel Haus 500 lei",
+          "1 antrenament 200 lei",
+          "Medalie + Diplomă",
+          "Tricou Mexicano League cu numele tău"
+        ]
+      },
+      "third": {
+        "amount": "1.000 lei",
+        "items": [
+          "Paletă 500 lei",
+          "Wallet Padel Haus 300 lei",
+          "1 antrenament 200 lei",
+          "Medalie + Diplomă",
+          "Tricou Mexicano League cu numele tău"
+        ]
+      },
+      "bonusLabel": "Premii bonus, pe ligă",
+      "bonusTotal": "1.400 lei"
+    },
+    "bonus": {
+      "title": "Premii bonus",
+      "subtitle": "Fiecare etapă contează.",
+      "draw": {
+        "label": "Marea tragere la sorți",
+        "value": "Paletă de 1.000 lei",
+        "desc": "Nu contează locul în clasament, ci doar numărul de prezențe. X etape jucate = X bilete în urnă."
+      },
+      "progress": {
+        "label": "Cel mai mare progres",
+        "value": "2 antrenamente",
+        "desc": "Pentru cine urcă cele mai multe locuri în clasament, de după etapa 3 până la final."
+      },
+      "joker": {
+        "title": "Joker",
+        "desc": "Alegi o etapă în care punctele tale se dublează. O anunți înainte de start, o dată pe sezon."
+      }
+    },
+    "how": {
+      "title": "Cum se joacă",
+      "format": "Mexicano individual",
+      "matchesValue": "8 – 10 meciuri",
+      "matchesLabel": "pe etapă",
+      "durationValue": "2 ore",
+      "durationLabel": "de joc",
       "rules": [
-        "6–8 meciuri scurte până la 20 puncte",
-        "Rămâi cu același partener pe tot parcursul turneului",
-        "Doar adversarii se schimbă de la o rundă la alta",
-        "Clasament pe echipe, pe baza punctelor acumulate",
-        "Format dinamic, social și echilibrat"
+        "Te înscrii individual. Partenerul se schimbă de la un meci la altul.",
+        "Meciurile se joacă până la 20 de puncte. Primești punctele câștigate de echipa ta.",
+        "Punctele se adună de la un meci la altul, apoi de la o etapă la alta.",
+        "Clasamentul final e pe jucător, nu pe echipă."
       ],
-      "register": "Înscrie-te pe Playtomic"
+      "exampleTitle": "Exemplu: Ana, în etapa 1",
+      "example": [
+        {
+          "label": "Meci 1",
+          "value": "+14"
+        },
+        {
+          "label": "Meci 2",
+          "value": "+9"
+        },
+        {
+          "label": "Meci 3",
+          "value": "+16"
+        },
+        {
+          "label": "Meci 4–9",
+          "value": "+89"
+        },
+        {
+          "label": "Etapa 1",
+          "value": "128"
+        }
+      ],
+      "exampleNote": "Cele 128 de puncte trec în etapa 2, unde adună mai departe. După 10 etape, totalul ei decide locul în clasament."
+    },
+    "join": {
+      "title": "Ne vedem în weekend",
+      "steps": [
+        {
+          "title": "Deschide Playtomic. Selectează Padel Haus.",
+          "desc": "Înscrierile se fac doar din aplicație."
+        },
+        {
+          "title": "Alege liga",
+          "desc": "Începători sub 2.0, Intermediari 1.5 – 3.5."
+        },
+        {
+          "title": "Înscrie-te la etapă",
+          "desc": "Pentru fiecare etapă, separat."
+        }
+      ],
+      "location": "Titan-Faur, București"
+    },
+    "photos": {
+      "players": "Jucătorii unui turneu Mexicano, cu rachetele, pe teren",
+      "lineup": "Jucătorii unui turneu Mexicano aliniați la fileu"
     }
   },
   "coaching": {
     "hero": {
       "badge": "Antrenamente",
       "title": "Îmbunătățește-ți Jocul",
-      "desc": "Sesiuni individuale sau de grup indiferent de nivel, te ajutăm să progresezi rapid și eficient."
+      "desc": "Antrenamente individuale sau împreună cu partenerii tăi, indiferent de nivel."
     },
     "coach": {
       "title": "Coaching",
@@ -300,7 +396,7 @@
         "name": "Regular Time",
         "schedule": "Luni–Vineri: 16:30 – 00:00 și Weekenduri"
       },
-      "partnersLabel": "Număr de persoane",
+      "partnersLabel": "Număr de persoane, cu tine",
       "sessionsLabel": "Număr de ședințe",
       "partners": {
         "1": "Individual",
@@ -308,8 +404,7 @@
         "3": "3 persoane"
       },
       "sessionCount": "{count, plural, one {# ședință} few {# ședințe} other {# de ședințe}}",
-      "packagePrice": "preț pachet",
-      "total": "total",
+      "total": "Total",
       "whatsappMessage": "Bună! Aș vrea să rezerv {sessions} în cadrul planului de antrenament {plan} ({partners}), pentru {total} lei. Numele meu este {name}, iar perioada preferată este ___.",
       "bookingModal": {
         "title": "Completează rezervarea",
@@ -318,8 +413,13 @@
         "namePlaceholder": "Nume complet",
         "cancel": "Anulează",
         "continue": "Continuă cu rezervarea"
-      }
-    }
+      },
+      "perPerson": "pe persoană",
+      "groupTotal": "Total grup",
+      "whatsappMessageGroup": "Bună! Aș vrea să rezerv {sessions} în cadrul planului de antrenament {plan} ({partners}, vin cu partenerii mei), pentru {perPerson} lei de persoană, {total} lei în total. Numele meu este {name}, iar perioada preferată este ___."
+    },
+    "partnerNote": "* La antrenamentele în 2 sau 3 persoane, vino împreună cu partenerii tăi de joc.",
+    "photoAlt": "Doi bărbați râd și se bucură pe terenul de padel"
   },
   "corporate": {
     "hero": {
@@ -402,7 +502,7 @@
     "info": {
       "title": "Vizitează-ne",
       "address": "Strada Rampei 37, Bucuresti",
-      "phone": "+40 700 000 000",
+      "phone": "+40 787 646 058",
       "email": "contact@padelhaus.ro",
       "whatsapp": "https://chat.whatsapp.com/CqGix2BlvAtIyz7z3ic30I",
       "hours": "Luni–Duminică: 08:00–00:30",
@@ -467,28 +567,27 @@
   "pricing": {
     "badge": "Prețuri",
     "title": "Prețuri",
-    "subtitle": "Plătești din playtomic/in club sau economisești cu un abonament.",
+    "subtitle": "Plătești din Playtomic, în club sau economisești cu un abonament.",
     "courtTitle": "Închiriere Teren",
     "weekdayLabel": "Luni–Vineri, până la 17:00",
-    "weekdayPrice": "130 RON / oră",
+    "weekdayPrice": "130",
     "eveningLabel": "Luni–Vineri după 17:00 & weekend",
-    "eveningPrice": "180 RON / oră",
+    "eveningPrice": "180",
     "racketLabel": "Închiriere rachetă",
-    "racketPrice": "15 RON",
-    "ballsLabel": "Tub de mingi de padel Adidas",
-    "ballsPrice": "40 RON",
-    "academyTeaser": "Antrenamente individuae sau de grup",
-    "academyLink": "Vezi prețurile antrenamenlor",
-    "membershipTeaser": "Acces lunar nelimitat de la 350 RON",
-    "membershipLink": "Vezi planurile de abonament",
-    "cta": "Rezervă un Teren"
+    "racketPrice": "20 RON",
+    "academyTeaser": "Antrenamente individuale sau cu partenerul tău",
+    "academyLink": "Antrenamente",
+    "membershipTeaser": "Abonamente de la 199 RON pe lună",
+    "membershipLink": "Abonamente",
+    "cta": "Rezervă un Teren",
+    "priceUnit": "RON / oră"
   },
   "faq": {
     "badge": "FAQ",
-    "title": "Bine de Știut",
+    "title": "Bine de știut.",
     "subtitle": "Răspunsuri la cele mai frecvente întrebări.",
     "q1": "Pot veni singur?",
-    "a1": "Da — alătură-te comunității noastre de WhatsApp pentru a găsi un partener sau un meci în câteva minute.",
+    "a1": "Da — alătură-te comunității noastre de <whatsapp>WhatsApp</whatsapp> pentru a găsi un partener sau un meci în câteva minute.",
     "q2": "Nu am mai jucat niciodată, e o problemă?",
     "a2": "Deloc. Padelul se învață ușor și majoritatea membrilor noștri au început ca începători totali.",
     "q3": "Închiriați rachete?",
@@ -498,7 +597,7 @@
     "q5": "Cum funcționează rezervarea și anularea?",
     "a5": "Rezervi direct prin Playtomic. Anulările sunt gratuite cu până la 24 de ore înainte.",
     "q6": "Pot organiza o petrecere sau un eveniment privat?",
-    "a6": "Sigur — scrie-ne pe WhatsApp și te ajutăm să planifici.",
+    "a6": "Sigur — scrie-ne pe <whatsapp>WhatsApp</whatsapp> și te ajutăm să planifici.",
     "q7": "Pot juca și copiii?",
     "a7": "Da, padelul e excelent pentru copii și primim jucători de toate vârstele.",
     "q8": "Există dușuri și dulapuri?",
@@ -508,41 +607,44 @@
   },
   "memberships": {
     "hero": {
-      "badge": "Abonamente",
-      "title": "Joacă Mai Mult, Plătește Mai Puțin",
-      "desc": "Două planuri simple. Alege fereastra de acces potrivită programului tău și beneficiezi de teren nelimitat."
+      "title": "Joacă mai mult, plătește mai puțin",
+      "desc": "Joci în weekend, ziua sau în fiecare zi? Alege abonamentul care se potrivește programului tău."
     },
-    "daily": {
-      "name": "Abonament de zi",
-      "window": "Luni–Vineri, până la 17:00",
-      "price": "349 RON",
-      "period": "/ lună",
-      "desc": "Perfect dacă joci ziua, în timpul săptămânii.",
-      "feature1": "Teren nelimitat, Luni–Vineri până la 17:00",
-      "feature2": "10% reducere la închirierea rachetei",
-      "feature3": "Tarif de membru la sesiunile de Academy",
-      "priorityLabel": "Prioritate la rezervare",
-      "priorityValue": "Standard",
-      "cancellationLabel": "Anulare",
-      "cancellationValue": "Gratuită cu până la 24h înainte"
+    "plansTitle": "Abonamente lunare",
+    "currency": "RON",
+    "period": "pe lună",
+    "weekend": {
+      "name": "Weekend Lovers",
+      "lead": "Padel în fiecare weekend.",
+      "desc": "Un meci sâmbătă, unul duminică. Tu alegi ora, noi te așteptăm pe teren."
     },
-    "full": {
-      "name": "Abonament Full",
-      "window": "În fiecare zi, inclusiv weekend",
-      "price": "649 RON",
-      "period": "/ lună",
-      "desc": "Acces nerestricționat, oricând vrei să joci.",
-      "feature1": "Teren nelimitat, orice zi, orice oră",
-      "feature2": "Fereastră de rezervare prioritară (cu 48h înainte)",
-      "feature3": "15% reducere la rachete & pro shop",
-      "feature4": "1 invitație gratuită pe lună",
-      "priorityLabel": "Prioritate la rezervare",
-      "priorityValue": "Acces prioritar",
-      "cancellationLabel": "Anulare",
-      "cancellationValue": "Gratuită cu până la 24h înainte"
+    "fullTime": {
+      "name": "Full-Time",
+      "lead": "Pentru cei care ar juca în fiecare zi.",
+      "desc": "Ai un meci de 90 de minute inclus zilnic, la orice oră din program."
     },
-    "popular": "CEL MAI POPULAR",
-    "cta": "Vezi Abonamentele pe Playtomic",
+    "beforeFive": {
+      "name": "Before Five",
+      "lead": "Padel în timpul săptămânii.",
+      "desc": "Pentru cei care pot juca ziua, de luni până vineri."
+    },
+    "includedTitle": "La toate abonamentele",
+    "included": [
+      "Prețuri reduse",
+      "Anulare cu până la 24 de ore înainte",
+      "Rezervi cu până la 7 zile în avans",
+      "Maximum o rezervare pe zi",
+      "Până la 7 rezervări active"
+    ],
+    "cta": "Vezi pe Playtomic",
+    "stamp": {
+      "name": "Haus 9+1",
+      "lead": "A zecea e de la noi.",
+      "desc": "Joci 9 rezervări la preț normal, iar a 10-a e gratuită. Fără abonament lunar.",
+      "cardLabel": "Nouă rezervări plătite, a zecea gratuită",
+      "free": "gratis",
+      "cta": "Întreabă pe WhatsApp"
+    },
     "note": "Abonamentele se facturează lunar. Scrie-ne pe <whatsapp>WhatsApp</whatsapp> pentru înscriere sau întrebări."
   },
   "beginners": {
@@ -588,6 +690,7 @@
       "title": "Gata pentru Prima Sesiune?",
       "communityButton": "Alătură-te Comunității",
       "bookButton": "Rezervă un Teren"
-    }
+    },
+    "photoAlt": "Rachetă de padel agățată de plasa terenului"
   }
 }

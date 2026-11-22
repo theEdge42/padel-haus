@@ -49,18 +49,18 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background">
       <section className="py-24 bg-background-alternate relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/5 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-amber/5 to-transparent pointer-events-none" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Badge className="bg-[#FFD700]/20 text-[#FFD700] border-[#FFD700]/30 mb-6 text-sm px-4 py-1.5">
+            <Badge className="bg-amber/20 text-amber border-amber/30 mb-6 text-sm px-4 py-1.5">
               {t("hero.badge")}
             </Badge>
-            <h1 className="text-5xl sm:text-6xl font-black text-white mb-6">{t("hero.title")}</h1>
-            <p className="text-[#E2D9F3] text-xl leading-relaxed">{t("hero.desc")}</p>
+            <h1 className="text-5xl sm:text-6xl font-black text-crem mb-6">{t("hero.title")}</h1>
+            <p className="text-lilac text-xl leading-relaxed">{t("hero.desc")}</p>
           </motion.div>
         </div>
       </section>
@@ -72,58 +72,58 @@ export default function ContactPage() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-[#3B0758] rounded-2xl p-8 border border-white/10"
+              className="bg-mov rounded-2xl p-8 border border-crem/10"
             >
-              <h2 className="text-3xl font-black text-white mb-8">{t("form.title")}</h2>
+              <h2 className="text-3xl font-black text-crem mb-8">{t("form.title")}</h2>
               {submitted ? (
                 <div className="text-center py-10">
-                  <CheckCircle2 size={48} className="text-[#FFD700] mx-auto mb-4" />
-                  <p className="text-white font-bold text-lg">{t("form.success")}</p>
+                  <CheckCircle2 size={48} className="text-amber mx-auto mb-4" />
+                  <p className="text-crem font-bold text-lg">{t("form.success")}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div className="space-y-2">
-                      <Label className="text-[#E2D9F3]">{t("form.name")}</Label>
+                      <Label className="text-lilac">{t("form.name")}</Label>
                       <Input
                         name="name"
                         required
                         value={form.name}
                         onChange={handleChange}
-                        className="bg-[#3B0758] border-white/20 text-white placeholder:text-white/40 focus:border-[#FFD700]"
+                        className="bg-mov border-crem/20 text-crem placeholder:text-crem/40 focus:border-amber"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label className="text-[#E2D9F3]">{t("form.email")}</Label>
+                      <Label className="text-lilac">{t("form.email")}</Label>
                       <Input
                         name="email"
                         type="email"
                         required
                         value={form.email}
                         onChange={handleChange}
-                        className="bg-[#3B0758] border-white/20 text-white placeholder:text-white/40 focus:border-[#FFD700]"
+                        className="bg-mov border-crem/20 text-crem placeholder:text-crem/40 focus:border-amber"
                       />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <Label className="text-[#E2D9F3]">{t("form.subject")}</Label>
+                    <Label className="text-lilac">{t("form.subject")}</Label>
                     <Input
                       name="subject"
                       required
                       value={form.subject}
                       onChange={handleChange}
-                      className="bg-[#3B0758] border-white/20 text-white placeholder:text-white/40 focus:border-[#FFD700]"
+                      className="bg-mov border-crem/20 text-crem placeholder:text-crem/40 focus:border-amber"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label className="text-[#E2D9F3]">{t("form.message")}</Label>
+                    <Label className="text-lilac">{t("form.message")}</Label>
                     <Textarea
                       name="message"
                       required
                       rows={5}
                       value={form.message}
                       onChange={handleChange}
-                      className="bg-[#3B0758] border-white/20 text-white placeholder:text-white/40 focus:border-[#FFD700] resize-none"
+                      className="bg-mov border-crem/20 text-crem placeholder:text-crem/40 focus:border-amber resize-none"
                     />
                   </div>
                   {error && (
@@ -132,7 +132,7 @@ export default function ContactPage() {
                   <Button
                     type="submit"
                     disabled={sending}
-                    className="bg-brand-accent text-[#3B0758] hover:bg-brand-accent-hover font-bold w-full h-12 disabled:opacity-60"
+                    className="bg-brand-accent text-mov hover:bg-brand-accent-hover font-bold w-full h-12 disabled:opacity-60"
                   >
                     {sending ? t("form.sending") : t("form.submit")}
                   </Button>
@@ -146,27 +146,27 @@ export default function ContactPage() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <div className="bg-[#3B0758] rounded-2xl p-8 border border-white/10">
-                <h2 className="text-2xl font-black text-white mb-6">{t("info.title")}</h2>
+              <div className="bg-mov rounded-2xl p-8 border border-crem/10">
+                <h2 className="text-2xl font-black text-crem mb-6">{t("info.title")}</h2>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <MapPin size={20} className="text-[#FFD700] mt-0.5 flex-shrink-0" />
-                    <span className="text-[#E2D9F3]">{t("info.address")}</span>
+                    <MapPin size={20} className="text-amber mt-0.5 flex-shrink-0" />
+                    <span className="text-lilac">{t("info.address")}</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <MessageCircle size={20} className="text-[#FFD700] flex-shrink-0" />
+                    <MessageCircle size={20} className="text-amber flex-shrink-0" />
                     <a
                       href={t("info.whatsapp")}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#E2D9F3] hover:text-[#FFD700] transition-colors"
+                      className="text-lilac hover:text-amber transition-colors"
                     >
                       WhatsApp
                     </a>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Clock size={20} className="text-[#FFD700] mt-0.5 flex-shrink-0" />
-                    <div className="text-[#E2D9F3]">
+                    <Clock size={20} className="text-amber mt-0.5 flex-shrink-0" />
+                    <div className="text-lilac">
                       <p>{t("info.hours")}</p>
                     </div>
                   </div>
@@ -183,11 +183,11 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl font-black text-white mb-8 text-center"
+            className="text-3xl font-black text-crem mb-8 text-center"
           >
             {t("map.title")}
           </motion.h2>
-          <div className="rounded-2xl overflow-hidden border border-white/10 h-80 lg:h-96">
+          <div className="rounded-2xl overflow-hidden border border-crem/10 h-80 lg:h-96">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1424.6245643968098!2d26.179369830486497!3d44.428051670800954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff005138e94d%3A0x859648e1e9b81efa!2sPadel%20Haus%20Bucharest!5e0!3m2!1sen!2sro!4v1775249393523!5m2!1sen!2sro"
               width="100%"

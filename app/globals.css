@@ -12,7 +12,6 @@
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-sans);
-  --font-serif-italic: var(--font-serif-italic);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -50,65 +49,87 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 
-  /* Brand design tokens — "Electric Plum" flavor from hero-final-designs.html */
-  --color-brand-bg: #25003D;
-  --color-brand-alternate: #3B0758;
-  --color-brand-surface: #4A0E6D;
-  --color-brand-accent: #FFD700;
-  --color-brand-accent-hover: #E6B800;
-  --color-brand-accent-light: #FFE773;
-  --color-brand-text: #FFFFFF;
-  --color-brand-muted: #F3E8FF;
-  --color-brand-faint: #C09BD8;
-  --animate-community-door-label: community-door-label 6s ease-in-out infinite;
+  /* Brand book §04 palette */
+  --color-mov: #341743;
+  --color-noapte: #1C0C25;
+  --color-deep: #15091C;
+  --color-crem: #EFE6D9;
+  --color-led: #8B4FE8; /* Violet LED: lines only */
+  --color-amber: #D98C3F; /* buttons and tagline */
+  --color-verde: #2E4034; /* utility pieces such as prices: replaces Mov */
+  --color-lilac: #CFBFD8;
+  --color-label: #8B7A94;
+
+  /* Semantic aliases used by the shadcn primitives and older pages */
+  --color-brand-bg: #1C0C25;
+  --color-brand-alternate: #341743;
+  --color-brand-surface: #341743;
+  --color-brand-accent: #D98C3F;
+  --color-brand-accent-hover: #E29C55;
 }
 
-@keyframes community-door-label {
-  0%, 60%, 100% {
-    opacity: 0;
+/* Brand book §05: Times New Roman MT Italic, with Tinos Italic as the fallback */
+@utility font-editorial {
+  font-family: "Times New Roman MT", var(--font-tinos), Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* The court lines draw themselves once the loader has finished */
+.court-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+[data-ready="true"] .court-line {
+  animation: court-draw 0.9s ease-out forwards;
+}
+@keyframes court-draw {
+  to {
+    stroke-dashoffset: 0;
   }
-  68%, 86% {
-    opacity: 1;
-  }
-  92% {
-    opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .court-line,
+  [data-ready="true"] .court-line {
+    animation: none;
+    stroke-dashoffset: 0;
   }
 }
 
 :root {
-  --background: #25003D;
-  --background-alternate: #3B0758;
-  --foreground: #FFFFFF;
-  --card: #4A0E6D;
-  --card-foreground: #FFFFFF;
-  --popover: #4A0E6D;
-  --popover-foreground: #FFFFFF;
-  --primary: #FFD700;
-  --primary-foreground: #25003D;
-  --secondary: #4A0E6D;
-  --secondary-foreground: #FFFFFF;
-  --muted: #4A0E6D;
-  --muted-foreground: #F3E8FF;
-  --accent: #FFD700;
-  --accent-foreground: #25003D;
+  --background: #1C0C25;
+  --background-alternate: #341743;
+  --foreground: #EFE6D9;
+  --card: #341743;
+  --card-foreground: #EFE6D9;
+  --popover: #341743;
+  --popover-foreground: #EFE6D9;
+  --primary: #D98C3F;
+  --primary-foreground: #1C0C25;
+  --secondary: #341743;
+  --secondary-foreground: #EFE6D9;
+  --muted: #341743;
+  --muted-foreground: #CFBFD8;
+  --accent: #D98C3F;
+  --accent-foreground: #1C0C25;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(1 0 0 / 18%);
-  --input: oklch(1 0 0 / 20%);
-  --ring: #FFD700;
-  --chart-1: #FFD700;
-  --chart-2: #8BC34A;
-  --chart-3: #5E8F2B;
-  --chart-4: #4A0E6D;
-  --chart-5: #3B0758;
+  --border: rgb(239 230 217 / 18%);
+  --input: rgb(239 230 217 / 20%);
+  --ring: #D98C3F;
+  --chart-1: #D98C3F;
+  --chart-2: #2E4034;
+  --chart-3: #8B4FE8;
+  --chart-4: #341743;
+  --chart-5: #341743;
   --radius: 0.625rem;
-  --sidebar: #4A0E6D;
-  --sidebar-foreground: #FFFFFF;
-  --sidebar-primary: #FFD700;
-  --sidebar-primary-foreground: #25003D;
-  --sidebar-accent: #4A0E6D;
-  --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: oklch(1 0 0 / 16%);
-  --sidebar-ring: #FFD700;
+  --sidebar: #341743;
+  --sidebar-foreground: #EFE6D9;
+  --sidebar-primary: #D98C3F;
+  --sidebar-primary-foreground: #1C0C25;
+  --sidebar-accent: #341743;
+  --sidebar-accent-foreground: #EFE6D9;
+  --sidebar-border: rgb(239 230 217 / 16%);
+  --sidebar-ring: #D98C3F;
 }
 
 @layer base {
@@ -119,6 +140,6 @@
     @apply bg-background text-foreground;
   }
   html {
-    @apply font-sans;
+    @apply relative font-sans; /* relative: Framer useScroll measures against it */
   }
 }

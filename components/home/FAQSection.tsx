@@ -1,54 +1,47 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { Badge } from "@/components/ui/badge";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Eyebrow } from "@/components/shared/Brand";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { WHATSAPP_CONTACT_URL } from "@/lib/constants";
 
-const QUESTION_KEYS = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9"] as const;
+const QUESTION_NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9] as const;
 
 export default function FAQSection() {
   const t = useTranslations("faq");
 
   return (
-    <section className="py-24 bg-background-alternate">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <Badge className="bg-[#FFD700]/20 text-[#FFD700] border-[#FFD700]/30 mb-4">
-            {t("badge")}
-          </Badge>
-          <h2 className="text-4xl sm:text-5xl font-black text-white mb-3">{t("title")}</h2>
-          <p className="text-[#E2D9F3]/80">{t("subtitle")}</p>
-        </motion.div>
+    <section className="bg-crem py-20 text-mov sm:py-28">
+      <div className="mx-auto grid max-w-[1200px] gap-10 px-5 lg:grid-cols-[1.1fr_1fr] lg:items-start lg:gap-12">
+        <div>
+          <Eyebrow className="text-mov">{t("badge")}</Eyebrow>
+          <h2 className="font-editorial text-[clamp(34px,5vw,52px)] leading-[1.05]">{t("title")}</h2>
+          <p className="mt-5 text-lg text-mov/75">{t("subtitle")}</p>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <Accordion className="w-full">
-            {QUESTION_KEYS.map((key, i) => (
-              <AccordionItem key={key} value={key} className="border-white/10">
-                <AccordionTrigger className="text-white text-left hover:text-[#FFD700] text-base font-semibold">
-                  {t(`q${i + 1}`)}
-                </AccordionTrigger>
-                <AccordionContent className="text-[#E2D9F3]/80 leading-relaxed">
-                  {t(`a${i + 1}`)}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </motion.div>
+        <Accordion defaultValue={["q1"]}>
+          {QUESTION_NUMBERS.map((n) => (
+            <AccordionItem key={n} value={`q${n}`} className="border-mov/20">
+              <AccordionTrigger className="cursor-pointer items-center gap-4 rounded-none py-[22px] text-lg font-extrabold text-mov hover:no-underline focus-visible:border-mov focus-visible:ring-mov/30 **:data-[slot=accordion-trigger-icon]:text-mov">
+                {t(`q${n}`)}
+              </AccordionTrigger>
+              <AccordionContent className="pb-6 text-base leading-relaxed text-mov/80 [&_a]:hover:text-mov">
+                {t.rich(`a${n}`, {
+                  whatsapp: (chunks) => (
+                    <a
+                      href={WHATSAPP_CONTACT_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-mov focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mov"
+                    >
+                      {chunks}
+                    </a>
+                  ),
+                })}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
     </section>
   );

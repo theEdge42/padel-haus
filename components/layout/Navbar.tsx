@@ -49,7 +49,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:top-4 sm:left-4 sm:right-4 sm:px-0 sm:pt-0">
-      <div className="max-w-7xl mx-auto rounded-2xl border border-white/15 bg-[#25003D]/85 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+      <div className="max-w-7xl mx-auto rounded-2xl border border-crem/15 bg-noapte/85 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
         <div className="flex h-16 items-center gap-4 px-4 max-[359px]:gap-2 max-[359px]:px-3 sm:px-6">
           {/* Logo */}
           <Link
@@ -65,7 +65,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group text-sm font-semibold text-[#F3E8FF]/80 hover:text-[#FFE773] transition-colors"
+                className="group text-sm font-semibold text-crem/80 hover:text-crem transition-colors"
                 aria-label={link.label}
               >
                 <LetterRoll>{link.label}</LetterRoll>
@@ -77,13 +77,13 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center justify-end gap-3 ml-auto">
             <button
               onClick={switchLocale}
-              className="text-sm font-semibold text-[#F3E8FF]/80 hover:text-[#FFE773] transition-colors px-2 py-1 border border-white/20 rounded-md"
+              className="text-sm font-semibold text-crem/80 hover:text-crem transition-colors px-2 py-1 border border-crem/20 rounded-md"
             >
               {otherLocale.toUpperCase()}
             </button>
             <Button
               asChild
-              className="bg-brand-accent text-[#25003D] hover:bg-brand-accent-hover font-bold text-sm"
+              className="bg-brand-accent text-noapte hover:bg-brand-accent-hover font-bold text-sm"
             >
               <a href={PLAYTOMIC_RESERVATIONS} target="_blank" rel="noopener noreferrer">
                 {t("bookNow")}
@@ -93,7 +93,7 @@ export default function Navbar() {
             {/*  href={WHATSAPP_URL}*/}
             {/*  target="_blank"*/}
             {/*  rel="noopener noreferrer"*/}
-            {/*  className="w-9 h-9 flex items-center justify-center rounded-full border border-white/25 text-[#F3E8FF] hover:border-[#FFE773] hover:text-[#FFE773] transition-colors"*/}
+            {/*  className="w-9 h-9 flex items-center justify-center rounded-full border border-crem/25 text-crem hover:border-crem hover:text-crem transition-colors"*/}
             {/*  aria-label="WhatsApp"*/}
             {/*>*/}
             {/*  <MessageCircle size={16} />*/}
@@ -102,7 +102,7 @@ export default function Navbar() {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 flex items-center justify-center rounded-full border border-white/25 text-[#F3E8FF] hover:border-[#FFE773] hover:text-[#FFE773] transition-colors"
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-crem/25 text-crem hover:border-crem hover:text-crem transition-colors"
               aria-label="Instagram"
             >
               <InstagramIcon size={16} />
@@ -114,7 +114,7 @@ export default function Navbar() {
             <Button
               asChild
               size="sm"
-              className="bg-brand-accent text-[#25003D] hover:bg-brand-accent-hover font-bold text-xs px-3 max-[359px]:px-2"
+              className="bg-brand-accent text-noapte hover:bg-brand-accent-hover font-bold text-xs px-3 max-[359px]:px-2"
             >
               <a href={PLAYTOMIC_RESERVATIONS} target="_blank" rel="noopener noreferrer">
                 {t("bookNow")}
@@ -124,7 +124,7 @@ export default function Navbar() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 text-[#F3E8FF] max-[359px]:hidden"
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-crem/25 text-crem max-[359px]:hidden"
               aria-label="WhatsApp"
             >
               <MessageCircle size={14} />
@@ -133,13 +133,13 @@ export default function Navbar() {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-8 h-8 flex items-center justify-center rounded-full border border-white/25 text-[#F3E8FF]"
+              className="w-8 h-8 flex items-center justify-center rounded-full border border-crem/25 text-crem"
               aria-label="Instagram"
             >
               <InstagramIcon size={14} />
             </a>
             <button
-              className="p-1.5 text-white"
+              className="p-1.5 text-crem"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
@@ -150,13 +150,13 @@ export default function Navbar() {
 
         {/* Mobile Nav — links + locale switch only; Book/WhatsApp/Instagram live outside this drawer */}
         {mobileOpen && (
-          <div className="lg:hidden border-t border-white/10 px-4 py-4">
+          <div className="lg:hidden border-t border-crem/10 px-4 py-4">
             <nav className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-semibold text-[#F3E8FF]/80 hover:text-[#FFE773] transition-colors py-2.5 border-b border-white/10"
+                  className="text-sm font-semibold text-crem/80 hover:text-crem transition-colors py-2.5 border-b border-crem/10"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -167,7 +167,7 @@ export default function Navbar() {
                   switchLocale();
                   setMobileOpen(false);
                 }}
-                className="text-sm font-semibold text-[#F3E8FF]/80 hover:text-[#FFE773] transition-colors px-3 py-2 mt-3 border border-white/20 rounded-md w-fit"
+                className="text-sm font-semibold text-crem/80 hover:text-crem transition-colors px-3 py-2 mt-3 border border-crem/20 rounded-md w-fit"
               >
                 {otherLocale.toUpperCase()}
               </button>

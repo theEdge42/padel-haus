@@ -4,7 +4,7 @@
     "coaching": "Coaching",
     "community": "Community",
     "events": "Tournaments",
-    "beginners": "Beginner?",
+    "beginners": "For beginners",
     "memberships": "Memberships",
     "corporate": "Corporate",
     "contact": "Contact",
@@ -17,10 +17,10 @@
       "title": "Where Champions Play",
       "subtitle": "4 state-of-the-art indoor padel courts in the heart of the city. Join our vibrant community and elevate your game.",
       "catchphrase": "Your second home.",
-      "ctaBook": "Book",
+      "ctaBook": "Book a court",
       "ctaLearn": "Explore the Club",
       "ctaMemberships": "Memberships",
-      "ctaTraining": "Training",
+      "ctaTraining": "Coaching",
       "communityDoor": "Community",
       "statCourts": "Indoor Courts",
       "statMembers": "Members",
@@ -42,14 +42,17 @@
       "subtitle": "Experience world-class facilities"
     },
     "community": {
+      "eyebrow": "Community",
       "title": "Join the Community",
-      "subtitle": "Connect with fellow padel enthusiasts",
-      "whatsappTitle": "Join Our WhatsApp Community",
-      "whatsappDesc": "Get match notifications, find partners, and stay updated on events.",
-      "joinButton": "Join WhatsApp Community",
-      "stat1": "500+ Members",
-      "stat2": "Weekly Tournaments",
-      "stat3": "All Skill Levels"
+      "accent": "You never play alone.",
+      "desc": "Get match notifications, find partners, and stay updated on events.",
+      "joinButton": "Join us on WhatsApp",
+      "photoAlt": "Two children with rackets sharing a ball at Padel Haus",
+      "members": "Members",
+      "weeklyValue": "Weekly",
+      "weeklyLabel": "Events",
+      "levelsValue": "All",
+      "levelsLabel": "Levels"
     },
     "events": {
       "title": "Upcoming Events",
@@ -57,14 +60,35 @@
       "viewAll": "View All Events"
     },
     "cta": {
-      "title": "Ready to Play?",
-      "subtitle": "Book your court today and experience premium padel like never before.",
-      "ctaBook": "Book a Court",
-      "ctaVisit": "Visit Us"
+      "title": "Ready to play?",
+      "accent": "The court is waiting.",
+      "subtitle": "Book your court today and experience premium padel.",
+      "ctaBook": "Book a court",
+      "ctaVisit": "Visit us"
     },
     "arena": {
       "title": "Interactive Padel Arena",
       "subtitle": "Test your reflexes! Toggle Play mode to control the racket with your cursor, or sit back and watch the live stream rally."
+    },
+    "gallery": {
+      "eyebrow": "Gallery",
+      "title": "Stay after the match.",
+      "desc": "Real moments. A real community.",
+      "instagram": "See more on Instagram",
+      "photos": {
+        "between": "between matches",
+        "lunge": "every ball",
+        "net": "at the net",
+        "team": "as a team",
+        "focus": "on the move",
+        "evening": "after the games"
+      },
+      "open": "Open photo: {photo}"
+    },
+    "lightbox": {
+      "close": "Close",
+      "previous": "Previous photo",
+      "next": "Next photo"
     }
   },
   "experience": {
@@ -159,82 +183,154 @@
   },
   "events": {
     "hero": {
-      "badge": "Events & Tournaments",
-      "title": "Team Americano Every Weekend.",
-      "desc": "A dynamic, social team format — play every round with the same partner and face new opponents."
-    },
-    "mexicano": {
-      "title": "Mexicano Tournaments",
-      "subtitle": "Every Saturday and Sunday",
-      "saturday": {
-        "badge": "Saturday · Intermediate",
-        "title": "Saturday Mexicano",
-        "time": "Schedule varies each weekend",
-        "spots": "8 / 12 / 16 spots",
-        "spotsNote": "depending on registrations",
-        "duration": "~2 hours",
-        "matches": "6–8 short matches",
-        "matchesNote": "up to 20 points",
-        "scheduleLabel": "Schedule",
-        "prizeLabel": "1st place prize",
-        "prize": "Wilson Premier Padel Speed balls",
-        "level": "Beginner & Intermediate"
-      },
-      "sunday": {
-        "badge": "Sunday · Beginner",
-        "title": "Sunday Mexicano",
-        "time": "10:00 – 12:00",
-        "spots": "8 / 12 / 16 spots",
-        "spotsNote": "depending on registrations",
-        "duration": "~2 hours",
-        "matches": "6–8 short matches",
-        "matchesNote": "up to 20 points",
-        "scheduleLabel": "Schedule",
-        "prizeLabel": "1st place prize",
-        "prize": "Wilson Premier Padel Speed balls",
-        "level": "Beginner"
-      },
-      "howTitle": "How Does Mexicano Work?",
-      "rules": [
-        "6–8 short matches up to 20 points",
-        "Different partner each round",
-        "Pairs are automatically reformed after each match",
-        "Individual ranking based on accumulated points",
-        "Dynamic, social and balanced format"
-      ],
+      "titleTop": "Haus",
+      "titleBottom": "Mexicano Leagues",
+      "prizeValue": "13,200 lei",
+      "prizeLabel": "in total prizes",
+      "stagesValue": "10 stages",
+      "stagesLabel": "a full season",
       "register": "Register on Playtomic",
-      "registerNote": "Registration is done exclusively via Playtomic"
+      "ranking": "See the rankings"
     },
-    "americano": {
-      "title": "Team Americano Tournament",
-      "subtitle": "Play with your partner against new opponents every round",
-      "tagline": "Play together. Change opponents. Win.",
-      "americano": {
-        "title": "Team Americano",
-        "time": "11:00 – 13:00",
-        "spots": "8 / 12 / 16 spots",
-        "duration": "~2 hours",
-        "scheduleLabel": "Schedule",
-        "prizeLabel": "1st place prize",
-        "prize": "Wilson Premier Padel Speed balls",
-        "level": "Intermediate"
+    "divisions": {
+      "title": "Two divisions.",
+      "subtitle": "Every weekend.",
+      "levelLabel": "Playtomic level",
+      "beginners": {
+        "name": "Beginners League",
+        "level": "under 2.0",
+        "day": "Sunday",
+        "time": "12:00 – 14:00"
       },
-      "howTitle": "How Does Team Americano Work?",
+      "intermediate": {
+        "name": "Intermediate League",
+        "level": "1.5 – 3.5",
+        "day": "Saturday",
+        "time": "12:00 – 14:00"
+      }
+    },
+    "prizes": {
+      "title": "Total prizes",
+      "total": "13,200 lei",
+      "perLeague": "6,600 lei",
+      "podium": "Podium, per league",
+      "first": {
+        "amount": "2,500 lei",
+        "items": [
+          "Racket worth 1,300 lei",
+          "Padel Haus Wallet 800 lei",
+          "2 coaching sessions worth 400 lei",
+          "Trophy + Diploma",
+          "Mexicano League shirt with your name"
+        ]
+      },
+      "second": {
+        "amount": "1,700 lei",
+        "items": [
+          "Racket worth 1,000 lei",
+          "Padel Haus Wallet 500 lei",
+          "1 coaching session worth 200 lei",
+          "Medal + Diploma",
+          "Mexicano League shirt with your name"
+        ]
+      },
+      "third": {
+        "amount": "1,000 lei",
+        "items": [
+          "Racket worth 500 lei",
+          "Padel Haus Wallet 300 lei",
+          "1 coaching session worth 200 lei",
+          "Medal + Diploma",
+          "Mexicano League shirt with your name"
+        ]
+      },
+      "bonusLabel": "Bonus prizes, per league",
+      "bonusTotal": "1,400 lei"
+    },
+    "bonus": {
+      "title": "Bonus prizes",
+      "subtitle": "Every stage counts.",
+      "draw": {
+        "label": "The grand draw",
+        "value": "A racket worth 1,000 lei",
+        "desc": "Your ranking doesn’t matter, only how often you played. X stages played = X tickets in the draw."
+      },
+      "progress": {
+        "label": "Most improved",
+        "value": "2 coaching sessions",
+        "desc": "For whoever climbs the most places in the ranking, from after stage 3 to the end."
+      },
+      "joker": {
+        "title": "Joker",
+        "desc": "Pick one stage where your points are doubled. Announce it before the start, once per season."
+      }
+    },
+    "how": {
+      "title": "How it works",
+      "format": "Individual Mexicano",
+      "matchesValue": "8 – 10 matches",
+      "matchesLabel": "per stage",
+      "durationValue": "2 hours",
+      "durationLabel": "of play",
       "rules": [
-        "6–8 short matches up to 20 points",
-        "You stay with the same partner throughout the tournament",
-        "Only your opponents change from round to round",
-        "Team ranking based on accumulated points",
-        "Dynamic, social and balanced format"
+        "You register individually. Your partner changes from one match to the next.",
+        "Matches are played to 20 points. You get the points your team wins.",
+        "Points add up from match to match, then from stage to stage.",
+        "The final ranking is per player, not per team."
       ],
-      "register": "Register on Playtomic"
+      "exampleTitle": "Example: Ana, in stage 1",
+      "example": [
+        {
+          "label": "Match 1",
+          "value": "+14"
+        },
+        {
+          "label": "Match 2",
+          "value": "+9"
+        },
+        {
+          "label": "Match 3",
+          "value": "+16"
+        },
+        {
+          "label": "Match 4–9",
+          "value": "+89"
+        },
+        {
+          "label": "Stage 1",
+          "value": "128"
+        }
+      ],
+      "exampleNote": "Those 128 points carry over to stage 2, where they keep adding up. After 10 stages, Ana’s total decides the final ranking."
+    },
+    "join": {
+      "title": "See you this weekend",
+      "steps": [
+        {
+          "title": "Open Playtomic. Select Padel Haus.",
+          "desc": "Registration is only available in the app."
+        },
+        {
+          "title": "Choose your league",
+          "desc": "Beginners under 2.0, Intermediate 1.5 – 3.5."
+        },
+        {
+          "title": "Register for the stage",
+          "desc": "Each stage separately."
+        }
+      ],
+      "location": "Titan-Faur, Bucharest"
+    },
+    "photos": {
+      "players": "Mexicano tournament players with their rackets on court",
+      "lineup": "Mexicano tournament players lined up at the net"
     }
   },
   "coaching": {
     "hero": {
       "badge": "Coaching",
       "title": "Elevate Your Game",
-      "desc": "Individual and group sessions whatever your level, we help you progress quickly and effectively."
+      "desc": "Coaching on your own or together with your own partners, whatever your level."
     },
     "coach": {
       "title": "Coaching",
@@ -300,7 +396,7 @@
         "name": "Regular Time",
         "schedule": "Mon–Fri: 16:30 – 00:00 & Weekends"
       },
-      "partnersLabel": "Number of players",
+      "partnersLabel": "Number of players, including you",
       "sessionsLabel": "Number of sessions",
       "partners": {
         "1": "Individual",
@@ -308,8 +404,7 @@
         "3": "3 players"
       },
       "sessionCount": "{count, plural, one {# session} other {# sessions}}",
-      "packagePrice": "package price",
-      "total": "total",
+      "total": "Total",
       "whatsappMessage": "Hi! I'd like to book {sessions} of the {plan} training plan ({partners}) for {total} lei. My name is {name}, and my preferred time is ___.",
       "bookingModal": {
         "title": "Complete your booking",
@@ -318,8 +413,13 @@
         "namePlaceholder": "Full name",
         "cancel": "Cancel",
         "continue": "Continue booking"
-      }
-    }
+      },
+      "perPerson": "per person",
+      "groupTotal": "Group total",
+      "whatsappMessageGroup": "Hi! I'd like to book {sessions} of the {plan} training plan ({partners}, I'm bringing my own partners) for {perPerson} lei per person, {total} lei in total. My name is {name}, and my preferred time is ___."
+    },
+    "partnerNote": "* For sessions of 2 or 3, come along with your playing partners.",
+    "photoAlt": "Two men laughing and celebrating on the padel court"
   },
   "corporate": {
     "hero": {
@@ -402,7 +502,7 @@
     "info": {
       "title": "Visit Us",
       "address": "Strada Rampei 37, Bucuresti",
-      "phone": "+40 700 000 000",
+      "phone": "+40 787 646 058",
       "email": "contact@padelhaus.ro",
       "whatsapp": "https://chat.whatsapp.com/CqGix2BlvAtIyz7z3ic30I",
       "hours": "Monday–Sunday: 08:00–00:30",
@@ -467,28 +567,27 @@
   "pricing": {
     "badge": "Pricing",
     "title": "Prices",
-    "subtitle": "No hidden fees. Pay per court or save with a membership.",
+    "subtitle": "Pay on Playtomic, at the club, or save with a membership.",
     "courtTitle": "Court Rental",
     "weekdayLabel": "Mon–Fri, until 17:00",
-    "weekdayPrice": "130 RON / hour",
+    "weekdayPrice": "130",
     "eveningLabel": "Mon–Fri after 17:00 & weekends",
-    "eveningPrice": "180 RON / hour",
+    "eveningPrice": "180",
     "racketLabel": "Racket rental",
-    "racketPrice": "15 RON",
-    "ballsLabel": "Adidas padel ball tube",
-    "ballsPrice": "40 RON",
-    "academyTeaser": "Private and group coaching sessions",
-    "academyLink": "See coaching pricing",
-    "membershipTeaser": "Unlimited monthly access from 350 RON",
-    "membershipLink": "See Membership plans",
-    "cta": "Book a Court"
+    "racketPrice": "20 RON",
+    "academyTeaser": "Coaching on your own or with your partner",
+    "academyLink": "Coaching",
+    "membershipTeaser": "Memberships from 199 RON a month",
+    "membershipLink": "Memberships",
+    "cta": "Book a Court",
+    "priceUnit": "RON / hour"
   },
   "faq": {
     "badge": "FAQ",
-    "title": "Good to Know",
+    "title": "Good to know.",
     "subtitle": "Answers to the questions we get asked most.",
     "q1": "Can I come alone?",
-    "a1": "Yes — join our WhatsApp community to find a partner or a match within minutes.",
+    "a1": "Yes — join our <whatsapp>WhatsApp</whatsapp> community to find a partner or a match within minutes.",
     "q2": "I've never played before, is that a problem?",
     "a2": "Not at all. Padel is easy to pick up and most of our members started as complete beginners.",
     "q3": "Do you rent rackets?",
@@ -498,7 +597,7 @@
     "q5": "How do booking and cancellation work?",
     "a5": "Book directly through Playtomic. Cancellations are free up to 24 hours before your slot.",
     "q6": "Can I host a birthday or private event?",
-    "a6": "Absolutely — reach out via WhatsApp and we'll help you plan it.",
+    "a6": "Absolutely — reach out via <whatsapp>WhatsApp</whatsapp> and we'll help you plan it.",
     "q7": "Can kids play?",
     "a7": "Yes, padel is great for kids and we welcome players of all ages.",
     "q8": "Are there showers and lockers?",
@@ -508,41 +607,44 @@
   },
   "memberships": {
     "hero": {
-      "badge": "Memberships",
-      "title": "Play More, Pay Less",
-      "desc": "Two simple plans. Pick the access window that fits your schedule and unlock unlimited court time."
+      "title": "Play more, pay less",
+      "desc": "Weekends, daytime or every day? Pick the membership that fits your schedule."
     },
-    "daily": {
-      "name": "Day time Membership",
-      "window": "Monday–Friday, until 17:00",
-      "price": "349 RON",
-      "period": "/ month",
-      "desc": "Perfect if you play during the day on weekdays.",
-      "feature1": "Unlimited court time, Mon–Fri until 17:00",
-      "feature2": "10% off racket rental",
-      "feature3": "Member rate on Academy sessions",
-      "priorityLabel": "Booking priority",
-      "priorityValue": "Standard",
-      "cancellationLabel": "Cancellation",
-      "cancellationValue": "Free up to 24h before your slot"
+    "plansTitle": "Monthly memberships",
+    "currency": "RON",
+    "period": "per month",
+    "weekend": {
+      "name": "Weekend Lovers",
+      "lead": "Padel every weekend.",
+      "desc": "One match on Saturday, one on Sunday. You pick the time, we'll see you on court."
     },
-    "full": {
-      "name": "Full Membership",
-      "window": "Every day, including weekends",
-      "price": "649 RON",
-      "period": "/ month",
-      "desc": "Unrestricted access, whenever you want to play.",
-      "feature1": "Unlimited court time, any day, any hour",
-      "feature2": "Priority booking window (48h ahead)",
-      "feature3": "15% off racket rental & pro shop",
-      "feature4": "1 guest pass per month",
-      "priorityLabel": "Booking priority",
-      "priorityValue": "Priority access",
-      "cancellationLabel": "Cancellation",
-      "cancellationValue": "Free up to 24h before your slot"
+    "fullTime": {
+      "name": "Full-Time",
+      "lead": "For those who would play every day.",
+      "desc": "One 90-minute match included daily, at any time during opening hours."
     },
-    "popular": "MOST POPULAR",
-    "cta": "View Memberships on Playtomic",
+    "beforeFive": {
+      "name": "Before Five",
+      "lead": "Padel during the week.",
+      "desc": "For those who can play during the day, Monday to Friday."
+    },
+    "includedTitle": "With every membership",
+    "included": [
+      "Reduced pricing",
+      "Cancel up to 24 hours before",
+      "Book up to 7 days in advance",
+      "Up to one booking per day",
+      "Up to 7 active bookings"
+    ],
+    "cta": "View on Playtomic",
+    "stamp": {
+      "name": "Haus 9+1",
+      "lead": "The tenth is on us.",
+      "desc": "Play 9 bookings at the normal price and the 10th is free. No monthly membership.",
+      "cardLabel": "Nine paid bookings, the tenth free",
+      "free": "free",
+      "cta": "Ask on WhatsApp"
+    },
     "note": "Memberships are billed monthly. Message us on <whatsapp>WhatsApp</whatsapp> to sign up or ask questions."
   },
   "beginners": {
@@ -588,6 +690,7 @@
       "title": "Ready for Your First Session?",
       "communityButton": "Join the Community",
       "bookButton": "Book a Court"
-    }
+    },
+    "photoAlt": "A padel racket hanging on the court mesh"
   }
 }

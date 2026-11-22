@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hero options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&family=Tinos:ital@1&display=swap" rel="stylesheet">
+<style>
+  /* Layout: a builder (three choice rows + live phone and desktop frames), then every option side by side as phones */
+  :root { --mov:#341743; --noapte:#1C0C25; --crem:#EFE6D9; --violet:#8B4FE8; --amber:#D98C3F; --text-2:#CFBFD8; --label:#8B7A94;
+          --sans:"Nunito Sans",sans-serif; --serif:'Times New Roman MT',Tinos,Georgia,serif; color-scheme:dark; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--noapte); color:var(--crem); font:16px/1.5 var(--sans); -webkit-font-smoothing:antialiased;
+         padding:40px max(16px, env(safe-area-inset-right, 0px)) 80px max(16px, env(safe-area-inset-left, 0px)); }
+  .page { max-width:1240px; margin:0 auto; display:flex; flex-direction:column; gap:56px; }
+  h1 { font-family:var(--serif); font-style:italic; font-weight:400; font-size:44px; line-height:1.05; margin:0 0 10px; }
+  h2 { font-family:var(--serif); font-style:italic; font-weight:400; font-size:30px; margin:0 0 6px; }
+  .intro p { margin:0; max-width:62ch; color:var(--text-2); }
+
+  .builder { display:grid; grid-template-columns:minmax(0,1fr); gap:28px; }
+  @media (min-width:980px) { .builder { grid-template-columns:380px minmax(0,1fr); } }
+  .choices { display:flex; flex-direction:column; gap:26px; }
+  .group h3 { margin:0 0 10px; font-size:15px; font-weight:800; }
+  .chips { display:flex; flex-wrap:wrap; gap:8px; }
+  .chip { font:700 14px var(--sans); color:var(--crem); background:rgba(239,230,217,.06); border:1.5px solid rgba(239,230,217,.28); border-radius:999px; padding:7px 14px; cursor:pointer; }
+  .chip[aria-pressed="true"] { background:var(--crem); color:var(--mov); border-color:var(--crem); }
+  .chip .rec { display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--amber); margin-left:7px; vertical-align:middle; }
+  .chip:focus-visible, .card:focus-visible { outline:2px solid var(--amber); outline-offset:3px; }
+  .note { margin:10px 0 0; color:var(--text-2); font-size:15px; min-height:3em; }
+  .legend { font-size:14px; color:var(--label); }
+  .legend i { display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--amber); margin-right:6px; vertical-align:middle; }
+
+  .frames { display:flex; gap:20px; align-items:flex-start; }
+  .frame { border-radius:22px; overflow:hidden; border:1px solid rgba(239,230,217,.16); background:var(--mov); position:relative; flex-shrink:0; }
+  .frame iframe { border:0; transform-origin:0 0; display:block; position:absolute; top:0; left:0; }
+  .frame.desk { flex:1 1 auto; border-radius:12px; flex-shrink:1; }
+  @media (max-width:700px) { .frames { flex-direction:column; align-items:center; } .frame.desk { width:100%; } }
+
+  .row { display:flex; flex-direction:column; gap:14px; }
+  .row > p { margin:0; color:var(--text-2); max-width:70ch; }
+  .cards { display:flex; gap:18px; overflow-x:auto; padding:4px 4px 12px; }
+  .card { flex:0 0 auto; width:226px; display:flex; flex-direction:column; gap:10px; background:none; border:0; padding:0; color:inherit; font:inherit; text-align:left; cursor:pointer; }
+  .card .frame { width:226px; height:489px; }
+  .card[aria-pressed="true"] .frame { border:2px solid var(--amber); }
+  .card b { font-size:15px; }
+  .card span { font-size:14px; color:var(--text-2); line-height:1.45; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="intro">
+    <h1>Hero options</h1>
+    <p>Pick one option per row and the phone and desktop frames update. The dots mark my recommendation. These are still frames of the first screen, before the walk through the door starts.</p>
+  </header>
+
+  <section class="builder" aria-label="Builder">
+    <div class="choices" id="choices"></div>
+    <div class="frames">
+      <div class="frame phone" id="fPhone" style="width:262px;height:567px"><iframe title="Phone preview" width="390" height="844"></iframe></div>
+      <div class="frame desk" id="fDesk"><iframe title="Desktop preview" width="1366" height="800"></iframe></div>
+    </div>
+  </section>
+
+  <div id="rows"></div>
+</div>
+
+<script>
+  const GROUPS = [
+    { key:'logo', title:'Logo and headline', rec:'sign', intro:'The navbar already shows padel haus on every screen, so the big logo in the hero is the second copy the visitor sees.', options:[
+      { v:'big', name:'Big logo (current)', note:'The name twice on the first screen, once in the navbar and once in the hero. The tagline is small underneath.' },
+      { v:'tagline', name:'Tagline as headline', note:'"Your second home." becomes the big line. The navbar carries the name, so the hero says what the place means to you.' },
+      { v:'sign', name:'Logo as door sign', note:'The tagline is the headline and the logo moves to a small sign above the door, like the name over a real entrance. The name stays, without repeating the navbar.' },
+    ]},
+    { key:'btn', title:'Buttons', rec:'split', intro:'Only Rezervă should look like the main action. The question is how much room the other two take on a phone. Fewer buttons leave more height, and the door grows into it.', options:[
+      { v:'three', name:'Three pills (current)', note:'Three stacked pills on phones, about 200px. Clear hierarchy on desktop.' },
+      { v:'split', name:'One wide, two half', note:'Rezervă full width, Abonamente and Antrenamente share one row. All three stay buttons and the door gets about 60px more on phones.' },
+      { v:'links', name:'One button, two links', note:'Rezervă as the only pill, the other two as underlined text links. Calmer and still one tap to each page.' },
+      { v:'one', name:'Rezervă only', note:'Abonamente and Antrenamente stay in the menu. The simplest version, but subscriptions lose their shortcut.' },
+      { v:'none', name:'No buttons', note:'Rezervă is already in the navbar on every screen, so the hero only invites you through the door. The biggest door, but booking relies on the small navbar button.' },
+    ]},
+    { key:'img', title:'Image', rec:'window', intro:'Where a real photo can go without fighting the text. On phones the space above the door is small, so the options that keep the photo low or inside the door work best there.', options:[
+      { v:'none', name:'No photo', note:'The drawn court inside the door is the only picture.' },
+      { v:'window', name:'Photo inside the door', note:'A real photo of your court seen through the door. During the walk-in it would fade into the drawn court. Works the same on phones because it uses no extra space.' },
+      { v:'floor', name:'Photo in the lower half', note:'The corridor along the courts fills only the bottom half behind the door. The top stays clean for the text.' },
+      { v:'sofa', name:'Lounge behind everything', note:'The Foto mode from the main preview: the lamps flank the door. Needs a strong dark gradient at the top to keep the text readable.' },
+      { v:'prints', name:'Prints beside the door', note:'Two prints in the gallery style next to the door. Strong on desktop; on phones they only peek out from behind the door.' },
+      { v:'group', name:'Community photo in purple', note:'A group photo toned to the brand purple. Says "people" straight away, but faces compete with the headline.' },
+    ]},
+  ];
+  const state = Object.fromEntries(GROUPS.map(g => [g.key, g.rec]));
+  const url = s => `hero-lab.html?logo=${s.logo}&btn=${s.btn}&img=${s.img}`;
+
+  // Builder
+  const choices = document.getElementById('choices');
+  for (const g of GROUPS) {
+    const el = document.createElement('div'); el.className = 'group';
+    el.innerHTML = `<h3>${g.title}</h3><div class="chips">${g.options.map(o => `<button class="chip" data-k="${g.key}" data-v="${o.v}" aria-pressed="false">${o.name}${o.v === g.rec ? '<span class="rec" title="Recommended"></span>' : ''}</button>`).join('')}</div><p class="note" id="note-${g.key}"></p>`;
+    choices.appendChild(el);
+  }
+  choices.insertAdjacentHTML('beforeend', '<p class="legend"><i></i>Recommended</p>');
+
+  // One row per group: each option as a phone, with the other two choices taken from the builder
+  const rows = document.getElementById('rows'); rows.style.cssText = 'display:flex;flex-direction:column;gap:56px';
+  for (const g of GROUPS) {
+    const r = document.createElement('section'); r.className = 'row';
+    r.innerHTML = `<h2>${g.title}</h2><p>${g.intro}</p><div class="cards">${g.options.map(o => `<button class="card" data-k="${g.key}" data-v="${o.v}" aria-pressed="false"><div class="frame"><iframe loading="lazy" title="${o.name}" width="390" height="844" tabindex="-1"></iframe></div><b>${o.name}</b><span>${o.note}</span></button>`).join('')}</div>`;
+    rows.appendChild(r);
+  }
+
+  const setSrc = (f, src) => { if (f.getAttribute('src') !== src) f.setAttribute('src', src); };
+  function render() {
+    document.querySelectorAll('[data-k]').forEach(b => b.setAttribute('aria-pressed', state[b.dataset.k] === b.dataset.v));
+    for (const g of GROUPS) document.getElementById('note-' + g.key).textContent = g.options.find(o => o.v === state[g.key]).note;
+    document.querySelectorAll('#fPhone iframe, #fDesk iframe').forEach(f => setSrc(f, url(state)));
+    document.querySelectorAll('.card').forEach(c => setSrc(c.querySelector('iframe'), url({ ...state, [c.dataset.k]: c.dataset.v })));
+  }
+  document.addEventListener('click', e => { const b = e.target.closest('[data-k]'); if (b) { state[b.dataset.k] = b.dataset.v; render(); } });
+
+  // Scale the 390×844 and 1366×800 frames into their boxes
+  function fit() {
+    const ph = document.querySelector('#fPhone iframe'); ph.style.transform = `scale(${262 / 390})`;
+    const desk = document.getElementById('fDesk'), w = desk.clientWidth || 600; desk.style.height = w * 800 / 1366 + 'px';
+    desk.querySelector('iframe').style.transform = `scale(${w / 1366})`;
+    document.querySelectorAll('.card iframe').forEach(f => f.style.transform = `scale(${226 / 390})`);
+  }
+  addEventListener('resize', fit); fit(); render();
+</script>
+</body>
+</html>

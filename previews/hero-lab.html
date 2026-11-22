@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hero variant</title>
+<!-- Static hero frame used by hero-options.html. Params: ?logo=big|tagline|sign &btn=three|split|links|one|none &img=none|sofa|window|prints|floor|group -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&family=Tinos:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --mov:#341743; --noapte:#1C0C25; --deep:#15091C; --crem:#EFE6D9; --violet:#8B4FE8; --amber:#D98C3F;
+    --text-2:#CFBFD8; --label:#8B7A94;
+    --sans:"Nunito Sans",Nunito,Mulish,sans-serif;
+    --serif:'Times New Roman MT',Tinos,Georgia,'Times New Roman',serif;
+  }
+  * { box-sizing:border-box; }
+  html, body { margin:0; height:100%; overflow:hidden; }
+  body { font-family:var(--sans); background:var(--noapte); color:var(--crem); -webkit-font-smoothing:antialiased; }
+  a { color:inherit; text-decoration:none; }
+  svg.icon { width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+  /* Navbar (same as the live site) */
+  .nav { position:fixed; left:0; right:0; top:0; z-index:50; padding:12px 12px 0; }
+  @media (min-width:640px) { .nav { top:16px; left:16px; right:16px; padding:0; } }
+  .nav-box { max-width:1280px; margin:0 auto; border-radius:18px; border:1px solid rgba(239,230,217,.12); background:rgba(28,12,37,.82); backdrop-filter:blur(24px); box-shadow:0 8px 32px rgba(0,0,0,.45); }
+  .nav-row { display:flex; height:64px; align-items:center; gap:16px; padding:0 16px; }
+  @media (min-width:640px) { .nav-row { padding:0 24px; } }
+  .logo { display:inline-flex; align-items:baseline; gap:6px; line-height:1; white-space:nowrap; }
+  .logo .script { font-family:var(--serif); font-style:italic; }
+  .logo .bold { font-weight:700; letter-spacing:.04em; }
+  .logo.sm .script { font-size:22px; } .logo.sm .bold { font-size:19px; }
+  .logo.lg { gap:10px; } .logo.lg .script, .logo.lg .bold { font-size:48px; }
+  @media (min-width:640px) { .logo.lg .script, .logo.lg .bold { font-size:60px; } }
+  .nav-links { display:none; flex:1; justify-content:center; gap:24px; }
+  .nav-links a { font-size:14px; font-weight:600; color:var(--text-2); }
+  .nav-actions { display:none; align-items:center; gap:12px; margin-left:auto; }
+  .nav-mobile { display:flex; align-items:center; gap:8px; margin-left:auto; }
+  @media (min-width:1024px) { .nav-links, .nav-actions { display:flex; } .nav-mobile { display:none; } }
+  .book { display:inline-flex; align-items:center; background:var(--amber); color:var(--noapte); font-weight:800; border-radius:10px; height:34px; padding:0 14px; font-size:14px; }
+  .nav-mobile .book { height:30px; padding:0 12px; font-size:13px; border-radius:8px; }
+  .circle { display:flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:999px; border:1px solid rgba(239,230,217,.22); }
+  .lang { font:600 14px var(--sans); color:var(--text-2); padding:4px 8px; border:1px solid rgba(239,230,217,.18); border-radius:8px; }
+
+  /* Hero */
+  .hero { position:relative; height:100%; overflow:hidden; padding-top:96px;
+          background:radial-gradient(ellipse 80% 60% at 50% 115%, rgba(139,79,232,.22) 0%, transparent 70%), linear-gradient(to bottom, var(--noapte), var(--mov)); }
+  .inner { position:relative; z-index:2; max-width:1024px; margin:0 auto; padding:40px 16px 0; text-align:center; display:flex; flex-direction:column; align-items:center; }
+  @media (min-width:640px) { .inner { padding-top:120px; } }
+
+  .hero-logo { margin-bottom:18px; }
+  .catch { font-family:var(--serif); font-style:italic; color:var(--amber); margin:0 0 26px; font-size:26px; line-height:1.2; }
+  @media (min-width:640px) { .catch { font-size:32px; margin-bottom:40px; } }
+  /* Tagline as the headline (logo stays in the navbar) */
+  .big-catch .catch { color:var(--amber); font-size:46px; line-height:1; letter-spacing:-.01em; margin-bottom:28px; text-wrap:balance; }
+    @media (min-width:640px) { .big-catch .catch { font-size:84px; margin-bottom:40px; } }
+
+  /* Buttons */
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; height:56px; padding:0 34px; border-radius:999px; font-weight:800; font-size:16px; letter-spacing:.02em; white-space:nowrap; }
+  .btn-amber { background:var(--amber); color:var(--noapte); }
+  .btn-line { border:2px solid var(--crem); background:rgba(239,230,217,.08); }
+  .btn-ghost { border:1.5px solid rgba(239,230,217,.6); background:rgba(239,230,217,.04); }
+  .ctas { display:flex; flex-direction:column; gap:14px; align-items:center; }
+  @media (min-width:640px) { .ctas { flex-direction:row; } }
+  /* split: Rezervă full width, the two secondary ones share a row */
+  .ctas.split { display:grid; grid-template-columns:1fr 1fr; gap:10px; width:100%; max-width:358px; }
+  .ctas.split .btn-amber { grid-column:1/-1; }
+  .ctas.split .btn:not(.btn-amber) { height:48px; padding:0 12px; font-size:15px; }
+  @media (min-width:640px) { .ctas.split { display:flex; width:auto; max-width:none; gap:14px; } .ctas.split .btn-amber { order:-1; height:60px; padding:0 44px; font-size:17px; } .ctas.split .btn:not(.btn-amber) { height:52px; padding:0 26px; } }
+  /* links: one pill and two text links */
+  .ctas.links { gap:18px; }
+  .ctas.links .row { display:flex; gap:28px; }
+  .ctas.links .row a { font-weight:700; font-size:16px; padding:6px 0; border-bottom:1.5px solid rgba(239,230,217,.55); }
+  @media (min-width:640px) { .ctas.links { flex-direction:row; gap:32px; } }
+  /* none: the door is the call to action */
+  .enter { display:flex; flex-direction:column; align-items:center; gap:6px; margin-top:4px; font-size:13px; font-weight:700; letter-spacing:.06em; color:var(--text-2); }
+  .enter svg { width:18px; height:18px; animation:bob 1.8s ease-in-out infinite; }
+  @keyframes bob { 50% { transform:translateY(4px); } }
+  @media (prefers-reduced-motion:reduce) { .enter svg { animation:none; } }
+
+  /* Door */
+  .door-wrap { position:relative; margin-top:40px; }
+  .door { position:relative; display:block; width:192px; height:256px; overflow:hidden; border:2px solid var(--violet); border-bottom:0; border-radius:9999px 9999px 0 0;
+          background:linear-gradient(to top, var(--mov), var(--deep)); box-shadow:0 0 0 1px rgba(139,79,232,.25), 0 -6px 28px rgba(139,79,232,.45), inset 0 6px 24px rgba(139,79,232,.35); }
+  @media (min-width:640px) { .door { width:320px; height:448px; } }
+  .door img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 100%; }
+  .door .photo { object-position:50% 70%; }
+  .door .tint { position:absolute; inset:0; background:linear-gradient(to bottom, rgba(21,9,28,.55), rgba(52,23,67,.05) 45%, rgba(52,23,67,.35)); }
+  /* Sign over the door */
+  .sign { display:flex; flex-direction:column; align-items:center; gap:10px; margin-bottom:14px; }
+  .sign .logo .script { font-size:24px; } .sign .logo .bold { font-size:21px; }
+  .sign i { width:44px; height:2px; background:var(--violet); box-shadow:0 0 10px rgba(139,79,232,.8); }
+  @media (min-width:640px) { .sign .logo .script { font-size:30px; } .sign .logo .bold { font-size:26px; } }
+
+  /* Background images */
+  .bg { position:absolute; inset:0; z-index:0; pointer-events:none; }
+  .bg-sofa { background:url("img/sofa-hero.jpg") 50% 62% / cover no-repeat; filter:blur(1.5px) saturate(.9); transform:scale(1.03); }
+  .bg-sofa::after { content:""; position:absolute; inset:0; background:linear-gradient(to bottom, rgba(28,12,37,.95) 0%, rgba(28,12,37,.78) 26%, rgba(28,12,37,.32) 52%, rgba(52,23,67,.5) 100%), rgba(52,23,67,.3); }
+  .bg-floor { top:auto; height:58%; background:url("img/corridor.jpg") 50% 70% / cover no-repeat;
+              -webkit-mask-image:linear-gradient(to bottom, transparent, #000 55%); mask-image:linear-gradient(to bottom, transparent, #000 55%); }
+  .bg-floor::after { content:""; position:absolute; inset:0; background:rgba(52,23,67,.45); }
+  .bg-group { background:var(--mov); }
+  .bg-group::before { content:""; position:absolute; inset:0; background:url("img/group.jpg") 50% 55% / cover no-repeat; filter:grayscale(1) contrast(1.15); mix-blend-mode:luminosity; opacity:.55; }
+  .bg-group::after { content:""; position:absolute; inset:0; background:linear-gradient(to bottom, rgba(28,12,37,.96) 0%, rgba(28,12,37,.8) 30%, rgba(52,23,67,.25) 65%, rgba(52,23,67,.55)); }
+  /* Scattered prints flanking the door, same treatment as the gallery */
+  .print { position:absolute; bottom:24px; width:200px; background:var(--crem); padding:10px 10px 0; box-shadow:0 18px 40px rgba(0,0,0,.45); z-index:1; }
+  .print img { display:block; width:100%; aspect-ratio:4/5; object-fit:cover; }
+  .print figcaption { font-family:var(--serif); font-style:italic; color:var(--mov); font-size:17px; padding:8px 2px 10px; text-align:left; }
+  .print.l { right:calc(100% + 56px); transform:rotate(-6deg); }
+  .print.r { left:calc(100% + 56px); bottom:70px; transform:rotate(5deg); }
+  @media (max-width:639px) {
+    .print { width:84px; padding:4px 4px 0; z-index:1; }
+    .print figcaption { font-size:12px; padding:4px 1px 6px; }
+    .print.l { right:auto; left:-66px; bottom:20%; } .print.r { left:auto; right:-66px; bottom:46%; }
+    .door-wrap { position:relative; }
+    .door { z-index:2; }
+  }
+  /* Phone: the door takes whatever height the copy leaves, so fewer buttons = a bigger door */
+  @media (max-width:639px) {
+    .inner { height:100%; }
+    .door-wrap { flex:1 1 0; min-height:0; margin-top:9svh; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; }
+    .door { flex:0 1 auto; height:100%; max-height:520px; width:auto; max-width:calc(100vw - 72px); aspect-ratio:3/4; }
+  }
+</style>
+</head>
+<body>
+<header class="nav"><div class="nav-box"><div class="nav-row">
+  <span class="logo sm"><span class="script">padel</span><span class="bold">haus.</span></span>
+  <nav class="nav-links"><a>Acasă</a><a>Începător?</a><a>Antrenamente</a><a>Turnee</a><a>Abonamente</a></nav>
+  <div class="nav-actions"><span class="lang">EN</span><a class="book">Rezervă</a><span class="circle"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg></span></div>
+  <div class="nav-mobile"><a class="book">Rezervă</a><span class="circle"><svg class="icon" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span><span class="circle"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg></span><span style="padding:6px;display:flex"><svg class="icon" style="width:22px;height:22px" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg></span></div>
+</div></div></header>
+
+<section class="hero" id="hero"></section>
+
+<script>
+  const q = new URLSearchParams(location.search);
+  const logo = q.get('logo') || 'big', btn = q.get('btn') || 'three', img = q.get('img') || 'none';
+  const arrow = '<svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+  const L = '<span class="logo lg"><span class="script">padel</span><span class="bold">haus.</span></span>';
+
+  const head = logo === 'big'
+    ? `<div class="hero-logo">${L}</div><p class="catch">Your second home.</p>`
+    : `<p class="catch">Your second home.</p>`;
+
+  const ctas = {
+    three: `<div class="ctas"><a class="btn btn-line">Abonamente</a><a class="btn btn-amber">Rezervă ${arrow}</a><a class="btn btn-ghost">Antrenamente</a></div>`,
+    split: `<div class="ctas split"><a class="btn btn-amber">Rezervă un teren</a><a class="btn btn-line">Abonamente</a><a class="btn btn-ghost">Antrenamente</a></div>`,
+    links: `<div class="ctas links"><a class="btn btn-amber">Rezervă un teren</a><div class="row"><a>Abonamente</a><a>Antrenamente</a></div></div>`,
+    one:   `<div class="ctas"><a class="btn btn-amber">Rezervă un teren</a></div>`,
+    none:  `<div class="enter">Intră în comunitate<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>`,
+  }[btn];
+
+  const doorInner = img === 'window'
+    ? '<img class="photo" src="img/court-net.jpg" alt=""><div class="tint"></div>'
+    : '<img src="img/court.svg" alt="">';
+  const prints = img === 'prints'
+    ? '<figure class="print l" style="margin:0"><img src="img/racket.jpg" alt=""><figcaption>Terenul 2</figcaption></figure><figure class="print r" style="margin:0"><img src="img/sofa-print.jpg" alt=""><figcaption>Lounge</figcaption></figure>' : '';
+  const sign = logo === 'sign' ? `<div class="sign"><span class="logo"><span class="script">padel</span><span class="bold">haus.</span></span><i></i></div>` : '';
+  const bg = ['sofa', 'floor', 'group'].includes(img) ? `<div class="bg bg-${img}"></div>` : '';
+
+  const hero = document.getElementById('hero');
+  if (logo !== 'big') hero.classList.add('big-catch');
+  hero.innerHTML = `${bg}<div class="inner">${head}${ctas}<div class="door-wrap">${sign}${prints}<a class="door" aria-label="Comunitate">${doorInner}</a></div></div>`;
+</script>
+</body>
+</html>

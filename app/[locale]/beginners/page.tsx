@@ -1,38 +1,34 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { MessageCircle, Footprints, ArrowRight } from "lucide-react";
+import { PageHero, pill } from "@/components/shared/Brand";
+import { ZoomablePhoto } from "@/components/shared/ZoomablePhoto";
 import { PLAYTOMIC_RESERVATIONS, PLAYTOMIC_OPEN_MATCHES, WHATSAPP_URL } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
-const bookingSteps = ["step1", "step2", "step3"] as const;
+// The disabled "How booking works" block below also needs framer-motion and bookingSteps = ["step1", "step2", "step3"]
 const levels = ["beginner", "intermediate", "advanced"] as const;
+
+const SECTION_TITLE = "font-editorial text-[clamp(34px,5vw,52px)] leading-[1.05] text-crem";
+const CARD = "rounded-3xl bg-crem p-6 text-mov sm:p-8";
+const CARD_TITLE = "text-2xl leading-tight font-extrabold tracking-[-.02em]";
 
 export default function BeginnersPage() {
   const t = useTranslations("beginners");
   const locale = useLocale();
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Hero */}
-      <section className="py-24 bg-background-alternate relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/5 to-transparent pointer-events-none" />
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-4xl sm:text-5xl font-black text-white mb-6">
-              {t("hero.title")}
-            </h1>
-            <p className="text-[#E2D9F3] text-lg leading-relaxed">{t("hero.desc")}</p>
-          </motion.div>
-        </div>
-      </section>
+    <div className="bg-noapte">
+      <PageHero
+        title={t("hero.title")}
+        desc={t("hero.desc")}
+        aside={
+          <ZoomablePhoto
+            photo={{ src: "/brand/beginners-racket.webp", width: 1080, height: 1440, alt: t("photoAlt") }}
+            // Square on phones, framed on the racket. The whole photo on desktop.
+            className="mx-auto aspect-square max-w-[360px] [&>img]:object-[50%_68%] lg:aspect-[3/4]"
+          />
+        }
+      />
 
       {/*/!* How booking works *!/*/}
       {/*<section className="py-20">*/}
@@ -41,7 +37,7 @@ export default function BeginnersPage() {
       {/*      initial={{ opacity: 0, y: 20 }}*/}
       {/*      whileInView={{ opacity: 1, y: 0 }}*/}
       {/*      viewport={{ once: true }}*/}
-      {/*      className="text-3xl font-black text-white mb-10 text-center"*/}
+      {/*      className="text-3xl font-black text-crem mb-10 text-center"*/}
       {/*    >*/}
       {/*      {t("booking.title")}*/}
       {/*    </motion.h2>*/}
@@ -53,13 +49,13 @@ export default function BeginnersPage() {
       {/*          whileInView={{ opacity: 1, y: 0 }}*/}
       {/*          viewport={{ once: true }}*/}
       {/*          transition={{ delay: i * 0.1 }}*/}
-      {/*          className="bg-[#3B0758] rounded-2xl p-6 border border-white/10 text-center"*/}
+      {/*          className="bg-mov rounded-2xl p-6 border border-crem/10 text-center"*/}
       {/*        >*/}
-      {/*          <div className="w-10 h-10 rounded-full bg-[#FFD700] text-[#3B0758] font-black text-lg flex items-center justify-center mx-auto mb-4">*/}
+      {/*          <div className="w-10 h-10 rounded-full bg-amber text-mov font-black text-lg flex items-center justify-center mx-auto mb-4">*/}
       {/*            {i + 1}*/}
       {/*          </div>*/}
-      {/*          <h3 className="text-white font-bold mb-2">{t(`booking.${step}Title`)}</h3>*/}
-      {/*          <p className="text-[#E2D9F3] text-sm leading-relaxed">{t(`booking.${step}Desc`)}</p>*/}
+      {/*          <h3 className="text-crem font-bold mb-2">{t(`booking.${step}Title`)}</h3>*/}
+      {/*          <p className="text-lilac text-sm leading-relaxed">{t(`booking.${step}Desc`)}</p>*/}
       {/*        </motion.div>*/}
       {/*      ))}*/}
       {/*    </div>*/}
@@ -67,147 +63,75 @@ export default function BeginnersPage() {
       {/*</section>*/}
 
       {/* Gear */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl font-black text-white mb-10 text-center"
-          >
-            {t("gear.title")}
-          </motion.h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-[#3B0758] rounded-2xl p-6 border border-white/10"
-            >
-              <h3 className="text-white font-bold mb-2">{t("gear.racketTitle")}</h3>
-              <p className="text-[#E2D9F3] text-sm leading-relaxed mb-3">{t("gear.racketDesc")}</p>
+      <section className="py-16 sm:py-24">
+        <div className="mx-auto max-w-6xl px-5">
+          <h2 className={cn(SECTION_TITLE, "mb-10")}>{t("gear.title")}</h2>
+          <div className="grid gap-4 md:grid-cols-2">
+            <article data-card className={CARD}>
+              <h3 className={CARD_TITLE}>{t("gear.racketTitle")}</h3>
+              <p className="mt-3 leading-relaxed text-mov/80">{t("gear.racketDesc")}</p>
               <Link
                 href={`/${locale}#pricing`}
-                className="inline-flex items-center gap-1.5 text-[#FFD700] text-sm font-semibold hover:underline"
+                className="mt-4 inline-block font-extrabold underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-mov"
               >
-                {t("gear.racketLink")} <ArrowRight size={14} />
+                {t("gear.racketLink")}
               </Link>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-[#3B0758] rounded-2xl p-6 border border-white/10"
-            >
-              <div className="flex items-center gap-2 mb-2">
-                <Footprints className="text-[#FFD700]" size={18} />
-                <h3 className="text-white font-bold">{t("gear.shoesTitle")}</h3>
-              </div>
-              <p className="text-[#E2D9F3] text-sm leading-relaxed">{t("gear.shoesDesc")}</p>
-            </motion.div>
+            </article>
+            <article data-card className={CARD}>
+              <h3 className={CARD_TITLE}>{t("gear.shoesTitle")}</h3>
+              <p className="mt-3 leading-relaxed text-mov/80">{t("gear.shoesDesc")}</p>
+            </article>
           </div>
         </div>
       </section>
 
       {/* Come alone */}
-      <section className="py-20 bg-background-alternate">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-[#4A0E6D] rounded-2xl p-8 border border-white/10 text-center"
-          >
-            <div className="w-12 h-12 rounded-xl bg-[#FFD700]/15 flex items-center justify-center mx-auto mb-5">
-              <MessageCircle className="text-[#FFD700]" size={22} />
+      <section className="bg-mov py-16 sm:py-24">
+        <div className="mx-auto grid max-w-6xl gap-6 px-5 lg:grid-cols-2 lg:gap-12">
+          <h2 className={SECTION_TITLE}>{t("alone.title")}</h2>
+          <div>
+            <p className="max-w-xl text-lg leading-relaxed text-lilac">{t("alone.desc")}</p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <a href={PLAYTOMIC_OPEN_MATCHES} target="_blank" rel="noopener noreferrer" className={pill("amber")}>
+                {t("alone.openMatchesCta")}
+              </a>
+              <Link href={`/${locale}/community`} className={pill("line")}>
+                {t("alone.communityCta")}
+              </Link>
             </div>
-            <h2 className="text-2xl font-black text-white mb-3">{t("alone.title")}</h2>
-            <p className="text-[#E2D9F3] leading-relaxed mb-6 max-w-xl mx-auto">{t("alone.desc")}</p>
-            <div className="flex flex-col justify-center gap-3 sm:flex-row">
-              <Button asChild variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white font-bold">
-                <Link href={`/${locale}/community`}>
-                  {t("alone.communityCta")}
-                  <ArrowRight className="ml-2" size={16} />
-                </Link>
-              </Button>
-              <Button asChild className="bg-brand-accent text-[#25003D] hover:bg-brand-accent-hover font-bold">
-                <a href={PLAYTOMIC_OPEN_MATCHES} target="_blank" rel="noopener noreferrer">
-                  {t("alone.openMatchesCta")}
-                  <ArrowRight className="ml-2" size={16} />
-                </a>
-              </Button>
-            </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Skill levels */}
-      <section className="py-20 bg-background-alternate">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl font-black text-white mb-10 text-center"
-          >
-            {t("levels.title")}
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {levels.map((level, i) => (
-              <motion.div
-                key={level}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-[#4A0E6D] rounded-2xl p-6 border border-white/10"
-              >
-                <h3 className="text-[#FFD700] font-black text-lg mb-2">
-                  {t(`levels.${level}Title`)}
-                </h3>
-                <p className="text-[#E2D9F3] text-sm leading-relaxed">
-                  {t(`levels.${level}Desc`)}
-                </p>
-              </motion.div>
+      <section className="py-16 sm:py-24">
+        <div className="mx-auto max-w-6xl px-5">
+          <h2 className={cn(SECTION_TITLE, "mb-10")}>{t("levels.title")}</h2>
+          <div className="grid gap-4 lg:grid-cols-3">
+            {levels.map((level) => (
+              <article key={level} data-card className={CARD}>
+                <h3 className={CARD_TITLE}>{t(`levels.${level}Title`)}</h3>
+                <p className="mt-3 leading-relaxed text-mov/80">{t(`levels.${level}Desc`)}</p>
+              </article>
             ))}
           </div>
-          <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-[#E2D9F3]/80">
-            {t("levels.note")}
-          </p>
+          <p className="mt-6 max-w-3xl text-sm leading-relaxed text-lilac">{t("levels.note")}</p>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-24">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl font-black text-white mb-8"
-          >
+      <section data-ends-mov className="bg-mov pt-16 pb-14 text-center sm:pt-24">
+        <div className="mx-auto max-w-4xl px-5">
+          <h2 className="text-[clamp(36px,6vw,64px)] leading-[.98] font-extrabold tracking-[-.035em] text-balance text-crem">
             {t("cta.title")}
-          </motion.h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-white/30 text-white hover:bg-white/10 hover:text-white font-semibold"
-            >
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                {t("cta.communityButton")}
-              </a>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              className="bg-brand-accent text-[#25003D] hover:bg-brand-accent-hover font-bold"
-            >
-              <a href={PLAYTOMIC_RESERVATIONS} target="_blank" rel="noopener noreferrer">
-                {t("cta.bookButton")}
-              </a>
-            </Button>
+          </h2>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <a href={PLAYTOMIC_RESERVATIONS} target="_blank" rel="noopener noreferrer" className={pill("amber")}>
+              {t("cta.bookButton")}
+            </a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={pill("line")}>
+              {t("cta.communityButton")}
+            </a>
           </div>
         </div>
       </section>

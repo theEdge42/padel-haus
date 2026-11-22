@@ -1,93 +1,101 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { Eyebrow, pill } from "@/components/shared/Brand";
+import { PhotoLightbox } from "@/components/shared/PhotoLightbox";
+import { INSTAGRAM_URL } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
-const row1 = [
-  { src: "/gallery/1.jpeg", alt: "Padel court" },
-  { src: "/gallery/2.jpeg", alt: "Players on court" },
-  { src: "/gallery/Competition1.jpeg", alt: "Mexicano photo 1" },
-  { src: "/gallery/3.jpeg", alt: "Match in progress" },
-  { src: "/gallery/4.jpeg", alt: "Community moment" },
-  { src: "/gallery/Competition2.jpeg", alt: "Competition" },
-];
-
-const row2 = [
-  { src: "/gallery/IMG_5270.jpeg", alt: "Tournament action" },
-  { src: "/gallery/Competition3.jpeg", alt: "Competition photo 2" },
-  { src: "/gallery/Competition5.jpeg", alt: "Court atmosphere" },
-  { src: "/gallery/IMG_9076.jpeg", alt: "After the game" },
-  { src: "/gallery/Competition4.jpeg", alt: "Competition" },
-  { src: "/gallery/IMG_9080.jpeg", alt: "Social night" },
-];
-
-function ScrollRow({
-  items,
-  reverse = false,
-}: {
-  items: typeof row1;
-  reverse?: boolean;
-}) {
-  const doubled = [...items, ...items];
-  return (
-    <div className="overflow-hidden">
-      <motion.div
-        className="flex gap-4"
-        animate={{ x: reverse ? ["-50%", "0%"] : ["0%", "-50%"] }}
-        transition={{
-          duration: 30,
-          ease: "linear",
-          repeat: Infinity,
-        }}
-        style={{ width: "max-content" }}
-      >
-        {doubled.map((item, i) => (
-          <div
-            key={i}
-            className="relative w-80 h-56 rounded-2xl overflow-hidden flex-shrink-0"
-          >
-            <Image
-              src={item.src}
-              alt={item.alt}
-              fill
-              className="object-cover"
-              sizes="256px"
-            />
-            <div className="absolute inset-0 bg-[#25003D]/20 hover:bg-transparent transition-colors duration-300" />
-          </div>
-        ))}
-      </motion.div>
-    </div>
-  );
-}
+// Two rows of three. The print is a 3:4 crop (public/brand/prints/<key>.webp), the viewer shows the whole photo.
+const PHOTOS = [
+  { key: "between", src: "/community/community2.jpg", width: 1080, height: 718, rotate: -4, y: 0 },
+  { key: "lunge", src: "/community/girlPadelTourmanet2.jpg", width: 1080, height: 1440, rotate: 3, y: 14 },
+  { key: "net", src: "/community/teamTournament.jpg", width: 1080, height: 718, rotate: -2, y: 4 },
+  { key: "team", src: "/community/girlTeam.jpg", width: 1080, height: 718, rotate: 3, y: 0 },
+  { key: "focus", src: "/community/girlPadelTournamet1.jpg", width: 1080, height: 1440, rotate: -4, y: 10 },
+  { key: "evening", src: "/brand/mexicano-evening.webp", width: 1200, height: 1600, rotate: 2, y: 2 },
+] as const;
+const PER_ROW = 3;
+const ROWS = [0, PER_ROW];
 
 export default function SocialGallery() {
-  const t = useTranslations("home.courts");
+  const t = useTranslations("home.gallery");
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-24 bg-background overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">
-            Life at Padel Haus
-          </h2>
-          <p className="text-[#E2D9F3] text-lg">
-            Real moments. Real community.
-          </p>
-        </motion.div>
+    <section className="overflow-hidden bg-noapte py-20 sm:py-28">
+      <div className="mx-auto max-w-[1200px] px-5">
+        <div className="mb-14 text-center">
+          <Eyebrow className="justify-center">{t("eyebrow")}</Eyebrow>
+          <h2 className="font-editorial text-[clamp(34px,5vw,52px)] leading-[1.05] text-crem">{t("title")}</h2>
+          <p className="mt-5 text-lg text-lilac">{t("desc")}</p>
+        </div>
+
+        <div className="flex flex-col gap-7 sm:gap-10">
+          {ROWS.map((start, rowIndex) => (
+            <div
+              key={start}
+              className={cn("flex justify-center gap-[clamp(8px,2.4vw,36px)]", rowIndex === 1 && "sm:pl-[clamp(0px,4vw,60px)]")}
+            >
+              {PHOTOS.slice(start, start + PER_ROW).map(({ key, rotate, y }, i) => (
+                // The observer sits on the untransformed wrapper, the print animates inside it
+                <motion.div
+                  key={key}
+                  initial="away"
+                  whileInView="placed"
+                  viewport={{ once: true, amount: 0.15 }}
+                  className="w-[clamp(84px,28vw,168px)] shrink-0 sm:w-[clamp(150px,25vw,290px)]"
+                >
+                  <motion.button
+                    type="button"
+                    data-print={key}
+                    onClick={() => setOpenIndex(start + i)}
+                    aria-label={t("open", { photo: t(`photos.${key}`) })}
+                    aria-haspopup="dialog"
+                    variants={{
+                      away: { opacity: 0, y: -40, scale: 1.1, rotate: 0 },
+                      placed: {
+                        opacity: 1,
+                        y,
+                        scale: 1,
+                        rotate,
+                        transition: { delay: rowIndex * 0.15 + i * 0.08, duration: 0.6, ease: "easeOut" },
+                      },
+                    }}
+                    whileHover={{ rotate: 0, scale: 1.05, zIndex: 2, transition: { duration: 0.25 } }}
+                    className="relative block w-full cursor-zoom-in rounded bg-crem p-[clamp(6px,1vw,10px)] pb-[clamp(26px,3.2vw,40px)] shadow-[0_14px_34px_rgba(28,12,37,.6)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber"
+                  >
+                    <span className="relative block aspect-[3/4]">
+                      <Image src={`/brand/prints/${key}.webp`} alt="" fill unoptimized className="object-cover" />
+                    </span>
+                    <span className="absolute inset-x-0 bottom-[clamp(6px,1vw,12px)] text-center font-editorial text-[clamp(11px,1.4vw,17px)] leading-none whitespace-nowrap text-mov">
+                      {t(`photos.${key}`)}
+                    </span>
+                  </motion.button>
+                </motion.div>
+              ))}
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-14 text-center">
+          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className={pill("line")}>
+            {t("instagram")}
+          </a>
+        </div>
       </div>
 
-      <div className="space-y-4">
-        <ScrollRow items={row1} />
-        <ScrollRow items={row2} reverse />
-      </div>
+      {openIndex !== null && (
+        <PhotoLightbox
+          photos={PHOTOS.map(({ key, src, width, height }) => ({ src, width, height, alt: t(`photos.${key}`) }))}
+          index={openIndex}
+          onChange={setOpenIndex}
+          onClose={() => setOpenIndex(null)}
+        />
+      )}
     </section>
   );
 }

@@ -37,7 +37,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-[#0A0116]"
+      className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-noapte"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
@@ -45,12 +45,12 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
       <div className="relative flex w-full max-w-5xl flex-col items-center px-6 text-center">
         <div className="relative flex h-28 items-end">
           <motion.div
-            className="absolute bottom-0 left-1/2 h-3 w-16 -translate-x-1/2 rounded-full bg-white/15 blur-[2px]"
+            className="absolute bottom-0 left-1/2 h-3 w-16 -translate-x-1/2 rounded-full bg-crem/15 blur-[2px]"
             animate={{ scaleX: [1.05, 0.62, 1.05], opacity: [0.28, 0.12, 0.28] }}
             transition={{ duration: 0.72, repeat: Infinity, ease: [0.33, 1, 0.68, 1] }}
           />
           <motion.div
-            className="relative h-12 w-12 rounded-full bg-[#FFD700] shadow-[0_18px_40px_rgba(181,240,61,0.28)]"
+            className="relative h-12 w-12 rounded-full bg-amber shadow-[0_18px_40px_rgba(217,140,63,0.28)]"
             animate={{
               y: [0, -58, 0],
               scaleX: [1.14, 0.96, 1.14],
@@ -65,7 +65,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           />
         </div>
 
-        <div className="mt-10 h-8 overflow-hidden text-sm font-medium tracking-[0.55em] text-[#E2D9F3]/70 sm:text-base">
+        <div className="mt-10 h-8 overflow-hidden text-sm font-medium tracking-[0.55em] text-lilac/70 sm:text-base">
           <AnimatePresence mode="wait">
             <motion.div
               key={PHILOSOPHY_WORDS[wordIndex]}
