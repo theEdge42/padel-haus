@@ -1,7 +1,14 @@
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { routing } from "@/i18n/routing";
+
+// Pages are built ahead of time for each locale, so links can prefetch them and clicks open instantly
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export default async function LocaleLayout({
   children,
@@ -10,8 +17,10 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
-  await params;
-  const locale = await getLocale();
+  // The locale comes from the URL, not the request headers: reading headers made every page dynamic
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) notFound();
+  setRequestLocale(locale);
   const messages = await getMessages();
 
   return (

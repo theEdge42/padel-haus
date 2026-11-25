@@ -1,3 +1,5 @@
+import { use } from "react";
+import { setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
@@ -14,7 +16,8 @@ const LINEUP_SIZE = { width: 1600, height: 1067 };
 
 const IMPACT_TITLE = "text-[clamp(36px,6.5vw,72px)] leading-[.95] font-extrabold tracking-[-.035em] uppercase";
 
-export default function EventsPage() {
+export default function EventsPage({ params }: { params: Promise<{ locale: string }> }) {
+  setRequestLocale(use(params).locale);
   const t = useTranslations("events");
   const rules = t.raw("how.rules") as string[];
   const example = t.raw("how.example") as { label: string; value: string }[];

@@ -6,3 +6,5 @@ export const WHATSAPP_URL = "https://chat.whatsapp.com/CqGix2BlvAtIyz7z3ic30I";
 export const WHATSAPP_CONTACT_URL = "https://wa.me/40787646058";
 export const INSTAGRAM_URL = "https://www.instagram.com/padelhaus.romania/";
 export const LEAGUE_RANKINGS_URL = "https://tv.padelhaus.ro/liga";
+// Set once the home intro has played; it lasts for the browser session
+export const HOME_INTRO_COOKIE = "padel-haus-home-loader-seen";

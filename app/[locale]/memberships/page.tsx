@@ -1,3 +1,5 @@
+import { use } from "react";
+import { setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { Check } from "lucide-react";
 import { Dots, PageHero, pill } from "@/components/shared/Brand";
@@ -11,7 +13,8 @@ const PLANS = [
 ] as const;
 const PAID_BOOKINGS = 9;
 
-export default function MembershipsPage() {
+export default function MembershipsPage({ params }: { params: Promise<{ locale: string }> }) {
+  setRequestLocale(use(params).locale);
   const t = useTranslations("memberships");
   const included = t.raw("included") as string[];
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import Hero from "@/components/home/Hero";
 import CommunitySection from "@/components/home/CommunitySection";
 import SocialGallery from "@/components/home/SocialGallery";
@@ -9,15 +9,17 @@ import PricingSection from "@/components/home/PricingSection";
 import FAQSection from "@/components/home/FAQSection";
 import FinalCTA from "@/components/home/FinalCTA";
 import LoadingScreen from "@/components/shared/LoadingScreen";
+import { HOME_INTRO_COOKIE } from "@/lib/constants";
 
-const HOME_LOADER_COOKIE_NAME = "padel-haus-home-loader-seen";
+const subscribeNothing = () => () => {};
+const readIntroSeen = () => document.cookie.split("; ").includes(`${HOME_INTRO_COOKIE}=true`);
 
-type HomePageClientProps = {
-  initialShowLoader: boolean;
-};
-
-export default function HomePageClient({ initialShowLoader }: HomePageClientProps) {
-  const [isLoading, setIsLoading] = useState(initialShowLoader);
+export default function HomePageClient() {
+  // The prebuilt HTML always contains the intro (the server can't read the cookie); the browser then decides.
+  // A returning visitor never sees it: the inline script in the page hides it until this takes over.
+  const introSeen = useSyncExternalStore(subscribeNothing, readIntroSeen, () => false);
+  const [introDone, setIntroDone] = useState(false);
+  const isLoading = !introSeen && !introDone;
 
   useEffect(() => {
     document.body.style.overflow = isLoading ? "hidden" : "";
@@ -40,8 +42,8 @@ export default function HomePageClient({ initialShowLoader }: HomePageClientProp
   }, [isLoading]);
 
   const handleLoadingComplete = () => {
-    document.cookie = `${HOME_LOADER_COOKIE_NAME}=true; path=/; SameSite=Lax`;
-    setIsLoading(false);
+    document.cookie = `${HOME_INTRO_COOKIE}=true; path=/; SameSite=Lax`;
+    setIntroDone(true);
   };
 
   return (

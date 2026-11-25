@@ -1,3 +1,5 @@
+import { use } from "react";
+import { setRequestLocale } from "next-intl/server";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { PageHero, pill } from "@/components/shared/Brand";
@@ -12,7 +14,8 @@ const SECTION_TITLE = "font-editorial text-[clamp(34px,5vw,52px)] leading-[1.05]
 const CARD = "rounded-3xl bg-crem p-6 text-mov sm:p-8";
 const CARD_TITLE = "text-2xl leading-tight font-extrabold tracking-[-.02em]";
 
-export default function BeginnersPage() {
+export default function BeginnersPage({ params }: { params: Promise<{ locale: string }> }) {
+  setRequestLocale(use(params).locale);
   const t = useTranslations("beginners");
   const locale = useLocale();
 

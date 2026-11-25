@@ -37,6 +37,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
 
   return (
     <motion.div
+      data-intro
       className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-noapte"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
