@@ -1,4 +1,8 @@
 // Contact page temporarily disabled — restore the code below to re-enable.
+import { pageTitle } from "@/lib/metadata";
+
+export const generateMetadata = pageTitle("nav.contact");
+
 export default function ContactPage() {
   return null;
 }

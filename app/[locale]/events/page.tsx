@@ -1,3 +1,4 @@
+import { pageTitle } from "@/lib/metadata";
 import { use } from "react";
 import { setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
@@ -15,6 +16,8 @@ const BONUSES = ["draw", "progress"] as const;
 const LINEUP_SIZE = { width: 1600, height: 1067 };
 
 const IMPACT_TITLE = "text-[clamp(36px,6.5vw,72px)] leading-[.95] font-extrabold tracking-[-.035em] uppercase";
+
+export const generateMetadata = pageTitle("nav.events");
 
 export default function EventsPage({ params }: { params: Promise<{ locale: string }> }) {
   setRequestLocale(use(params).locale);

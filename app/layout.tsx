@@ -24,11 +24,6 @@ export const metadata: Metadata = {
   title: "Padel Haus — Premium Indoor Padel Bucharest",
   description:
     "4 world-class indoor padel courts in Bucharest. Join our vibrant community, book your court, and experience premium padel.",
-  icons: {
-    icon: "/5.svg",
-    shortcut: "/5.svg",
-    apple: "/5.png",
-  },
 };
 
 export default function RootLayout({

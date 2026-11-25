@@ -1,3 +1,4 @@
+import { pageTitle } from "@/lib/metadata";
 import { use } from "react";
 import { setRequestLocale } from "next-intl/server";
 import { useLocale, useTranslations } from "next-intl";
@@ -13,6 +14,8 @@ const levels = ["beginner", "intermediate", "advanced"] as const;
 const SECTION_TITLE = "font-editorial text-[clamp(34px,5vw,52px)] leading-[1.05] text-crem";
 const CARD = "rounded-3xl bg-crem p-6 text-mov sm:p-8";
 const CARD_TITLE = "text-2xl leading-tight font-extrabold tracking-[-.02em]";
+
+export const generateMetadata = pageTitle("nav.beginners");
 
 export default function BeginnersPage({ params }: { params: Promise<{ locale: string }> }) {
   setRequestLocale(use(params).locale);

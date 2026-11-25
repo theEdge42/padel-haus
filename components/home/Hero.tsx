@@ -189,14 +189,15 @@ export default function Hero({ ready }: { ready: boolean }) {
             rel="noopener noreferrer"
             aria-label={t("communityDoor")}
             style={{ y: doorY, scale: doorScale, pointerEvents: doorPointer, originX: 0.5, originY: 1 }}
-            // Door, court and light each on their own GPU layer: drawn once and scaled, not redrawn on every frame (older iPhones stuttered)
-            className="relative mx-auto mt-3.5 block h-[304px] w-[228px] overflow-hidden rounded-t-full border-2 border-b-0 border-led bg-linear-to-t from-mov to-deep shadow-[0_0_0_1px_rgba(139,79,232,.25),0_-6px_28px_rgba(139,79,232,.45),inset_0_6px_24px_rgba(139,79,232,.35)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber sm:h-[448px] sm:w-80 [@media(max-width:639px)_and_(max-height:700px)]:h-[240px] [@media(max-width:639px)_and_(max-height:700px)]:w-[180px] will-change-transform"
+            // Phones: door, court and light each on their own GPU layer, drawn once and scaled instead of redrawn on every frame
+            // (older iPhones stuttered). Not from sm up: scaling the drawn layer looks pixelated on large screens.
+            className="relative mx-auto mt-3.5 block h-[304px] w-[228px] overflow-hidden rounded-t-full border-2 border-b-0 border-led bg-linear-to-t from-mov to-deep shadow-[0_0_0_1px_rgba(139,79,232,.25),0_-6px_28px_rgba(139,79,232,.45),inset_0_6px_24px_rgba(139,79,232,.35)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber sm:h-[448px] sm:w-80 [@media(max-width:639px)_and_(max-height:700px)]:h-[240px] [@media(max-width:639px)_and_(max-height:700px)]:w-[180px] max-sm:will-change-transform"
           >
-            <motion.div data-court className="absolute inset-0 will-change-transform" style={{ y: courtY, scale: courtScale, originX: 0.5, originY: 1 }}>
+            <motion.div data-court className="absolute inset-0 max-sm:will-change-transform" style={{ y: courtY, scale: courtScale, originX: 0.5, originY: 1 }}>
               <CourtDrawing progress={progress} />
             </motion.div>
             <motion.div
-              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,233,201,.28),transparent_65%)] will-change-[opacity]"
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,233,201,.28),transparent_65%)] max-sm:will-change-[opacity]"
               style={{ opacity: glow }}
             />
           </motion.a>

@@ -1,3 +1,4 @@
+import { pageTitle } from "@/lib/metadata";
 import { use } from "react";
 import { setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
@@ -12,6 +13,8 @@ const PLANS = [
   { key: "beforeFive", price: 199 },
 ] as const;
 const PAID_BOOKINGS = 9;
+
+export const generateMetadata = pageTitle("nav.memberships");
 
 export default function MembershipsPage({ params }: { params: Promise<{ locale: string }> }) {
   setRequestLocale(use(params).locale);
