@@ -46,7 +46,7 @@ export default function HomePageClient({ initialShowLoader }: HomePageClientProp
 
   return (
     <MotionConfig reducedMotion="user">
-      {/* Opacity only: a transform here would break the hero's sticky walk-in and the fixed WhatsApp button */}
+      {/* Opacity only: a transform here would break the hero's sticky walk-in */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: isLoading ? 0 : 1 }}

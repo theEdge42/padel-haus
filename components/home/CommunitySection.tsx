@@ -13,7 +13,6 @@ import { cn } from "@/lib/utils";
 
 const MEMBERS = 500;
 const PHOTO = { src: "/community/kidsPadel.jpg", width: 1080, height: 720 };
-const NAVBAR_BOTTOM = 80;
 
 function MemberCount() {
   const ref = useRef<HTMLSpanElement>(null);
@@ -43,31 +42,7 @@ function MemberCount() {
 
 export default function CommunitySection() {
   const t = useTranslations("home.community");
-  const sectionRef = useRef<HTMLElement>(null);
-  const joinRef = useRef<HTMLAnchorElement>(null);
-  const [docked, setDocked] = useState(false);
   const [photoOpen, setPhotoOpen] = useState(false);
-
-  // Phones: while this section holds the screen there is always a WhatsApp button in view
-  useEffect(() => {
-    const update = () => {
-      if (!sectionRef.current || !joinRef.current) return;
-      const section = sectionRef.current.getBoundingClientRect();
-      const button = joinRef.current.getBoundingClientRect();
-      const height = window.innerHeight;
-      const onScreen = section.top < height * 0.65 && section.bottom > height * 0.4;
-      const buttonHidden = button.top < NAVBAR_BOTTOM || button.bottom > height - 8;
-      setDocked(window.innerWidth < 640 && onScreen && buttonHidden);
-    };
-    const frame = requestAnimationFrame(update);
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
-    };
-  }, []);
 
   const stats = [
     { label: t("members"), value: <MemberCount />, word: false },
@@ -76,7 +51,7 @@ export default function CommunitySection() {
   ];
 
   return (
-    <section id="community" ref={sectionRef} className="scroll-mt-16 bg-mov pt-7 pb-20 sm:pt-12 sm:pb-28">
+    <section id="community" className="scroll-mt-16 bg-mov pt-7 pb-20 sm:pt-12 sm:pb-28">
       <div className="mx-auto max-w-[1200px] px-5">
         <Dots double className="mb-[18px] sm:mb-9" />
 
@@ -91,7 +66,6 @@ export default function CommunitySection() {
           <div>
             <p className="max-w-xl leading-normal text-lilac sm:mt-5 sm:text-lg sm:leading-relaxed">{t("desc")}</p>
             <a
-              ref={joinRef}
               data-join
               href={WHATSAPP_URL}
               target="_blank"
@@ -140,22 +114,6 @@ export default function CommunitySection() {
         <PhotoLightbox photos={[{ ...PHOTO, alt: t("photoAlt") }]} index={0} onClose={() => setPhotoOpen(false)} />
       )}
 
-      <a
-        data-dock
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        inert={!docked}
-        className={pill(
-          "amber",
-          cn(
-            "fixed inset-x-4 bottom-[calc(14px+env(safe-area-inset-bottom,0px))] z-40 h-[52px] transition-opacity sm:hidden",
-            docked ? "opacity-100" : "pointer-events-none opacity-0",
-          ),
-        )}
-      >
-        {t("joinButton")}
-      </a>
     </section>
   );
 }
