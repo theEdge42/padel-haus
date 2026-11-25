@@ -13,7 +13,15 @@ function Lamp({ index, progress }: { index: number; progress: MotionValue<number
 
   return (
     <>
-      <motion.rect x={x} y={y - height} width={width} height={height * 3} rx={height} fill="#FFE3BF" style={{ opacity: halo, filter: "blur(4px)" }} />
+      {/* A gradient, not a blur filter: animating a filtered element repaints it every frame, which stutters on phones */}
+      <motion.ellipse
+        cx={x + width / 2}
+        cy={y + height / 2}
+        rx={width / 2 + 8}
+        ry={height * 1.5 + 6}
+        fill="url(#court-lamp-halo)"
+        style={{ opacity: halo }}
+      />
       <motion.rect x={x} y={y} width={width} height={height} rx={height / 2} fill="#FFF1DE" style={{ opacity: bulb }} />
     </>
   );
@@ -28,6 +36,12 @@ export default function CourtDrawing({ progress }: { progress: MotionValue<numbe
       fill="none"
       aria-hidden="true"
     >
+      <defs>
+        <radialGradient id="court-lamp-halo">
+          <stop offset="0.3" stopColor="#FFE3BF" />
+          <stop offset="1" stopColor="#FFE3BF" stopOpacity={0} />
+        </radialGradient>
+      </defs>
       {COURT.lamps.map((_, i) => (
         <Lamp key={i} index={i} progress={progress} />
       ))}

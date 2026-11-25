@@ -18,11 +18,11 @@
       "subtitle": "4 terenuri indoor de ultimă generație în inima orașului. Alătură-te comunității noastre și ridică-ți jocul la un alt nivel.",
       "catchphrase": "Your second home.",
       "ctaBook": "Rezervă un teren",
-      "ctaLearn": "Explorează Clubul",
+      "ctaLearn": "Explorează clubul",
       "ctaMemberships": "Abonamente",
       "ctaTraining": "Antrenamente",
       "communityDoor": "Comunitate",
-      "statCourts": "Terenuri Indoor",
+      "statCourts": "Terenuri indoor",
       "statMembers": "Membri",
       "statEventsValue": "Toate",
       "statEvents": "Nivelurile"
@@ -30,20 +30,20 @@
     "experience": {
       "title": "Experiența",
       "subtitle": "Tot ce ai nevoie pentru sesiunea perfectă de padel",
-      "card1Title": "4 Terenuri Premium",
+      "card1Title": "4 terenuri premium",
       "card1Desc": "Terenuri cu pereți de sticlă panoramici, iluminat profesional și gazon artificial de cea mai înaltă calitate.",
-      "card2Title": "Concept Indoor",
+      "card2Title": "Concept indoor",
       "card2Desc": "Joacă tot anul, indiferent de vreme. Mediu cu climă controlată pentru performanță maximă.",
-      "card3Title": "Design Remarcabil",
+      "card3Title": "Design remarcabil",
       "card3Desc": "Spațiu proiectat arhitectural cu vestiare premium, lounge și pro shop."
     },
     "courts": {
-      "title": "Terenurile Noastre",
+      "title": "Terenurile noastre",
       "subtitle": "Descoperă facilitățile de clasă mondială"
     },
     "community": {
       "eyebrow": "Comunitate",
-      "title": "Alătură-te Comunității",
+      "title": "Alătură-te comunității",
       "accent": "Nu joci niciodată singur.",
       "desc": "Primești notificări de meci, găsești parteneri și rămâi la curent cu evenimentele.",
       "joinButton": "Alătură-te pe WhatsApp",
@@ -55,25 +55,24 @@
       "levelsLabel": "Nivelurile"
     },
     "events": {
-      "title": "Evenimente Viitoare",
+      "title": "Evenimente viitoare",
       "subtitle": "Turnee, seri sociale și multe altele",
-      "viewAll": "Vezi Toate Evenimentele"
+      "viewAll": "Vezi toate evenimentele"
     },
     "cta": {
       "title": "Gata să joci?",
       "accent": "Terenul te așteaptă.",
-      "subtitle": "Rezervă terenul astăzi și trăiește experiența premium de padel.",
       "ctaBook": "Rezervă un teren",
       "ctaVisit": "Vizitează-ne"
     },
     "arena": {
-      "title": "Arena Interactivă de Padel",
-      "subtitle": "Testează-ți reflexele! Activează modul Joc pentru a controla paleta cu cursorul, sau relaxează-te și urmărește stream-ul live."
+      "title": "Arena interactivă de padel",
+      "subtitle": "Testează-ți reflexele! Activează modul joc pentru a controla paleta cu cursorul, sau relaxează-te și urmărește stream-ul live."
     },
     "gallery": {
       "eyebrow": "Galerie",
-      "title": "Stai și după meci.",
-      "desc": "Momente reale. O comunitate reală.",
+      "title": "Rămâi și după meci.",
+      "desc": "Pe teren și după, aceiași oameni.",
       "instagram": "Vezi mai multe pe Instagram",
       "photos": {
         "between": "între meciuri",
@@ -98,55 +97,55 @@
       "desc": "Padel Haus este destinația premier de padel indoor din Bucharest — unde sportul premium întâlnește o comunitate vibrantă. Cele 4 terenuri de clasă mondială sunt construite pentru jucători de toate nivelurile."
     },
     "courts": {
-      "title": "Cele 4 Terenuri",
+      "title": "Cele 4 terenuri",
       "subtitle": "Fiecare teren conceput pentru performanță maximă",
       "court1": "Terenul Alpha",
       "court2": "Terenul Beta",
       "court3": "Terenul Gamma",
       "court4": "Terenul Delta",
-      "courtDesc": "Pereți panoramici din sticlă · Iluminat LED profesional · AstroTurf premium"
+      "courtDesc": "Pereți panoramici din sticlă · iluminat LED profesional · AstroTurf premium"
     },
     "concept": {
-      "title": "Concept Indoor",
+      "title": "Concept indoor",
       "desc": "Facilitatea noastră complet închisă și cu climă controlată îți permite să joci la cel mai bun nivel 365 de zile pe an. Fără pauze din cauza ploii, fără vânt — doar padel pur."
     },
     "design": {
-      "title": "Design și Atmosferă",
+      "title": "Design și atmosferă",
       "desc": "Fiecare detaliu a fost gândit — de la vestiarele proiectate de arhitecți până la lounge-ul nostru vibrant. Padel Haus este un loc în care vei dori să petreci timp."
     },
     "location": {
       "title": "Găsește-ne",
       "address": "Strada Rampei 37, Bucuresti",
-      "hours": "Luni–Duminică: 08:00–00:30"
+      "hours": "Luni–duminică: 08:00–00:30"
     },
     "gallery": {
-      "title": "Galerie Foto",
-      "videoTitle": "Trăiește Experiența",
+      "title": "Galerie foto",
+      "videoTitle": "Trăiește experiența",
       "videoDesc": "Un teren. O comunitate. O atmosferă de unde nu vrei să pleci."
     }
   },
   "community": {
     "hero": {
       "badge": "Comunitate",
-      "title": "Mai Mult Decât un Sport",
+      "title": "Mai mult decât un sport",
       "desc": "Padel Haus este construit în jurul oamenilor. Fie că ești începător sau jucător experimentat, comunitatea noastră te va primi cu brațele deschise."
     },
     "howItWorks": {
-      "title": "Cum Funcționează",
-      "step1Title": "Alătură-te Grupului",
+      "title": "Cum funcționează",
+      "step1Title": "Alătură-te grupului",
       "step1Desc": "Înscrie-te și conectează-te cu peste 500 de jucători activi în comunitatea noastră WhatsApp.",
-      "step2Title": "Găsește un Partener",
+      "step2Title": "Găsește un partener",
       "step2Desc": "Folosește panoul nostru de potrivire pentru a găsi partenerul perfect de dublu.",
-      "step3Title": "Joacă și Conectează-te",
+      "step3Title": "Joacă și conectează-te",
       "step3Desc": "Rezervă un teren, prezintă-te și leagă prietenii care durează dincolo de teren."
     },
     "whatsapp": {
-      "title": "Alătură-te Comunității WhatsApp",
+      "title": "Alătură-te comunității WhatsApp",
       "desc": "Primești notificări instant despre meciuri, actualizări despre evenimente și cereri de partener direct pe telefon.",
-      "button": "Alătură-te Acum — Gratuit"
+      "button": "Alătură-te acum — gratuit"
     },
     "partnerForm": {
-      "title": "Găsește un Partener de Joc",
+      "title": "Găsește un partener de joc",
       "desc": "Spune-ne disponibilitatea și nivelul tău — te potrivim cu jucătorul potrivit.",
       "name": "Nume și prenume",
       "namePlaceholder": "Numele tău",
@@ -193,7 +192,7 @@
       "ranking": "Vezi clasamentele"
     },
     "divisions": {
-      "title": "Două divizii.",
+      "title": "Două ligi.",
       "subtitle": "În fiecare weekend.",
       "levelLabel": "nivel Playtomic",
       "beginners": {
@@ -220,7 +219,7 @@
           "Paletă 1.300 lei",
           "Wallet Padel Haus 800 lei",
           "2 antrenamente 400 lei",
-          "Trofeu + Diplomă",
+          "Trofeu + diplomă",
           "Tricou Mexicano League cu numele tău"
         ]
       },
@@ -230,7 +229,7 @@
           "Paletă 1.000 lei",
           "Wallet Padel Haus 500 lei",
           "1 antrenament 200 lei",
-          "Medalie + Diplomă",
+          "Medalie + diplomă",
           "Tricou Mexicano League cu numele tău"
         ]
       },
@@ -240,7 +239,7 @@
           "Paletă 500 lei",
           "Wallet Padel Haus 300 lei",
           "1 antrenament 200 lei",
-          "Medalie + Diplomă",
+          "Medalie + diplomă",
           "Tricou Mexicano League cu numele tău"
         ]
       },
@@ -312,7 +311,7 @@
         },
         {
           "title": "Alege liga",
-          "desc": "Începători sub 2.0, Intermediari 1.5 – 3.5."
+          "desc": "Începători sub 2.0, intermediari 1.5 – 3.5."
         },
         {
           "title": "Înscrie-te la etapă",
@@ -329,7 +328,7 @@
   "coaching": {
     "hero": {
       "badge": "Antrenamente",
-      "title": "Îmbunătățește-ți Jocul",
+      "title": "Îmbunătățește-ți jocul",
       "desc": "Antrenamente individuale sau împreună cu partenerii tăi, indiferent de nivel."
     },
     "coach": {
@@ -341,60 +340,60 @@
       "bookVia": "Rezervă prin Playtomic"
     },
     "sessions": {
-      "title": "Tipuri de Sesiuni",
+      "title": "Tipuri de sesiuni",
       "private": {
-        "name": "Antrenament Privat",
+        "name": "Antrenament privat",
         "desc": "Coaching 1-la-1, adaptat complet nivelului și obiectivelor tale.",
         "duration": "60 / 90 min",
         "price": "150 RON / oră"
       },
       "group": {
-        "name": "Semi-Privat (2–4 jucători)",
+        "name": "Semi-privat (2–4 jucători)",
         "desc": "Antrenează-te cu prietenii și împarte costul unui antrenor certificat.",
         "duration": "60 / 90 min",
         "price": "80 RON / oră / persoană"
       },
       "kids": {
-        "name": "Academia pentru Copii",
+        "name": "Academia pentru copii",
         "desc": "Sesiuni distractive și structurate care construiesc fundamentele jucătorilor tineri.",
         "duration": "60 min",
         "price": "100 RON / oră"
       }
     },
-    "whatsappCta": "Rezervă Antrenament",
+    "whatsappCta": "Rezervă antrenament",
     "whatsappMessage": "Bună! Aș vrea să rezerv o sesiune {session} la Padel Haus. Numele meu este ___, iar perioada preferată este ___.",
     "fallbackLabel": "Preferi email? Completează formularul de cerere",
     "howItWorks": {
-      "title": "Cum Funcționează",
-      "step1Title": "Alege o Sesiune",
+      "title": "Cum funcționează",
+      "step1Title": "Alege o sesiune",
       "step1Desc": "Caută disponibilitatea pe Playtomic și rezervă sesiunea potrivită pentru nivelul tău.",
-      "step2Title": "Prezintă-te pe Teren",
+      "step2Title": "Prezintă-te pe teren",
       "step2Desc": "Vino cu echipamentul tău. Antrenorul te așteaptă gata să lucreze pe aspectele care contează.",
       "step3Title": "Progresează",
       "step3Desc": "Primești feedback personalizat și exerciții adaptate. Fiecare sesiune te duce mai aproape de jocul tău ideal."
     },
     "form": {
-      "title": "Solicită o Rezervare",
-      "name": "Nume Complet",
+      "title": "Solicită o rezervare",
+      "name": "Nume complet",
       "email": "Email",
       "phone": "Telefon",
-      "submit": "Trimite Cererea",
+      "submit": "Trimite cererea",
       "success": "Cererea ta a fost trimisă! Te contactăm în curând."
     },
     "cta": {
-      "title": "Gata să Începi?",
+      "title": "Gata să începi?",
       "desc": "Rezervă o sesiune de antrenament direct pe Playtomic.",
-      "button": "Rezervă o Sesiune"
+      "button": "Rezervă o sesiune"
     },
     "plans": {
-      "title": "Planuri Antrenament",
+      "title": "Planuri antrenament",
       "daytime": {
         "name": "Daytime",
-        "schedule": "Luni–Vineri: 08:00 – 16:30"
+        "schedule": "Luni–vineri: 08:00 – 16:30"
       },
       "regular": {
         "name": "Regular Time",
-        "schedule": "Luni–Vineri: 16:30 – 00:00 și Weekenduri"
+        "schedule": "Luni–vineri: 16:30 – 00:00 și weekenduri"
       },
       "partnersLabel": "Număr de persoane, cu tine",
       "sessionsLabel": "Număr de ședințe",
@@ -423,49 +422,49 @@
   },
   "corporate": {
     "hero": {
-      "badge": "Evenimente Corporate și Private",
-      "title": "Evenimentul Tău, Terenurile Noastre",
+      "badge": "Evenimente corporate și private",
+      "title": "Evenimentul tău, terenurile noastre",
       "desc": "Creează experiențe de team building de neuitat sau celebrări private la Padel Haus. Închiriere exclusivă, opțiuni de catering și personal dedicat."
     },
     "packages": {
-      "title": "Pachete Corporate",
-      "rateDay": "160 RON / teren / oră · Înainte de 17:00",
-      "rateEvening": "180 RON / teren / oră · După 17:00",
+      "title": "Pachete corporate",
+      "rateDay": "160 RON / teren / oră · înainte de 17:00",
+      "rateEvening": "180 RON / teren / oră · după 17:00",
       "basic": {
         "name": "Dimineață",
         "desc": "Sesiune corporativă în timpul zilei, în săptămână",
-        "courts": "4 terenuri · 8 ore · Înainte de 17:00",
-        "includes": "Echipament inclus · Intro cu antrenor"
+        "courts": "4 terenuri · 8 ore · înainte de 17:00",
+        "includes": "Echipament inclus · intro cu antrenor"
       },
       "premium": {
-        "name": "Zi Mixtă",
+        "name": "Zi mixtă",
         "desc": "Program flexibil între zi și seară",
         "courts": "4 terenuri · 8 ore · 4h zi + 4h seară",
-        "includes": "Echipament · Antrenor · Catering · Trofeu"
+        "includes": "Echipament · antrenor · catering · trofeu"
       },
       "exclusive": {
         "name": "Seară",
         "desc": "Eveniment premium de seară — întreaga facilitate",
-        "courts": "4 terenuri · 8 ore · După 17:00",
-        "includes": "Echipament · Antrenor · Catering · Open Bar · Trofeu · Personalizare completă"
+        "courts": "4 terenuri · 8 ore · după 17:00",
+        "includes": "Echipament · antrenor · catering · open bar · trofeu · personalizare completă"
       },
       "price": "De la",
-      "inquire": "Obține o Ofertă"
+      "inquire": "Obține o ofertă"
     },
     "nights": {
-      "title": "Nopți Corporate",
+      "title": "Nopți corporate",
       "desc": "Găzduiește seara socială a companiei tale la Padel Haus. Padel după program urmat de băuturi în lounge-ul nostru — o alternativă proaspătă la cina obișnuită de echipă."
     },
     "form": {
-      "title": "Solicită o Rezervare",
-      "company": "Numele Companiei",
-      "name": "Persoană de Contact",
+      "title": "Solicită o rezervare",
+      "company": "Numele companiei",
+      "name": "Persoană de contact",
       "email": "Email",
       "phone": "Telefon",
-      "date": "Data Preferată",
-      "people": "Număr de Persoane",
-      "message": "Cerințe Suplimentare",
-      "submit": "Trimite Cererea"
+      "date": "Data preferată",
+      "people": "Număr de persoane",
+      "message": "Cerințe suplimentare",
+      "submit": "Trimite cererea"
     }
   },
   "gallery": {
@@ -475,26 +474,26 @@
       "desc": "De la acțiunea pe teren la momentele comunității — o privire în viața de la Padel Haus."
     },
     "photos": {
-      "title": "Galerie Foto"
+      "title": "Galerie foto"
     },
     "video": {
-      "title": "În Acțiune",
+      "title": "În acțiune",
       "desc": "Urmărește ce face Padel Haus cea mai bună experiență de padel din Bucharest."
     }
   },
   "contact": {
     "hero": {
       "badge": "Contact",
-      "title": "Ia Legătura cu Noi",
+      "title": "Ia legătura cu noi",
       "desc": "Ai întrebări? Ne-ar plăcea să auzim de la tine. Contactează-ne și echipa noastră îți va răspunde în 24 de ore."
     },
     "form": {
-      "title": "Trimite un Mesaj",
-      "name": "Nume Complet",
+      "title": "Trimite un mesaj",
+      "name": "Nume complet",
       "email": "Email",
       "subject": "Subiect",
       "message": "Mesaj",
-      "submit": "Trimite Mesajul",
+      "submit": "Trimite mesajul",
       "sending": "Se trimite...",
       "success": "Mesaj trimis! Te contactăm în curând.",
       "error": "Ceva nu a mers. Te rugăm să încerci din nou."
@@ -505,16 +504,16 @@
       "phone": "+40 787 646 058",
       "email": "contact@padelhaus.ro",
       "whatsapp": "https://chat.whatsapp.com/CqGix2BlvAtIyz7z3ic30I",
-      "hours": "Luni–Duminică: 08:00–00:30",
+      "hours": "Luni–duminică: 08:00–00:30",
       "weekendHours": ""
     },
     "map": {
-      "title": "Găsește-ne pe Hartă"
+      "title": "Găsește-ne pe hartă"
     }
   },
   "shop": {
     "hero": {
-      "badge": "Pro Shop",
+      "badge": "Pro shop",
       "title": "Echipează-te",
       "desc": "Rachete și mingi de top de la cele mai bune branduri din lume."
     },
@@ -523,63 +522,64 @@
       "rackets": "Rachete",
       "balls": "Mingi"
     },
-    "addToCart": "Adaugă în Coș",
+    "addToCart": "Adaugă în coș",
     "cart": {
-      "title": "Coșul Tău",
+      "title": "Coșul tău",
       "empty": "Coșul tău este gol",
       "total": "Total",
-      "checkout": "Finalizează Comanda",
+      "checkout": "Finalizează comanda",
       "remove": "Șterge"
     },
     "checkout": {
-      "title": "Finalizare Comandă",
-      "name": "Nume Complet",
+      "title": "Finalizare comandă",
+      "name": "Nume complet",
       "email": "Email",
-      "address": "Adresă de Livrare",
+      "address": "Adresă de livrare",
       "city": "Oraș",
-      "zip": "Cod Poștal",
-      "cardNumber": "Număr Card",
+      "zip": "Cod poștal",
+      "cardNumber": "Număr card",
       "expiry": "Valabilitate (LL/AA)",
       "cvv": "CVV",
-      "orderSummary": "Sumar Comandă",
-      "placeOrder": "Plasează Comanda",
+      "orderSummary": "Sumar comandă",
+      "placeOrder": "Plasează comanda",
       "success": "Comandă plasată! Mulțumim pentru achiziție."
     }
   },
   "booking": {
-    "title": "Solicită o Rezervare",
-    "name": "Nume Complet",
+    "title": "Solicită o rezervare",
+    "name": "Nume complet",
     "email": "Email",
     "phone": "Telefon",
     "package": "Pachet",
     "selectPackage": "Selectează un pachet",
-    "submit": "Trimite Cererea",
+    "submit": "Trimite cererea",
     "success": "Cererea ta a fost trimisă! Te contactăm în curând."
   },
   "footer": {
-    "tagline": "Padel Indoor Premium · Bucharest",
-    "links": "Linkuri Rapide",
+    "tagline": "Padel indoor premium · Bucharest",
+    "links": "Linkuri rapide",
+    "phone": "Telefon",
     "social": "Urmărește-ne",
     "rights": "Toate drepturile rezervate.",
-    "privacy": "Politică de Confidențialitate",
-    "terms": "Termeni și Condiții"
+    "privacy": "Politică de confidențialitate",
+    "terms": "Termeni și condiții"
   },
   "pricing": {
     "badge": "Prețuri",
     "title": "Prețuri",
-    "subtitle": "Plătești din Playtomic, în club sau economisești cu un abonament.",
-    "courtTitle": "Închiriere Teren",
-    "weekdayLabel": "Luni–Vineri, până la 17:00",
+    "subtitle": "Rezervi și plătești în Playtomic sau direct la recepție.",
+    "courtTitle": "Închiriere teren",
+    "weekdayLabel": "Luni–vineri, până la 17:00",
     "weekdayPrice": "130",
-    "eveningLabel": "Luni–Vineri după 17:00 & weekend",
+    "eveningLabel": "Luni–vineri după 17:00 & weekend",
     "eveningPrice": "180",
     "racketLabel": "Închiriere rachetă",
-    "racketPrice": "20 RON",
+    "racketPrice": "15 RON",
     "academyTeaser": "Antrenamente individuale sau cu partenerul tău",
     "academyLink": "Antrenamente",
-    "membershipTeaser": "Abonamente de la 199 RON pe lună",
+    "membershipTeaser": "Joci des? Cu un abonament plătești mai puțin, de la 199 RON pe lună.",
     "membershipLink": "Abonamente",
-    "cta": "Rezervă un Teren",
+    "cta": "Rezervă un teren",
     "priceUnit": "RON / oră"
   },
   "faq": {
@@ -589,13 +589,13 @@
     "q1": "Pot veni singur?",
     "a1": "Da — alătură-te comunității noastre de <whatsapp>WhatsApp</whatsapp> pentru a găsi un partener sau un meci în câteva minute.",
     "q2": "Nu am mai jucat niciodată, e o problemă?",
-    "a2": "Deloc. Padelul se învață ușor și majoritatea membrilor noștri au început ca începători totali.",
+    "a2": "Deloc. Padelul se învață ușor și majoritatea membrilor noștri au pornit de la zero.",
     "q3": "Închiriați rachete?",
-    "a3": "Da, rachetele pot fi închiriate la recepție pentru 20 RON.",
+    "a3": "Da, rachetele pot fi închiriate la recepție pentru 15 RON.",
     "q4": "Există parcare?",
     "a4": "Da, parcare gratuită disponibilă la fața locului pentru toți jucătorii.",
     "q5": "Cum funcționează rezervarea și anularea?",
-    "a5": "Rezervi direct prin Playtomic. Anulările sunt gratuite cu până la 24 de ore înainte.",
+    "a5": "Rezervi direct prin Playtomic. Anulările se pot face gratuit cu cel puțin 24 de ore înainte.",
     "q6": "Pot organiza o petrecere sau un eveniment privat?",
     "a6": "Sigur — scrie-ne pe <whatsapp>WhatsApp</whatsapp> și te ajutăm să planifici.",
     "q7": "Pot juca și copiii?",
@@ -631,7 +631,7 @@
     "includedTitle": "La toate abonamentele",
     "included": [
       "Prețuri reduse",
-      "Anulare cu până la 24 de ore înainte",
+      "Anulare gratuită cu cel puțin 24 de ore înainte",
       "Rezervi cu până la 7 zile în avans",
       "Maximum o rezervare pe zi",
       "Până la 7 rezervări active"
@@ -639,7 +639,7 @@
     "cta": "Vezi pe Playtomic",
     "stamp": {
       "name": "Haus 9+1",
-      "lead": "A zecea e de la noi.",
+      "lead": "A zecea e din partea noastră.",
       "desc": "Joci 9 rezervări la preț normal, iar a 10-a e gratuită. Fără abonament lunar.",
       "cardLabel": "Nouă rezervări plătite, a zecea gratuită",
       "free": "gratis",
@@ -649,35 +649,35 @@
   },
   "beginners": {
     "hero": {
-      "badge": "Ești Nou în Padel?",
-      "title": "N-ai Mai Jucat Padel? Perfect.",
+      "badge": "Ești nou în padel?",
+      "title": "N-ai mai jucat padel? Perfect.",
       "desc": "Toți jucătorii noștri au început exact de unde ești tu acum. Fără experiență, fără echipament, fără emoții — iată tot ce trebuie să știi înainte de prima ta sesiune."
     },
     "booking": {
-      "title": "Cum Funcționează Rezervarea",
+      "title": "Cum funcționează rezervarea",
       "step1Title": "Deschide Playtomic",
       "step1Desc": "Rezervă-ți terenul direct din aplicația sau site-ul Playtomic — alege ziua și ora care ți se potrivesc.",
-      "step2Title": "Vino cu 10 Minute Înainte",
+      "step2Title": "Vino cu 10 minute înainte",
       "step2Desc": "Ia o rachetă de la recepție dacă ai nevoie, schimbă-te și mergi la teren.",
       "step3Title": "Joacă",
       "step3Desc": "Antrenorul sau partenerii tăi de joc te vor ajuta să prinzi rapid stilul — padelul se învață ușor."
     },
     "alone": {
-      "title": "Pot Veni Singur?",
+      "title": "Pot veni singur?",
       "desc": "Da. Vezi meciurile deschise Padel Haus pe Playtomic pentru a te alătura unui joc potrivit nivelului tău sau intră în comunitatea noastră pentru a cunoaște jucători și a găsi un partener.",
-      "communityCta": "Alătură-te Comunității",
-      "openMatchesCta": "Vezi Meciurile Deschise"
+      "communityCta": "Alătură-te comunității",
+      "openMatchesCta": "Vezi meciurile deschise"
     },
     "gear": {
-      "title": "De Ce Am Nevoie?",
+      "title": "De ce am nevoie?",
       "racketTitle": "Rachetă",
       "racketDesc": "Nu ai una? Nicio problemă — poți închiria una la recepție.",
       "racketLink": "Vezi prețurile de închiriere",
-      "shoesTitle": "Încălțăminte & Ținută",
+      "shoesTitle": "Încălțăminte & ținută",
       "shoesDesc": "Încălțăminte plată sau de sală care nu lasă urme (adidașii de alergare merg bine la început), ținută sport comodă. Pantofii specifici de padel nu sunt necesari pentru primele sesiuni."
     },
     "levels": {
-      "title": "Nivelurile Explicate",
+      "title": "Nivelurile explicate",
       "beginnerTitle": "Începător",
       "beginnerDesc": "Înveți regulile, poziționarea în teren, ricoșeurile din pereți și loviturile de bază: forehand, backhand, serviciu și voleu.",
       "intermediateTitle": "Intermediar",
@@ -687,9 +687,9 @@
       "note": "Playtomic folosește o scală dinamică de nivel de la 0 la 7. Nivelul inițial vine dintr-o scurtă evaluare, iar apoi rezultatele meciurilor competitive, adversarii, coechipierii și fiabilitatea ratingului îl ajustează în timp."
     },
     "cta": {
-      "title": "Gata pentru Prima Sesiune?",
-      "communityButton": "Alătură-te Comunității",
-      "bookButton": "Rezervă un Teren"
+      "title": "Gata pentru prima sesiune?",
+      "communityButton": "Alătură-te comunității",
+      "bookButton": "Rezervă un teren"
     },
     "photoAlt": "Rachetă de padel agățată de plasa terenului"
   }

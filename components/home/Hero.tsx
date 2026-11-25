@@ -44,12 +44,14 @@ export default function Hero({ ready }: { ready: boolean }) {
   const innerRef = useRef<HTMLDivElement>(null);
   const doorRef = useRef<HTMLAnchorElement>(null);
   const fit = useMotionValue({ doorScale: 1, courtScale: 1, drop: 0, lift: 0 });
+  const span = useMotionValue({ start: 0, length: 1 });
 
   useEffect(() => {
+    const pin = pinRef.current;
     const hero = heroRef.current;
     const inner = innerRef.current;
     const door = doorRef.current;
-    if (!hero || !inner || !door) return;
+    if (!pin || !hero || !inner || !door) return;
 
     // Offsets, not getBoundingClientRect: they ignore the scroll transforms, so resizing mid-walk is safe
     const measure = () => {
@@ -74,16 +76,21 @@ export default function Hero({ ready }: { ready: boolean }) {
         drop: vh - (inner.offsetTop + door.offsetTop + h),
         lift: 12 - (COURT_VIEW.height - COURT_BOUNDS.bottom) * unit * courtScale,
       });
+      // The pin ends when its bottom meets the bottom of the sticky hero (svh), not of the viewport:
+      // measuring against the viewport made progress jump when a phone's address bar hid on scroll.
+      span.set({ start: pin.getBoundingClientRect().top + window.scrollY, length: Math.max(1, pin.offsetHeight - vh) });
     };
 
     const observer = new ResizeObserver(measure);
-    for (const element of [hero, inner, door]) observer.observe(element);
+    for (const element of [pin, hero, inner, door]) observer.observe(element);
     measure();
     return () => observer.disconnect();
-  }, [fit]);
+  }, [fit, span]);
 
-  const { scrollYProgress } = useScroll({ target: pinRef, offset: ["start start", "end end"] });
-  const progress = useTransform(() => (reduced ? 0 : scrollYProgress.get()));
+  const { scrollY } = useScroll();
+  const progress = useTransform(() =>
+    reduced ? 0 : clamp((scrollY.get() - span.get().start) / span.get().length),
+  );
   const faded = useTransform(() => clamp(progress.get() / COPY_GONE));
   const copyOpacity = useTransform(() => 1 - faded.get());
   const copyY = useTransform(() => -80 * faded.get());
@@ -105,13 +112,15 @@ export default function Hero({ ready }: { ready: boolean }) {
   });
 
   return (
-    <div ref={pinRef} data-hero-pin className="relative -mt-24 h-[280svh] bg-mov motion-reduce:h-auto">
+    // Scroll length is the pin minus one screen: 144svh on phones runs the walk 1.25× faster than 180svh from sm up
+    <div ref={pinRef} data-hero-pin className="relative -mt-24 bg-mov motion-safe:h-[244svh] sm:motion-safe:h-[280svh]">
       <section
         ref={heroRef}
         data-ready={ready}
         className="sticky top-0 isolate h-svh overflow-hidden bg-linear-to-b from-noapte to-mov pt-24 motion-reduce:relative"
       >
-        <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+        {/* Own GPU layer: otherwise the blurred photo is redrawn under the growing door on every frame, which phones can't keep up with */}
+        <div className="pointer-events-none absolute inset-0 -z-10 will-change-transform" aria-hidden="true">
           {/* Pre-sized file, served as is: in Next 16.2.1 the optimiser hangs for good when a first request is aborted */}
           <Image
             src="/brand/team-wide.webp"

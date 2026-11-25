@@ -18,8 +18,6 @@ function InstagramIcon({ size = 20 }: { size?: number }) {
 
 const MAP_EMBED_SRC =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1424.6245643968098!2d26.179369830486497!3d44.428051670800954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff005138e94d%3A0x859648e1e9b81efa!2sPadel%20Haus%20Bucharest!5e0!3m2!1sen!2sro!4v1775249393523!5m2!1sen!2sro";
-const LATITUDE = 44;
-const LONGITUDE = 26;
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -41,21 +39,12 @@ export default function Footer() {
     <footer id="visit" className="scroll-mt-20 overflow-x-clip bg-deep pb-8">
       <FooterWave />
       <div className="max-w-8xl mx-auto px-4 pt-6 sm:px-6 lg:px-8">
-        {/* Logo — sits above the address */}
+        {/* Logo — sits above the map */}
         <Link href={`/${locale}`} className="inline-block mb-8 opacity-90 hover:opacity-100 transition-opacity">
           <Logo size="lg" />
         </Link>
 
-        {/* Address / EXPLORE / CONTACT — bottom-aligned so labels sit on the address baseline */}
-        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-20 items-end mb-6">
-          <div>
-            <p className="text-lg font-semibold text-lilac sm:text-xl">{LATITUDE}, {LONGITUDE}   {tContact("info.address")}</p>
-          </div>
-          <h3 className="hidden text-crem font-bold tracking-wide md:block">{t("links").toUpperCase()}</h3>
-          <h3 className="hidden text-crem font-bold tracking-wide md:block">{tContact("hero.badge").toUpperCase()}</h3>
-        </div>
-
-        {/* Map / links / contact — top-aligned so the map lines up with the first link */}
+        {/* Map / links / contact — top-aligned so the map lines up with the column titles */}
         <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-20 items-start mb-12">
           <div className="rounded-xl overflow-hidden border border-crem/10 w-full max-w-[500px] aspect-square">
             <iframe
@@ -70,7 +59,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-crem font-bold tracking-wide md:hidden">{t("links").toUpperCase()}</h3>
+            <h3 className="mb-4 text-crem font-bold tracking-wide md:mb-6">{t("links").toUpperCase()}</h3>
             <ul className="space-y-3">
               {exploreLinks.map((link) => (
                 <li key={link.href}>
@@ -87,11 +76,19 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-crem font-bold tracking-wide md:hidden">{tContact("hero.badge").toUpperCase()}</h3>
+            <h3 className="mb-4 text-crem font-bold tracking-wide md:mb-6">{tContact("hero.badge").toUpperCase()}</h3>
             <ul className="space-y-3 mb-6">
               <li>
                 <a href={`mailto:${tContact("info.email")}`} className="text-lilac hover:text-amber transition-colors">
                   Email
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${tContact("info.phone").replace(/\s/g, "")}`}
+                  className="text-lilac hover:text-amber transition-colors"
+                >
+                  {t("phone")}
                 </a>
               </li>
               <li>

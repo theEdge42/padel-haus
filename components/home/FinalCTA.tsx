@@ -14,7 +14,6 @@ export default function FinalCTA() {
           {t("title")}
           <em className="block font-editorial tracking-[-.01em] text-amber">{t("accent")}</em>
         </h2>
-        <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-lilac">{t("subtitle")}</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3.5">
           <a href={PLAYTOMIC_RESERVATIONS} target="_blank" rel="noopener noreferrer" className={pill("amber")}>
             {t("ctaBook")}

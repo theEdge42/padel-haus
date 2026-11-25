@@ -43,7 +43,7 @@
     },
     "community": {
       "eyebrow": "Community",
-      "title": "Join the Community",
+      "title": "Join our community",
       "accent": "You never play alone.",
       "desc": "Get match notifications, find partners, and stay updated on events.",
       "joinButton": "Join us on WhatsApp",
@@ -62,7 +62,6 @@
     "cta": {
       "title": "Ready to play?",
       "accent": "The court is waiting.",
-      "subtitle": "Book your court today and experience premium padel.",
       "ctaBook": "Book a court",
       "ctaVisit": "Visit us"
     },
@@ -73,7 +72,7 @@
     "gallery": {
       "eyebrow": "Gallery",
       "title": "Stay after the match.",
-      "desc": "Real moments. A real community.",
+      "desc": "On court and after, the same people.",
       "instagram": "See more on Instagram",
       "photos": {
         "between": "between matches",
@@ -141,7 +140,7 @@
       "step3Desc": "Book a court, show up, and make friends that last beyond the court."
     },
     "whatsapp": {
-      "title": "Join Our WhatsApp Community",
+      "title": "Join Our WhatsApp community",
       "desc": "Get instant match notifications, event updates, and partner requests directly on your phone.",
       "button": "Join Now — It's Free"
     },
@@ -193,7 +192,7 @@
       "ranking": "See the rankings"
     },
     "divisions": {
-      "title": "Two divisions.",
+      "title": "Two leagues.",
       "subtitle": "Every weekend.",
       "levelLabel": "Playtomic level",
       "beginners": {
@@ -559,6 +558,7 @@
   "footer": {
     "tagline": "Premium Indoor Padel · Bucharest",
     "links": "Quick Links",
+    "phone": "Phone",
     "social": "Follow Us",
     "rights": "All rights reserved.",
     "privacy": "Privacy Policy",
@@ -567,17 +567,17 @@
   "pricing": {
     "badge": "Pricing",
     "title": "Prices",
-    "subtitle": "Pay on Playtomic, at the club, or save with a membership.",
+    "subtitle": "Pay via Playtomic, or at the front desk.",
     "courtTitle": "Court Rental",
     "weekdayLabel": "Mon–Fri, until 17:00",
     "weekdayPrice": "130",
     "eveningLabel": "Mon–Fri after 17:00 & weekends",
     "eveningPrice": "180",
     "racketLabel": "Racket rental",
-    "racketPrice": "20 RON",
+    "racketPrice": "15 RON",
     "academyTeaser": "Coaching on your own or with your partner",
     "academyLink": "Coaching",
-    "membershipTeaser": "Memberships from 199 RON a month",
+    "membershipTeaser": "Playing often? Save with a membership from 199 RON a month",
     "membershipLink": "Memberships",
     "cta": "Book a Court",
     "priceUnit": "RON / hour"
@@ -591,7 +591,7 @@
     "q2": "I've never played before, is that a problem?",
     "a2": "Not at all. Padel is easy to pick up and most of our members started as complete beginners.",
     "q3": "Do you rent rackets?",
-    "a3": "Yes, rackets are available to rent at reception for 20 RON.",
+    "a3": "Yes, rackets are available to rent at reception for 15 RON.",
     "q4": "Is there parking?",
     "a4": "Yes, free parking is available on-site for all players.",
     "q5": "How do booking and cancellation work?",
@@ -665,7 +665,7 @@
     "alone": {
       "title": "Can I Come Alone?",
       "desc": "Yes. Browse Padel Haus open matches on Playtomic to join a game that suits your level, or join our community to meet players and find a partner.",
-      "communityCta": "Join the Community",
+      "communityCta": "Join our community",
       "openMatchesCta": "Browse Open Matches"
     },
     "gear": {
@@ -688,7 +688,7 @@
     },
     "cta": {
       "title": "Ready for Your First Session?",
-      "communityButton": "Join the Community",
+      "communityButton": "Join our community",
       "bookButton": "Book a Court"
     },
     "photoAlt": "A padel racket hanging on the court mesh"

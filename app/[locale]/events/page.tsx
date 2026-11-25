@@ -88,9 +88,8 @@ export default function EventsPage() {
           </div>
 
           <ZoomablePhoto
-            photo={{ src: "/gallery/Competition1.jpeg", width: 1200, height: 1600, alt: t("photos.players") }}
-            // A vertical photo: the band is framed on the players, pressing it shows the whole photo
-            className="mt-8 aspect-[3/2] lg:aspect-video [&>img]:object-[50%_63%]"
+            photo={{ ...LINEUP_SIZE, src: "/brand/mexicano-lineup.webp", alt: t("photos.lineup") }}
+            className="mt-8 aspect-[3/2] lg:aspect-video"
           />
         </div>
       </section>
@@ -211,8 +210,9 @@ export default function EventsPage() {
           <h2 className={IMPACT_TITLE}>{t("join.title")}</h2>
           <div className="mt-10 grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
             <ZoomablePhoto
-              photo={{ ...LINEUP_SIZE, src: "/brand/mexicano-lineup.webp", alt: t("photos.lineup") }}
-              className="aspect-[3/2] lg:order-last"
+              photo={{ src: "/gallery/Competition1.jpeg", width: 1200, height: 1600, alt: t("photos.players") }}
+              // A vertical photo: the frame is set on the players, pressing it shows the whole photo
+              className="aspect-[3/2] lg:order-last [&>img]:object-[50%_63%]"
             />
             <div>
               <ol>
