@@ -95,9 +95,9 @@ export default function BeginnersPage() {
               <a href={PLAYTOMIC_OPEN_MATCHES} target="_blank" rel="noopener noreferrer" className={pill("amber")}>
                 {t("alone.openMatchesCta")}
               </a>
-              <Link href={`/${locale}/community`} className={pill("line")}>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={pill("line")}>
                 {t("alone.communityCta")}
-              </Link>
+              </a>
             </div>
           </div>
         </div>
